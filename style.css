@@ -17,6 +17,7 @@ tr {
 td {
     padding-top: 0.5em;
     padding-bottom: 0.5em;
+    vertical-align: middle;
 }
 
 p {
@@ -25,9 +26,11 @@ p {
 
 h1 {
     background-color: #eee;
+    padding: 1.0em;
 }
 
 h2 {
     background-color: #eee;
+    padding: 1.0em;
 }
 
