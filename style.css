@@ -6,20 +6,6 @@ body {
     margin-bottom: 5em;
 }
 
-img {
-    padding-right: 1.0em;
-}
-
-tr {
-    vertical-align: top;
-}
-
-td {
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-    vertical-align: middle;
-}
-
 p {
     text-align: justify;
 }
@@ -27,10 +13,25 @@ p {
 h1 {
     background-color: #eee;
     padding: 1.0em;
+    clear: both;
 }
 
 h2 {
     background-color: #eee;
     padding: 1.0em;
+    clear: both;
 }
 
+div.item {
+    clear: both;
+}
+
+div.pic {
+    float: left;
+    width: 320px;
+    padding-bottom: 1.0em;
+}
+
+div.txt {
+    margin-left: 336px;
+}

@@ -1,3 +1,4 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
   <head>
     <link rel=stylesheet type="text/css" href="style.css">
@@ -5,253 +6,384 @@
   </head>
   <body>
 
-      <!--
-          Tracker module
-        -->
+    <!------------------------------------------------------------------------>
+    <h1>Robert Kooima</h1>
+
+    <div class="item">
+      <div class="pic">
+        <img src="images/rlk.jpg" width="320" height="240">
+      </div>
+      <div class="txt">
+        <p>I am a doctoral candidate in Computer Science at the <a href="http://www.evl.uic.edu">Electronic Visualization Laboratory</a> at the University of Illinois at Chicago. I study real-time 3D scientific visualization, focusing on virtual reality and GPU programming.</p>
+        <p>This site catalogs my work. It includes papers written, talks given, demonstrations, installations, programming work, course work, and open source projects. Items are listed in reverse chronological order, and some refer to older items lower on the page.</p>
+        <p>See also my <a href="pdfs/Kooima-Resume.pdf"><b>resume</b></a>. My <a href="pdfs/Kooima-Publications.pdf"><b>publications</b></a> list includes all of my published and co-authored papers.</p>
+        <img src="images/address.png">
+        </div>
+    </div>
 
     <!------------------------------------------------------------------------>
-
-    <h1>Robert Kooima</h1>
-    <table>
-      
-      <tr><td><img src="images/rlk.jpg" width="320" height="240"><td>
-
-          <p>I am a doctoral candidate in Computer Science at the <a href="http://www.evl.uic.edu">Electronic Visualization Laboratory</a> at the University of Illinois at Chicago. I study real-time 3D scientific visualization, focusing on virtual reality and GPU programming.</p>
-
-          <p>This site catalogs my work. It includes papers written, talks given, demonstrations, installations, programming work, course work, and open source projects. Items are listed in reverse chronological order, and some refer to older items lower on the page.</p>
-
-          <p>See also my <a href="pdfs/Kooima-Resume.pdf"><b>resume</b></a>. My <a href="pdfs/Kooima-Publications.pdf"><b>publications</b></a> list includes all of my published and co-authored papers.</p>
-
-          <img src="images/address.png">
-    </table>
-
-    <h2>Projects</h2> <!------------------------------------------------------>
-    <table>
-      
-      <!---------------------------------------------------------------------->
-
-      <tr><td><a name="adler-ips2008-paper"><img src="images/adler-ips2008-paper.png" width="320" height="240"></a><td>
-          <h3><a href="pdfs/Kooima-IPS2008.pdf">Real-time Digital Dome Rendering Techniques and Technologies</a></h3>
-          <p><em>1 July 2008</em></p>
-          <p>This paper enumerates several GPU-accellerated approaches to the problem of real-time 3D rendering using multi-projector edge-blended digital dome displays. A variety of spherical correction approaches are described, organized in terms of the GPU capability that each exploits. This paper emerged from work performed with the staff of the <a href="http://www.adlerplanetarium.org/svl/index.shtml">Space Visualization Laboratory</a> at the Adler Planetarium, using <a href="http://www.adlerplanetarium.org/exhibits/starrider.shtml">Adler's Definiti Space Theater</a>. This paper was presented at the <a href="#adler-ips2008">2008 meeting of the International Planetarium Society</a>.</p>
-
-      <!---------------------------------------------------------------------->
-
-      <tr><td><a name="tellurion"><img src="images/thumb.jpg" width="320" height="240"></a><td>
-          <h3>Tellurion</h3>
-          <p><em>2007&mdash;present</em></p>
-          <p>Tellurion implements a highly-scalable real-time planetary terrain composition algorithm. A GPGPU process tessellates terrain geometry in real time, and transitions smoothly from planet scale down to sub-meter resolution. Tellurion enables the investigation of a class of generalized terrain composition operators that merge data of widely disparate resolution, projection, and coverage on the fly. These composition operations are uniformly applicable to both terrain height maps and surface maps. The cluster-parallel renderer is supported by a multi-threaded data paging mechanism that performs view-dependant loading of data sources of arbitrary size. The system has been demonstrated displaying 78GB of data in real time, including height data covering the U.S. at a resolution of 30 meters. Early work is described in <a href="http://www.youtube.com/watch?v=bcN8RMezku0">this YouTube video</a>. See <a href="#installations">below</a> for a listing of several installations. This work is my PhD thesis.</p>
-
-      <!---------------------------------------------------------------------->
-
-      <tr><td><img src="images/median-dist-proj.png" width="320" height="240"><td>
-          <h3><a href="http://aoeu.snth.net/?p=7">Median Distance Projection</a></h3>
-          <p><em>October 2007</em></p>
-          <p>The real-time 3D perspective projection is normally defined in terms of near and far clipping plane distances. These values constrain the range of the scene and control the resolution of the depth buffer. They have the effect of clipping geometry this is too close to or too far from the camera. The Median Distance Projection algorithm reformulates the real-time 3D perspective projection in terms of the median of the scene. It extends the depth buffer range from zero to infinity. It is implemented in terms of a simple drop-in GLSL vertex function.</p>
-
-      <!---------------------------------------------------------------------->
-
-      <tr><td><img src="images/varrier-combiner.png" width="320" height="240"><td>
-          <h3><a href="http://www.evl.uic.edu/files/pdf/Kooima-VR07.pdf">A GPU Sub-pixel Algorithm for Autostereoscopic Virtual Reality</a></h3>
-          <p><em>Spring 2007</em></p>
-          <p>The Varrier Combiner is a GPU-based algorithm performing real-time autostereoscopic sub-pixel spatial multiplexing. Such an algorithm is necessary for the correct function of parallax barrier displays such as the <a href="#varrier">Varrier</a>. Prior to this work, autostereo interleaving was a very expensive process which placed a heavy performance burden upon all autostereo applications. By expressing the problem in terms of GLSL vertex and pixel shading, the computational expense is moved to the GPU, which eliminates the performance degredation completely. <a href="http://www.evl.uic.edu/files/pdf/Kooima-VR07.pdf">Varrier Combiner</a> was presented at IEEE VR 07 and published in the conference proceedings. A <a href="http://www.evl.uic.edu/rlk/varrier_combiner/varrier_combiner.html">C module</a> implementing the algorithm may be used to port OpenGL applications to the Varrier.</p>
-
-      <!---------------------------------------------------------------------->
-
-      <tr><td><a name="starflight"><img src="images/adler-starflight.jpg" width="320" height="240"></a><td>
-          <h3><a href="http://mps.uchicago.edu/StarFlight/">StarFlight</a></h3>
-          <p><em>Fall 2006</em></p>
-          <p>StarFlight is an <a href="#electro">Electro</a> application based upon <a href="#vortex">Total Perspective Vortex</a> developed at the University of Chicago's Center for the Presentation of Science. It augments Electro's stellar render with informative GUI overlays and voice-overs in both English and Spanish. This work is on display at the <a href="#adler-starflight">Adler Planetarium and Astronomy Museum</a>, and was on exhibit at the Laboratorio Arte Alameda in Mexico City from November 2006 to February 2007.</p>
-
-      <!---------------------------------------------------------------------->
-
-      <tr><td><a name="mars"><img src="images/mars-vellum.jpg" width="320" height="240"></a><td>
-          <h3><a href="#electro">Electro</a>: Mars</h3>
-          <p><em>Summer 2006</em></p>
-          <p>Mars is an Electro application that displays the planet Mars using a demand-paged terrain renderer. The height data is from the <a href="http://mola.gsfc.nasa.gov/">Mars Orbiter Laser Altimeter (MOLA)</a> at a resolution of 46,080&times;23,040. The color data is a mosaic from Viking Orbiter at 16,384&times;8,192. The planet is presented against the backdrop of <a href="#vortex">Total Perspective Vortex</a>. Source code is included in the <a href="http://www.evl.uic.edu/rlk/electro">Electro</a> distribution, and the data is available upon request. This application is on display at the <a href="#mars-adler">Adler Planetarium</a> and at <a href="#mars-calit2">Calit2/UCSD</a>. </p>
-
-      <!---------------------------------------------------------------------->
-
-      <tr><td><img src="images/electro-tollway.jpg" width="320" height="240"></a><td>
-          <h3><a href="#electro">Electro</a>: Tollway Simulator</h3>
-          <p><em>Summer 2006</em></p>
-          <p><a href="http://www.evl.uic.edu/core.php?mod=4&type=1&indi=318">Tollway Simulator</a> is an Electro application that implements a simplified Chicago freeway driving experience. The project was commissioned by the Illinois State Toll Highway Authority as part of a study of the signage associated with Open Road Tolling. The implementation depicts a variety of signage designs under a variety of lighting conditions. The installation uses 30-inch Apple Cinema displays, giving visual acuity near the legal standard for licensed drivers. Users are asked to indicate the earliest time at which they are capable of interpreting each sign, and sign designs are evaluated on this basis. The project is described in UIC's <a href="http://www.uic.edu/depts/enga/en-magazine/pdf/EN_07_Winter.pdf">Engineering News</a>.</p>
-
-      <!---------------------------------------------------------------------->
-
-      <tr><td><img src="images/tracker.png" width="320" height="240"><td>
-          <h3><a href="http://www.evl.uic.edu/rlk/tracker/tracker.html">trackd interface library</a></h3>
-          <p><em>Spring 2006</em></p>
-          <p>This is a simple library for reading motion tracking data provided by <a href="http://www.mechdyne.com/integratedSolutions/software/products/trackd/trackd.htm">trackd</a>. It is compatible with both Linux and Windows. It enables access to six degree-of-freedom sensor input, button controller input, and joystick controller input, as commonly used in virtual reality display environments.</p>
-
-      <!---------------------------------------------------------------------->
-
-      <tr><td><a name="vortex"><img src="images/electro-vortex.jpg" width="320" height="240"></a><td>
-          <h3><a href="#electro">Electro</a>: Total Perspective Vortex</h3>
-          <p><em>Spring 2005</em></p>
-          <p>Total Perspective Vortex is an Electro application capable of rendering a <a href="http://heasarc.gsfc.nasa.gov/W3Browse/all/hipparcos.html">database</a> of 2,533,774 stars in real time 3D. The viewer is free to navigate within a volume 1,000 light-years in extent. Each individual star is drawn with correct brightness based upon viewing distance and absolute magnitude, correct color based upon spectral type, and correct representation as a Gaussian distribution of luminance. This is accomplished in real time using GPU vertex and pixel shaders. The 88 constellations are optionally depicted by lines connecting stars in 3D, allowing users to view the true 3D shape of constellations in space. Vortex is shown in <a href="http://www.youtube.com/watch?v=u2CXoPq-RJ0">this YouTube video</a> running on EVL's 100-million pixel <a href="http://www.evl.uic.edu/cavern/lambdavision/">LambdaVision</a>. Source code is included in the <a href="http://www.evl.uic.edu/rlk/electro">Electro</a> distribution.</p>
-
-      <!---------------------------------------------------------------------->
-
-      <tr><td><img src="images/cs594-final.jpg" width="320" height="240"><td>
-          <h3><a href="http://www.evl.uic.edu/rlk/cs594/final/">GPU Day-Night Illumination Tutorial</a></h3>
-          <p><em>Spring 2006</em></p>
-          <p>My final project for UIC's <a href="http://www.evl.uic.edu/aej/525/index.html">GPU Progamming</a> course provides a tutorial on day-night surface illumination using GLSL. It displays four dynamic light sources (two positional and two directional) illuminating a navigable animated scene with full shadow mapping. This application has been ported to the <a href="#varrier">Personal Varrier</a> virtual reality system.</p>
-
-      <!---------------------------------------------------------------------->
-
-      <tr><td><img src="images/cs594-proj3.jpg" width="320" height="240"><td>
-          <h3><a href="http://www.evl.uic.edu/rlk/cs594/proj3/">GPGPU Knot Simulation</a></h3>
-          <p><em>Spring 2006</em></p>
-          <p>My third project for UIC's <a href="http://www.evl.uic.edu/aej/525/index.html">GPU Progamming</a> course crossed over with <a href="http://www.math.uic.edu/~kauffman/">Lou Kauffman</a>'s course on <a href="http://www.math.uic.edu/~kauffman/569.html">Knot Theory</a>, which I attended concurrently. The project implements a constrained particle dynamics system using GLSL pixel shaders. It simulates an electrically charged loop of ribbon. This was motivated by an ongoing collaboration between Kauffman and EVL co-founder <a href="http://www.evl.uic.edu/dan/">Dan Sandin</a>. They simulated knots in an effort to support the hypothesis that electrostatic repulsion would necessarily untie any non-knot loop. This GPU-based simulation allowed them to scale up their data set size by two orders of magnitude. The ribbon representation also enabled investigation of an apparent property of conservation of twist and coil in physical knots. This application has been ported to the <a href="#varrier">Personal Varrier</a> virtual reality system.</p>
-
-      <!---------------------------------------------------------------------->
-
-      <tr><td><img src="images/cs594-proj2.jpg" width="320" height="240"><td>
-          <h3><a href="http://www.evl.uic.edu/rlk/cs594/proj2/">GPU Water Simulation</a></h3>
-          <p><em>Spring 2006</em></p>
-          <p>My second project for UIC's <a href="http://www.evl.uic.edu/aej/525/index.html">GPU Progamming</a> course combines CPU-based physics, GPU-based physics, and real-time GPU rendering. An <a href="http://www.ode.org">ODE</a> rigid body dynamics system simulates junk littered about an abandoned quarry. Physical objects interacting with the surface of the water drive a Verlet integration of the water's surface, implemented using GLSL pixel shading. GLSL shaders render the scene with per-pixel illumination and shadow mapping. The water surface is rendered with correct Fresnel mixing of reflected and refracted geometry, drawn to off-screen framebuffer objects. Submerged surfaces are rendered with approximated caustics and volumetric fog.</p>
-
-      <!---------------------------------------------------------------------->
-
-      <tr><td><img src="images/teapot.jpg" width="320" height="240"><td>
-          <h3><a href="http://www.evl.uic.edu/rlk/obj/obj.html">Wavefront OBJ library</a></h3>
-          <p><em>Spring 2006</em></p>
-          <p>Like many 3D programmers, I've developed a library of functions for loading, storing, and drawing 3D models in the OBJ file format. This library also provides an API for building, manipulating, and transforming OBJ model data. It automatically computes tangent and bi-tangent vectors for use in tangent-space surface mapping. It is capable of computing a model's average cache miss ratio (ACMR), and sorting index data to minimize this value and thus maximize rendering performance. The built-in OpenGL renderer uses vertex buffer objects for efficiency. The library supports the full OBJ and MTL specifications, with the exception of OBJ free-form curves.</p>
-
-      <!---------------------------------------------------------------------->
-
-      <tr><td><img src="images/stereo-telecon.jpg" width="320" height="240"><td>
-          <h3>Autostereoscopic Video Telecommunications</h3>
-          <p><em>Fall 2005</em></p>
-          <p>The Autostereoscopic Video Telecom application streams the output of a pair of FireWire cameras over high-bandwidth networks, each at 640&times;480 at 30Hz. This video, displayed using <a href="#electro">Electro</a> on a <a href="#varrier">Personal Varrier</a> stereoscopically depicts the remote user as a &ldquo;floating head&rdquo; with correct scale. Given that the Varrier does not require 3D glasses or other encumberances to achieve view-adaptive stereoscopic virtual reality, the result is the first true two-way face-to-face VR communication medium. This technology was demonstrated at <a href="http://www.igrid2005.org/">iGrid 2005</a> and <a href="http://sc05.supercomputing.org/">SuperComputing 05</a>, and documented as a part of the <a href="http://www.evl.uic.edu/cavern/glvf/pubs/GLVFPaperv5.pdf">Global Lambda Visualization Facility.</p>
-
-      <!---------------------------------------------------------------------->
-
-      <tr><td><a name="varrier"><img src="images/varrier.jpg" width="320" height="240"></a><td>
-          <h3>Varrier<sup><small>TM</small></sup></h3>
-          <p><em>Spring 2005&mdash;present</em></p>
-          <p>The Varrier autostereoscopic virtual reality system is a high-resolution, real-time, parallax-barrier 3D display. It enables stereoscopic viewing without the need for 3D glasses. The Varrier project was started by EVL co-founder <a href="http://www.evl.uic.edu/dan/">Dan Sandin</a> in 2001 and included EVL graduate students <a href="http://www.evl.uic.edu/core.php?mod=4&type=5&indi=2">Todd Margolis</a>, <a href="http://www.evl.uic.edu/core.php?mod=4&type=5&indi=235">Tom Peterka</a>, <a href="http://www.evl.uic.edu/core.php?mod=4&type=5&indi=191">Jinghua Ge</a>, <a href="http://www.evl.uic.edu/core.php?mod=4&type=5&indi=46">Javier Girado</a>, and <a href="http://www.evl.uic.edu/core.php?mod=4&type=5&indi=260">myself</a>. We designed and built a <a href="http://www.evl.uic.edu/core.php?mod=4&type=1&indi=275">35-panel</a> display, a <a href="http://www.evl.uic.edu/core.php?mod=4&type=4&indi=449">65-panel</a> display, a 6-panel display, two <a href="http://www.evl.uic.edu/core.php?mod=4&type=1&indi=290">Personal Varrier</a> displays, and a 2-panel Personal Varrier. This technology has produced a <a href="http://www.evl.uic.edu/files/pdf/Siggraph2005.pdf">SIGGRAPH paper</a>, an <a href="http://www.evl.uic.edu/files/pdf/Kooima-VR07.pdf">IEEE VR paper</a>, and a <a href="http://www.evl.uic.edu/files/pdf/Varrier_SPIE_07.pdf">SPIE paper</a> summarizing the results over the history of the project. The system is described in <a href="http://www.youtube.com/watch?v=g7jW1bKLRXU">this YouTube video</a>.</p>
-
-      <!---------------------------------------------------------------------->
-
-      <tr><td><a name="electro"><img src="images/electro-driving.jpg" width="320" height="240"></a><td>
-          <h3><a href="http://www.evl.uic.edu/rlk/electro">Electro</a></h3>
-          <p><em>Spring 2004&mdash;present</em></p>
-
-          <p>Electro is an application development environment designed for use on both cluster-driven tiled displays and desktop systems. Electro is based on the <a href="http://www.mpi-forum.org">MPI</a> process model and is bound to the <a href="http://www.lua.org">Lua programming language</a>. With support for 3D graphics, 2D graphics, audio, and input handling, Electro provides an easy-to-use scripting system for interactive applications spanning multiple processors and displays. Electro supports Linux, Windows 2K/XP, and Mac OS X. Electro has been used by students in <a href="http://www.evl.uic.edu/spiff/class/cs426">CS426 Video Game Programming</a> since 2005, and has formed the basis for numerous applications and art pieces throughout EVL and elsewhere. Discussion and support is available at the <a href="http://groups.google.com/group/electro-users">Electro-users group</a>.</p>
-
-      <!---------------------------------------------------------------------->
-
-      <tr><td><img src="images/cs426-final.jpg" width="320" height="240"><td>
-          <h3><a href="http://www.evl.uic.edu/spiff/class/cs426/projects/fall2004/applied/index.html">3D Game with a Guy Flying a Pedal Plane</a></h3>
-          <p><em>Fall 2004</em></p>
-
-          <p>In the fall of 2004 I started the Ph.D. program at UIC. My first class was Jason Leigh's <a href="http://www.evl.uic.edu/spiff/class/cs426">CS426 Intro to Video Game Programming</a>. The focus of this class was the development of a complete video game by a two-person team. The fall 2004 class was required to develop a 3D game to be run on EVL's <a href="http://geowall.geo.lsa.umich.edu/home.html">GeoWall</a> stereoscopic 3D display. We implemented a game similar to Nintendo's <a href="http://en.wikipedia.org/wiki/Pilotwings_64">Pilot Wings</a>. The jury voted it the winner. The semester's platform was <a href="http://www.blitzbasic.com">BlitzBasic</a>, and my disatisfaction with BlitzBasic was the impetus for the creation of <a href="#electro">Electro</a>.</p>
-
-      <!---------------------------------------------------------------------->
-
-      <tr><td><img src="images/neverputt.jpg" width="320" height="240"><td>
-          <h3><a href="http://icculus.org/neverball">Neverputt</a></h3>
-          <p><em>2004&mdash;present</em></p>
-
-          <p>Having developed <a href="#neverball">Neverball</a>'s ball physics simulator and OpenGL renderer, I set about creating a second game using these resources. The result is the miniature golf game Neverputt, for 1-to-4 players. Neverputt is distributed as a part of the Neverball source. Work on Neverputt continues alongside work done on Neverball. Players, level designers, and developers meet at the <a href="http://www.nevercorner.net">Nevercorner Forum</a>. Much to my surprise, Neverputt has became as popular as Neverball, with many players prefering it over its bigger brother.</p>
-
-      <!---------------------------------------------------------------------->
-
-      <tr><td><a name="neverball"><img src="images/neverball.jpg" width="320" height="240"></a><td>
-          <h3><a href="http://icculus.org/neverball">Neverball</a></h3>
-          <p><em>May 2003&mdash;present</em></p>
-
-          <p>From 2001 to 2004 I worked 9-to-5 as a real-time visualization researcher at NASA Langley Research Center in Hampton, VA. In my free time during this period I developed a game similar to SEGA's <a href="http://en.wikipedia.org/wiki/Super_Monkey_Ball">Super Monkey Ball</a>. I ported it to Linux, Windows, and Mac OSX, and I released it as freeware under the terms of the <a href="http://www.gnu.org/licenses/gpl.html">GNU General Public License</a>. Its popularity grew rapidly. It has had millions of users and is included on a number of Linux distribution installations. An international community of players, level designers, and Open Source developers formed around the game, meeting at the <a href="http://www.nevercorner.net">Nevercorner Forum</a>. Work continues to this day, in true open source fashion. Our <a href="https://s.snth.net/projects/neverball">project site</a> tracks bug reports and hosts a public source code repository and wiki. The game has become a favorite platform for hackers working with motion sensing devices such as the Nintendo Wiimote, the Apple Motion Sensor, and others. Numerous videos may be found on <a href="http://www.youtube.com/results?search_query=neverball&search_type=&aq=f">YouTube</a>.</p>
-
-      <!---------------------------------------------------------------------->
-
-    </table>
-
-    <a name="installations"><h2>Events and Installations</h2></a> <!---------->
-    <table>
-      
-      <!---------------------------------------------------------------------->
-
-      <tr><td><a name="adler-ips2008"><img src="images/adler-ips2008.jpg" width="320" height="240"></a><td>
-          <h3>IPS2008</h3>
-          <p><em>1 July 2008</em></p>
-          <p>I presented the paper <a href="#adler-ips2008-paper">Real-time Digital Dome Rendering Techniques and Technologies</a> at the 2008 meeting of the <a href="http://www.ips-planetarium.org/">International Planetarium Society</a> at the <a href="http://www.adlerplanetarium.org/">Adler Planetarium</a> in Chicago.</p>
-
-      <!---------------------------------------------------------------------->
-
-      <tr><td><img src="images/lsu.jpg" width="320" height="240"><td>
-          <h3>Seminar at Louisiana State University</h3>
-          <p><em>16 May 2008</em></p>
-          <p>In May 2008 I was invited to present a seminar at the <a href="http://www.cct.lsu.edu/home">Center for Computation and Technology</a> (CCT) at Louisiana State University in Baton Rouge, LA. I presented my thesis work, the planetary-scale terrain composer. CCT's facilities include a <a href="http://www.sony.com/sxrd">Sony SXRD</a> 4K projector, driven by a PC with a pair of NVIDIA Quadro 4600s, which I used for my live demonstration, shown here.</p>
-
-      <!---------------------------------------------------------------------->
-
-      <tr><td><img src="images/tellurion-aaas.jpg" width="320" height="240"><td>
-          <h3>Tellurion at AAAS '08</h3>
-          <p><em>February 2008</em></p>
-          <p><a href="#tellurion">Tellurion</a> was demonstrated as a part of <a href="http://www.evl.uic.edu/core.php?mod=4&type=4&indi=552">EVL's involvement</a> in the 2008 meeting of the <a href="http://www.aaas.org/meetings/">American Association for the Advancement of Science</a> (AAAS). The installation used <a href="http://www.calit2.net/">Calit2</a>'s OptIPortable, a 5&times;3 tiled display designed to unfold from a road case.</p>
-
-      <!---------------------------------------------------------------------->
-
-      <tr><td><img src="images/tellurion-sc07.jpg" width="320" height="240"><td>
-          <h3>Tellurion at SuperComputing '07</h3>
-          <p><em>November 2007</em></p>
-          <p><a href="#tellurion">Tellurion</a> was demonstrated as a part of <a href="http://www.evl.uic.edu/core.php?mod=4&type=4&indi=538">EVL's involvement</a> in <a href="http://sc07.supercomp.org/">SuperComputing '07</a>. The installation used <a href="http://www.calit2.net/">Calit2</a>'s OptIPortable, a 5&times;3 tiled display designed to unfold from a road case.</p>
-
-
-      <!---------------------------------------------------------------------->
-
-      <tr><td><img src="images/tellurion-starcave.jpg" width="320" height="240"><td>
-          <h3>Tellurion on the StarCAVE at Calit2, UCSD</h3>
-          <p><em>October 2007&mdash;present</em></p>
-          <p><a href="#tellurion">Tellurion</a> is on display using the StarCAVE at <a href="http://www.calit2.net/">Calit2</a> on the campus of the University of California, San Diego. A direct descendent of <a href="http://www.evl.uic.edu/pape/CAVE/oldCAVE/CAVE.html">EVL's CAVE</a> design, the StarCAVE is a 17-screen cylindrical virtual reality display. It uses 34 JVC projectors at 1920&times;1080 to produce circularly polarized passive stereo 3D on 5 walls and the floor. Each pair of projectors is driven by a PC with an NVIDIA Quadro 5600. 6 degree-of-freedom head and hand tracking is provided by an ART motion tracking system. In this image, the fifth wall slides forward on rails to enclose the environment.</p>
-
-      <!---------------------------------------------------------------------->
-
-      <tr><td><img src="images/tellurion-vellum.jpg" width="320" height="240"><td>
-          <h3>Tellurion the Varrier at Calit2, UCSD</h3>
-          <p><em>August 2007&mdash;present</em></p>
-          <p><a href="#tellurion">Tellurion</a> is on display using the 60-tile <a href="#varrier">Varrier</a> at <a href="http://www.calit2.net/">Calit2</a> on the campus of the University of California, San Diego. This installation has a 12&times;5 array of 21-inch LCD panels, each with a resolution of 1600&times;1200. Linescreen resolution is 536 lines per foot, which affords an effective visual acuity better than 20/30. The display is driven by a cluster 16 PCs, each with a pair of NVIDIA GeForce 7900GTXs.</p>
-
-      <!---------------------------------------------------------------------->
-
-      <tr><td><img src="images/adler-varrier-seminar.jpg" width="320" height="240"><td>
-          <h3>Adler SVL Seminar Series</h3>
-          <p><em>March 2007</em></p>
-          <p>In March 2007 I was invited to present a seminar at the <a href="http://www.adlerplanetarium.org/">Adler Planetarium</a> in Chicago. I presented the history, technology, and applications of the <a href="#varrier">Varrier</a>.</p>
-
-      <!---------------------------------------------------------------------->
-
-      <tr><td><a name="adler-starflight"><img src="images/adler-starflight.jpg" width="320" height="240"></a><td>
-          <h3>StarFlight at the Adler Planetarium</h3>
-          <p><em>December 2006&mdash;present</em></p>
-          <p><a href="#starflight">StarFlight</a> is on exhibit at the <a href="http://www.adlerplanetarium.org/">Adler Planetarium</a> in Chicago in two areas: the <a href="http://www.adlerplanetarium.org/exhibits/galleries.shtml#cyberspace">CyberSpace</a> Gallery, and the <a href="http://www.adlerplanetarium.org/exhibits/galleries.shtml#svl">Space Visualization Laboratory</a>, shown here. Both installations use the <a href="http://www.est-kl.com/projection/elumens/vs.html">Elumens VisionStation</a>.</p>
-
-      <!---------------------------------------------------------------------->
-
-      <tr><td><a name="starflight-alameda"><img src="images/starflight-alameda.jpg" width="320" height="240"></a><td>
-          <h3>StarFlight at the Laboratorio Arte Alameda</h3>
-          <p><em>November 2006&mdash;February 2007</em></p>
-          <p><a href="#starflight">StarFlight</a> was exhibited at the <a href="http://www.artealameda.inba.gob.mx/">Laboratorio Arte Alameda</a> in Mexico City. The installation used a 10' rear-projected screen showing linearly polarized passive stereo 3D.</p>
-
-      <!---------------------------------------------------------------------->
-
-      <tr><td><a name="mars-adler"><img src="images/adler-mars.jpg" width="320" height="240"></a><td>
-          <h3>Electro: Mars at the Adler Planetarium</h3>
-          <p><em>January 2007&mdash;present</em></p>
-          <p><a href="#mars">Mars</a> is on exhibit at the <a href="http://www.adlerplanetarium.org/">Adler Planetarium</a> in Chicago in the <a href="http://www.adlerplanetarium.org/exhibits/galleries.shtml#solarsystem">Our Solar System</a> Gallery. The installation uses three LCD displays at 1600&times;1200 driven by a single NVIDIA GeForce 8800 via a <a href="http://www.matrox.com/graphics/en/products/gxm/th2go/">Matrox TripleHead2Go</a>. The interaction is demonstrated by an Adler guest in <a href="http://www.youtube.com/watch?v=hWcjcL9j9yA">this YouTube video</a>.</p>
-
-      <!---------------------------------------------------------------------->
-
-      <tr><td><a name="mars-calit2"><img src="images/mars-vellum.jpg" width="320" height="240"></a><td>
-          <h3>Electro: Mars at Calit2 UCSD</h3>
-          <p><em>September 2006&mdash;present</em></p>
-          <p><a href="#mars">Mars</a> is on display using the 60-tile <a href="#varrier">Varrier</a> at <a href="http://www.calit2.net/">Calit2</a> on the campus of the University of California, San Diego. It was the first application to be shown on this Varrier, and the construction of this display provided the motivation for the creation of the Mars visualization during the summer of 2006.</p>
-
-      <!---------------------------------------------------------------------->
-
-    </table>
+    <h2>Projects</h2>
+
+    <div class="item">
+      <div class="pic">
+        <a name="adler-ips2008-paper">
+          <img src="images/adler-ips2008-paper.png" width="320" height="240">
+        </a>
+      </div>
+      <div class="txt">
+        <h3><a href="pdfs/Kooima-IPS2008.pdf">Real-time Digital Dome Rendering Techniques and Technologies</a></h3>
+        <p><em>1 July 2008</em></p>
+        <p>This paper enumerates several GPU-accellerated approaches to the problem of real-time 3D rendering using multi-projector edge-blended digital dome displays. A variety of spherical correction approaches are described, organized in terms of the GPU capability that each exploits. This paper emerged from work performed with the staff of the <a href="http://www.adlerplanetarium.org/svl/index.shtml">Space Visualization Laboratory</a> at the Adler Planetarium, using <a href="http://www.adlerplanetarium.org/exhibits/starrider.shtml">Adler's Definiti Space Theater</a>. This paper was presented at the <a href="#adler-ips2008">2008 meeting of the International Planetarium Society</a>.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="pic">
+        <a name="tellurion">
+          <img src="images/thumb.jpg" width="320" height="240">
+        </a>
+      </div>
+      <div class="txt">
+        <h3>Tellurion</h3>
+        <p><em>2007&mdash;present</em></p>
+        <p>Tellurion implements a highly-scalable real-time planetary terrain composition algorithm. A GPGPU process tessellates terrain geometry in real time, and transitions smoothly from planet scale down to sub-meter resolution. Tellurion enables the investigation of a class of generalized terrain composition operators that merge data of widely disparate resolution, projection, and coverage on the fly. These composition operations are uniformly applicable to both terrain height maps and surface maps. The cluster-parallel renderer is supported by a multi-threaded data paging mechanism that performs view-dependant loading of data sources of arbitrary size. The system has been demonstrated displaying 78GB of data in real time, including height data covering the U.S. at a resolution of 30 meters. Early work is described in <a href="http://www.youtube.com/watch?v=bcN8RMezku0">this YouTube video</a>. See <a href="#installations">below</a> for a listing of several installations. This work is my PhD thesis.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="pic">
+        <img src="images/median-dist-proj.png" width="320" height="240">
+      </div>
+      <div class="txt">
+        <h3><a href="http://aoeu.snth.net/?p=7">Median Distance Projection</a></h3>
+        <p><em>October 2007</em></p>
+        <p>The real-time 3D perspective projection is normally defined in terms of near and far clipping plane distances. These values constrain the range of the scene and control the resolution of the depth buffer. They have the effect of clipping geometry this is too close to or too far from the camera. The Median Distance Projection algorithm reformulates the real-time 3D perspective projection in terms of the median of the scene. It extends the depth buffer range from zero to infinity. It is implemented in terms of a simple drop-in GLSL vertex function.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="pic">
+        <img src="images/varrier-combiner.png" width="320" height="240">
+      </div>
+      <div class="txt">
+        <h3><a href="http://www.evl.uic.edu/files/pdf/Kooima-VR07.pdf">A GPU Sub-pixel Algorithm for Autostereoscopic Virtual Reality</a></h3>
+        <p><em>Spring 2007</em></p>
+        <p>The Varrier Combiner is a GPU-based algorithm performing real-time autostereoscopic sub-pixel spatial multiplexing. Such an algorithm is necessary for the correct function of parallax barrier displays such as the <a href="#varrier">Varrier</a>. Prior to this work, autostereo interleaving was a very expensive process which placed a heavy performance burden upon all autostereo applications. By expressing the problem in terms of GLSL vertex and pixel shading, the computational expense is moved to the GPU, which eliminates the performance degredation completely. <a href="http://www.evl.uic.edu/files/pdf/Kooima-VR07.pdf">Varrier Combiner</a> was presented at IEEE VR 07 and published in the conference proceedings. A <a href="http://www.evl.uic.edu/rlk/varrier_combiner/varrier_combiner.html">C module</a> implementing the algorithm may be used to port OpenGL applications to the Varrier.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="pic">
+        <a name="starflight">
+          <img src="images/adler-starflight.jpg" width="320" height="240">
+        </a>
+      </div>
+      <div class="txt">
+        <h3><a href="http://mps.uchicago.edu/StarFlight/">StarFlight</a></h3>
+        <p><em>Fall 2006</em></p>
+        <p>StarFlight is an <a href="#electro">Electro</a> application based upon <a href="#vortex">Total Perspective Vortex</a> developed at the University of Chicago's Center for the Presentation of Science. It augments Electro's stellar render with informative GUI overlays and voice-overs in both English and Spanish. This work is on display at the <a href="#adler-starflight">Adler Planetarium and Astronomy Museum</a>, and was on exhibit at the Laboratorio Arte Alameda in Mexico City from November 2006 to February 2007.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="pic">
+        <a name="mars">
+          <img src="images/mars-vellum.jpg" width="320" height="240">
+        </a>
+      </div>
+      <div class="txt">
+        <h3><a href="#electro">Electro</a>: Mars</h3>
+        <p><em>Summer 2006</em></p>
+        <p>Mars is an Electro application that displays the planet Mars using a demand-paged terrain renderer. The height data is from the <a href="http://mola.gsfc.nasa.gov/">Mars Orbiter Laser Altimeter (MOLA)</a> at a resolution of 46,080&times;23,040. The color data is a mosaic from Viking Orbiter at 16,384&times;8,192. The planet is presented against the backdrop of <a href="#vortex">Total Perspective Vortex</a>. Source code is included in the <a href="http://www.evl.uic.edu/rlk/electro">Electro</a> distribution, and the data is available upon request. This application is on display at the <a href="#adler-mars">Adler Planetarium</a> and at <a href="#mars-vellum">Calit2/UCSD</a>. </p>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="pic">
+        <img src="images/electro-tollway.jpg" width="320" height="240">
+      </div>
+      <div class="txt">
+        <h3><a href="#electro">Electro</a>: Tollway Simulator</h3>
+        <p><em>Summer 2006</em></p>
+        <p><a href="http://www.evl.uic.edu/core.php?mod=4&type=1&indi=318">Tollway Simulator</a> is an Electro application that implements a simplified Chicago freeway driving experience. The project was commissioned by the Illinois State Toll Highway Authority as part of a study of the signage associated with Open Road Tolling. The implementation depicts a variety of signage designs under a variety of lighting conditions. The installation uses 30-inch Apple Cinema displays, giving visual acuity near the legal standard for licensed drivers. Users are asked to indicate the earliest time at which they are capable of interpreting each sign, and sign designs are evaluated on this basis. The project is described in UIC's <a href="http://www.uic.edu/depts/enga/en-magazine/pdf/EN_07_Winter.pdf">Engineering News</a>.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="pic">
+        <img src="images/tracker.png" width="320" height="240">
+      </div>
+      <div class="txt">
+        <h3><a href="http://www.evl.uic.edu/rlk/tracker/tracker.html">trackd interface library</a></h3>
+        <p><em>Spring 2006</em></p>
+        <p>This is a simple library for reading motion tracking data provided by <a href="http://www.mechdyne.com/integratedSolutions/software/products/trackd/trackd.htm">trackd</a>. It is compatible with both Linux and Windows. It enables access to six degree-of-freedom sensor input, button controller input, and joystick controller input, as commonly used in virtual reality display environments.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="pic">
+        <a name="vortex">
+          <img src="images/electro-vortex.jpg" width="320" height="240">
+        </a>
+      </div>
+      <div class="txt">
+        <h3><a href="#electro">Electro</a>: Total Perspective Vortex</h3>
+        <p><em>Spring 2005</em></p>
+        <p>Total Perspective Vortex is an Electro application capable of rendering a <a href="http://heasarc.gsfc.nasa.gov/W3Browse/all/hipparcos.html">database</a> of 2,533,774 stars in real time 3D. The viewer is free to navigate within a volume 1,000 light-years in extent. Each individual star is drawn with correct brightness based upon viewing distance and absolute magnitude, correct color based upon spectral type, and correct representation as a Gaussian distribution of luminance. This is accomplished in real time using GPU vertex and pixel shaders. The 88 constellations are optionally depicted by lines connecting stars in 3D, allowing users to view the true 3D shape of constellations in space. Vortex is shown in <a href="http://www.youtube.com/watch?v=u2CXoPq-RJ0">this YouTube video</a> running on EVL's 100-million pixel <a href="http://www.evl.uic.edu/cavern/lambdavision/">LambdaVision</a>. Source code is included in the <a href="http://www.evl.uic.edu/rlk/electro">Electro</a> distribution.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="pic">
+        <img src="images/cs594-final.jpg" width="320" height="240">
+      </div>
+      <div class="txt">
+        <h3><a href="http://www.evl.uic.edu/rlk/cs594/final/">GPU Day-Night Illumination Tutorial</a></h3>
+        <p><em>Spring 2006</em></p>
+        <p>My final project for UIC's <a href="http://www.evl.uic.edu/aej/525/index.html">GPU Progamming</a> course provides a tutorial on day-night surface illumination using GLSL. It displays four dynamic light sources (two positional and two directional) illuminating a navigable animated scene with full shadow mapping. This application has been ported to the <a href="#varrier">Personal Varrier</a> virtual reality system.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="pic">
+        <img src="images/cs594-proj3.jpg" width="320" height="240">
+      </div>
+      <div class="txt">
+        <h3><a href="http://www.evl.uic.edu/rlk/cs594/proj3/">GPGPU Knot Simulation</a></h3>
+        <p><em>Spring 2006</em></p>
+        <p>My third project for UIC's <a href="http://www.evl.uic.edu/aej/525/index.html">GPU Progamming</a> course crossed over with <a href="http://www.math.uic.edu/~kauffman/">Lou Kauffman</a>'s course on <a href="http://www.math.uic.edu/~kauffman/569.html">Knot Theory</a>, which I attended concurrently. The project implements a constrained particle dynamics system using GLSL pixel shaders. It simulates an electrically charged loop of ribbon. This was motivated by an ongoing collaboration between Kauffman and EVL co-founder <a href="http://www.evl.uic.edu/dan/">Dan Sandin</a>. They simulated knots in an effort to support the hypothesis that electrostatic repulsion would necessarily untie any non-knot loop. This GPU-based simulation allowed them to scale up their data set size by two orders of magnitude. The ribbon representation also enabled investigation of an apparent property of conservation of twist and coil in physical knots. This application has been ported to the <a href="#varrier">Personal Varrier</a> virtual reality system.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="pic">
+        <img src="images/cs594-proj2.jpg" width="320" height="240">
+      </div>
+      <div class="txt">
+        <h3><a href="http://www.evl.uic.edu/rlk/cs594/proj2/">GPU Water Simulation</a></h3>
+        <p><em>Spring 2006</em></p>
+        <p>My second project for UIC's <a href="http://www.evl.uic.edu/aej/525/index.html">GPU Progamming</a> course combines CPU-based physics, GPU-based physics, and real-time GPU rendering. An <a href="http://www.ode.org">ODE</a> rigid body dynamics system simulates junk littered about an abandoned quarry. Physical objects interacting with the surface of the water drive a Verlet integration of the water's surface, implemented using GLSL pixel shading. GLSL shaders render the scene with per-pixel illumination and shadow mapping. The water surface is rendered with correct Fresnel mixing of reflected and refracted geometry, drawn to off-screen framebuffer objects. Submerged surfaces are rendered with approximated caustics and volumetric fog.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="pic">
+        <img src="images/teapot.jpg" width="320" height="240">
+      </div>
+      <div class="txt">
+        <h3><a href="http://www.evl.uic.edu/rlk/obj/obj.html">Wavefront OBJ library</a></h3>
+        <p><em>Spring 2006</em></p>
+        <p>Like many 3D programmers, I've developed a library of functions for loading, storing, and drawing 3D models in the OBJ file format. This library also provides an API for building, manipulating, and transforming OBJ model data. It automatically computes tangent and bi-tangent vectors for use in tangent-space surface mapping. It is capable of computing a model's average cache miss ratio (ACMR), and sorting index data to minimize this value and thus maximize rendering performance. The built-in OpenGL renderer uses vertex buffer objects for efficiency. The library supports the full OBJ and MTL specifications, with the exception of OBJ free-form curves.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="pic">
+        <img src="images/stereo-telecon.jpg" width="320" height="240">
+      </div>
+      <div class="txt">
+        <h3>Autostereoscopic Video Telecommunications</h3>
+        <p><em>Fall 2005</em></p>
+        <p>The Autostereoscopic Video Telecom application streams the output of a pair of FireWire cameras over high-bandwidth networks, each at 640&times;480 at 30Hz. This video, displayed using <a href="#electro">Electro</a> on a <a href="#varrier">Personal Varrier</a> stereoscopically depicts the remote user as a &ldquo;floating head&rdquo; with correct scale. Given that the Varrier does not require 3D glasses or other encumberances to achieve view-adaptive stereoscopic virtual reality, the result is the first true two-way face-to-face VR communication medium. This technology was demonstrated at <a href="http://www.igrid2005.org/">iGrid 2005</a> and <a href="http://sc05.supercomputing.org/">SuperComputing 05</a>, and documented as a part of the <a href="http://www.evl.uic.edu/cavern/glvf/pubs/GLVFPaperv5.pdf">Global Lambda Visualization Facility.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="pic">
+        <a name="varrier">
+          <img src="images/varrier.jpg" width="320" height="240">
+        </a>
+      </div>
+      <div class="txt">
+        <h3>Varrier<sup><small>TM</small></sup></h3>
+        <p><em>Spring 2005&mdash;present</em></p>
+        <p>The Varrier autostereoscopic virtual reality system is a high-resolution, real-time, parallax-barrier 3D display. It enables stereoscopic viewing without the need for 3D glasses. The Varrier project was started by EVL co-founder <a href="http://www.evl.uic.edu/dan/">Dan Sandin</a> in 2001 and included EVL graduate students <a href="http://www.evl.uic.edu/core.php?mod=4&type=5&indi=2">Todd Margolis</a>, <a href="http://www.evl.uic.edu/core.php?mod=4&type=5&indi=235">Tom Peterka</a>, <a href="http://www.evl.uic.edu/core.php?mod=4&type=5&indi=191">Jinghua Ge</a>, <a href="http://www.evl.uic.edu/core.php?mod=4&type=5&indi=46">Javier Girado</a>, and <a href="http://www.evl.uic.edu/core.php?mod=4&type=5&indi=260">myself</a>. We designed and built a <a href="http://www.evl.uic.edu/core.php?mod=4&type=1&indi=275">35-panel</a> display, a <a href="http://www.evl.uic.edu/core.php?mod=4&type=4&indi=449">65-panel</a> display, a 6-panel display, two <a href="http://www.evl.uic.edu/core.php?mod=4&type=1&indi=290">Personal Varrier</a> displays, and a 2-panel Personal Varrier. This technology has produced a <a href="http://www.evl.uic.edu/files/pdf/Siggraph2005.pdf">SIGGRAPH paper</a>, an <a href="http://www.evl.uic.edu/files/pdf/Kooima-VR07.pdf">IEEE VR paper</a>, and a <a href="http://www.evl.uic.edu/files/pdf/Varrier_SPIE_07.pdf">SPIE paper</a> summarizing the results over the history of the project. The system is described in <a href="http://www.youtube.com/watch?v=g7jW1bKLRXU">this YouTube video</a>.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="pic">
+        <a name="electro">
+          <img src="images/electro.jpg" width="320" height="240">
+        </a>
+      </div>
+      <div class="txt">
+        <h3><a href="http://www.evl.uic.edu/rlk/electro">Electro</a></h3>
+        <p><em>Spring 2004&mdash;present</em></p>
+        <p>Electro is an application development environment designed for use on both cluster-driven tiled displays and desktop systems. Electro is based on the <a href="http://www.mpi-forum.org">MPI</a> process model and is bound to the <a href="http://www.lua.org">Lua programming language</a>. With support for 3D graphics, 2D graphics, audio, and input handling, Electro provides an easy-to-use scripting system for interactive applications spanning multiple processors and displays. Electro supports Linux, Windows 2K/XP, and Mac OS X. Electro has been used by students in <a href="http://www.evl.uic.edu/spiff/class/cs426">CS426 Video Game Programming</a> since 2005, and has formed the basis for numerous applications and art pieces throughout EVL and elsewhere. Discussion and support is available at the <a href="http://groups.google.com/group/electro-users">Electro-users group</a>.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="pic">
+        <img src="images/cs426-final.jpg" width="320" height="240">
+      </div>
+      <div class="txt">
+        <h3><a href="http://www.evl.uic.edu/spiff/class/cs426/projects/fall2004/applied/index.html">3D Game with a Guy Flying a Pedal Plane</a></h3>
+        <p><em>Fall 2004</em></p>
+        <p>In the fall of 2004 I started the Ph.D. program at UIC. My first class was Jason Leigh's <a href="http://www.evl.uic.edu/spiff/class/cs426">CS426 Intro to Video Game Programming</a>. The focus of this class was the development of a complete video game by a two-person team. The fall 2004 class was required to develop a 3D game to be run on EVL's <a href="http://geowall.geo.lsa.umich.edu/home.html">GeoWall</a> stereoscopic 3D display. We implemented a game similar to Nintendo's <a href="http://en.wikipedia.org/wiki/Pilotwings_64">Pilot Wings</a>. The jury voted it the winner. The semester's platform was <a href="http://www.blitzbasic.com">BlitzBasic</a>, and my disatisfaction with BlitzBasic was the impetus for the creation of <a href="#electro">Electro</a>.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="pic">
+        <img src="images/neverputt.jpg" width="320" height="240">
+      </div>
+      <div class="txt">
+        <h3><a href="http://icculus.org/neverball">Neverputt</a></h3>
+        <p><em>2004&mdash;present</em></p>
+        <p>Having developed <a href="#neverball">Neverball</a>'s ball physics simulator and OpenGL renderer, I set about creating a second game using these resources. The result is the miniature golf game Neverputt, for 1-to-4 players. Neverputt is distributed as a part of the Neverball source. Work on Neverputt continues alongside work done on Neverball. Players, level designers, and developers meet at the <a href="http://www.nevercorner.net">Nevercorner Forum</a>. Much to my surprise, Neverputt has became as popular as Neverball, with many players prefering it over its bigger brother.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="pic">
+        <a name="neverball">
+          <img src="images/neverball.jpg" width="320" height="240">
+        </a>
+      </div>
+      <div class="txt">
+        <h3><a href="http://icculus.org/neverball">Neverball</a></h3>
+        <p><em>May 2003&mdash;present</em></p>
+        <p>From 2001 to 2004 I worked 9-to-5 as a real-time visualization researcher at NASA Langley Research Center in Hampton, VA. In my free time during this period I developed a game similar to SEGA's <a href="http://en.wikipedia.org/wiki/Super_Monkey_Ball">Super Monkey Ball</a>. I ported it to Linux, Windows, and Mac OSX, and I released it as freeware under the terms of the <a href="http://www.gnu.org/licenses/gpl.html">GNU General Public License</a>. Its popularity grew rapidly. It has had millions of users and is included on a number of Linux distribution installations. An international community of players, level designers, and Open Source developers formed around the game, meeting at the <a href="http://www.nevercorner.net">Nevercorner Forum</a>. Work continues to this day, in true open source fashion. Our <a href="https://s.snth.net/projects/neverball">project site</a> tracks bug reports and hosts a public source code repository and wiki. The game has become a favorite platform for hackers working with motion sensing devices such as the Nintendo Wiimote, the Apple Motion Sensor, and others. Numerous videos may be found on <a href="http://www.youtube.com/results?search_query=neverball&search_type=&aq=f">YouTube</a>.</p>
+      </div>
+    </div>
+
+    <!------------------------------------------------------------------------>
+    <a name="installations"><h2>Events and Installations</h2></a>
+
+    <div class="item">
+      <div class="pic">
+        <a name="adler-ips2008">
+          <img src="images/adler-ips2008.jpg" width="320" height="240">
+        </a>
+      </div>
+      <div class="txt">
+        <h3>IPS2008</h3>
+        <p><em>1 July 2008</em></p>
+        <p>I presented the paper <a href="#adler-ips2008-paper">Real-time Digital Dome Rendering Techniques and Technologies</a> at the 2008 meeting of the <a href="http://www.ips-planetarium.org/">International Planetarium Society</a> at the <a href="http://www.adlerplanetarium.org/">Adler Planetarium</a> in Chicago.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="pic">
+        <img src="images/lsu.jpg" width="320" height="240">
+      </div>
+      <div class="txt">
+        <h3>Seminar at Louisiana State University</h3>
+        <p><em>16 May 2008</em></p>
+        <p>In May 2008 I was invited to present a seminar at the <a href="http://www.cct.lsu.edu/home">Center for Computation and Technology</a> (CCT) at Louisiana State University in Baton Rouge, LA. I presented my thesis work, the planetary-scale terrain composer. CCT's facilities include a <a href="http://www.sony.com/sxrd">Sony SXRD</a> 4K projector, driven by a PC with a pair of NVIDIA Quadro 4600s, which I used for my live demonstration, shown here.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="pic">
+        <img src="images/tellurion-aaas.jpg" width="320" height="240">
+      </div>
+      <div class="txt">
+        <h3>Tellurion at AAAS '08</h3>
+        <p><em>February 2008</em></p>
+        <p><a href="#tellurion">Tellurion</a> was demonstrated as a part of <a href="http://www.evl.uic.edu/core.php?mod=4&type=4&indi=552">EVL's involvement</a> in the 2008 meeting of the <a href="http://www.aaas.org/meetings/">American Association for the Advancement of Science</a> (AAAS). The installation used <a href="http://www.calit2.net/">Calit2</a>'s OptIPortable, a 5&times;3 tiled display designed to unfold from a road case.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="pic">
+        <img src="images/tellurion-sc07.jpg" width="320" height="240">
+      </div>
+      <div class="txt">
+        <h3>Tellurion at SuperComputing '07</h3>
+        <p><em>November 2007</em></p>
+        <p><a href="#tellurion">Tellurion</a> was demonstrated as a part of <a href="http://www.evl.uic.edu/core.php?mod=4&type=4&indi=538">EVL's involvement</a> in <a href="http://sc07.supercomp.org/">SuperComputing '07</a>. The installation used <a href="http://www.calit2.net/">Calit2</a>'s OptIPortable, a 5&times;3 tiled display designed to unfold from a road case.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="pic">
+        <img src="images/tellurion-starcave.jpg" width="320" height="240">
+      </div>
+      <div class="txt">
+        <h3>Tellurion on the StarCAVE at Calit2, UCSD</h3>
+        <p><em>October 2007&mdash;present</em></p>
+        <p><a href="#tellurion">Tellurion</a> is on display using the StarCAVE at <a href="http://www.calit2.net/">Calit2</a> on the campus of the University of California, San Diego. A direct descendent of <a href="http://www.evl.uic.edu/pape/CAVE/oldCAVE/CAVE.html">EVL's CAVE</a> design, the StarCAVE is a 17-screen cylindrical virtual reality display. It uses 34 JVC projectors at 1920&times;1080 to produce circularly polarized passive stereo 3D on 5 walls and the floor. Each pair of projectors is driven by a PC with an NVIDIA Quadro 5600. 6 degree-of-freedom head and hand tracking is provided by an ART motion tracking system. In this image, the fifth wall slides forward on rails to enclose the environment.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="pic">
+        <img src="images/tellurion-vellum.jpg" width="320" height="240">
+      </div>
+      <div class="txt">
+        <h3>Tellurion the Varrier at Calit2, UCSD</h3>
+        <p><em>August 2007&mdash;present</em></p>
+        <p><a href="#tellurion">Tellurion</a> is on display using the 60-tile <a href="#varrier">Varrier</a> at <a href="http://www.calit2.net/">Calit2</a> on the campus of the University of California, San Diego. This installation has a 12&times;5 array of 21-inch LCD panels, each with a resolution of 1600&times;1200. Linescreen resolution is 536 lines per foot, which affords an effective visual acuity better than 20/30. The display is driven by a cluster 16 PCs, each with a pair of NVIDIA GeForce 7900GTXs.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="pic">
+        <img src="images/adler-varrier-seminar.jpg" width="320" height="240">
+      </div>
+      <div class="txt">
+        <h3>Adler SVL Seminar Series</h3>
+        <p><em>March 2007</em></p>
+        <p>In March 2007 I was invited to present a seminar at the <a href="http://www.adlerplanetarium.org/">Adler Planetarium</a> in Chicago. I presented the history, technology, and applications of the <a href="#varrier">Varrier</a>.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="pic">
+        <a name="adler-starflight">
+          <img src="images/adler-starflight.jpg" width="320" height="240">
+        </a>
+      </div>
+      <div class="txt">
+        <h3>StarFlight at the Adler Planetarium</h3>
+        <p><em>December 2006&mdash;present</em></p>
+        <p><a href="#starflight">StarFlight</a> is on exhibit at the <a href="http://www.adlerplanetarium.org/">Adler Planetarium</a> in Chicago in two areas: the <a href="http://www.adlerplanetarium.org/exhibits/galleries.shtml#cyberspace">CyberSpace</a> Gallery, and the <a href="http://www.adlerplanetarium.org/exhibits/galleries.shtml#svl">Space Visualization Laboratory</a>, shown here. Both installations use the <a href="http://www.est-kl.com/projection/elumens/vs.html">Elumens VisionStation</a>.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="pic">
+        <a name="starflight-alameda">
+          <img src="images/starflight-alameda.jpg" width="320" height="240">
+        </a>
+      </div>
+      <div class="txt">
+        <h3>StarFlight at the Laboratorio Arte Alameda</h3>
+        <p><em>November 2006&mdash;February 2007</em></p>
+        <p><a href="#starflight">StarFlight</a> was exhibited at the <a href="http://www.artealameda.inba.gob.mx/">Laboratorio Arte Alameda</a> in Mexico City. The installation used a 10' rear-projected screen showing linearly polarized passive stereo 3D.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="pic">
+        <a name="adler-mars">
+          <img src="images/adler-mars.jpg" width="320" height="240">
+        </a>
+      </div>
+      <div class="txt">
+        <h3>Electro: Mars at the Adler Planetarium</h3>
+        <p><em>January 2007&mdash;present</em></p>
+        <p><a href="#mars">Mars</a> is on exhibit at the <a href="http://www.adlerplanetarium.org/">Adler Planetarium</a> in Chicago in the <a href="http://www.adlerplanetarium.org/exhibits/galleries.shtml#solarsystem">Our Solar System</a> Gallery. The installation uses three LCD displays at 1600&times;1200 driven by a single NVIDIA GeForce 8800 via a <a href="http://www.matrox.com/graphics/en/products/gxm/th2go/">Matrox TripleHead2Go</a>. The interaction is demonstrated by an Adler guest in <a href="http://www.youtube.com/watch?v=hWcjcL9j9yA">this YouTube video</a>.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="pic">
+        <a name="mars-vellum">
+          <img src="images/mars-vellum.jpg" width="320" height="240">
+        </a>
+      </div>
+      <div class="txt">
+        <h3>Electro: Mars at Calit2 UCSD</h3>
+        <p><em>September 2006&mdash;present</em></p>
+        <p><a href="#mars">Mars</a> is on display using the 60-tile <a href="#varrier">Varrier</a> at <a href="http://www.calit2.net/">Calit2</a> on the campus of the University of California, San Diego. It was the first application to be shown on this Varrier, and the construction of this display provided the motivation for the creation of the Mars visualization during the summer of 2006.</p>
+      </div>
+    </div>
+
+    <!------------------------------------------------------------------------>
+    <h2></h2>
   </body>
 </html>
