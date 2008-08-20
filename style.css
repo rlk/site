@@ -6,10 +6,6 @@ body {
     margin-bottom: 5em;
 }
 
-p {
-    text-align: justify;
-}
-
 h1 {
     background-color: #eee;
     padding: 1.0em;
@@ -20,6 +16,14 @@ h2 {
     background-color: #eee;
     padding: 1.0em;
     clear: both;
+}
+
+h3 {
+    background-color: #eee;
+}
+
+p {
+    text-align: justify;
 }
 
 div.item {
