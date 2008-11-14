@@ -14,7 +14,7 @@
         <img alt="Robert Kooima" src="images/rlk.jpg" width="320" height="240">
       </div>
       <div class="txt">
-        <p>I am a doctoral candidate in Computer Science at the <a href="http://www.evl.uic.edu">Electronic Visualization Laboratory</a> at the University of Illinois at Chicago. I study real-time 3D scientific visualization, focusing on virtual reality and GPU programming.</p>
+        <p>I am a new Ph.D. in Computer Science at the <a href="http://www.evl.uic.edu">Electronic Visualization Laboratory</a> at the University of Illinois at Chicago. I study real-time 3D scientific visualization, focusing on virtual reality and GPU programming.</p>
         <p>This site catalogs my work. It includes papers written, talks given, demonstrations, installations, programming work, course work, and open source projects. Items are listed in reverse chronological order, and some refer to older items lower on the page.</p>
         <p>See also my <a href="pdfs/Kooima-Resume.pdf"><b>resume</b></a>. My <a href="pdfs/Kooima-Publications.pdf"><b>publications</b></a> list includes all of my published and co-authored papers.</p>
         <img alt="robert.kooima (a) gmail.com" src="images/address.png">
@@ -23,6 +23,19 @@
 
     <!------------------------------------------------------------------------>
     <h2>Projects</h2>
+
+    <div class="item">
+      <div class="pic">
+        <a name="interleaver">
+          <img alt="Autostereo Interleaver" src="images/interleaver.jpg" width="320" height="240">
+        </a>
+      </div>
+      <div class="txt">
+        <h3><a href="http://www.evl.uic.edu/rlk/interleaver/interleaver.html">Autostereo Interleaver</a></h3>
+        <p><em>Summer 2008</em></p>
+        <p>Autostereo interleaver is a generalization of the <a href="#combiner">Varrier Combiner</a> algorithm that enables the creation of real-time multi-view autostereo displays using lenticular arrays and parallax barriers. It provides a channel crosstalk mitigation mechanism using destructive interference between adjacent channels.
+      </div>
+    </div>
 
     <div class="item">
       <div class="pic">
@@ -46,7 +59,7 @@
       <div class="txt">
         <h3>Tellurion</h3>
         <p><em>2007&mdash;present</em></p>
-        <p>Tellurion implements a highly-scalable real-time planetary terrain composition algorithm. A GPGPU process tessellates terrain geometry in real time, and transitions smoothly from planet scale down to sub-meter resolution. Tellurion enables the investigation of a class of generalized terrain composition operators that merge data of widely disparate resolution, projection, and coverage on the fly. These composition operations are uniformly applicable to both terrain height maps and surface maps. The cluster-parallel renderer is supported by a multi-threaded data paging mechanism that performs view-dependant loading of data sources of arbitrary size. The system has been demonstrated displaying 78GB of data in real time, including height data covering the U.S. at a resolution of 30 meters. Early work is described in <a href="http://www.youtube.com/watch?v=bcN8RMezku0">this YouTube video</a>. See <a href="#installations">below</a> for a listing of several installations. This work is my PhD thesis.</p>
+        <p>Tellurion implements a highly-scalable real-time planetary terrain composition algorithm. A GPGPU process tessellates terrain geometry in real time, and transitions smoothly from planet scale down to sub-meter resolution. Tellurion enables the investigation of a class of generalized terrain composition operators that merge data of widely disparate resolution, projection, and coverage on the fly. These composition operations are uniformly applicable to both terrain height maps and surface maps. The cluster-parallel renderer is supported by a multi-threaded data paging mechanism that performs view-dependant loading of data sources of arbitrary size. The system has been demonstrated displaying 115GB of data in real time, including height data covering the U.S. at a resolution of 30 meters. See <a href="#installations">below</a> for a listing of several installations. Tellurion is my Ph.D. work. See <a href="pdfs/Kooima-Dissertation.pdf">my dissertation</a> for detailed coverage. I successfully <a href="#defense"> defended on October 23, 2008</a>.</p>
       </div>
     </div>
 
@@ -63,7 +76,9 @@
 
     <div class="item">
       <div class="pic">
-        <img alt="A GPU Sub-pixel Algorithm for Autostereoscopic Virtual Reality" src="images/varrier-combiner.png" width="320" height="240">
+        <a name="combiner">
+          <img alt="A GPU Sub-pixel Algorithm for Autostereoscopic Virtual Reality" src="images/varrier-combiner.png" width="320" height="240">
+        </a>
       </div>
       <div class="txt">
         <h3><a href="http://www.evl.uic.edu/files/pdf/Kooima-VR07.pdf">A GPU Sub-pixel Algorithm for Autostereoscopic Virtual Reality</a></h3>
@@ -251,6 +266,19 @@
 
     <!------------------------------------------------------------------------>
     <h2><a name="installations">Events and Installations</a></h2>
+
+    <div class="item">
+      <div class="pic">
+        <a name="defense">
+          <img alt="Ph.D. Defense" src="images/defense.jpg" width="320" height="240">
+        </a>
+      </div>
+      <div class="txt">
+        <h3>Ph.D. Dissertation Defense </h3>
+        <p><em>23 October 2008</em></p>
+        <p>I successfully defended my Ph.D. dissertation, <a href="#tellurion">Tellurion</a>, in the Definiti Theater, a 55-foot dome at the <a href="http://www.adlerplanetarium.org/">Adler Planetarium and Astronomy Museum</a> in Chicago.</p>
+      </div>
+    </div>
 
     <div class="item">
       <div class="pic">
