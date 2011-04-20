@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <link rel=stylesheet type="text/css" href="style.css">
+    <title>Robert Kooima</title>
+  </head>
+  <body>
+
+    <!------------------------------------------------------------------------>
+    <h1>Robert Kooima</h1>
+
+    <div class="item">
+      <div class="pic">
+        <img alt="Robert Kooima" src="images/rlk.jpg" width="320" height="240">
+      </div>
+      <div class="txt">
+        <p>I am an Adjunct Professor of Computer Science at <a href="http://www.lsu.edu">Louisiana State University</a> and a post-doctorial researcher at the <a href="http://www.cct.lsu.edu">Center for Computation &amp; Technology</a>. I study real-time 3D scientific visualization, focusing on virtual reality and GPU programming.</p>
+        <p>This site catalogs my work. It includes courses taught, research done, talks given, installations, demonstrations, and handy source code.</p>
+        <p>My <a href="pdfs/Kooima-CV.pdf">curriculum vitae</a> includes all of my published and co-authored papers.</p>
+
+        <p style="text-align:right"><i>kooima&#64;csc&#46;lsu&#46;edu</i></p>
+        </div>
+    </div>
+
+    <table id="nav">
+      <tr>
+        <td><a href="courses.html">Courses</a></td>
+        <td><a href="research.html">Research</a></td>
+        <td><a href="talks.html">Talks</a></td>
+        <td><a href="applications.html">Applications</a></td>
+        <td><a href="installations.html">Installations</a></td>
+        <td><a href="code.html">Code</a></td>
+        <td><a href="misc.html">Misc.</a></td>
+      </tr>
+    </table>
+
+    <!------------------------------------------------------------------------>
+    <h2>Code</h2>
+
+    <div class="item">
+      <div class="pic">
+        <a name="interleaver">
+          <img alt="Autostereo Interleaver" src="images/interleaver.jpg" width="320" height="240">
+        </a>
+      </div>
+      <div class="txt">
+        <h3><a href="interleaver/interleaver.html">Autostereo Interleaver</a></h3>
+        <p><em>Summer 2008</em></p>
+        <p>Autostereo interleaver is a generalization of the <a href="#combiner">Varrier Combiner</a> algorithm that enables the creation of real-time multi-view autostereo displays using lenticular arrays and parallax barriers. It provides a channel crosstalk mitigation mechanism using destructive interference between adjacent channels.
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="pic">
+        <img alt="trackd interface library" src="images/tracker.png" width="320" height="240">
+      </div>
+      <div class="txt">
+        <h3><a href="tracker/tracker.html">trackd interface library</a></h3>
+        <p><em>Spring 2006</em></p>
+        <p>This is a simple library for reading motion tracking data provided by <a href="http://www.mechdyne.com/integratedSolutions/software/products/trackd/trackd.htm">trackd</a>. It is compatible with both Linux and Windows. It enables access to six degree-of-freedom sensor input, button controller input, and joystick controller input, as commonly used in virtual reality display environments.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="pic">
+        <img alt="Wavefront OBJ library" src="images/teapot.jpg" width="320" height="240">
+      </div>
+      <div class="txt">
+        <h3><a href="obj/obj.html">Wavefront OBJ library</a></h3>
+        <p><em>Spring 2006</em></p>
+        <p>Like many 3D programmers, I've developed a library of functions for loading, storing, and drawing 3D models in the OBJ file format. This library also provides an API for building, manipulating, and transforming OBJ model data. It automatically computes tangent and bi-tangent vectors for use in tangent-space surface mapping. It is capable of computing a model's average cache miss ratio (ACMR), and sorting index data to minimize this value and thus maximize rendering performance. The built-in OpenGL renderer uses vertex buffer objects for efficiency. The library supports the full OBJ and MTL specifications, with the exception of OBJ free-form curves.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="pic">
+        <a name="electro">
+          <img alt="Electro" src="images/electro.jpg" width="320" height="240">
+        </a>
+      </div>
+      <div class="txt">
+        <h3><a href="electro">Electro</a></h3>
+        <p><em>Spring 2005&mdash;present</em></p>
+        <p>Electro is an application development environment designed for use on both cluster-driven tiled displays and desktop systems. Electro is based on the <a href="http://www.mpi-forum.org">MPI</a> process model and is bound to the <a href="http://www.lua.org">Lua programming language</a>. With support for 3D graphics, 2D graphics, audio, and input handling, Electro provides an easy-to-use scripting system for interactive applications spanning multiple processors and displays. Electro supports Linux, Windows 2K/XP, and Mac OS X. Electro has been used by students in <a href="http://www.evl.uic.edu/spiff/class/cs426">CS426 Video Game Programming</a> since 2005, and has formed the basis for numerous applications and art pieces throughout EVL and elsewhere. Discussion and support is available at the <a href="http://groups.google.com/group/electro-users">Electro-users group</a>.</p>
+      </div>
+    </div>
+
+    <!------------------------------------------------------------------------>
+    <h2></h2>
+  </body>
+</html>

@@ -1,8 +1,10 @@
+/*---------------------------------------------------------------------------*/
+/* Lists of items each with a picture and text                               */
 
 body {
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-top: 5em;
+    margin-left:   10%;
+    margin-right:  10%;
+    margin-top:    5em;
     margin-bottom: 5em;
 }
 
@@ -39,3 +41,28 @@ div.pic {
 div.txt {
     margin-left: 336px;
 }
+
+/*---------------------------------------------------------------------------*/
+/* Navigation table                                                          */
+
+#nav {
+    clear: both;
+    width: 100%;
+}
+
+#nav td {
+    background-color: #eee;
+    width: 14%;
+}
+
+#nav a {
+    text-align: center;
+    font-size:   large;
+    font-weight:  bold;
+    display:     block;
+    margin-top:    1em;
+    margin-bottom: 1em;
+}
+
+/*---------------------------------------------------------------------------*/
+
