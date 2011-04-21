@@ -1,0 +1,320 @@
+<html>
+<head>
+<style>
+    pre    { background: #FFFFCC; padding: 1.0em; }
+</style>
+</head>
+<body>
+
+<p> This code generates the line screen texture for the requested
+RGB channel. </p>
+
+<pre>
+#define LINESZ 128
+
+static GLuint line_object[3] = { 0, 0, 0 };
+
+static void init_line_texture(int tile, int chan)
+{
+    static const GLubyte color[3][4] = {
+        { 0x00, 0xFF, 0xFF, 0x00 },
+        { 0xFF, 0x00, 0xFF, 0x00 },
+        { 0xFF, 0xFF, 0x00, 0x00 },
+    };
+
+    GLubyte *p;
+
+    /* If the requested texture object already exists, bind it. */
+
+    if (glIsTexture(line_object[chan]))
+        glBindTexture(GL_TEXTURE_2D, line_object[chan]);
+
+    else if ((p = (GLubyte *) calloc(LINESZ * 2, 4)))
+    {
+        float c = get_varrier_cycle(tile);
+        int i;
+        int j;
+
+        /* Generate a new texture object */
+
+        glGenTextures(1, line_object + chan);
+        glBindTexture(GL_TEXTURE_2D, line_object[chan]);
+
+        /* Fill it with the line screen pattern for the given channel. */
+
+        memset(p, 0xFF, LINESZ * 8);
+
+        for (i = 0; i < LINESZ * c; ++i)
+            for (j = 0; j &lt; 2; ++j)
+            {
+                p[(j * LINESZ + i) * 4 + 0] = color[chan][0];
+                p[(j * LINESZ + i) * 4 + 1] = color[chan][1];
+                p[(j * LINESZ + i) * 4 + 2] = color[chan][2];
+                p[(j * LINESZ + i) * 4 + 3] = color[chan][3];
+            }
+
+        /* Configure the texture and specify the pixel buffer. */
+
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S,     GL_REPEAT);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T,     GL_REPEAT);
+
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, LINESZ, 2, 0,
+                     GL_RGBA, GL_UNSIGNED_BYTE, p);
+        free(p);
+    }
+}
+</pre>
+
+<p> This function uses the line screen configuration to generate a
+transformation to correctly position a line screen texture. </p>
+
+<pre>
+static void move_line_texture(int tile, const float v[3], float px)
+{
+    float p = get_varrier_pitch(tile);
+    float a = get_varrier_angle(tile);
+    float t = get_varrier_thick(tile);
+    float s = get_varrier_shift(tile);
+
+    float M[16];
+    float c[3];
+    float n[3];
+    float w, h;
+    float nn, dd, pp;
+
+    get_varrier_tile(tile, M, c, n, &amp;w, &amp;h);
+
+    /* Find the distance to the display. */
+
+    nn = ((v[0] - c[0]) * n[0] +
+          (v[1] - c[1]) * n[1] +
+          (v[2] - c[2]) * n[2]);
+
+    /* Compute the parallax offset due to optical thickness. */
+
+    dd = (v[0] - n[0] * nn - c[0]) * t / nn;
+
+    /* Compute the pitch reduction due to optical thickness. */
+
+    pp = p * (nn - t) / nn;
+
+    /* Transform the line screen texture into position. */
+
+    glMatrixMode(GL_TEXTURE);
+    {
+        glLoadIdentity();
+
+        glScalef(pp, pp, 1.0);               /* Pitch in feet.    */
+        glTranslatef(-s + dd - px, 0, 0);    /* Shift in feet.    */
+        glRotatef(-a, 0, 0, 1);              /* Angle.            */
+        glScalef(0.5 * w, 0.5 * h, 1.0);     /* Scale to feet.    */
+    }
+    glMatrixMode(GL_MODELVIEW);
+}
+</pre>
+
+<p> This function sets up the per-pixel operation.  It ensures the
+line screen texture is bound for each channel and sets up the texture
+combiner environment.  Note that the combiner has 2 separate
+pipelines, RGB and alpha, and these are configured differently.
+</p>
+
+<pre>
+static int stereo_varrier_01(int eye, int tile, int pass, const float v[3])
+{
+    float px = 0.00025f;
+
+    if (pass == 0)
+    {
+        if (eye == 0)
+            glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
+        else
+            glClear(GL_DEPTH_BUFFER_BIT);
+
+        /* Set up the line screen texture environments. */
+
+        if (GL_has_multitexture)
+        {
+            /* TU0 modulates the material RGB against the base texture,      */
+            /* giving the pixel RGB, and sums (and clamps) the red and       */
+            /* green line screen alpha values.                               */
+
+            glActiveTextureARB(GL_TEXTURE0_ARB);
+            glEnable(GL_TEXTURE_2D);
+            glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_COMBINE);
+            glTexEnvi(GL_TEXTURE_ENV, GL_SOURCE0_RGB,      GL_PREVIOUS);
+            glTexEnvi(GL_TEXTURE_ENV, GL_SOURCE1_RGB,      GL_TEXTURE0);
+            glTexEnvi(GL_TEXTURE_ENV, GL_COMBINE_RGB,      GL_MODULATE);
+            glTexEnvi(GL_TEXTURE_ENV, GL_SOURCE0_ALPHA,    GL_TEXTURE1);
+            glTexEnvi(GL_TEXTURE_ENV, GL_SOURCE1_ALPHA,    GL_TEXTURE2);
+            glTexEnvi(GL_TEXTURE_ENV, GL_COMBINE_ALPHA,    GL_ADD);
+
+            /* TU1 modulates the pixel RGB against the red line screen and   */
+            /* sums (and clamps) the blue linescreen alpha value with the    */
+            /* red and green alpha values.                                   */
+
+            glActiveTextureARB(GL_TEXTURE1_ARB);
+            glEnable(GL_TEXTURE_2D);
+            glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_COMBINE);
+            glTexEnvi(GL_TEXTURE_ENV, GL_SOURCE0_RGB,      GL_PREVIOUS);
+            glTexEnvi(GL_TEXTURE_ENV, GL_SOURCE1_RGB,      GL_TEXTURE);
+            glTexEnvi(GL_TEXTURE_ENV, GL_COMBINE_RGB,      GL_MODULATE);
+            glTexEnvi(GL_TEXTURE_ENV, GL_SOURCE0_ALPHA,    GL_PREVIOUS);
+            glTexEnvi(GL_TEXTURE_ENV, GL_SOURCE1_ALPHA,    GL_TEXTURE3);
+            glTexEnvi(GL_TEXTURE_ENV, GL_COMBINE_ALPHA,    GL_ADD);
+            init_line_texture(tile, 0);
+            move_line_texture(tile, v, +px);
+
+            /* TU2 modulates the pixel color against the green line screen   */
+            /* and modulates the accumulated line screen alpha against the   */
+            /* material alpha value.                                         */
+
+            glActiveTextureARB(GL_TEXTURE2_ARB);
+            glEnable(GL_TEXTURE_2D);
+            glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_COMBINE);
+            glTexEnvi(GL_TEXTURE_ENV, GL_SOURCE0_RGB,      GL_PREVIOUS);
+            glTexEnvi(GL_TEXTURE_ENV, GL_SOURCE1_RGB,      GL_TEXTURE);
+            glTexEnvi(GL_TEXTURE_ENV, GL_COMBINE_RGB,      GL_MODULATE);
+            glTexEnvi(GL_TEXTURE_ENV, GL_SOURCE0_ALPHA,    GL_PREVIOUS);
+            glTexEnvi(GL_TEXTURE_ENV, GL_SOURCE1_ALPHA,    GL_PRIMARY_COLOR);
+            glTexEnvi(GL_TEXTURE_ENV, GL_COMBINE_ALPHA,    GL_MODULATE);
+            init_line_texture(tile, 1);
+            move_line_texture(tile, v, 0);
+
+            /* TU3 modulates the pixel color against the blue line screen    */
+            /* and modulates the accumulated line screen alpha against the   */
+            /* base texture alpha value.                                     */
+
+            glActiveTextureARB(GL_TEXTURE3_ARB);
+            glEnable(GL_TEXTURE_2D);
+            glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_COMBINE);
+            glTexEnvi(GL_TEXTURE_ENV, GL_SOURCE0_RGB,      GL_PREVIOUS);
+            glTexEnvi(GL_TEXTURE_ENV, GL_SOURCE1_RGB,      GL_TEXTURE);
+            glTexEnvi(GL_TEXTURE_ENV, GL_COMBINE_RGB,      GL_MODULATE);
+            glTexEnvi(GL_TEXTURE_ENV, GL_SOURCE0_ALPHA,    GL_PREVIOUS);
+            glTexEnvi(GL_TEXTURE_ENV, GL_SOURCE1_ALPHA,    GL_TEXTURE0);
+            glTexEnvi(GL_TEXTURE_ENV, GL_COMBINE_ALPHA,    GL_MODULATE);
+            init_line_texture(tile, 2);
+            move_line_texture(tile, v, -px);
+
+            glActiveTextureARB(GL_TEXTURE0_ARB);
+        }
+
+        draw_tile_background(tile);
+
+        if (get_tile_flag(tile) & TILE_TEST)
+        {
+            draw_varrier_plane(eye);
+            return 0;
+        }
+        return 1;
+    }
+    else
+    {
+        if (GL_has_multitexture)
+        {
+            glActiveTextureARB(GL_TEXTURE3_ARB);
+            glDisable(GL_TEXTURE_2D);
+            glActiveTextureARB(GL_TEXTURE2_ARB);
+            glDisable(GL_TEXTURE_2D);
+            glActiveTextureARB(GL_TEXTURE1_ARB);
+            glDisable(GL_TEXTURE_2D);
+            glActiveTextureARB(GL_TEXTURE0_ARB);
+            glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
+        }
+    }
+    return 0;
+}
+</pre>
+
+<p> These functions apply the modelview and projection matrices as
+texture coordinate generation configuration.  This has the effect
+of undoing the vertex transformation and leaving behind texture
+coordinates in screen space. </p>
+
+<p> (Conditional compilation shows that this effect can be produced
+using either eye-space or object-space texture coordinates.  It
+turns out that the eye-space TexGen configuration is actually
+transformed by the inverse modelview, but the object-space configuration
+is not. This reduces eye-space and object-space TexGen to the same
+operation, modulo transposition of the TexGen configuration matrix.
+I see this as a design flaw in OpenGL.) </p>
+
+<pre>
+static void set_active_texture_coordinates(const float S[4],
+                                           const float T[4],
+                                           const float R[4],
+                                           const float Q[4])
+{
+    glEnable(GL_TEXTURE_GEN_S);
+    glEnable(GL_TEXTURE_GEN_T);
+    glEnable(GL_TEXTURE_GEN_R);
+    glEnable(GL_TEXTURE_GEN_Q);
+
+#ifdef TEXGEN_EYE
+    glTexGeni(GL_S, GL_TEXTURE_GEN_MODE, GL_EYE_LINEAR);
+    glTexGeni(GL_T, GL_TEXTURE_GEN_MODE, GL_EYE_LINEAR);
+    glTexGeni(GL_R, GL_TEXTURE_GEN_MODE, GL_EYE_LINEAR);
+    glTexGeni(GL_Q, GL_TEXTURE_GEN_MODE, GL_EYE_LINEAR);
+
+    glTexGenfv(GL_S, GL_EYE_PLANE, S);
+    glTexGenfv(GL_T, GL_EYE_PLANE, T);
+    glTexGenfv(GL_R, GL_EYE_PLANE, R);
+    glTexGenfv(GL_Q, GL_EYE_PLANE, Q);
+#else
+    glTexGeni(GL_S, GL_TEXTURE_GEN_MODE, GL_OBJECT_LINEAR);
+    glTexGeni(GL_T, GL_TEXTURE_GEN_MODE, GL_OBJECT_LINEAR);
+    glTexGeni(GL_R, GL_TEXTURE_GEN_MODE, GL_OBJECT_LINEAR);
+    glTexGeni(GL_Q, GL_TEXTURE_GEN_MODE, GL_OBJECT_LINEAR);
+
+    glTexGenfv(GL_S, GL_OBJECT_PLANE, S);
+    glTexGenfv(GL_T, GL_OBJECT_PLANE, T);
+    glTexGenfv(GL_R, GL_OBJECT_PLANE, R);
+    glTexGenfv(GL_Q, GL_OBJECT_PLANE, Q);
+#endif
+}
+
+void set_texture_coordinates(void)
+{
+    if (GL_has_multitexture)
+    {
+        float P[16], M[16], X[16], S[4], T[4], R[4], Q[4];
+
+        /* Supply the product of the projection and modelview matrices as    */
+        /* plane coefficients.  This will transform vertices to normalized   */
+        /* device coordinates, which we can apply as screen-space texture    */
+        /* coordinates.                                                      */
+
+        glGetFloatv(GL_PROJECTION_MATRIX, P);
+        glGetFloatv(GL_MODELVIEW_MATRIX,  M);
+
+        m_mult(X, P, M);
+
+#ifdef TEXGEN_EYE
+        S[0] = X[0];  S[1] = X[1];  S[2] = X[2];  S[3] = X[3];
+        T[0] = X[4];  T[1] = X[5];  T[2] = X[6];  T[3] = X[7];
+        R[0] = X[8];  R[1] = X[9];  R[2] = X[10]; R[3] = X[11];
+        Q[0] = X[12]; Q[1] = X[13]; Q[2] = X[14]; Q[3] = X[15];
+#else
+        S[0] = X[0];  S[1] = X[4];  S[2] = X[8];  S[3] = X[12];
+        T[0] = X[1];  T[1] = X[5];  T[2] = X[9];  T[3] = X[13];
+        R[0] = X[2];  R[1] = X[6];  R[2] = X[10]; R[3] = X[14];
+        Q[0] = X[3];  Q[1] = X[7];  Q[2] = X[11]; Q[3] = X[15];
+#endif
+
+        glActiveTextureARB(GL_TEXTURE3_ARB);
+        set_active_texture_coordinates(S, T, R, Q);
+        glActiveTextureARB(GL_TEXTURE2_ARB);
+        set_active_texture_coordinates(S, T, R, Q);
+        glActiveTextureARB(GL_TEXTURE1_ARB);
+        set_active_texture_coordinates(S, T, R, Q);
+        glActiveTextureARB(GL_TEXTURE0_ARB);
+    }
+}
+</pre>
+
+
+</body>
+</html>

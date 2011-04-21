@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <style type="text/css">
+    body   { text-align:   justify;
+             margin-right: 12%;
+             margin-left:  12%; }
+    h1     { margin-left: -12%; }
+    h2     { margin-left:  -9%; }
+    h3     { margin-left:  -6%; }
+    h4     { margin-left:  -3%; }
+    h5     { margin-left:  -0%; }
+    dt     { background: #EEEEEE; padding: 0.25em; }
+    dt.dep { background: #FFDDDD; padding: 0.25em; }
+    pre    { background: #FFFFCC; padding: 1.00em; }
+    p.note { background: #CCFFFF; padding: 1.00em; }
+  </style>
+  <title>Varrier Combiner</title>
+</head>
+<body>
+
+<h1>Varrier Combiner</h1>
+
+<p>Varrier combiner is an implementation of a Varrier display algorithm that takes advantage of frame buffer objects for scalable off-screen rendering and GLSL shaders for efficient on-screen interleaving of views.</p>
+
+<ul>
+<li><a href="varrier_combiner.c"><tt>varrier_combiner.c</tt></a>
+<li><a href="varrier_combiner.h"><tt>varrier_combiner.h</tt></a>
+</ul>
+
+<!---------------------------------------------------------------------------->
+
+<h2>Startup and Shutdown</h2>
+<dl>
+
+<dt><tt>int vc_init(int width, int height)</tt><dd><p>Initialize the combiner and all of its OpenGL state. The <tt>width</tt> and <tt>height</tt> parameters give the size of the display. These values allow the combiner to preallocate the off-screen render buffers. It also initializes all necessary OpenGL extension entry points and links the fragment and vertex shader objects. Because OpenGL state is initialized, the application must call this function only after acquiring its OpenGL context.</p>
+
+<p>The return value indicates successful initialization. A zero value is returned if a required extension is not supported by the current hardware. An error message indicating the missing extension is displayed. </p>
+
+<dt><tt>void vc_fini()</tt><dd><p>Finalize the combiner and release all OpenGL state.</p>
+
+</dl>
+
+<!---------------------------------------------------------------------------->
+
+<h2>Configuration</h2>
+
+<p>The Varrier display and line screen configuration is communicated to the combiner via the following structure. All combiner functions recieve a constant pointer to this structure. Structure values may change as often as the application requires. Multi-tile display systems will require multiple display configuration structures.</p>
+
+<pre>
+struct vc_display
+{
+    int viewport_x;
+    int viewport_y;
+    int viewport_w;
+    int viewport_h;
+
+    float quality;
+
+    float screen_BL[3];
+    float screen_TL[3];
+    float screen_BR[3];
+
+    float pitch;
+    float angle;
+    float thick;
+    float shift;
+    float cycle;
+};
+</pre>
+
+<dl>
+<dt><tt>viewport_x</tt><br><tt>viewport_y</tt><br><tt>viewport_w</tt><br><tt>viewport_h</tt><br><dd><p>Viewport position and size. The combiner manipulates viewport parameters to control the off-screen rendering quality.</p>
+
+<dt><tt>quality</tt><dd><p>Rendering quality. This must be a floating point value between 0.0 and 1.0. It determines the degree of decimation of the off-screen render buffers, and thus balances off-screen render performance against on-screen visual quality. Under normal circumstances, values greater than 0.5 are unnecessary.</p>
+
+<dt><tt>screen_BL</tt><br><tt>screen_TL</tt><br><tt>screen_BR</tt><dd><p>The world-space positions of the bottom-left, top-left, and bottom-right corners of the display. These values must be given in the same coordinate system as the eye positions submitted to <tt>vc_combine</tt> and <tt>vc_frustum</tt>.</p>
+
+<dt><tt>pitch</tt><dd><p>Line screen pitch.</p>
+
+<dt><tt>angle</tt><dd><p>Line screen angle.</p>
+
+<dt><tt>thick</tt><dd><p>Line screen optical thickness.</p>
+
+<dt><tt>shift</tt><dd><p>Line screen shift.</p>
+
+<dt><tt>cycle</tt><dd><p>Line screen duty cycle.</p>
+</dl>
+
+<!---------------------------------------------------------------------------->
+
+<h2>Rendering</h2>
+<dl>
+
+<dt><tt>void vc_prepare(const struct vc_display *V, int eye)</tt><dd><p>Perpare to render a view of the scene. Applications should call this function just before rendering each eye. The <tt>eye</tt> argument selects the off-screen buffer to be used: 0 selects the left eye, 1 selects the right eye.</p>
+
+<dt><tt>void vc_combine(const struct vc_display *V, const float L[3], const float R[3])</tt><dd><p>Combine the rendered views to the display. Applications should call this function only after rendering both eyes. The <tt>L</tt> and <tt>R</tt> arguments give the positions of the left and right eyes.</p>
+
+</dl>
+
+<!---------------------------------------------------------------------------->
+
+<h2>Utility</h2>
+<dl>
+
+<dt><tt>void vc_frustum(const struct vc_display *V, const float P[3], float n, float f)</tt><dd><p>Apply a perspective projection to the OpenGL projection matrix stack. This projection will be correct for the given view position <tt>P</tt> and the screen corners defined by the given display configuration. The <tt>n</tt> and <tt>f</tt> arguments give the near and far plane distances.</p>
+
+<p>CAVELib applications need not call this function, as the proper projection is computed by the CAVELib. In general however, this projection is not trivially computed. Standalone OpenGL applications based on SDL or GLUT will find this function useful.</p>
+
+</dl>
+
+<!---------------------------------------------------------------------------->
+
+<h2>Example</h2>
+
+<p>The following code demonstrates the steps an application must take during a screen update.  Assume here that <tt>V</tt> is a correctly initialized <tt>vc_display</tt> structure, that <tt>L</tt> and </tt>R</tt> are floating point vectors giving the positions of the left and right eyes, and that <tt>draw_scene()</tt> performs a normal OpenGL rendering of the scene.</p>
+
+<pre>
+/* Render the off-screen left eye view. */
+
+    vc_prepare(&amp;V, 0);
+    vc_frustum(&amp;V, L, 0.1f, 100.0f);
+
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    draw_scene();
+
+/* Render the off-screen right eye view. */
+
+    vc_prepare(&amp;V, 1);
+    vc_frustum(&amp;V, R, 0.1f, 100.0f);
+
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    draw_scene();
+
+/* Combine the views to the on-screen framebuffer. */
+
+    vc_combine(&amp;V, L, R);
+</pre>
+
+<!---------------------------------------------------------------------------->
+
+<h2>Notes</h2>
+
+<p>Applications should take a few simple precautions to avoid conflicting with the combiner. The vast majority of applications need not be concerned with these issues. These special cases do not impose significant restrictions on the application. Conflict avoidance is merely a matter of clean OpenGL programming style.</p>
+
+<p>Applications should not assume that their destination frame buffer is frame buffer object 0. Applications that generate their own frame buffer objects should query the currently bound frame buffer object before binding their own. This value should then be rebound when the application's off-screen rendering is complete. Unfortunately, the frame buffer object binding is <i>not</i> a pushable attribute. An explicit query is required.</p>
+
+<p>Care should be taken when manipulating the viewport during scene rendering. Depending on the quality setting, the viewport rectangle may differ from the expected value during off-screen rendering. Applications that wish to manipulate the viewport should first query the current rectangle and make changes relative to the returned value. Keep in mind also that the scissor rectangle may need to be set to match the viewport rectangle. Viewport and scissor state are both pushable attributes.</p>
+
+<!---------------------------------------------------------------------------->
+
+<p style="text-align:right"><i>kooima&#64;csc&#46;lsu&#46;edu</i></p>
+</body>

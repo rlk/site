@@ -1,0 +1,254 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <style type="text/css">
+    body   { text-align:   justify;
+             margin-right: 12%;
+             margin-left:  12%; }
+    h1     { margin-left: -12%; }
+    h2     { margin-left:  -9%; }
+    h3     { margin-left:  -6%; }
+    h4     { margin-left:  -3%; }
+    h5     { margin-left:  -0%; }
+    dt     { background: #EEEEEE; padding: 0.25em; }
+    pre    { background: #FFFFCC; padding: 1.00em; }
+    p.note { background: #CCFFFF; padding: 1.00em; }
+    table  { border-width: 0 0 0 0; }
+    td.arg { padding: 0em 1em 0em 1em; }
+  </style>
+  <title>Autostereo Interleaver</title>
+</head>
+<body>
+
+<h1>Autostereo Interleaver</h1>
+
+<p>Autostereo Interleaver is a generalized implementation of the <a href="../varrier_combiner/varrier_combiner.html"> Combiner algorithm</a> described in the IEEE VR 07 paper <a href="../pdfs/Kooima-VR07.pdf">A GPU Sub-pixel Algorithm for Autostereoscopic Virtual Reality</a>.</p>
+
+<p>The interleaver expands upon the combiner in several ways. First and foremost, it supports an arbitrary number of view points, which broadens its capability beyond Varrier to the creation of PHSColograms and lenticular panoramagrams. Second, it encapsulates its internal state, allowing multiple instances to be in use simultaneously by applications with multiple OpenGL contexts. Third, it is implemented using a subset of OpenGL 2.0 conforming to OpenGL ES 2.0, allowing for greater portability. Finally, it is licensed under the <a href="http://www.gnu.org/copyleft/lesser.html">GNU Library GPL</a> allowing it to be used by non-Free applications and frameworks.</p>
+
+<p>Source code, along with an OBJ-viewer example application, may be downloaded here. This code has been tested under Linux, OSX, and Windows XP. A Makefile is included for Linux and OSX, and a Visual Studio 7 project is included for Windows.</p>
+
+<ul>
+<li><a href="interleaver.zip">interleaver.zip</a>
+</ul>
+
+<p>The interleaver library depends upon <a href="http://glew.sourceforge.net/">The OpenGL Extension Wrangler Library</a> In addition to GLEW, the OBJ viewer example depends upon
+<a href="http://www.libsdl.org">SDL</a>,
+<a href="http://libpng.org">PNG</a>,
+<a href="http://www.zlib.net">zlib</a>, and
+<a href="http://www.ijg.org/">jpeg</a>.
+
+<!---------------------------------------------------------------------------->
+
+<h2>Startup and Shutdown</h2>
+<dl>
+
+<dt><code>struct il_context *<b>il_init_context</b>(int n, int w, int h, const char *vert_name, const char *frag_name)</code><dd><p>Initialize and return an interleaver context.</p>
+
+<p><table>
+<tr><td class="arg"><code>n</code><td>The number of view points
+<tr><td class="arg"><code>w</code><td>Off-screen render buffer width
+<tr><td class="arg"><code>h</code><td>Off-screen render buffer height
+<tr><td class="arg"><code>vert_name</code><td>Vertex shader file name (<code>NULL</code>)
+<tr><td class="arg"><code>frag_name</code><td>Fragment shader file name (<code>NULL</code>)
+</table></p>
+
+<p>The <code>n</code> argument gives the number of view points. That is, the number of off-screen render buffers to be interleaved. <code>w</code> and <code>h</code> give the size of the display, allowing the interleaver to preallocate these off-screen render buffers. <code>vert_name</code> and <code>frag_name</code> allow custom interleaving shaders to be introduced. If either is <code>NULL</code> then the default shader <code>interleaver.vert</code> or <code>interleaver.frag</code> will be used. Because OpenGL state is initialized, the application must call this function <em>after</em> acquiring its OpenGL context, and initializing GLEW.</p>
+
+<dt><code>void <b>il_fini_context</b>(struct il_context *context)</code><dd><p>Finalize the interleaver context and release all OpenGL state associated with it.</p>
+
+</dl>
+
+<!---------------------------------------------------------------------------->
+
+<h2>Configuration</h2>
+
+<p>Display, line screen, and lenticular configuration is communicated to the interleaver via the following structure. All interleaver functions receive a constant pointer to this structure. Structure values may change as often as the application requires. Multi-tile display systems will require multiple display configuration structures.</p>
+
+<pre>
+struct il_display
+{
+    int viewport_x;
+    int viewport_y;
+    int viewport_w;
+    int viewport_h;
+
+    float quality;
+    float debug;
+
+    float BL[3];
+    float TL[3];
+    float BR[3];
+
+    float pitch;
+    float angle;
+    float thick;
+    float shift;
+
+    float *cycle;
+    float *step0;
+    float *step1;
+    float *step2;
+    float *step3;
+    float *depth;
+};
+</pre>
+
+<dl>
+<dt><code>viewport_x</code><br><code>viewport_y</code><br><code>viewport_w</code><br><code>viewport_h</code><br><dd><p>Viewport position and size. The interleaver manipulates viewport parameters to control the off-screen rendering quality.</p>
+
+<dt><code>quality</code><dd><p>Rendering quality. This must be a floating point value between 0.0 and 1.0. It determines the degree of decimation of the off-screen render buffers, and thus balances off-screen render performance against on-screen visual quality. Because spatially-multiplexed autostereo display fundamentally introduces a reduction in resolution, a reduced quality value can bring a significant increase in performance with no apparent degradation of output.</p>
+
+<dt><code>debug</code><dd><p>Debug scaling. This value is used to scale the line screen <code>pitch</code> and <code>thick</code> values (defined below) in order to exaggerate the scale of the input line screen and output interleaving. This is useful when visually inspecting the output for correctness. The effective pitch is <code>pitch / debug</code> and the effective optical thickness is <code>thick * debug</code>. The default value is one, and a reasonable debugging value is 20 to 100.</p>
+
+<dt><code>BL</code><br><code>BR</code><br><code>TL</code><dd><p>The 3D world-space positions of the bottom-left, bottom-right, and top-left corners of the display. These values must be given in the same coordinate system as the eye positions submitted to <code>il_draw</code> and <code>il_perspective</code>.</p>
+</dl>
+
+<p>The remaining fields require a more detailed description. The values <code>pitch</code>, <code>angle</code>, <code>thick</code>, and <code>shift</code> describe the basic configuration of a parallax barrier or lenticular array:
+
+<dd>
+<dt><code>pitch</code><dd><p>The line screen pitch is the physical width of each lenticule or barrier strip, measured in screen units: the same units as <code>BL</code>, <code>BR</code>, and <code>TL</code> above.</p>
+
+<dt><code>angle</code><dd><p>The line screen angle gives the rotation of the linescreen from vertical, in degrees.</p>
+
+<dt><code>thick</code><dd><p>The line screen optical thickness describes the physical distance between a display surface and a parallax barrier, taking into account the optical properties of the barrier medium. Equivalently, it gives the focal length of a lenticular array.</p>
+
+<dt><code>shift</code><dd><p>The line screen shift is a screen-space distance allowing the primary direction of the projected pattern to be adjusted left or right.</p>
+
+<dt><code>cycle</code><dd><p>The line screen duty cycle is a number between zero and one giving the opaque fraction of each period of the line screen. This field is an array of values, allowing each channel to have an independantly specified duty cycle.</p>
+</dl>
+
+<p>The following image shows the waveform used to modulate each channel on a simple display with no channel crosstalk mitigation. The shaded area denotes one repetition of the wave. The wavelength is determined by the line screen <code>pitch</code> (a screen-space measurement), while the opaque portion of the channel is determined by the line screen <code>cycle</code> (a fraction). The physical width of the opaque region is simply <code>pitch * cycle</code> and the physical width of transparent region is <code>pitch * (1.0 - cycle)</code>.</p>
+
+<center><img src="varrier.png"></center>
+
+<p>The following image shows the waveform used to modulate each channel using crosswalk mitigation. The <code>step0</code>, <code>step1</code>, <code>step2</code>, and <code>step3</code> fields give fractional values between zero and one (just as <code>cycle</code>) that soften the transitions between opaque and transparent.</p>
+
+<p>The <code>depth</code> is a positive value determining the strength of any destructive interference between the current channel and its adjacent channels.</p>
+
+<p>As with the <code>cycle</code>, each of these fields is an array of values, allowing the shape of the waveform to be specified independantly for each channel. Note that the <code>cycle</code> fraction <em>includes</em> the <code>step</code> fractions. Thus, when the <code>step</code> and <code>depth</code> fields have their default zero value, then the waveform behaves in the basic mode, as shown in the previous image.</p>
+
+<center><img src="interleaver.png"></center>
+
+<p>Given the dynamically sized fields of the display configuration structure, a few convenience functions are provided to simplify its allocation and deallocation.</p>
+
+<dl>
+
+<dt><code>struct il_display *<b>il_init_display</b>(int n)</code><dd><p>Allocate and return an interleaver display. The <code>n</code> argument gives the number of view points.</p>
+
+<dt><code>void <b>il_fini_display</b>(struct il_display *display)</code><dd><p>Finalize the interleaver display and release all allocated memory associated with it.</p>
+
+</dl>
+
+<!---------------------------------------------------------------------------->
+
+<h2>Rendering</h2>
+<dl>
+
+<dt><code>void <b>il_prep</b>(const struct il_context *context, const struct il_display *display, int view)</code><dd><p>Prepare to render a view of the scene. Applications should call this function just before rendering each view. The <code>view</code> argument selects the off-screen buffer to be used, between 0 and <code>n</code>, the value passed to <code>il_init_context</code>.</p>
+
+<p><table>
+<tr><td class="arg"><code>context</code><td>Interleaver context
+<tr><td class="arg"><code>display</code><td>Display configuration
+<tr><td class="arg"><code>view</code><td>View index
+</table></p>
+
+<dt><code>void <b>il_draw</b>(const struct il_context *context, const struct il_display *display, const float *pos)</code><dd><p>Interleave the rendered views on the display. Applications should call this function only after rendering all view points.</p>
+
+<p><table>
+<tr><td class="arg"><code>context</code><td>Interleaver context
+<tr><td class="arg"><code>display</code><td>Display configuration
+<tr><td class="arg"><code>pos</code><td>View positions
+</table></p>
+
+<p>The <code>pos</code> array should contain 3 * <code>n</code> floats giving <code>n</code> 3D floating point position vectors.</p>
+
+</dl>
+
+<!---------------------------------------------------------------------------->
+
+<h2>Utility</h2>
+<dl>
+
+<dt><code>void <b>il_perspective</b>(const struct il_display *display, const float *pos, float near, float far, float *M)</code><dd><p>Compute a perspective projection matrix. This projection will be correct for the given view position <code>pos</code> and the screen corners defined by the given display configuration.</p>
+
+<p><table>
+<tr><td class="arg"><code>display</code><td>Display configuration
+<tr><td class="arg"><code>pos</code><td>View position
+<tr><td class="arg"><code>near</code><td>Near clipping distance
+<tr><td class="arg"><code>far</code><td>Far clipping distance
+<tr><td class="arg"><code>M</code><td>Projection matrix (return)
+</table></p>
+
+<p>For a detailed examination of how this function works, see <a href="http://aoeu.snth.net/?p=43">this document</a>.</p>
+
+<p>CAVELib applications need not call this function, as the proper projection is computed by the CAVELib. In general however, this projection is not trivially computed. Standalone OpenGL applications based on SDL or GLUT will find this function useful.</p>
+
+<dt><code>float <b>il_viewpoints</b>(const struct il_display *display, float px, float ipd, float *pos, int n)</code><dd><p>Generate <code>n</code> view points in <code>pos</code>, properly positioned for the given display.
+
+<p><table>
+<tr><td class="arg"><code>display</code><td>Display configuration
+<tr><td class="arg"><code>px</code><td>Pixels per channel
+<tr><td class="arg"><code>ipd</code><td>Interpupillary distance
+<tr><td class="arg"><code>pos</code><td>View position return
+<tr><td class="arg"><code>n</code><td>Number of views
+</table></p>
+
+<p>The <code>px</code> argument gives the desired interleaving channel size in pixels. The minimum feasible value is 0.333, which implies the tightest possible LCD sub-pixel interleaving. Using the display configuration given by <code>display</code>, this function computes an optimal view distance. Using <code>ipd</code>, the interpupillary distance, an array of <code>n</code> eye positions are computed and positioned at the optimal distance.</p>
+
+<p>View positions are returned in <code>pos</code> as a list of 3 * <code>n</code> floating point values giving <code>n</code> 3D positions, just as expected by <code>il_draw</code>. The float return value is the computed optimal view distance.</p>
+
+</dl>
+
+<!---------------------------------------------------------------------------->
+
+<h2>Example</h2>
+
+<p>The following code demonstrates the steps an application must take during a screen update.  Assume here that <code>context</code> was received from a call to <code>il_init_context</code>, that <code>display</code> is a pointer to a correctly initialized <code>il_display</code> structure, that <code>pos</code> is an array of floating point 3D positions as returned by <code>il_viewpoints</code>, and that <code>draw_scene()</code> performs a normal OpenGL rendering of the scene.</p>
+
+<pre>
+    /* Render all views to off-screen buffers. */
+
+    for (i = 0; i < views; ++i)
+    {
+        float M[16];
+
+        il_prep(context, display, i);
+        il_perspective(display, pos, 1.0f, 100.0f, M);
+
+        glMatrixMode(GL_PROJECTION);
+        glLoadMatrixf(M);
+        glMatrixMode(GL_MODELVIEW);
+
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        draw_scene();
+    }
+
+    /* Interleave all views to the screen. */
+
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glDepthMask(GL_FALSE);
+
+    il_draw(context, display, pos);
+
+    glDepthMask(GL_TRUE);
+</pre>
+
+<p>Note here that the depth mask is disabled in order to ensure that the full-screen rectangle rendered during the interleaving pass is not occluded by the depth buffer.</p>
+
+<!---------------------------------------------------------------------------->
+
+<h2>Notes</h2>
+
+<p>Applications should take a few simple precautions to avoid conflicting with the interleaver. The vast majority of applications need not be concerned with these issues. These special cases do not impose significant restrictions on the application. Conflict avoidance is merely a matter of clean OpenGL programming style.</p>
+
+<p>Applications <em>must</em> initialize <a href="http://glew.sourceforge.net/">GLEW</a> before calling <code>il_init_context</code>.
+
+<p>Applications should not assume that their destination frame buffer is frame buffer object 0. Applications that generate their own frame buffer objects should query the currently bound frame buffer object before binding their own. This value should then be rebound when the application's off-screen rendering is complete. Unfortunately, the frame buffer object binding is <i>not</i> a pushable attribute. An explicit query is required.</p>
+
+<p>Care should be taken when manipulating the viewport during scene rendering. Depending on the quality setting, the viewport rectangle may differ from the expected value during off-screen rendering. Applications that wish to manipulate the viewport should first query the current rectangle and make changes relative to the returned value. Keep in mind also that the scissor rectangle may need to be set to match the viewport rectangle. Viewport and scissor state are both pushable attributes.</p>
+
+<!---------------------------------------------------------------------------->
+
+<p style="text-align:right"><i>kooima&#64;csc&#46;lsu&#46;edu</i></p>
+</body>
