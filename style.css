@@ -1,5 +1,4 @@
 /*---------------------------------------------------------------------------*/
-/* Lists of items each with a picture and text                               */
 
 body {
     margin-left:   10%;
@@ -8,25 +7,29 @@ body {
     margin-bottom: 5em;
 }
 
-h1 {
-    background-color: #eee;
-    padding: 1.0em;
-    clear: both;
+h1, h2, h3, h4, h5 {
+    font-family: "Helvetica", "Arial", sans-serif;
 }
 
-h2 {
+h1, h2, h3 {
     background-color: #eee;
+}
+
+h1, h2 {
     padding: 1.0em;
     clear: both;
 }
 
 h3 {
-    background-color: #eee;
+    padding: 0.25em;
 }
 
 p {
     text-align: justify;
 }
+
+/*---------------------------------------------------------------------------*/
+/* Lists of items each with a picture and text                               */
 
 div.item {
     clear: both;
@@ -56,12 +59,63 @@ div.txt {
 }
 
 #nav a {
+    font-family: "Helvetica", "Arial", sans-serif;
     text-align: center;
     font-size:   large;
     font-weight:  bold;
     display:     block;
     margin-top:    1em;
     margin-bottom: 1em;
+}
+
+/*---------------------------------------------------------------------------*/
+/* Calender table                                                            */
+
+table.calendar {
+  margin-left:  auto;
+  margin-right: auto;
+}
+
+td.lec {
+  width: 7em;
+  height: 7em;
+  border-color: white;
+  border-width: 2px;
+  border-style: solid;
+  vertical-align: top;
+  background: #CFC;
+}
+
+td.fin {
+  width: 7em;
+  height: 7em;
+  border-color: white;
+  border-width: 2px;
+  border-style: solid;
+  vertical-align: top;
+  background: #FFC;
+}
+
+td.hol {
+  width: 7em;
+  height: 7em;
+  border-color: white;
+  border-width: 2px;
+  border-style: solid;
+  vertical-align: top;
+  color:      #FFF;
+  background: #FCC;
+}
+
+td.off {
+  width: 7em;
+  height: 7em;
+  border-color: white;
+  border-width: 2px;
+  border-style: solid;
+  vertical-align: top;
+  color:      #FFF;
+  background: #DDD;
 }
 
 /*---------------------------------------------------------------------------*/

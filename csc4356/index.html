@@ -1,0 +1,315 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <h1 style="text-align:center">CSC 4356 / ME 4573 &mdash; Interactive Computer Graphics</h1>
+  
+  <p>This course provides an introduction to 3D computer graphics, emphasizing real-time graphics programming using OpenGL and the C or C++ programming language. Topics include the fixed function and programmable 3D pipelines, transformation, interaction, texturing, lighting, performance analysis, optimization, and a variety of intermediate and advanced topics.</p>
+  
+  <p>Prerequisites include experience with the C or C++ programming language (CSC 1253-1254 or equivalent) and understanding of data structures (CSC 3102 or equivalent). <em>No prior experience with 3D graphics or OpenGL is required.</em></p> 
+  
+  <h3>Time &amp; Place</h3>
+  <p>9:10am-10:30am<br>
+  Tuesday and Thursday<br>
+  201 <a href="http://www.lsu.edu/campus/maps/WILL01.html">Williams Hall</a></p>
+
+  <h3>Textbook</h3>
+  <p><a href="http://realtimerendering.com/">Real-Time Rendering</a><br>
+  Tomas Akenine-M&ouml;ller, Eric Haines, Naty Hoffman<br>
+  ISBN 978-1-56881-424-7</p>
+
+  <h3>Instructor</h3>
+  <p><a href="http://csc.lsu.edu/~kooima/index.html">Dr. Robert Kooima</a><br>
+  Department of Computer Science<br>
+  Louisiana State University<br>
+  <i>kooima&#64;csc&#46;lsu&#46;edu</i></p>
+
+  <h3>Office Hours</h3>
+  <p>10:30am-12:00pm<br>
+  Tuesday and Thursday<br>
+  167 <a href="http://www.lsu.edu/campus/maps/COAT01.html">Coates Hall</a></p>
+  
+  <h2 style="text-align:center">Assignments</h2>
+  <p>Assignments include three individual programming projects with informal in-class demonstrations plus one final programming project with a formal in-class presentation. This work may be done using the hardware and OS preferred by the student. Sufficient hardware is also made available by the instructor as needed. Graduate students will have one additional writing assignment associated with the final.</p>
+
+  <ul>
+    <li><a href="proj1.html">Project 1: Basic Interactive Rendering</a>
+    <li><a href="proj2.html">Project 2: The Programmable Pipeline</a>
+    <li><a href="proj3.html">Project 3: Rendering to Textures</a>
+    <li><a href="final.html">Final</a>
+  </ul>
+  
+  <!--<p>Here is the <a href="gradesheet.pdf">current gradesheet</a>.</p>-->
+  
+  <p>The grading of each assignment has four components, all of which must be completed to receive an A grade:
+    <dl>
+      <dt><b>Implementation</b></dt><dd><p>The successful implementation of program code completing the requirements described by the project specification. This should be packaged in a ZIP with all source code and assets necessary to reproduce the project. Executable binaries are not necessary, and should be omitted to minimize download size.</p></dd>
+      <dt><b>Documentation</b></dt><dd><p>The creation of a web site giving the implementation ZIP, example screen shots of the project running, and a description of what you did and how you did it. Convince the instructor that you understand what you've done. This must be a <em>public site</em>. It will be linked from the course web site, and your classmates will see it.</p></dd>
+      <dt><b>Demonstration</b></dt><dd><p>The live, in-class demonstration and description of your completed project. Be ready for this. Be certain that your project runs correctly on whatever computer you intend to use. Test <em>before</em> class. Programming project demonstrations will be informal, but the final project demonstration will be formal, with a prepared presentation.</p></dd>
+      <dt><b>Lagniappe</b></dt><dd><p>Something extra. You are free to enhance your submission in any way you like. Your addition should be significant, creative, and should distinguish your implementation from those of your classmates.</p></dd>
+    </dl>
+  </p>
+  
+  <p>To submit an assignment, simply email the URL of your documentation web site to the instructor. Do so <em>before class</em> on the scheduled due date. To be fair to everyone in the class, we can't allow late submissions. The scheduled due date stands, regardless of whether your in-class demonstration falls on that date.</p>
+
+  <p><table style="width: 100%">
+    <tr>
+      <th colspan="3">Project Scoring</th><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      <th colspan="3">Final Scoring</th><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      <th colspan="3">Semester Scoring</th>
+    </tr>
+    <tr>
+      <td>40 pts</td><td>&hellip;<td>Implementation</td><td></td>
+      <td>60 pts</td><td>&hellip;<td>Implementation</td><td></td>
+      <td>80 pts</td><td>&hellip;<td>Project 1</td>
+    </tr>
+    <tr>
+      <td>20 pts</td><td>&hellip;<td>Documentation</td><td></td>
+      <td>20 pts</td><td>&hellip;<td>Documentation</td><td></td>
+      <td>80 pts</td><td>&hellip;<td>Project 2</td>
+    </tr>
+    <tr>
+      <td>10 pts</td><td>&hellip;<td>Demonstration</td><td></td>
+      <td>60 pts</td><td>&hellip;<td>Demonstration</td><td></td>
+      <td>80 pts</td><td>&hellip;<td>Project 3</td>
+    </tr>
+    <tr>
+      <td> 10 pts</td><td>&hellip;<td>Lagniappe</td><td></td>
+      <td> 20 pts</td><td>&hellip;<td>Lagniappe</td><td></td>
+      <td>160 pts</td><td>&hellip;<td>Final</td>
+    </tr>
+    <tr>
+      <td colspan="3"><hr></td><td></td>
+      <td colspan="3"><hr></td><td></td>
+      <td colspan="3"><hr></td>
+    </tr>
+    <tr>
+      <td> 80 pts</td><td>&hellip;</td><td>Total</td><td>&nbsp;</td>
+      <td>160 pts</td><td>&hellip;</td><td>Total</td><td>&nbsp;</td>
+      <td>400 pts</td><td>&hellip;</td><td>Total</td>
+    </tr>
+    <tr><td colspan="11">&nbsp;</td></tr>
+    <tr>
+      <th colspan="3">Project Grading</th><td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      <th colspan="3">Final Grading</th><td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      <th colspan="3">Semester Grading</th>
+    </tr>
+    <tr>
+      <td>&gt;  70</td><td>&hellip;<td>A</td><td></td>
+      <td>&gt; 140</td><td>&hellip;<td>A</td><td></td>
+      <td>&gt; 350</td><td>&hellip;<td>A</td>
+    </tr>
+    <tr>
+      <td>&gt;  60</td><td>&hellip;<td>B</td><td></td>
+      <td>&gt; 120</td><td>&hellip;<td>B</td><td></td>
+      <td>&gt; 300</td><td>&hellip;<td>B</td>
+    </tr>
+    <tr>
+      <td>&gt;  50</td><td>&hellip;<td>C</td><td></td>
+      <td>&gt; 100</td><td>&hellip;<td>C</td><td></td>
+      <td>&gt; 250</td><td>&hellip;<td>C</td>
+    </tr>
+    <tr>
+      <td>&gt;  40</td><td>&hellip;<td>D</td><td></td>
+      <td>&gt;  80</td><td>&hellip;<td>D</td><td></td>
+      <td>&gt; 200</td><td>&hellip;<td>D</td>
+    </tr>
+  </table></p>
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <h2 style="text-align:center">Useful Code</h2>
+  
+  <p>It's difficult to do anything interesting in real-time computer graphics without taking advantage of existing sources and libraries. While most useful libraries are included by default or otherwise easy to install under Linux and Mac OS X, resolving dependencies can be difficult under Windows. For this reason, I provide the <a href="Windows-PITA-2010.zip">Windows PITA 2010</a>. It includes precompiled binaries for Freeglut, GLEW, libjpeg, libpng, zlib, SDL, Ogg, Vorbis, Lua, and Freetype. <a href="Windows-PITA-Install.png">Here's how to install it</a>.
+  
+  <p>In addition to these binaries, the following sources may be of use. More will be added as they are required.</p>
+  
+  <dl>
+    <dt><table width="100%"><tr><td>&bull; Hello, World</td><td align="right">[ <a href="hello-world.c"><code>hello-world.c</code></a> <a href="Makefile"><code>Makefile</code></a> ]</td></tr></table></dt><dd><p>A very simple example program using O<small>PEN</small>GL and GLUT to display a teapot.</p></dd>
+
+    <dt><table width="100%"><tr><td>&bull; gl.h</td><td align="right">[ <a href="gl.h"><code>gl.h</code></a> ]</td></tr></table></dt><dd><p>An O<small>PEN</small>GL include file that imports headers for GL, GLEW, and GLUT in a cross-platform fashion.</p></dd>
+
+    <dt><table width="100%"><tr><td>&bull; <a href="cube.html">cube</a></td><td align="right">[ <a href="cube.h"><code>cube.h</code></a> <a href="cube.c"><code>cube.c</code></a> ]</td></tr></table></dt><dd><p>Renders the <a href="cube.pdf">3D reference cube</a> using O<small>PEN</small>GL. Useful for testing 3D transformations and debugging O<small>PEN</small>GL applictions.</p></dd>
+
+    <dt><table width="100%"><tr><td>&bull; <a href="image.html">image</a></td><td align="right">[ <a href="image.h"><code>image.h</code></a> <a href="image.c"><code>image.c</code></a> ]</td></tr></table></dt><dd><p>Provides a basic image I/O library supporting the reading and writing of PNG and JPEG images.</p></dd>
+
+    <dt><table width="100%"><tr><td>&bull; <a href="math3d.html">math3d</a></td><td align="right">[ <a href="math3d.h"><code>math3d.h</code></a> <a href="math3d.c"><code>math3d.c</code></a> ]</td></tr></table></dt><dd><p>Implements a right-handed 3D mathematics library supporting three-component vectors, four-by-four matrices, quaternions, and Euler angles.</p></dd>
+
+    <dt><table width="100%"><tr><td>&bull; <a href="obj.html">obj</a></td><td align="right">[ <a href="obj.h"><code>obj.h</code></a> <a href="obj.c"><code>obj.c</code></a> ]</td></tr></table></dt><dd><p>Loads, manipulates, optimizes, renders, and stores 3D geometry using the Wavefront OBJ file format.</p></dd>
+
+
+  </dl>
+  
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <h2 style="text-align:center">Calendar Fall 2010</h2>
+  <table class="calendar">
+    <tr>
+      <th><i>Sun</i></th>
+      <th><i>Mon</i></th>
+      <th><i>Tue</i></th>
+      <th><i>Wed</i></th>
+      <th><i>Thu</i></th>
+      <th><i>Fri</i></th>
+      <th><i>Sat</i></th>
+    </tr>
+    <tr>
+      <td class="hol">Aug 22</td>
+      <td class="off">Aug 23</td>
+      <td class="lec">Aug 24<br>Introduction <a href="icg-intro.pdf"><img src="pdf.png"></a><br>Hello, World <a href="icg-hello.pdf"><img src="pdf.png"></a></td>
+      <td class="off">Aug 25</td>
+      <td class="lec">Aug 26<br>Basic Pipeline: T&amp;L <a href="icg-pipeline-1.pdf"><img src="pdf.png"></a></td>
+      <td class="off">Aug 27</td>
+      <td class="hol">Aug 28</td>
+    </tr>
+    <tr>
+      <td class="hol">Aug 29</td>
+      <td class="off">Aug 30</td>
+      <td class="lec">Aug 31<br>Basic Pipeline: Rasterization <a href="icg-pipeline-2.pdf"><img src="pdf.png"></a><br><em>Project 1 Assigned</em> <a href="csc4356-proj1.html"><img src="html.png"></a></td>
+      <td class="off">Sept 1</td>
+      <td class="lec">Sept 2<br>Transformation <a href="icg-transformation.pdf"><img src="pdf.png"></a><br></td>
+      <td class="off">Sept 3</td>
+      <td class="hol">Sept 4</td>
+    </tr>
+    <tr>
+      <td class="hol">Sept 5</td>
+      <td class="hol">Sept 6<br>Labor Day</td>
+      <td class="lec">Sept 7<br>Viewing &amp; Interaction 1 <a href="icg-viewing.zip"><img src="zip.png"></a> </td>
+      <td class="off">Sept 8</td>
+      <td class="lec">Sept 9<br>Viewing &amp; Interaction 2 <a href="icg-viewing.zip"><img src="zip.png"></a></td>
+      <td class="off">Sept 10</td>
+      <td class="hol">Sept 11</td>
+    </tr>
+    <tr>
+      <td class="hol">Sept 12</td>
+      <td class="off">Sept 13</td>
+      <td class="lec">Sept 14<br><em>Project 1 Due</em></td>
+      <td class="off">Sept 15</td>
+      <td class="lec">Sept 16<br><em>Project 1 Demo</em><br>Texturing <a href="icg-texturing-1.pdf"><img src="pdf.png"></a></em></td>
+      <td class="off">Sept 17</td>
+      <td class="hol">Sept 18</td>
+    </tr>
+    <tr>
+      <td class="hol">Sept 19</td>
+      <td class="off">Sept 20</td>
+      <td class="lec">Sept 21<br>3D Assets<br><em>Project 2 Assigned</em> <a href="csc4356-proj2.html"><img src="html.png"></a></td>
+      <td class="off">Sept 22</td>
+      <td class="lec">Sept 23<br>Programmable Pipeline: Basics <a href="icg-pipeline-3.pdf"><img src="pdf.png"></a></td>
+      <td class="off">Sept 24</td>
+      <td class="hol">Sept 25</td>
+    </tr>
+    <tr>
+      <td class="hol">Sept 26</td>
+      <td class="off">Sept 27</td>
+      <td class="lec">Sept 28<br>Programmable Pipeline: Lighting <a href="icg-pipeline-3.pdf"><img src="pdf.png"></a></td>
+      <td class="off">Sept 29</td>
+      <td class="lec">Sept 30<br>Programmable Pipeline: Texturing <a href="icg-glsl.zip"><img src="zip.png"></a></td>
+      <td class="off">Oct 1</td>
+      <td class="hol">Oct 2</td>
+    </tr>
+    <tr>
+      <td class="hol">Oct 3</td>
+      <td class="off">Oct 4</td>
+      <td class="lec">Oct 5<br><em>Project 2 Due</em></td>
+      <td class="off">Oct 6</td>
+      <td class="lec">Oct 7<br><em>Project 2 Demo</em></td>
+      <td class="off">Oct 8</td>
+      <td class="hol">Oct 9</td>
+    </tr>
+    <tr>
+      <td class="hol">Oct 10</td>
+      <td class="off">Oct 11</td>
+      <td class="lec">Oct 12<br>&ldquo;Potpourri&rdquo;<br><a href="colloquium-goddard.pdf"><img src="pdf.png"></a></td>
+      <td class="off">Oct 13</td>
+      <td class="lec">Oct 14<br>Environment Mapping &amp; HDR <a href="icg-env.zip"><img src="zip.png"></a></td>
+      <td class="off">Oct 15</td>
+      <td class="hol">Oct 16</td>
+    </tr>
+    <tr>
+      <td class="hol">Oct 17</td>
+      <td class="off">Oct 18</td>
+      <td class="lec">Oct 19<br>Render-to-Texture <a href="icg-fbo.pdf"><img src="pdf.png"></a><br><em>Project 3 Assigned</em></td>
+      <td class="off">Oct 20</td>
+      <td class="hol">Oct 21<br>Fall Holiday</td>
+      <td class="hol">Oct 22<br>Fall Holiday</td>
+      <td class="hol">Oct 23</td>
+    </tr>
+    <tr>
+      <td class="hol">Oct 24</td>
+      <td class="off">Oct 25</td>
+      <td class="lec">Oct 26<br>Water Rendering <a href="icg-fbo.pdf"><img src="pdf.png"></a></td>
+      <td class="off">Oct 27</td>
+      <td class="lec">Oct 28<br>Shadow Rendering <a href="icg-shadows.pdf"><img src="pdf.png"></a></td>
+      <td class="off">Oct 29</td>
+      <td class="hol">Oct 30</td>
+    </tr>
+    <tr>
+      <td class="hol">Oct 31</td>
+      <td class="off">Nov 1</td>
+      <td class="lec">Nov 2<br><em>Project 3 Due</em></td>
+      <td class="off">Nov 3</td>
+      <td class="lec">Nov 4<br><em>Project 3 Demo</em><br><em>Final Assigned</em></td>
+      <td class="off">Nov 5</td>
+      <td class="hol">Nov 6</td>
+    </tr>
+    <tr>
+      <td class="hol">Nov 7</td>
+      <td class="off">Nov 8</td>
+      <td class="lec">Nov 9<br><em>Middleton Lab</em><br>Volume Raytracing</td>
+      <td class="off">Nov 10</td>
+      <td class="lec">Nov 11<br>Debugging &amp; Performance</td>
+      <td class="off">Nov 12</td>
+      <td class="hol">Nov 13</td>
+    </tr>
+    <tr>
+      <td class="hol">Nov 14</td>
+      <td class="off">Nov 15</td>
+      <td class="lec">Nov 16</td>
+      <td class="off">Nov 17</td>
+      <td class="lec">Nov 18</td>
+      <td class="off">Nov 19</td>
+      <td class="hol">Nov 20</td>
+    </tr>
+    <tr>
+      <td class="hol">Nov 21</td>
+      <td class="off">Nov 22</td>
+      <td class="lec">Nov 23<br><em>Slack Day (Instructor is away)</em></td>
+      <td class="hol">Nov 24<br>Thanksgiving Holiday</td>
+      <td class="hol">Nov 25<br>Thanksgiving Holiday</td>
+      <td class="hol">Nov 26<br>Thanksgiving Holiday</td>
+      <td class="hol">Nov 27</td>
+    </tr>
+    <tr>
+      <td class="hol">Nov 28</td>
+      <td class="off">Nov 29</td>
+      <td class="lec">Nov 30<br><em>Final Presentations 1</em></td>
+      <td class="off">Dec 1<br>Concentrated Study</td>
+      <td class="lec">Dec 2<br><em>Final Presentations 2</em></td>
+      <td class="off">Dec 3<br>Concentrated Study</td>
+      <td class="hol">Dec 4</td>
+    </tr>
+    <tr>
+      <td class="hol">Dec 5</td>
+      <td class="fin">Dec 6<br>Finals</td>
+      <td class="fin">Dec 7<br>Finals</td>
+      <td class="fin">Dec 8<br>Finals</td>
+      <td class="fin">Dec 9<br>Finals</td>
+      <td class="fin">Dec 10<br>Finals</td>
+      <td class="hol">Dec 11</td>
+    </tr>
+  </table>
+  <!--
+  <br>Render-to-texture
+  <br>Skeletal Animation
+  <br>Visibility &amp; Optimization
+  <br>Terrain
+  <br>Billboards<br>Antialiasing
+  <br>Overlays, HUDs &amp; GUIs
+  <br>Tessellation
+  <br>Post-Processing and Non-Photorealism
+  <br>SIGGRAPH Review
+  -->
+  
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+</body>
+</html>
