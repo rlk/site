@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <style type="text/css">
+    body     { text-align:   justify;
+               margin-right: 12%;
+               margin-left:  12%; }
+    h1       { margin-left: -12%; }
+    h2       { margin-left:  -9%; }
+    h3       { margin-left:  -6%; }
+    h4       { margin-left:  -3%; }
+    h5       { margin-left:  -0%; }
+    dt       { background: #EEEEEE; padding: 0.5em; }
+    pre.vert { background: #CCFFCC; padding: 1.0em; }
+    pre.frag { background: #FFFFCC; padding: 1.0em; }
+  </style>
+  <title>Part 2: Day and Night Skies</title>
+</head>
+<body>
+
+<h1>Part 2: Day and Night Skies</h1>
+
+<p>The sky is rendered in two distinct layers. The atmosphere is rendered as a shaded dome. The sun, moon, and stars are rendered as bill-boarded sprites. As demo time passes, the sprite layer and the OpenGL directional light sources are rotated together about the origin, providing the illusion that the earth is rotating beneath a dynamic sky.</p>
+
+<p>All of the sky is rendered all of the time. That is, there is no real distinction between the day and night skies. In particular, the stars are still out during the day, they're just overpowered by the blue sky. The only variable is the time of day. Here we examine this process in detail. </p>
+
+<!---------------------------------------------------------------------------->
+
+<h2>The Atmosphere Shader</h2>
+
+<p>Shaders must be applied to geometry, so to begin we define the geometry of the atmosphere. We use a simple geodesic dome centered about the viewer. Here we see it in wire-frame.</p>
+
+<div align="center"><img src="sky_dome.png"></div>
+
+<p>We want to color this dome based on the location of the sun. The fragment shader knows this location as it has access to the position of OpenGL light source 0, which gives the sun vector.  At each fragment we also have the fragment's own position in the sky, which gives the view vector. All we need is a way to convert the relationship between these two vectors into color. Sky color has two components: one that varies with proximity to the horizon, and another that varies with proximity to the sun. Both of these components vary with time of day.</p>
+
+<p>To determine the horizon proximity color we reference a 2D texture. Our texture coordinates are given by the vertical position of the sun and the vertical position of the current fragment. Note that the vertical position of the sun indirectly indicates the time of day. The texture map appears as follows (the checkerboard indicates transparency):</p>
+
+<div align="center"><img src="sky.png"></div>
+
+<p>Similarly, to determine the sun proximity color we reference another 2D texture. This time, our coordinates are given by the vertical position of the sun (again, time) and the dot product of the fragment vector with the sun vector. This dot product gives a large value near the sun, and a small one far away, and thus models a glow centered at the sun position.</p>
+
+<div align="center"><img src="glow.png"></div>
+
+<p>The sun glow texture gives us the opportunity to tweak the glow over time. In particular, as the sun nears the horizon the glow expands and reddens, providing a convincing sunrise-sunset effect.</p>
+
+<div align="center"><img src="glow_risen.png"><img src="glow_rising.png"></div>
+
+<p>Both of these textures can be understood as horizon and glow colors over time. The left edge of each texture is midnight and the right edge is noon. Our texture reference proceeds left to right between midnight and noon, and right to left between noon and the following midnight.</p>
+
+<p>The vertex shader simply passes along the one piece of information that the fragment shader doesn't already have: the position of the fragment.</p>
+
+<pre class="vert">
+varying vec3 vertex;
+
+void main()
+{
+    vertex      = gl_Vertex.xyz;
+    gl_Position = ftransform();
+}
+</pre>
+
+<p>The fragment shader takes it from there, making the texture look-ups and blending them to form the final pixel. The alpha value of the horizon color map is preserved in order to ensure correct blending with the sprite layer, described below.</p>
+
+<pre class="frag">
+uniform sampler2D glow;
+uniform sampler2D color;
+
+varying vec3 vertex;
+
+void main()
+{
+    vec3 V = normalize(vertex);
+    vec3 L = normalize(gl_LightSource[0].position.xyz);
+
+    // Compute the proximity of this fragment to the sun.
+
+    float vl = dot(V, L);
+
+    // Look up the sky color and glow colors.
+
+    vec4 Kc = texture2D(color, vec2((L.y + 1.0) / 2.0, V.y));
+    vec4 Kg = texture2D(glow,  vec2((L.y + 1.0) / 2.0, vl));
+
+    // Combine the color and glow giving the pixel value.
+
+    gl_FragColor = vec4(Kc.rgb + Kg.rgb * Kg.a / 2.0, Kc.a);
+}
+</pre>
+
+<!---------------------------------------------------------------------------->
+
+<h2>The Sprite Layer</h2>
+
+<p>The night sky is complex and can be challenging to render. A common approach is to render the sky as a cube map. This is limited by resolution, which raises a quality-speed trade-off. Here we use a technique that provides both quality and speed, at the cost of a fair amount of overdraw.</p>
+
+<p>For starters, the sun and moon are easy. They are simple textured quads rotated to face the viewer. The trick is to realize that this technique can also be applied to the stars. Apparent randomness stems from the random distribution, rotation, and scale of a single, relatively small texture. Here we see the star sprites with their outlines highlighted.</p>
+
+<div align="center"><img src="stars.png"></div>
+
+<!---------------------------------------------------------------------------->
+
+<h2>The Combination</h2>
+
+<p>The atmosphere dome and sprite layer are simply alpha blended. The net effect is this during the day...</p>
+
+<div align="center"><img src="sky_day.png"></div>
+
+<p>... and this during the night, with a graceful transition between the two.</p>
+
+<div align="center"><img src="sky_night.png"></div>
+
+<!---------------------------------------------------------------------------->
+
+<div align="center">
+[<a href="index.html">Introduction</a>]
+[<a href="part1.html">Part 1: Scene Geometry</a>]
+[Part 2: Day and Night Skies]
+[<a href="part3.html">Part 3: Illumination</a>]
+[<a href="part4.html">Part 4: Added Detail</a>]
+</div>
+
+<p style="text-align: right"><img src="address.jpg"></p>
+</body>

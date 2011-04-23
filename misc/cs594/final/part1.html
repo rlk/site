@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <style type="text/css">
+    body { text-align:   justify;
+           margin-right: 12%;
+           margin-left:  12%; }
+    h1   { margin-left: -12%; }
+    h2   { margin-left:  -9%; }
+    h3   { margin-left:  -6%; }
+    h4   { margin-left:  -3%; }
+    h5   { margin-left:  -0%; }
+    dt   { background: #EEEEEE; padding: 0.5em; }
+    pre  { background: #FFFFCC; padding: 1.0em; }
+  </style>
+  <title>Part 1: Scene Geometry</title>
+</head>
+<body>
+
+<h1>Part 1: Scene Geometry</h1>
+
+<!---------------------------------------------------------------------------->
+
+<h2>Foreground</h2>
+
+<p>The foreground is a model consisting of 1988 vertices and 1900 polygons modeled using <a href="http://www.wings3d.com">Wings3D</a>. It was exported from Wings as a single OBJ format file and loaded using the <a href="http://www.evl.uic.edu/rlk/obj/obj.html">OBJ loader library</a>.</p>
+
+<div align="center"><img src="scene_in_wings.png"></div>
+
+<p>Here is the triangulated wire-frame drawn by the demo.</p>
+
+<div align="center"><img src="unlit_wire.png"></div>
+
+<p>Finally, here is the textured geometry. Most of these textures were taken from <a href="http://developer.nvidia.com/object/IO_TTVol_01.html">NVIDIA's Transmogrifying Textures Volume 1</a>. Other textures, including the content of the billboard itself, were generated using <a href="http://www.gimp.org">The GIMP</a>.</p>
+
+<p>This is our starting point. Our task now is to put this into context and make it look good.</p>
+
+<div align="center"><img src="unlit_fill.png"></div>
+
+<p>One aspect of the foreground geometry worth pointing out is the wire running to the power pole. This is represented by a single large flat polygon with a mostly-transparent texture applied. This geometry is visible in the Wings screen shot, but has alpha-tested away in the demo screen shot.<p>
+
+<!---------------------------------------------------------------------------->
+
+<h2>Background</h2>
+
+<p>The background is a model consisting of 192 vertices and 255 faces. It too was modeled with Wings and loaded using the OBJ library.</p>
+
+<div align="center"><img src="landscape_in_wings.png"></div>
+
+<p>The background uses a modern twist on the forced perspective. The geometry itself is just a tiny pie-crust of crumpled vertices. When rendered, it is transformed such that it always remains centered about the viewer. Its contribution to the depth buffer is discarded, as it can always be assumed to be farther away from the viewer than anything else. These two techniques combine to provide the illusion that the background is always extremely far away, regardless of the view position.</p>
+
+<p>Here we see the foreground overlaid atop the background. A fog effect is applied to the background using the OpenGL fixed function pipeline. This simulates the atmospheric in-scattering that occurs when viewing objects at a distance, and lends the mountains of bit of purpleness and majesty.</p>
+
+<div align="center"><img src="landscape.png"></div>
+
+<!---------------------------------------------------------------------------->
+
+<h2>Lighting</h2>
+
+<p>We have 4 light sources in our scene. The sun is a bright white directional light source and the moon is a pale blue directional light source. In addition, two dim yellow point light sources are positioned inside the foreground's lamp shade geometry. Three of these light sources, the sun and the two bulbs, are enabled in the above screen shot. This is entirely the OpenGL fixed function pipeline at work, so things look a little bland.</p>
+
+<!---------------------------------------------------------------------------->
+
+<div align="center">
+[<a href="index.html">Introduction</a>]
+[Part 1: Scene Geometry]
+[<a href="part2.html">Part 2: Day and Night Skies</a>]
+[<a href="part3.html">Part 3: Illumination</a>]
+[<a href="part4.html">Part 4: Added Detail</a>]
+</div>
+
+<p style="text-align: right"><img src="address.jpg"></p>
+</body>

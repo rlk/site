@@ -1,0 +1,176 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+  <style type="text/css">
+    body   { text-align:   justify;
+             margin-right: 12%;
+             margin-left:  12%; }
+    h1     { margin-left: -12%; }
+    h2     { margin-left:  -9%; }
+    h3     { margin-left:  -6%; }
+    h4     { margin-left:  -3%; }
+    h5     { margin-left:  -0%; }
+    dt     { background: #EEEEEE; padding: 0.25em; }
+    dt.dep { background: #FFDDDD; padding: 0.25em; }
+    pre    { background: #FFFFCC; padding: 1.00em; }
+    p.note { background: #CCFFFF; padding: 1.00em; }
+  </style><title>CS 594 - Project 3 - Robert Kooima</title></head>
+
+<body>
+
+<h1>CS 594 Project 3</h1>
+<h2>Robert Kooima</h2>
+
+<!---------------------------------------------------------------------------->
+
+<h3>Introduction</h3>
+
+<p>This project implements a constrained particle dynamics simulation on the GPU. A specific constraint structure is represented: a loop of ribbon.</p>
+
+<p>The motivation for this project is found in another class I am taking this semester, Lou Kauffman's knot theory course. Theoretical knots are 3D objects, but are generally drawn in 2D. Given a complex knot, the selection of a 2D layout for a 3D knot can be complex. A given knot has an infinitude of equivalent 2D representations. Finding a good 2D representation is a matter of reducing clutter. Such a reduction in clutter as a natural consequence of a reduction in the energy of a knot, so knot layout maps naturally onto physical simulation.</p>
+
+<p>Lou Kauffman and Dan Sandin have spent time this semester doing related work using Electro. They have modeled knots as a series of spheres connected by universal joints. Their intent has been to experiment with the ability of "puffing" to undo unknotted structures.  That is, if each point of the chain exerts an electromagnetic repulsion on every other point, then an unknot must untie itself. Unfortunately, Lua is not a high performance language, and the Electro knot experiments have been limited to simple systems. One of the goals of this implementation is to maximize the potential complexity of the system by exploiting the GPU as a vector processor.</p>
+
+<p>In this project, a ribbon is simulated rather than a simple strand because ribbon has the property of twist. Twist is a form of energy storage which can have an impact on the overall shape of the ribbon. There is a conservation law in effect that allows local twist to be traded for global writhe. I wanted to explore this relationship interactively.</p>
+
+<p>So at the outset, this project has two hypotheses: First, that unknots can be identified by puffing. Second, that the conservation of twist and writhe would naturally be apparent in a simple numerical simulation of ribbon.</p>
+
+<p>The implementation takes as input the ASCII output of <a href="http://www.pims.math.ca/knotplot/">Knot Plot</a>, a portable freeware knot manipulation and rendering application. All examples used in the project are taken from Knot Plot's catalog.</p>
+
+<!---------------------------------------------------------------------------->
+
+<h3>Source with Windows binary</h3>
+
+<a href="http://www.evl.uic.edu/rlk/cs594/proj3/rlk-proj3.zip">rlk-proj3.zip</a>
+
+<!---------------------------------------------------------------------------->
+
+<h3>Controls</h3>
+
+<dl>
+<dt>Left mouse drag<dd><p>Turn the camera, or manipulate the GUI, if visible.</p>
+
+<dt>WASD<dd><p>Move the camera. These key bindings may be configured in the configuration file. (And they might need to be if I forgot to uncomment the QWERTY key config.)
+
+<dt>Space<dd><p>Toggle the physical simulation. The simulation is halted at startup to allow for initial tweaking of settings.</p>
+
+<dt>Tab<dd><p>Toggle the GUI overlay. Off by default.</p>
+
+<dt>F5<dd><p>Toggle filled ribbon display.</p>
+
+<dt>F6<dd><p>Toggle vertex display.</p>
+
+<dt>F7<dd><p>Toggle spring display.</p>
+
+<dt>F8<dd><p>Toggle floor display.</p>
+
+<dt>F9<dd><p>Snap "screenshot.png".</p>
+
+<dt>F11<dd><p>Revert the knot it its initial state.</p>
+
+<dt>F12<dd><p>Reinitialize the application and reload all assets and configuration files.</p>
+
+</dl>
+
+<!---------------------------------------------------------------------------->
+
+<h3>Configuration</h3>
+
+<p>The following shot shows a freshly-loaded trefoil model with the GUI overlay. The GUI allows the parameters of the physical simulation to be tweaked interactively. They are explained below.</p>
+
+<p>These parameters may be set permanantly in a configuration file. The file "default.conf" is automatically loaded at startup, and additional configuration files may be specified on the command line (or dragged-and-dropped under Windows). Later configuration options override earlier ones. Most of the parameters should be self-explanitory.</p>
+
+<p>One particularly significant configuration option is the string "knot_file" which specifies the name of the knot definition file to load.</p>
+
+<div align="center"><img src="gui.png"></div>
+
+<dl>
+<dt><tt>motion_dampen</tt><dd><p>The coefficient of force applied in the direction opposite to a particle's velocity. Motion damping has the affect of smoothing jitter and allowing the system to come to rest. If set to zero, the system will oscillate or drift forever.</p>
+
+<dt><tt>spring_length</tt><dd><p>The natural length of horizontal and vertical springs holding the particle mesh togather. Reducing this value shrinks the system, but causes repulsive forces to increase. This parameter is automatically recomputed when a file is loaded.</p>
+
+<dt><tt>spring_factor</tt><dd><p>Hooke's Law coefficient for spring strength. This controls the quantity of force generated by stretched or compressed springs.</p>
+
+<dt><tt>spring_dampen</tt><dd><p>Hooke's Law coefficient for spring damping. This behaves as a shock absorber and bounds the rate at which a spring may translate. This is useful to reduce oscillation in the system.</p>
+
+<dt><tt>force_const1/2</tt><dd><p>Repulsive force strength. These control the strength of the repelling force that puffs the knot out and prevents it from intersecting with itself.</p>
+
+<dt><tt>force_power1/2</tt><dd><p>Repulsive force exponent. These control the range of influence of the repulsive force.</p>
+
+</dl>
+
+<p>The repulsive forces between particles A and B take the form (force_const * (A - B)) / (||A-B||^force_power). There are two forces in order to allow the knot "puffiness" force to be tweaked independantly from the ribbon self-intersection force. In general, a low-exponent force should be used for puffing, while a high-exponent force should be used for intersection.</p>
+
+<!---------------------------------------------------------------------------->
+
+<h3>Usage</h3>
+
+<p>Appealing output is, to a significant extent, the result of skilled piloting. Usually, a freshly-loaded Knot Plot file has <i>far</i> too much energy bound up in the springs. So initially, a knot should be allowed to relax with a small intersection exponent for a second or two. The ribbon will crinkle as this energy is released. A large intersection exponent applied early on will cause the system to explode.</p>
+
+<p>After the initial spring relaxation, the intersection strength and exponent may be increased to harden the intersection constraint. The puffing force exponent should remain small, but the puffing force strength may be increased. This will increase the size of the knot while smoothing any crinkles.</p>
+
+<p>Nothing <i>guarantees</i> the self-intersection constraint. If the intersection force strength and exponent are too small then spring forces and puffing forces may pull the ribbon through itself.</p>
+
+<p>In general, the motion damping coefficient should be kept high in order to keep velocities down. This will keep the system from zooming out of control.</p>
+
+<p>Several example knots are included with the source.  <tt>trefoil.knot</tt>, <tt>figure8.knot</tt>, <tt>seven1.knot</tt>, and <tt>torus-6-13.knot</tt> are basic knots, while <tt>unknot.knot</tt> is an unknot, which will untie itself given the right coefficients.</p>
+
+<!---------------------------------------------------------------------------->
+
+<h3>Rendering</h3>
+
+<p>This shot shows the trefoil after having been puffed a bit. There are 256 particles here, though the original file only defined 47 points. The simulation always uses the number of particles defined in the configuration file, and interpolates between points in the input file to get there. Contrast this smooth ribbon with its initial state in the shot above to see this distinction.</p>
+
+<div align="center"><img src="trefoil.png"></div>
+
+<p>Here, vertex and spring rendering is enabled so the structure of the mesh becomes visible.</p>
+
+<div align="center"><img src="vertices_springs.png"></div>
+
+<p>Here, the simulation has relaxed a 1024-particle representation of torus 6-13.<p/>
+
+<div align="center"><img src="torus.png"></div>
+
+<p>This shot displays some of the power of the implementation. Here we see the knot 7.1 after a minute or so of relaxation. It is represented by 2048 particles, rendering at approximately 20FPS on an NVIDIA GeForce 6800GT. The ribbon is shown with both filled surface and wireframe. The rungs of the ladder are to small to be discerned.</p>
+
+<div align="center"><img src="seven.png"></div>
+
+<!---------------------------------------------------------------------------->
+
+<h3>Simulation</h3>
+
+<p>All aspects of the model are represented using pixel buffers. Once the initial data file is loaded the simulation proceeds entirely within VRAM.</p>
+
+<p>The simulation is computed using a simple Euler integrator. For an N-particle system, position and velocity are represented using a set of 2&times;N/2 textures. Each pixel represents one particle. Position and velocity vectors are stored in floating point RGB textures. The precision of the buffer may be 16-bit or 32-bit, as specified in the configuration file, subject to available VRAM.</p>
+
+<img src="ribbon.png" style="float: right; padding: 1em">
+<ol>
+
+<li><p>The first pass of the simulation computes the all-pairs repulsive forces. For each fragment (<i>i, j</i>) the force fragment shader reads the positions of particles <i>i</i> and <i>j</i> from the position buffer, bound as a 2D texture, and writes the result to an N&times;N floating point frame buffer object.</p>
+
+<li><p>In the second pass, a parallel reduction of the force buffer is performed. The reduction shader sums each column of the force buffer down to the 0th row. This is accomplished in log(N) passes. The total number of fragment computations is N&times;N, and this step is surprisingly fast.</p> 
+
+<li><p>The third pass uses the 0th row of the reduced force buffer to integrate particle velocity. In addition, the positions of each particle's 5 nearest neightbors are referenced and Hooke's law for dampened springs is evaluated. Here also, motion damping is applied.</p>
+
+<li><p>Given velocity, position is integrated in the fourth pass.</p>
+
+<li><p>From position, ribbon surface normals are computed. This is performed in the fifth pass by computing and averaging the normals of the 4 faces that touch each particle.</p>
+
+</ol>
+
+<p>The 2&times;N/2 layout is selected for ease of display. After the computation of positions and normals, a pair of pixel reads copy and translates position and normal values from each frame buffer object to a single pixel buffer object. This PBO is then be mapped as a vertex buffer object. The 2&times;N/2 layout coincides with the expected layout of a quad strip so, once the PBO is bound to the VBO target, a single glDrawArrays call is made to draw the surface, the wireframe surface, or the point set. In total, no data need be transfered to or from main RAM.</p>
+
+<p>A Blinn shader is applied to the surface to smooth the computed normals and provide a shiny specular ribbon-y appearance. Rather than clamping the lighting dot products at zero, the signs are simply discarded. This produces the effect of two-sided lighting independant of normal direction.</p>
+
+<!---------------------------------------------------------------------------->
+
+<h3>Conclusion</h3>
+
+<p>With proper usage, both hypotheses are supported by the behavior of the system, as implemented. The system has all of the capabilities imagined for it at the outset, but the expected behaviors do not emerge automatically given the current set of default coefficients. Given some experience, a reliable set of coefficients may be discovered.</p>
+
+<p>In addition, the relationship between twist and writhe cannot be fully explored without a more powerful interface. In particular, explicit twist should be applicable at a precisely defined position on the ribbon.</p>
+
+<p>If this implementation proves useful or interesting either as a demo or as a tool for Dan and Lou, then these goals will be pursued.</p>
+
+<!---------------------------------------------------------------------------->
+
+</body></html>

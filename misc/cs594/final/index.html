@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <style type="text/css">
+    body     { text-align:   justify;
+               margin-right: 12%;
+               margin-left:  12%; }
+    h1       { margin-left: -12%; }
+    h2       { margin-left:  -9%; }
+    h3       { margin-left:  -6%; }
+    h4       { margin-left:  -3%; }
+    h5       { margin-left:  -0%; }
+    dt       { background: #EEEEEE; padding: 0.5em; }
+    pre.vert { background: #CCFFCC; padding: 1.0em; }
+    pre.frag { background: #FFFFCC; padding: 1.0em; }
+  </style>
+  <title>Robert Kooima - CS594 Final</title>
+</head>
+<body>
+
+<h1>Robert Kooima - CS594 Final</h1>
+
+<!---------------------------------------------------------------------------->
+
+<h2>Introduction</h2>
+
+<p>This tutorial describes in detail each aspect of the creation of a scene centered upon a dilapidated billboard somewhere in the desert southwest. We'll see how foreground and background geometry combine with sky and lighting effects to form a coherent scene in both day...</p>
+
+<div align="center"><img src="final_day.png"></div>
+
+<p>... and night.</p>
+
+<div align="center"><img src="final_night.png"></div>
+
+<p>Many of the details of the implementation are omitted from this discussion. It is assumed that any reader looking to implement the techniques presented here will already be familiar with the particulars of OpenGL application initialization, extension management, and texture and object loading. Where appropriate, links to further information are provided.</p>
+
+<h2>Contents</h2>
+
+<p>We proceed in four parts, with each part building on the previous. All of the demo screen shots and code samples included in each of these four parts are taken from the final version of the demo, provided below.</p>
+
+<ol>
+<li><a href="part1.html">Scene Geometry</a>
+<li><a href="part2.html">Day and Night Skies</a>
+<li><a href="part3.html">Illumination</a>
+<li><a href="part4.html">Added Detail</a>
+</ol>
+
+<p>This document presents several examples of GLSL vertex and fragment shaders. We distinguish these two as follows. Vertex shader code appears in green:</p>
+
+<pre class="vert">
+void main()
+{
+    gl_Position = ftransform();
+}
+</pre>
+
+<p>Fragment shader code appears in yellow:</p>
+
+<pre class="frag">
+void main()
+{
+    gl_FragColor = vec4(0.0, 1.0, 0.0, 1.0);
+}
+</pre>
+
+<!---------------------------------------------------------------------------->
+
+<h2>Demo</h2>
+
+<p>The demo source code including all models, shaders, and textures may be downloaded here. It has been built and tested under Windows XP, OSX, and Linux. Visual Studio 7 project files and a Unix makefile are included.</p>
+
+<ul>
+<li><a href="rlk-final.zip">rlk-final.zip</a>
+</ul>
+
+<p>Demo controls:</p>
+
+<dl>
+<dt>Left drag<dd><p>Rotate the view</p>
+<dt>Right drag<dd><p>Rotate the sky</p>
+<dt>Mouse wheel<dd><p>Zoom the view</p>
+<dt>Space bar<dd><p>Toggle the passage of time</p>
+<dt>Tab<dd><p>Toggle wireframe view</p>
+<dt>F9<dd><p>Screenshot</p>
+<dt>F12<dd><p>Flush and reload all configurations and assets</p>
+<dt>Escape<dd><p>Exit</p>
+</dl>
+
+<!---------------------------------------------------------------------------->
+
+<div align="center">
+[Introduction]
+[<a href="part1.html">Part 1: Scene Geometry</a>]
+[<a href="part2.html">Part 2: Day and Night Skies</a>]
+[<a href="part3.html">Part 3: Illumination</a>]
+[<a href="part4.html">Part 4: Added Detail</a>]
+</div>
+<p style="text-align: right"><img src="address.jpg"></p>
+</body>

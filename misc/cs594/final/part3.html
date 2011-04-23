@@ -1,0 +1,311 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <style type="text/css">
+    body     { text-align:   justify;
+               margin-right: 12%;
+               margin-left:  12%; }
+    h1       { margin-left: -12%; }
+    h2       { margin-left:  -9%; }
+    h3       { margin-left:  -6%; }
+    h4       { margin-left:  -3%; }
+    h5       { margin-left:  -0%; }
+    dt       { background: #EEEEEE; padding: 0.5em; }
+    pre.vert { background: #CCFFCC; padding: 1.0em; }
+    pre.frag { background: #FFFFCC; padding: 1.0em; }
+  </style>
+  <title>Part 3: Illumination</title>
+</head>
+<body>
+
+<h1>Part 3: Illumination</h1>
+
+<!---------------------------------------------------------------------------->
+
+<p>The illumination model at work here is simple, but heavy. A basic per-fragment Lambertian diffuse shading is applied to all surfaces, with surface colors taken from 2D texture maps. Ambient and, in a few cases, emissive light is included. The bulk of the fragment processing overhead is contributed by the handling of shadows for each of the four active lights in the scene. In total, only a single pass of one shader is applied during the rendering of foreground geometry. We examine each line of this shader in detail. </p>
+
+<!---------------------------------------------------------------------------->
+
+<h2>Shadow Mapping</h2>
+
+<p>Shadowing is a core aspect of our illumation model. All four of our lights cast dynamic shadows. These shadows are produced using the shadow map algorithm.</p>
+
+<p>Many shadow mapping tutorials exist. <a href="http://developer.nvidia.com/object/hwshadowmap_paper.html">NVIDIA's Hardware Shadow Mapping</a> is a good introduction. It is among several pertainent references to be found among the documentation at the <a href="http://developer.nvidia.com/page/home.html">NVIDIA developer site</a>. Also, <a href="http://www.paulsprojects.net/tutorials/smt/smt.html">Paul's Projects</a> discusses the OpenGL implementation specifics in great detail.</p>
+
+<p>Shadow map rendering is straightforward. The executive summary follows, and the reader is encouraged to consult the references for details.</p>
+
+<p>Shadow maps are represented using <a href="http://oss.sgi.com/projects/ogl-sample/registry/ARB/depth_texture.txt"><tt>GL_DEPTH_COMPONENT</tt></a> format textures. Commonly, such textures are bound to the depth attachment point of an OpenGL <a href="http://oss.sgi.com/projects/ogl-sample/registry/EXT/framebuffer_object.txt">framebuffer object</a>. The scene is drawn to this off-screen buffer from the light source's perspective and the resulting depth buffer is bound as a texture map.</p>
+
+<p>This texture's <tt>GL_TEXTURE_COMPARE_MODE</tt> parameter is set to <tt>GL_COMPARE_R_TO_TEXTURE</tt> to allow it to be referenced by a GLSL <tt>sampler2DShadow</tt>. This sampler not only performs the texture look-up, but also handles the depth comparison as defined by the OpenGL <a href="http://oss.sgi.com/projects/ogl-sample/registry/ARB/shadow.txt">shadow map extension.</a> It returns not a texture value, but a floating point value indicating whether the fragment is or is not in shadow.</p>
+
+<p>Texture coordinates are generated from the vertex positions of the geometry being drawn. A vertex position is transformed by the camera's model matrix, the light source's view matrix, the light source's projection matrix (which introduces the Q coordinate and perspective divide), and finally a scale-bias matrix that transforms normalized device coordinates (-1,1) to texture coordinates (0,1). The result is a position in homogeneous coordinates which is used as input to a projective sampler.</p>
+
+<p>Our demo's shadow map implementation may be examined in the source. For the purposes of this discussion of the illumination shader, the necessary shadow map textures are merely assumed to exist.</p>
+
+<!---------------------------------------------------------------------------->
+
+<h2>The Illumination Shader</h2>
+
+<p>Now on to the shader. Here we consider each line in turn.</p>
+
+<!---------------------------------------------------------------------------->
+
+<h3>Diffuse color</h3>
+
+<p>Surface color is defined by a 2D texture map. The vertex shader copies the texture coordinate unmodified from the model definition.</p>
+
+<pre class="vert">
+    gl_TexCoord[0] = gl_MultiTexCoord0;
+</pre>
+
+<p>The fragment shader does the diffuse color texture look up.</p>
+
+<pre class="frag">
+    vec4 Kd = texture2D(diffuse, gl_TexCoord[0].xy);
+</pre>
+
+<!---------------------------------------------------------------------------->
+
+<h3>Shadow map reference</h3>
+
+<p>The C++ shadow map implementation precomputes a texture coordinate matrix for each of the four lights, stashing them away in texture matrices one through four. To determine the correct coordinate for each shadow map we have only to transform the eye-space vertex position in the vertex shader. This is effectively the same functionality as the fixed function pipeline texture coordinate generation.</p>
+
+<pre class="vert">
+    vertex = gl_ModelViewMatrix * gl_Vertex;
+
+    gl_TexCoord[1] = gl_TextureMatrix[1] * vertex;
+    gl_TexCoord[2] = gl_TextureMatrix[2] * vertex;
+    gl_TexCoord[3] = gl_TextureMatrix[3] * vertex;
+    gl_TexCoord[4] = gl_TextureMatrix[4] * vertex;
+</pre>
+
+<p>These coordinates are automatically interpolated across the faces of each primitive, and they come to us in the fragment shader ready to applied to the projective shadow map sampler. The returned value is 0 or 1 to indicate that the fragment is in shadow or illuminated by the corresponding light source.</p>
+
+<pre class="frag">
+    float s0 = shadow2DProj(shadow0, gl_TexCoord[1]).r;
+    float s1 = shadow2DProj(shadow1, gl_TexCoord[2]).r;
+    float s2 = shadow2DProj(shadow2, gl_TexCoord[3]).r;
+    float s3 = shadow2DProj(shadow3, gl_TexCoord[4]).r;
+</pre>
+
+<!---------------------------------------------------------------------------->
+
+<h3>Shadow map clamping</h3>
+
+<p>One of the troubling aspects of projective texture sampling is that projection occurs both forward and backward. This is not a problem with infinitely distant light sources such as the sun and moon, but it can cause unsightly artifacts behind shadow-casting spot lights. We want to be certain that our light bulb shadow maps are only projected forward.</p>
+
+<p>Toward this end we compute the distance to the current fragment in light view space and clamp the light to the range 0 to 1. That is, if a texture coordinate Z value falls inside this range then the clamping multiplier for that light is set to 1. Outside of this range, the clamping multiplier is 0. In effect, any light falling erroneously outside of light space is multiplied by 0.</p>
+
+<p>Note that we started out with projective texture coordinates, so the Z value must have the perspective divide applied before it can be evaluated.</p>
+
+<pre class="frag">
+    float z2 = gl_TexCoord[3].z / gl_TexCoord[3].w;
+    float z3 = gl_TexCoord[4].z / gl_TexCoord[4].w;
+
+    float c2 = step(0.0, z2) * step(z2, 1.0);
+    float c3 = step(0.0, z3) * step(z3, 1.0);
+</pre>
+
+<!---------------------------------------------------------------------------->
+
+<h3>Light attenuation</h3>
+
+<p>The sun is bright, but light bulbs are not. We want the light from our bulbs to attenuate with distance, so we scale the light multiplier inversely with the distance from the light to the fragment.</p>
+
+<pre class="frag">
+    float a2 = c2 / length(gl_LightSource[2].position.xyz - vertex.xyz);
+    float a3 = c3 / length(gl_LightSource[3].position.xyz - vertex.xyz);
+</pre>
+
+<!---------------------------------------------------------------------------->
+
+<h3>Spot light masking</h3>
+
+<p>The view frustum of a spot light source is rectangular, and so is its shadow map, but the scene geometry dictates that a spot light cast a circular field of light. To achieve this effect we look up the shape of the light field in a light mask texture.</p>
+
+<div align="center"><img src="lightmask.png"></div>
+
+<p>The light mask texture is projected using the exact same transformation as the shadow map, so we may simply reuse the shadow map texture coordinates. The result is a color that we will later multiply with the light source's color value.</p>
+
+<pre class="frag">
+    vec3  m2 = texture2DProj(lightmask, gl_TexCoord[3]).rgb;
+    vec3  m3 = texture2DProj(lightmask, gl_TexCoord[4]).rgb;
+</pre>
+
+<!---------------------------------------------------------------------------->
+
+<h3>Lighting vectors</h3>
+
+<p>The diffuse lighting calculation requires the normal vector of the current fragment and the normalized vectors from the fragment position to the light sources. We compute these from the vertex and normal varying values and the global light source position uniforms. Lights 0 and 1 (the sun and moon) are infinitely far away, so their position gives their direction. Lights 2 and 3 (the bulbs) are local, so we compute their lighting vectors by subtraction.</p>
+
+<pre class="frag">
+    vec3 N  = normalize(normal);
+    vec3 L0 = normalize(gl_LightSource[0].position.xyz);
+    vec3 L1 = normalize(gl_LightSource[1].position.xyz);
+    vec3 L2 = normalize(gl_LightSource[2].position.xyz - vertex.xyz);
+    vec3 L3 = normalize(gl_LightSource[3].position.xyz - vertex.xyz);
+</pre>
+
+<!---------------------------------------------------------------------------->
+
+<h3>Total illumination per light source</h3>
+
+<p>Having computed all the necessary vectors, attenuation factors, and masks, we can now compute the total illumination provided to the current fragment by each of the four light sources. Lambertian shading begins with the dot product of the normal and light vectors, clamped to a positive value. From there we multiply the shadow coefficient to nullify the light contribution to shadowed fragments. For the spotlights we also include the attenuation and light mask coefficients.</p>
+
+<pre class="frag">
+    vec3 d0 = vec3(max(dot(N, L0), 0.0)) * s0;
+    vec3 d1 = vec3(max(dot(N, L1), 0.0)) * s1;
+    vec3 d2 = vec3(max(dot(N, L2), 0.0)) * s2 * a2 * m2 + gl_FrontMaterial.emission.r;
+    vec3 d3 = vec3(max(dot(N, L3), 0.0)) * s3 * a3 * m3 + gl_FrontMaterial.emission.g;
+</pre>
+
+<p>The emissive term is an interesting hack. We want the geometry of the lamp to appear to emit the spot light. To achieve this, we exploit the emissive material property of the lamp geometry in a non-traditional fashion. The R and G channels of the emissive material color control the degree to which the material appears to emit lights 2 and 3, respectively.  The bulb model is given full emission, so the bulb surface takes on the full color of the light source. The lamp shade model is given half emission, so the lamp shade surface appears to reflect the light source brightly. In this way, the true emissive value of the surface is controlled by the light source parameters, and the application need not concern itself with geometry material properties separately from light source properties.</p>
+
+<div align="center"><img src="emit_day.png"><img src="emit_night.png"></div>
+
+<!---------------------------------------------------------------------------->
+
+<h3>Fade-out</h3>
+
+<p>We want the foreground geometry to blend seamlessly with the background geometry without a jarring discontinuity. Toward this end we exploit the blend function to fade the scene out with distance. Here we see the effect in magnification.</p>
+
+<div align="center"><img src="fade.png"></div>
+
+<p>To produce this effect, we note the position of the vertex in the vertex shader and pass it along in a varying variable.</p>
+
+<pre class="vert">
+    position = gl_Vertex.xyz;
+</pre>
+
+<p>We scale the alpha value from 1 to 0 as the distance to this position ranges between the (arbitrarily chosen) distances 48 and 64 feet.</p>
+
+<pre class="frag">
+    float fade = 1.0 - smoothstep(48.0, 64.0, length(position));
+</pre>
+
+<!---------------------------------------------------------------------------->
+
+<h3>The Fragment Color</h3>
+
+<p>Having collected all the parameters describing the surface and light sources  we can finally compute the outgoing fragment color. We scale each light source's diffuse color by the corresponding illumination coefficient, we add in the global ambient contribution, and we use the whole thing to modulate the diffuse color of the surface. We apply our fade-out parameter to the alpha channel so that its effect is applied during blending.</p>
+
+<pre class="frag">
+    gl_FragColor = vec4(Kd.rgb * (gl_LightSource[0].diffuse.rgb * d0 +
+                                  gl_LightSource[1].diffuse.rgb * d1 +
+                                  gl_LightSource[2].diffuse.rgb * d2 +
+                                  gl_LightSource[3].diffuse.rgb * d3 + 
+                                  gl_LightModel.ambient.rgb), Kd.a * fade);
+</pre>
+
+<div align="center"><img src="final_day.png"></div>
+<div align="center"><img src="final_night.png"></div>
+
+<!---------------------------------------------------------------------------->
+
+<h3>Shader Source</h3>
+
+<p>Here is the full shader source, consisting of all the code samples above as well as varying and uniform value definitions.</p>
+
+<pre class="vert">
+varying vec3 position;
+varying vec4 vertex;
+varying vec3 normal;
+
+void main()
+{
+    position = gl_Vertex.xyz;
+
+    vertex = gl_ModelViewMatrix * gl_Vertex;
+    normal = gl_NormalMatrix    * gl_Normal;
+
+    gl_TexCoord[0] = gl_MultiTexCoord0;
+    gl_TexCoord[1] = gl_TextureMatrix[1] * vertex;
+    gl_TexCoord[2] = gl_TextureMatrix[2] * vertex;
+    gl_TexCoord[3] = gl_TextureMatrix[3] * vertex;
+    gl_TexCoord[4] = gl_TextureMatrix[4] * vertex;
+
+    gl_Position = ftransform();
+}
+</pre>
+
+<pre class="frag">
+uniform sampler2D       diffuse;
+uniform sampler2DShadow shadow0;
+uniform sampler2DShadow shadow1;
+uniform sampler2DShadow shadow2;
+uniform sampler2DShadow shadow3;
+uniform sampler2D       lightmask;
+
+varying vec3 position;
+varying vec4 vertex;
+varying vec3 normal;
+
+void main()
+{
+    // Look up the diffuse color and shadow states for each light source.
+
+    vec4  Kd = texture2D   (diffuse, gl_TexCoord[0].xy);
+    float s0 = shadow2DProj(shadow0, gl_TexCoord[1]).r;
+    float s1 = shadow2DProj(shadow1, gl_TexCoord[2]).r;
+    float s2 = shadow2DProj(shadow2, gl_TexCoord[3]).r;
+    float s3 = shadow2DProj(shadow3, gl_TexCoord[4]).r;
+
+    // Clamp the range of the spot light sources.
+
+    float z2 = gl_TexCoord[3].z / gl_TexCoord[3].w;
+    float z3 = gl_TexCoord[4].z / gl_TexCoord[4].w;
+
+    float c2 = step(0.0, z2) * step(z2, 1.0);
+    float c3 = step(0.0, z3) * step(z3, 1.0);
+
+    // Compute the attenuation of the spot light sources.
+
+    float a2 = c2 / length(gl_LightSource[2].position.xyz - vertex.xyz);
+    float a3 = c3 / length(gl_LightSource[3].position.xyz - vertex.xyz);
+
+    // Look up the light masks for the spot light sources.
+
+    vec3  m2 = texture2DProj(lightmask, gl_TexCoord[3]).rgb;
+    vec3  m3 = texture2DProj(lightmask, gl_TexCoord[4]).rgb;
+
+    // Compute the lighting vectors.
+
+    vec3 N  = normalize(normal);
+    vec3 L0 = normalize(gl_LightSource[0].position.xyz);
+    vec3 L1 = normalize(gl_LightSource[1].position.xyz);
+    vec3 L2 = normalize(gl_LightSource[2].position.xyz - vertex.xyz);
+    vec3 L3 = normalize(gl_LightSource[3].position.xyz - vertex.xyz);
+
+    // Compute the illumination coefficient for each light source.
+
+    vec3  d0 = vec3(max(dot(N, L0), 0.0)) * s0;
+    vec3  d1 = vec3(max(dot(N, L1), 0.0)) * s1;
+    vec3  d2 = vec3(max(dot(N, L2), 0.0)) * s2 * a2 * m2 + gl_FrontMaterial.emission.r;
+    vec3  d3 = vec3(max(dot(N, L3), 0.0)) * s3 * a3 * m3 + gl_FrontMaterial.emission.g;
+
+    // Compute the scene foreground/background blending coefficient.
+
+    float fade = 1.0 - smoothstep(48.0, 64.0, length(position));
+
+    // Compute the final pixel color from the diffuse and ambient lighting.
+
+    gl_FragColor = vec4(Kd.rgb * (gl_LightSource[0].diffuse.rgb * d0 +
+                                  gl_LightSource[1].diffuse.rgb * d1 +
+                                  gl_LightSource[2].diffuse.rgb * d2 +
+                                  gl_LightSource[3].diffuse.rgb * d3 + 
+                                  gl_LightModel.ambient.rgb), Kd.a * fade);
+}
+</pre>
+
+<!---------------------------------------------------------------------------->
+
+<div align="center">
+[<a href="index.html">Introduction</a>]
+[<a href="part1.html">Part 1: Scene Geometry</a>]
+[<a href="part2.html">Part 2: Day and Night Skies</a>]
+[Part 3: Illumination]
+[<a href="part4.html">Part 4: Added Detail</a>]
+</div>
+
+<p style="text-align: right"><img src="address.jpg"></p>
+</body>

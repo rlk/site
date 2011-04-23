@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <style type="text/css">
+    body     { text-align:   justify;
+               margin-right: 12%;
+               margin-left:  12%; }
+    h1       { margin-left: -12%; }
+    h2       { margin-left:  -9%; }
+    h3       { margin-left:  -6%; }
+    h4       { margin-left:  -3%; }
+    h5       { margin-left:  -0%; }
+    dt       { background: #EEEEEE; padding: 0.5em; }
+    pre      { background: #DDDDDD; padding: 1.0em; }
+    pre.vert { background: #CCFFCC; padding: 1.0em; }
+    pre.frag { background: #FFFFCC; padding: 1.0em; }
+  </style>
+  <title>Part 4: Added Detail</title>
+</head>
+<body>
+
+<h1>Part 4: Added Detail</h1>
+
+<p>The devil is in the details.</p>
+
+<!---------------------------------------------------------------------------->
+
+<h2>Bugs in the Code</h2>
+
+<p>At this point we've defined an environment with four completely dynamic shadow-casting light sources, but we've placed before them a perfectly static scene. To rectify the situation we need to add something moving. In accordance with the subject matter, we add swarms of bugs to flutter around the lights at night.</p>
+
+<p>The bugs themselves are simple. It's their motion that counts.</p>
+
+<div align="center"><img src="bug.png"></div>
+
+<p>The swarm is rendered exactly like the stary sky. A set of sprites is distributed randomly about an origin. In the case of the swarm, the distance from the origin to the sprite is randomized, and the rotation of each sprite is independent of all others.<p>
+
+<p>Bugs only come out at night. At any given moment there are 20 bugs per light source, but the number of bugs rendered varies with the angle of the sun. This way, the swarm seems to congregate just as the sun sets and disperse just as it rises. They flicker through the light casting fleeting shadows on the billboard and the ground below.</p>
+
+<div align="center"><img src="swarm.png"></div>
+
+<!---------------------------------------------------------------------------->
+
+<h2>Das Blinkenlights</h2>
+
+<p>Also in the interest of dynamic lighting in accordance with the subject of the scene, we cause one of the light bulbs to behave intermittently. There's no good way to grab a screen shot of this, so take a look at the demo. This effect is implemented in C++ with the following code:</p>
+
+<pre>
+    if ((blink_delay -= dt) < 0)
+    {
+        if ((blink_state = !blink_state))
+            blink_delay = app_conf->get_f("max_blink_on")  * rand() / RAND_MAX;
+        else
+            blink_delay = app_conf->get_f("max_blink_off") * rand() / RAND_MAX;
+
+        demo_bulb1.on(blink_state);
+    }
+</pre>
+
+<p>At each passing of delta-t the delay until the next light toggle is decreased. When it hits zero, the state of the light is flipped and a new delay is computed. The maximum time until the next on or off event is given in the configuration file.</p>
+
+<p>While this simple bit of code doesn't seem to exemplify much, it takes advantage of a fairly powerful (though perhaps obvious) aspect of the shadow map implementation in the demo. Any light can be switched on or off and the underlying shadow map generation code switches in or out accordingly. This mechanism is also called to action when the sun and moon set and rise. Fill-rate is the bottleneck, so any rendering that need not be performed, be it on-screen or off, should be optimized away.</p>
+
+<!---------------------------------------------------------------------------->
+
+<div align="center">
+[<a href="index.html">Introduction</a>]
+[<a href="part1.html">Part 1: Scene Geometry</a>]
+[<a href="part2.html">Part 2: Day and Night Skies</a>]
+[<a href="part3.html">Part 3: Illumination</a>]
+[Part 4: Added Detail]
+</div>
+
+<p style="text-align: right"><img src="address.jpg"></p>
+</body>
