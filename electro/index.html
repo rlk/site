@@ -1,0 +1,195 @@
+<html>
+<head>
+  <style type="text/css">
+    body   { text-align:   justify;
+             margin-right: 12%;
+             margin-left:  12%; }
+    h1     { margin-left: -12%; }
+    h2     { margin-left:  -9%; }
+    h3     { margin-left:  -6%; }
+    h4     { margin-left:  -3%; }
+    dt     { background: #EEEEEE; padding: 0.5em; }
+    pre    { background: #FFFFCC; padding: 1.0em; }
+    p.note { background: #CCFFFF; padding: 1.0em; }
+  </style>
+  <title>Electro</title>
+</head>
+<body>
+
+<!---------------------------------------------------------------------------->
+
+<pre style="font-size:3em; font-weight:bold; padding: 0.25em">
+  |||
+  O o  Electro
+   -
+</pre>
+
+<p> Electro is an application development environment designed for use
+on both cluster-driven tiled displays and desktop systems.  Electro is
+based on the MPI process model and is bound to the Lua programming
+language.  With support for 3D graphics, 2D graphics, audio, and input
+handling, Electro provides an easy-to-use scripting system for
+interactive applications spanning multiple processors and displays.
+Electro supports Linux, Windows 2K/XP, and Mac OS X. </p>
+
+<!---------------------------------------------------------------------------->
+
+<h1> Download </h1>
+
+<p> The <b>source code</b> is made available under the terms of the <a
+href="http://www.gnu.org/licenses/gpl.html"> GNU General Public
+License</a>.  Building this source requires the libraries and header
+files for
+
+<a href="http://www.lua.org">Lua 5.1</a>, 
+<a href="http://www.libsdl.org">SDL</a>,
+<a href="http://www.libpng.org">PNG</a>,
+<a href="http://www.ijg.org">JPEG</a>,
+<a href="http://www.ode.org">ODE</a>,
+<a href="http://www.freetype.org">FreeType2</a>, and
+<a href="http://www.vorbis.com">Ogg Vorbis</a>.
+
+A makefile is included for Linux and OS X.  A Visual Studio project
+file is included for Windows.</p>
+
+<p> An anonymous <b>Subversion repository</b> is may be found at: </p>
+
+<ul>
+<li><a href="https://s.snth.net/svn/rlk/electro/trunk">https://s.snth.net/svn/rlk/electro/trunk</a>
+</ul>
+
+<p> Check out source using your favorite SVN client.  Use the command line client as follows. </p>
+
+<pre>
+svn co https://s.snth.net/svn/rlk/electro/trunk electro
+</pre>
+
+<!--
+<p> The <b>Linux executable</b> statically links all libraries. </p>
+
+<ul>
+<li><a href="electro-467-bin.tgz"> electro-467-bin.tgz </a>
+<li><a href="electro-432-bin.tgz"> electro-432-bin.tgz </a>
+<li><a href="electro-411-bin.tgz"> electro-411-bin.tgz </a>
+<li><a href="electro-404-bin.tgz"> electro-404-bin.tgz </a>
+</ul>
+
+<p> The <b>Windows 2K/XP executable</b> statically links all libraries, with the exception of SDL, which is included. </p>
+
+<ul>
+<li><a href="electro-1042-w32.zip"> electro-1042-w32.zip </a>
+<li><a href="electro-777-w32.zip"> electro-777-w32.zip </a>
+<li><a href="electro-775-w32.zip"> electro-775-w32.zip </a>
+<li><a href="electro-766-w32.zip"> electro-766-w32.zip </a>
+</ul>
+
+<p> The <b>Mac OS X executable</b> includes all dynamically linked
+libraries. </p>
+
+<ul>
+<li><a href="electro-1042-osx.tgz"> electro-1042-osx.tgz </a>
+<li><a href="electro-976-osx.tgz"> electro-976-osx.tgz </a>
+<li><a href="electro-610-osx.tgz"> electro-610-osx.tgz </a>
+</ul>
+-->
+
+<p> The <b>galaxy data</b> package is necessary to run the Asteroids
+and Vortex demos.  The contents of this package must be placed in
+<tt>electro/examples/data</tt>.  This ZIP file is approximately 30MB in
+size: </p>
+
+<ul>
+<li><a href="electro-galaxy.zip"> electro-galaxy.zip </a>
+</ul>
+
+<p> This <b>Electro intro</b> package includes a set of four simple scripts that follow the iterative creation of an Electro application.  It begins with a basic scene, adds a scene hierarchy, makes the scene interactive, and adds an intelligent camera. All assets are included, as is an example display configuration. </p>
+
+<ul>
+<li><a href="electro-intro.zip"> electro-intro.zip </a>
+</ul>
+
+<!---------------------------------------------------------------------------->
+
+<h1> Documentation </h1>
+
+<p> Complete documentation including a brief tutorial is <a
+href="electro.html">available here</a> and is also included in the
+source package. </p>
+
+<p> An Electro discussion group has been formed at Google Groups: </p>
+
+<blockquote><a href="http://groups.google.com/group/electro-users">http://groups.google.com/group/electro-users</a></blockquote>
+
+<p> There are 5 demo applications included in the source and binary
+packages: Asteroids, Driving, ViewOBJ, Vortex, and Fifteen. </p>
+
+<!---------------------------------------------------------------------------->
+
+<h1> Running </h1>
+
+<p> Electro takes a list of Lua scripts on the command line.  Each
+script is executed in turn. </p>
+
+<h3> Stand-alone mode </h3>
+
+Under Unix: </p>
+
+<pre>
+$ electro demo.lua
+</pre>
+
+<p>Under Windows, Lua scripts may be dragged-and-dropped onto
+<tt>electro.bat</tt>, or <tt>electro.exe</tt> may be run from the
+command line:
+
+<pre>
+C:\&gt; electro.exe demo.lua
+</pre>
+
+<h3> Cluster mode </h3>
+
+<p> At EVL, Electro is installed globally on nico.  Run it in
+standalone mode as above, or in cluster mode by invoking the nico
+run script <tt>electro-nico</tt>: </p>
+
+<pre>
+$ setenv PATH ${PATH}:/usr/local/Electro/bin
+$ cd /usr/local/Electro/examples
+$ electro-nico11x5 demo.lua
+</pre>
+
+<!---------------------------------------------------------------------------->
+
+<h1> Screenshots </h1>
+
+<table>
+<tr><td><a href="vortex-55-1.jpg"><img src="vortex-55-1-thumb.jpg"></a><td>Here Total Perspective Vortex is shown running on the 100-megapixel display, a 11&times;5 array of 1600&times;1200 pixel LCDs.
+
+<tr><td><a href="vortex-55-2.jpg"><img src="vortex-55-2-thumb.jpg"></a><td>Another shot of Total Perspective Vortex, showing a bit of the structure of the display.
+
+<tr><td><a href="asteroids-55.jpg"><img src="asteroids-55-thumb.jpg"></a><td>This is Asteroids on the 100-megapixel display.
+
+<tr><td><a href="driving-varrier.jpg"><img src="driving-varrier-thumb.jpg"></a><td>This shot shows the Driving demo running on the Varrier autostereoscopic virtual reality display.
+
+<tr><td><a href="viewobj-varrier.jpg"><img src="viewobj-varrier-thumb.jpg"></a><td>Here is ViewOBJ displaying Mrs. O'Leary's test model on the Varrier.
+
+</table>
+
+<!---------------------------------------------------------------------------->
+
+<h1> Notes </h1>
+
+<dl>
+
+<dt> OpenGL Requirements <dd><p> Electro requires
+<tt>GL_ARB_vertex_program</tt>, <tt>GL_ARB_fragment_program</tt>,
+and <tt>GL_ARB_point_sprite</tt> to render stars correcly.  An
+NVIDIA GeForce FX (or better) or ATI Radeon 9600 (or better) is
+necessary.  Electro will run without these features, and demos will
+work correctly, but stars will appear as tiny dots. </p>
+
+</dl>
+
+<!---------------------------------------------------------------------------->
+
+<p class="note" style="text-align: right"><i> rlk (at) evl.uic.edu </i></p>
