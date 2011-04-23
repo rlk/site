@@ -31,6 +31,10 @@ p {
 /*---------------------------------------------------------------------------*/
 /* Lists of items each with a picture and text                               */
 
+div.head {
+    clear: both;
+}
+
 div.item {
     clear: both;
 }
