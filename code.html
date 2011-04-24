@@ -7,30 +7,17 @@
   <body>
 
     <!------------------------------------------------------------------------>
-    <h1>Robert Kooima</h1>
-
-    <div class="head">
-      <div class="pic">
-        <img alt="Robert Kooima" src="images/rlk.jpg" width="320" height="240">
-      </div>
-      <div class="txt">
-        <p>I am an Adjunct Professor of Computer Science at <a href="http://www.lsu.edu">Louisiana State University</a> and a post-doctorial researcher at the <a href="http://www.cct.lsu.edu">Center for Computation &amp; Technology</a>. I study real-time 3D scientific visualization, focusing on virtual reality and GPU programming.</p>
-        <p>This site catalogs my work. It includes courses taught, research done, talks given, installations, demonstrations, and handy source code.</p>
-        <p>My <a href="pdfs/Kooima-CV.pdf">curriculum vitae</a> includes all of my published and co-authored papers.</p>
-
-        <p style="text-align:right"><i>kooima&#64;csc&#46;lsu&#46;edu</i></p>
-        </div>
-    </div>
+    <h1><a href="index.html">Robert Kooima</a></h1>
 
     <table id="nav">
       <tr>
-        <td><a href="courses.html">Courses</a></td>
-        <td><a href="research.html">Research</a></td>
-        <td><a href="talks.html">Talks</a></td>
-        <td><a href="applications.html">Applications</a></td>
-        <td><a href="installations.html">Installations</a></td>
-        <td><a href="code.html">Code</a></td>
-        <td><a href="misc.html">Misc.</a></td>
+        <td><h3><a href="courses.html">Courses</a></h3></td>
+        <td><h3><a href="research.html">Research</a></h3></td>
+        <td><h3><a href="talks.html">Talks</a></h3></td>
+        <td><h3><a href="applications.html">Applications</a></h3></td>
+        <td><h3><a href="installations.html">Installations</a></h3></td>
+        <td><h3><a href="code.html">Code</a></h3></td>
+        <td><h3><a href="misc.html">Misc.</a></h3></td>
       </tr>
     </table>
 
@@ -43,101 +30,97 @@
         <img alt="OBJ Library" src="images/bunny.jpg" width="320" height="240">
       </div>
       <div class="txt">
-        <h3><a href="csc4356/src/util3d/obj.html">OBJ Library</a></h3>
+        <h3><a name="obj" href="csc4356/src/util3d/obj.html">OBJ Library</a></h3>
         <p>Like many 3D programmers, I've developed a library of functions for loading, storing, and rendering 3D models in the OBJ file format. This library also provides an API for building, manipulating, and transforming OBJ model data. It automatically computes tangent and bi-tangent vectors for use in tangent-space surface mapping. It is capable of computing a model's average cache miss ratio (ACMR), and sorting index data to minimize this value and thus maximize rendering performance. The library supports the full OBJ and MTL specifications, with the exception of OBJ free-form curves.</p>
       </div>
     </div>
 
     <div class="item">
       <div class="pic">
-        <img alt="" src="images/image.jpg" width="320" height="240">
+        <img alt="image" src="images/image.jpg" width="320" height="240">
       </div>
       <div class="txt">
-        <h3><a href="csc4356/src/util3d/image.html">Image Module</a></h3>
+        <h3><a name="image" href="csc4356/src/util3d/image.html">Image Module</a></h3>
         <p>The <a href="csc4356/src/util3d/image.html">image module</a> provides support for loading and storing 2D images in PNG, JPEG, or EXR format. It is implemented as a very thin abstraction layer atop <a href="http://www.libpng.org/">libpng</a>, <a href="http://www.ijg.org/">libjpeg</a>, and <a href="http://www.openexr.com/">OpenEXR</a>, any of which may be optionally omitted if not needed.</p>
       </div>
     </div>
 
     <div class="item">
       <div class="pic">
-        <img alt="" src="images/math3d.jpg" width="320" height="240">
+        <img alt="math3d" src="images/math3d.jpg" width="320" height="240">
       </div>
       <div class="txt">
-        <h3><a href="csc4356/src/util3d/math3d.html">3D Mathematics Library</a></h3>
+        <h3><a name="math3d" href="csc4356/src/util3d/math3d.html">3D Mathematics Library</a></h3>
         <p><a href="csc4356/src/util3d/math3d.html">This module</a> implements a right-handed 3D mathematics library supporting three-component vectors, four-by-four matrices, quaternions, and Euler angles. These values are represented using ordinary C arrays of type <i>real</i>, which may be compile-time represented using <i>float</i> or <i>double</i>. Matrix layout is directly compatible with O<small>PEN</small>GL.</p>
       </div>
     </div>
 
     <div class="item">
       <div class="pic">
-        <img alt="" src="images/noise.jpg" width="320" height="240">
+        <img alt="noise" src="images/noise.jpg" width="320" height="240">
       </div>
       <div class="txt">
-        <h3><a href="csc4356/src/util3d/noise.html">Noise Module</a></h3>
+        <h3><a name="noise" href="csc4356/src/util3d/noise.html">Noise Module</a></h3>
         <p>The <a href="csc4356/src/util3d/noise.html">noise module</a> implements a three-dimensional coherent noise generator using the Simplex method developed by Ken Perlin, described in <a href="http://www.csee.umbc.edu/~olano/s2002c36/ch02.pdf"><i>Real-Time Shading SIGGRAPH Course Notes (2001)</i>, Chapter 2: Noise Hardware.</a></p>
       </div>
     </div>
 
     <div class="item">
       <div class="pic">
-        <img alt="" src="images/type.png" width="320" height="240">
+        <img alt="type" src="images/type.png" width="320" height="240">
       </div>
       <div class="txt">
-        <h3><a href="csc4356/src/util3d/type.html">Type Module</a></h3>
+        <h3><a name="type" href="csc4356/src/util3d/type.html">Type Module</a></h3>
         <p><a href="csc4356/src/util3d/type.html">The type module</a> uses <a href="http://www.freetype.org/">FreeType2</a> to efficiently render high-quality, anti-aliased, kerned text using O<small>PEN</small>GL.</p>
       </div>
     </div>
 
     <div class="item">
       <div class="pic">
-        <img alt="" src="images/demo.jpg" width="320" height="240">
+        <img alt="demo" src="images/demo.jpg" width="320" height="240">
       </div>
       <div class="txt">
-        <h3><a href="csc4356/src/util3d/demo.html">Demo Module</a></h3>
+        <h3><a name="demo" href="csc4356/src/util3d/demo.html">Demo Module</a></h3>
         <p>The <a href="csc4356/src/util3d/demo.html">demo module</a> provides a simple <a href="http://www.opengl.org/resources/libraries/glut/">GLUT</a> application framework with basic interaction and camera control. It allows an O<small>PEN</small>GL application to be brought up with near-zero &ldquo;ceremony.&rdquo;</p>
       </div>
     </div>
 
     <div class="item">
       <div class="pic">
-        <img alt="" src="images/view.png" width="320" height="240">
+        <img alt="view" src="images/view.png" width="320" height="240">
       </div>
       <div class="txt">
-        <h3><a href="csc4356/src/util3d/view.html">View Module</a></h3>
+        <h3><a name="view" href="csc4356/src/util3d/view.html">View Module</a></h3>
         <p>The <a href="csc4356/src/util3d/view.html">view module</a> implements a feature-rich camera for use in interactive 3D graphics applications. It maintains the camera's position, orientation and zoom factor, and provides functions to map user input onto camera control. It also supplies a mechanism for the recording, editing, storage, and play-back of smooth camera motion using quaternion spherical quadradic interpolation. Yep.</p>
       </div>
     </div>
 
     <div class="item">
       <div class="pic">
-        <img alt="" src="images/cube.png" width="320" height="240">
+        <img alt="cube" src="images/cube.png" width="320" height="240">
       </div>
       <div class="txt">
-        <h3><a href="csc4356/src/util3d/cube.html">Cube Module</a></h3>
+        <h3><a name="cube" href="csc4356/src/util3d/cube.html">Cube Module</a></h3>
         <p>The <a href="csc4356/src/util3d/cube.html">cube module</a> renders the <a href="csc4356/src/util3d/cube.pdf"> 3D reference cube</a> using O<small>PEN</small>GL. It is useful for testing object transformations and debugging O<small>PEN</small>GL applictions. The implementation gives a simple example of basic rendering with the <a href="http://oss.sgi.com/projects/ogl-sample/registry/ARB/vertex_buffer_object.txt">ARB vertex buffer object</a> specification.</p>
       </div>
     </div>
 
     <div class="item">
       <div class="pic">
-        <a name="icg-demos">
-          <img alt="" src="images/icg-demos.jpg" width="320" height="240">
-        </a>
+        <img alt="ICG Demos" src="images/icg-demos.jpg" width="320" height="240">
       </div>
       <div class="txt">
-        <h3><a href="csc4356/src/index.html">Interactive Computer Graphics Demos</a></h3>
+        <h3><a name="icg-demos" href="csc4356/src/index.html">Interactive Computer Graphics Demos</a></h3>
         <p>These small O<small>PEN</small>GL programs demonstrate basic concepts in real-time 3D rendering, for use during <a href="courses.html#csc4356">Interactive Computer Graphics</a> lectures.</p>
       </div>
     </div>
 
     <div class="item">
       <div class="pic">
-        <a name="interleaver">
-          <img alt="Autostereo Interleaver" src="images/interleaver.jpg" width="320" height="240">
-        </a>
+        <img alt="Autostereo Interleaver" src="images/interleaver.jpg" width="320" height="240">
       </div>
       <div class="txt">
-        <h3><a href="interleaver/interleaver.html">Autostereo Interleaver</a></h3>
+        <h3><a name="interleaver" href="interleaver/interleaver.html">Autostereo Interleaver</a></h3>
         <p><em>Summer 2008</em></p>
         <p><a href="interleaver/interleaver.html">Autostereo interleaver</a> is a generalization of the <a href="varrier_combiner/varrier_combiner.html">Varrier Combiner</a> algorithm that enables the creation of real-time multi-view autostereo displays using lenticular arrays and parallax barriers. It provides a channel crosstalk mitigation mechanism using destructive interference between adjacent channels.
       </div>
@@ -148,37 +131,25 @@
         <img alt="trackd interface library" src="images/tracker.png" width="320" height="240">
       </div>
       <div class="txt">
-        <h3><a href="tracker/tracker.html">trackd interface library</a></h3>
+        <h3><a name="tracker" href="tracker/tracker.html">trackd interface library</a></h3>
         <p><em>Spring 2006</em></p>
         <p>This is a simple library for reading motion tracking data provided by <a href="http://www.mechdyne.com/integratedSolutions/software/products/trackd/trackd.htm">trackd</a>. It is compatible with both Linux and Windows. It enables access to six degree-of-freedom sensor input, button controller input, and joystick controller input, as commonly used in virtual reality display environments.</p>
       </div>
     </div>
-<!--
+
     <div class="item">
       <div class="pic">
-        <img alt="Wavefront OBJ library" src="images/teapot.jpg" width="320" height="240">
+        <img alt="Electro" src="images/electro.jpg" width="320" height="240">
       </div>
       <div class="txt">
-        <h3><a href="obj/obj.html">Wavefront OBJ library</a></h3>
-        <p><em>Spring 2006</em></p>
-        <p>Like many 3D programmers, I've developed a library of functions for loading, storing, and drawing 3D models in the OBJ file format. This library also provides an API for building, manipulating, and transforming OBJ model data. It automatically computes tangent and bi-tangent vectors for use in tangent-space surface mapping. It is capable of computing a model's average cache miss ratio (ACMR), and sorting index data to minimize this value and thus maximize rendering performance. The built-in OpenGL renderer uses vertex buffer objects for efficiency. The library supports the full OBJ and MTL specifications, with the exception of OBJ free-form curves.</p>
-      </div>
-    </div>
--->
-    <div class="item">
-      <div class="pic">
-        <a name="electro">
-          <img alt="Electro" src="images/electro.jpg" width="320" height="240">
-        </a>
-      </div>
-      <div class="txt">
-        <h3><a href="electro">Electro</a></h3>
+        <h3><a name="electro" href="electro">Electro</a></h3>
         <p><em>Spring 2005&mdash;present</em></p>
         <p>Electro is an application development environment designed for use on both cluster-driven tiled displays and desktop systems. Electro is based on the <a href="http://www.mpi-forum.org">MPI</a> process model and is bound to the <a href="http://www.lua.org">Lua programming language</a>. With support for 3D graphics, 2D graphics, audio, and input handling, Electro provides an easy-to-use scripting system for interactive applications spanning multiple processors and displays. Electro supports Linux, Windows 2K/XP, and Mac OS X. Electro has been used by students in <a href="http://www.evl.uic.edu/spiff/class/cs426">CS426 Video Game Programming</a> since 2005, and has formed the basis for numerous applications and art pieces throughout EVL and elsewhere. Discussion and support is available at the <a href="http://groups.google.com/group/electro-users">Electro-users group</a>.</p>
       </div>
     </div>
 
     <!------------------------------------------------------------------------>
-    <h2></h2>
+    <h1></h1>
+    <p style="text-align:right"><i>kooima&#64;csc&#46;lsu&#46;edu</i></p>
   </body>
 </html>

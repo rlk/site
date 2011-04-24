@@ -7,30 +7,17 @@
   <body>
 
     <!------------------------------------------------------------------------>
-    <h1>Robert Kooima</h1>
-
-    <div class="head">
-      <div class="pic">
-        <img alt="Robert Kooima" src="images/rlk.jpg" width="320" height="240">
-      </div>
-      <div class="txt">
-        <p>I am an Adjunct Professor of Computer Science at <a href="http://www.lsu.edu">Louisiana State University</a> and a post-doctorial researcher at the <a href="http://www.cct.lsu.edu">Center for Computation &amp; Technology</a>. I study real-time 3D scientific visualization, focusing on virtual reality and GPU programming.</p>
-        <p>This site catalogs my work. It includes courses taught, research done, talks given, installations, demonstrations, and handy source code.</p>
-        <p>My <a href="pdfs/Kooima-CV.pdf">curriculum vitae</a> includes all of my published and co-authored papers.</p>
-
-        <p style="text-align:right"><i>kooima&#64;csc&#46;lsu&#46;edu</i></p>
-        </div>
-    </div>
+    <h1><a href="index.html">Robert Kooima</a></h1>
 
     <table id="nav">
       <tr>
-        <td><a href="courses.html">Courses</a></td>
-        <td><a href="research.html">Research</a></td>
-        <td><a href="talks.html">Talks</a></td>
-        <td><a href="applications.html">Applications</a></td>
-        <td><a href="installations.html">Installations</a></td>
-        <td><a href="code.html">Code</a></td>
-        <td><a href="misc.html">Misc.</a></td>
+        <td><h3><a href="courses.html">Courses</a></h3></td>
+        <td><h3><a href="research.html">Research</a></h3></td>
+        <td><h3><a href="talks.html">Talks</a></h3></td>
+        <td><h3><a href="applications.html">Applications</a></h3></td>
+        <td><h3><a href="installations.html">Installations</a></h3></td>
+        <td><h3><a href="code.html">Code</a></h3></td>
+        <td><h3><a href="misc.html">Misc.</a></h3></td>
       </tr>
     </table>
 
@@ -38,12 +25,10 @@
 
     <div class="item">
       <div class="pic">
-        <a name="multiautovr">
-          <img alt="" src="images/reve.jpg" width="320" height="167">
-        </a>
+        <img alt="REVE" src="images/reve.jpg" width="320" height="167">
       </div>
       <div class="txt">
-        <h3><a href="pdfs/Kooima-VRST2010.pdf">A Multi-viewer Tiled Autostereoscopic Virtual Reality Display</a></h3>
+        <h3><a name="multiautovr" href="pdfs/Kooima-VRST2010.pdf">A Multi-viewer Tiled Autostereoscopic Virtual Reality Display</a></h3>
         <p><em>2010</em></p>
         <p><a href="pdfs/Kooima-VRST2010.pdf">This paper</a> documents the development of the <a href="interleaver/interleaver.html">Autostereo Interleaver</a> and its application to a large-scale multi-user autostereoscopic display. The primary contributions of this work include the use of linescreen shift to &ldquo;synchronize&rdquo; the lenticulars of a large number of autostereo displays, causing them to behave in concert as a single large display, and the application of user tracking to mitigate some of the issues in autostereo display. This work was presented at <a href="talks.html#vrst2010">ACM VRST 2010 in Hong Kong.</a> The image to the left shows the <a href="http://ivl.calit2.net/wiki/index.php/Infrastructure">KAUST REVE</a>, described in <a href="http://www.evl.uic.edu/files/pdf/future.pdf">this article</a> on the future of the CAVE.</p>
       </div>
@@ -51,12 +36,10 @@
 
     <div class="item">
       <div class="pic">
-        <a name="real-time-dome">
-          <img alt="Real-time Digital Dome Rendering Techniques and Technologies" src="images/adler-ips2008-paper.png" width="320" height="240">
-        </a>
+        <img alt="Real-time Digital Dome Rendering Techniques and Technologies" src="images/adler-ips2008-paper.png" width="320" height="240">
       </div>
       <div class="txt">
-        <h3><a href="pdfs/real-time-dome.pdf">Real-time Digital Dome Rendering Techniques and Technologies</a></h3>
+        <h3><a name="real-time-dome" href="pdfs/real-time-dome.pdf">Real-time Digital Dome Rendering Techniques and Technologies</a></h3>
         <p><em>1 July 2008</em></p>
         <p><a href="pdfs/real-time-dome.pdf">This paper</a> enumerates several GPU-accelerated approaches to the problem of real-time 3D rendering using multi-projector edge-blended digital dome displays. A variety of spherical correction approaches are described, organized in terms of the GPU capability that each exploits. This paper emerged from work performed with the staff of the <a href="http://www.adlerplanetarium.org/svl/index.shtml">Space Visualization Laboratory</a> at the Adler Planetarium, using <a href="http://www.adlerplanetarium.org/exhibits/starrider.shtml">Adler's Definiti Space Theater</a>. This paper was presented at the <a href="talks.html#adler-ips2008">2008 meeting of the International Planetarium Society</a>.</p>
       </div>
@@ -64,12 +47,10 @@
 
     <div class="item">
       <div class="pic">
-        <a name="tellurion">
-          <img alt="Tellurion" src="images/thumb.jpg" width="320" height="240">
-        </a>
+        <img alt="Tellurion" src="images/thumb.jpg" width="320" height="240">
       </div>
       <div class="txt">
-        <h3>Tellurion</h3>
+        <h3><a name="tellurion">Tellurion</a></h3>
         <p><em>2007&mdash;present</em></p>
         <p>Tellurion implements a highly-scalable real-time planetary terrain composition algorithm. A GPGPU process tessellates terrain geometry in real time, and transitions smoothly from planet scale down to sub-meter resolution. Tellurion enables the investigation of a class of generalized terrain composition operators that merge data of widely disparate resolution, projection, and coverage on the fly. These composition operations are uniformly applicable to both terrain height maps and surface maps. The cluster-parallel renderer is supported by a multi-threaded data paging mechanism that performs view-dependant loading of data sources of arbitrary size. The system has been demonstrated displaying 115GB of data in real time, including height data covering the U.S. at a resolution of 30 meters. See the <a href="installations.html">installations page</a> for a listing of several showings. Tellurion was my Ph.D. work. See my dissertation, <a href="pdfs/Kooima-Dissertation.pdf">Planetary-scale Terrain Composition</a>, for detailed coverage or <a href="http://www.youtube.com/user/evltube?blend=3&ob=5#p/u/15/BVHRNYOUzcA">this YouTube video</a> for an overview. I successfully <a href="talks.html#defense"> defended on October 23, 2008</a>, and a paper summarizing the technology was subsequently published in <a href="http://www.computer.org/portal/web/csdl/doi/10.1109/TVCG.2009.43">IEEE Transactions of Visualization &amp; Computer Graphics.</a>.</p>
       </div>
@@ -77,12 +58,10 @@
 
     <div class="item">
       <div class="pic">
-        <a name="combiner">
-          <img alt="A GPU Sub-pixel Algorithm for Autostereoscopic Virtual Reality" src="images/varrier-combiner.png" width="320" height="240">
-        </a>
+        <img alt="A GPU Sub-pixel Algorithm for Autostereoscopic Virtual Reality" src="images/varrier-combiner.png" width="320" height="240">
       </div>
       <div class="txt">
-        <h3><a href="pdfs/Kooima-VR07.pdf">A GPU Sub-pixel Algorithm for Autostereoscopic Virtual Reality</a></h3>
+        <h3><a name="combiner" href="pdfs/Kooima-VR07.pdf">A GPU Sub-pixel Algorithm for Autostereoscopic Virtual Reality</a></h3>
         <p><em>Spring 2007</em></p>
         <p>The Varrier Combiner is a GPU-based algorithm performing real-time autostereoscopic sub-pixel spatial multiplexing. Such an algorithm is necessary for the correct function of parallax barrier displays such as the <a href="research.html#varrier">Varrier</a>. Prior to this work, autostereo interleaving was a very expensive process which placed a heavy performance burden upon all autostereo applications. By expressing the problem in terms of GLSL vertex and pixel shading, the computational expense is moved to the GPU, which eliminates the performance degradation completely. <a href="pdfs/Kooima-VR07.pdf">Varrier Combiner</a> was presented at IEEE VR 07 and published in the conference proceedings. A <a href="varrier_combiner/varrier_combiner.html">C module</a> implementing the algorithm may be used to port OpenGL applications to the Varrier.</p>
       </div>
@@ -90,18 +69,17 @@
 
     <div class="item">
       <div class="pic">
-        <a name="varrier">
-          <img alt="Varrier" src="images/varrier.jpg" width="320" height="240">
-        </a>
+        <img alt="Varrier" src="images/varrier.jpg" width="320" height="240">
       </div>
       <div class="txt">
-        <h3>Varrier<sup><small>TM</small></sup></h3>
+        <h3><a name="varrier">Varrier</a></h3>
         <p><em>Spring 2005&mdash;2010</em></p>
         <p>The Varrier autostereoscopic virtual reality system is a high-resolution, real-time, parallax-barrier 3D display. It enables stereoscopic viewing without the need for 3D glasses. The Varrier project was started by EVL co-founder <a href="http://www.evl.uic.edu/dan/">Dan Sandin</a> in 2001 and included EVL graduate students <a href="http://www.evl.uic.edu/core.php?mod=4&amp;type=5&amp;indi=2">Todd Margolis</a>, <a href="http://www.evl.uic.edu/core.php?mod=4&amp;type=5&amp;indi=235">Tom Peterka</a>, <a href="http://www.evl.uic.edu/core.php?mod=4&amp;type=5&amp;indi=191">Jinghua Ge</a>, <a href="http://www.evl.uic.edu/core.php?mod=4&amp;type=5&amp;indi=46">Javier Girado</a>, and <a href="http://www.evl.uic.edu/core.php?mod=4&amp;type=5&amp;indi=260">myself</a>. We designed and built a <a href="http://www.evl.uic.edu/core.php?mod=4&amp;type=1&amp;indi=275">35-panel</a> display, a <a href="http://www.evl.uic.edu/core.php?mod=4&amp;type=4&amp;indi=449">65-panel</a> display, a 6-panel display, two <a href="http://www.evl.uic.edu/core.php?mod=4&amp;type=1&amp;indi=290">Personal Varrier</a> displays, and a 2-panel Personal Varrier. This technology has produced a <a href="http://www.evl.uic.edu/files/pdf/Siggraph2005.pdf">SIGGRAPH paper</a>, an <a href="pdfs/Kooima-VR07.pdf">IEEE VR paper</a>, and a <a href="http://www.evl.uic.edu/files/pdf/Varrier_SPIE_07.pdf">SPIE paper</a> summarizing the results over the history of the project. The system is described in <a href="http://www.youtube.com/watch?v=g7jW1bKLRXU">this YouTube video</a>.</p>
       </div>
     </div>
 
     <!------------------------------------------------------------------------>
-    <h2></h2>
+    <h1></h1>
+    <p style="text-align:right"><i>kooima&#64;csc&#46;lsu&#46;edu</i></p>
   </body>
 </html>
