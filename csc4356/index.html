@@ -21,7 +21,7 @@
   ISBN 978-1-56881-424-7</p>
 
   <h3>Instructor</h3>
-  <p><a href="http://csc.lsu.edu/~kooima/index.html">Dr. Robert Kooima</a><br>
+  <p><a href="../index.html">Dr. Robert Kooima</a><br>
   Department of Computer Science<br>
   Louisiana State University<br>
   <i>kooima&#64;csc&#46;lsu&#46;edu</i></p>
@@ -67,7 +67,7 @@
     </tr>
     <tr>
       <td>20 pts</td><td>&hellip;<td>Documentation</td><td></td>
-      <td>20 pts</td><td>&hellip;<td>Documentation</td><td></td>
+      <td>40 pts</td><td>&hellip;<td>Documentation</td><td></td>
       <td>80 pts</td><td>&hellip;<td>Project 2</td>
     </tr>
     <tr>
@@ -77,8 +77,8 @@
     </tr>
     <tr>
       <td> 10 pts</td><td>&hellip;<td>Lagniappe</td><td></td>
-      <td> 20 pts</td><td>&hellip;<td>Lagniappe</td><td></td>
-      <td>160 pts</td><td>&hellip;<td>Final</td>
+      <td>       </td><td>        <td>         </td><td></td>
+      <td>160 pts</td><td>&hellip;<td>Final    </td>
     </tr>
     <tr>
       <td colspan="3"><hr></td><td></td>
@@ -126,23 +126,22 @@
   <p>In addition to these binaries, the following sources may be of use. More will be added as they are required.</p>
   
   <dl>
-    <dt><table width="100%"><tr><td>&bull; Hello, World</td><td align="right">[ <a href="hello-world.c"><code>hello-world.c</code></a> <a href="Makefile"><code>Makefile</code></a> ]</td></tr></table></dt><dd><p>A very simple example program using O<small>PEN</small>GL and GLUT to display a teapot.</p></dd>
+    <dt><table width="100%"><tr><td>&bull; <a href="hello-world.c"><code>hello-world.c</code></a> &mdash; <a href="Makefile"><code>Makefile</code></a></td></tr></table></dt><dd><p>A very simple example program using O<small>PEN</small>GL and GLUT to display a teapot.</p></dd>
 
-    <dt><table width="100%"><tr><td>&bull; gl.h</td><td align="right">[ <a href="gl.h"><code>gl.h</code></a> ]</td></tr></table></dt><dd><p>An O<small>PEN</small>GL include file that imports headers for GL, GLEW, and GLUT in a cross-platform fashion.</p></dd>
+    <dt><table width="100%"><tr><td>&bull; <a href="src/util3d/cube.html">cube</a></td></tr></table></dt><dd><p>Renders the <a href="src/util3d/cube.pdf">3D reference cube</a> using O<small>PEN</small>GL. Useful for testing 3D transformations and debugging O<small>PEN</small>GL applictions.</p></dd>
 
-    <dt><table width="100%"><tr><td>&bull; <a href="cube.html">cube</a></td><td align="right">[ <a href="cube.h"><code>cube.h</code></a> <a href="cube.c"><code>cube.c</code></a> ]</td></tr></table></dt><dd><p>Renders the <a href="cube.pdf">3D reference cube</a> using O<small>PEN</small>GL. Useful for testing 3D transformations and debugging O<small>PEN</small>GL applictions.</p></dd>
+    <dt><table width="100%"><tr><td>&bull; <a href="src/util3d/image.html">image</a></td></tr></table></dt><dd><p>Provides a basic image I/O library supporting the reading and writing of PNG and JPEG images.</p></dd>
 
-    <dt><table width="100%"><tr><td>&bull; <a href="image.html">image</a></td><td align="right">[ <a href="image.h"><code>image.h</code></a> <a href="image.c"><code>image.c</code></a> ]</td></tr></table></dt><dd><p>Provides a basic image I/O library supporting the reading and writing of PNG and JPEG images.</p></dd>
+    <dt><table width="100%"><tr><td>&bull; <a href="src/util3d/math3d.html">math3d</a></td></tr></table></dt><dd><p>Implements a right-handed 3D mathematics library supporting three-component vectors, four-by-four matrices, quaternions, and Euler angles.</p></dd>
 
-    <dt><table width="100%"><tr><td>&bull; <a href="math3d.html">math3d</a></td><td align="right">[ <a href="math3d.h"><code>math3d.h</code></a> <a href="math3d.c"><code>math3d.c</code></a> ]</td></tr></table></dt><dd><p>Implements a right-handed 3D mathematics library supporting three-component vectors, four-by-four matrices, quaternions, and Euler angles.</p></dd>
-
-    <dt><table width="100%"><tr><td>&bull; <a href="obj.html">obj</a></td><td align="right">[ <a href="obj.h"><code>obj.h</code></a> <a href="obj.c"><code>obj.c</code></a> ]</td></tr></table></dt><dd><p>Loads, manipulates, optimizes, renders, and stores 3D geometry using the Wavefront OBJ file format.</p></dd>
+    <dt><table width="100%"><tr><td>&bull; <a href="src/util3d/obj.html">obj</a></td></tr></table></dt><dd><p>Loads, manipulates, optimizes, renders, and stores 3D geometry using the Wavefront OBJ file format.</p></dd>
 
 
   </dl>
   
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <h2 style="text-align:center">Calendar Fall 2010</h2>
+  <p></p>
   <table class="calendar">
     <tr>
       <th><i>Sun</i></th>
@@ -303,7 +302,8 @@
   <br>Skeletal Animation
   <br>Visibility &amp; Optimization
   <br>Terrain
-  <br>Billboards<br>Antialiasing
+  <br>Billboards
+  <br>Antialiasing
   <br>Overlays, HUDs &amp; GUIs
   <br>Tessellation
   <br>Post-Processing and Non-Photorealism
