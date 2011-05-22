@@ -10,7 +10,6 @@ body {
 h1, h2, h3, h4, h5 {
     font-family: "Helvetica", "Arial", sans-serif;
     margin:  0px;
-    padding: 0px;
     border-style: solid;
     border-color: #DDD;
     border-width: 1px 0px 0px 0px;
@@ -18,26 +17,30 @@ h1, h2, h3, h4, h5 {
 
 h1 {
     clear: both;
-    padding: 0.75em;
-    margin-top: 1em;
+    padding: 0.5em 0em 0.5em 0em;
 }
 
 h2 {
-    padding: 0.75em;
+    padding: 0.5em 0em 0.5em 0em;
 }
 
 h3 {
-    padding: 0.5em;
+    padding: 0.5em 0em 0.0em 0em;
 }
 
 h4 {
-    margin-top: 1em;
-    margin-bottom: 0.5em;
     border-top-style: none;
 }
 
 p {
     text-align: justify;
+}
+
+hr {
+    clear: both;
+    border-style: solid;
+    border-color: #DDD;
+    border-width: 1px 0px 0px 0px;
 }
 
 a:link    { color:#0000FF; text-decoration: none; }
