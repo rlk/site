@@ -1,48 +1,44 @@
 /*---------------------------------------------------------------------------*/
 
+a:link    { color:#0000FF; text-decoration: none; }
+a:visited { color:#2200AA; text-decoration: none; }
+a:hover   { color:#AA0000; text-decoration: underline; }
+a:active  { color:#FF0000; text-decoration: underline; }
+
 body {
     margin-left:   10%;
     margin-right:  10%;
     margin-top:    5em;
     margin-bottom: 5em;
+    font-family: "Lucida Sans", "Lucida Grande", "Verdana", "Arial", sans-serif;
+    font-size: small;
+    line-height: 140%;
 }
 
-h1, h2, h3, h4, h5 {
-    font-family: "Helvetica", "Arial", sans-serif;
-    margin:  0px;
-    border-style: solid;
-    border-color: #DDD;
-    border-width: 1px 0px 0px 0px;
+table {
+    font-size: small;
 }
 
-h1 {
+hr {
     clear: both;
-    padding: 0.5em 0em 0.5em 0em;
-}
-
-h2 {
-    padding: 0.5em 0em 0.5em 0em;
-}
-
-h3 {
-    padding: 0.5em 0em 0.0em 0em;
+    border-style: none;
 }
 
 p {
     text-align: justify;
 }
 
-hr {
-    clear: both;
-    border-style: solid;
-    border-color: #DDD;
-    border-width: 1px 0px 0px 0px;
+/*---------------------------------------------------------------------------*/
+
+h1, h2, h3, h4, h5 {
+    margin:  0px;
+    padding: 0.5em;
+    background-color: #EEF;
 }
 
-a:link    { color:#0000FF; text-decoration: none; }
-a:visited { color:#2200AA; text-decoration: none; }
-a:hover   { color:#AA0000; text-decoration: underline; }
-a:active  { color:#FF0000; text-decoration: underline; }
+h1 {
+    clear: both;
+}
 
 /*---------------------------------------------------------------------------*/
 /* Lists of items each with a picture and text                               */
@@ -84,8 +80,8 @@ table.calendar {
 }
 
 td.lec {
-  width:  7em;
-  height: 7em;
+  width:  8em;
+  height: 8em;
   border-color: white;
   border-width: 2px;
   border-style: solid;
@@ -94,8 +90,8 @@ td.lec {
 }
 
 td.fin {
-  width:  7em;
-  height: 7em;
+  width:  8em;
+  height: 8em;
   border-color: white;
   border-width: 2px;
   border-style: solid;
@@ -104,8 +100,8 @@ td.fin {
 }
 
 td.hol {
-  width:  7em;
-  height: 7em;
+  width:  8em;
+  height: 8em;
   border-color: white;
   border-width: 2px;
   border-style: solid;
@@ -115,8 +111,8 @@ td.hol {
 }
 
 td.off {
-  width:  7em;
-  height: 7em;
+  width:  8em;
+  height: 8em;
   border-color: white;
   border-width: 2px;
   border-style: solid;
