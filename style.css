@@ -28,6 +28,10 @@ p {
     text-align: justify;
 }
 
+code {
+  font-family: "Lucida Sans Typewriter", "Courier New", monospace;
+}
+
 /*---------------------------------------------------------------------------*/
 
 h1, h2, h3, h4, h5 {
