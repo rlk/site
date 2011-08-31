@@ -1,0 +1,67 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body style="margin: 10% 20% 10% 20%">
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <h1>Project 1: Basic Interactive Rendering</h1>
+  
+  <p>The purpose of this project is to introduce the basic practice of OpenGL programming. This includes accessing and organizing geometry data, rendering it with illumination, and allowing user interaction with it. You must:</p>
+  
+  <h3>0. Find your footing</h3>
+  
+  <p>If you haven't already figured out how to compile and run C or C++ code using OpenGL and GLUT on your favorite platform, then this is your first step.
+  
+  <h3>1. Load a data file</h3>
+  
+  <p>3D models are provided in the simplest possible ASCII mesh file format.</p>
+  
+  <ul>
+    <li><p>The first line gives two integers: the number of vertices and the number of triangles in the mesh.</p></li>
+  
+    <li><p>Then, the vertices are enumerated with six floating point values each: <i>px</i>, <i>py</i>, <i>pz</i>, <i>nx</i>, <i>ny</i>, <i>nz</i>, giving the 3D position and normal vector of each vertex.</p></li>
+  
+    <li><p>Finally, the triangles are enumerated with three integer values each: <i>i0</i>, <i>i1</i>, <i>i2</i>, giving the indices of the vertices in the vertex list, numbered beginning with zero.</p></li>
+  </ul>
+  <p>Here is a trivial example with 4 vertices and 2 triangles. It defines a square lying in the XZ plane, facing up.</p>
+  
+  <pre>
+4 2
+-1.0 -1.0 0.0 0.0 0.0 1.0
+ 1.0 -1.0 0.0 0.0 0.0 1.0
+-1.0  1.0 0.0 0.0 0.0 1.0
+ 1.0  1.0 0.0 0.0 0.0 1.0
+0 1 3
+3 2 0
+  </pre>
+  
+  <h3>2. Render</h3>
+  
+  <p>Use OpenGL vertex buffer objects to upload the geometry to the GPU and render it. Use the OpenGL fixed function pipeline to color and illuminate the geometry. Use the depth test to ensure that it appears correctly.</p>
+  
+  <h3>3. View</h3>
+  
+  <p>Allow the user to use the mouse and/or keyboard to tumble, pan, zoom, spin, or otherwise interactively view the object from any angle.</p>
+  
+  <h3>4. Be Flexible</h3>
+  
+  <p>Allow the input file to be selected in some fashion. This is most easily accomplished using the command line arguments to your C program's <tt>main</tt> function. There's no need to go crazy with the GUI. Under Windows, dragging-and-dropping a file onto your executable will cause the dropped file name to appear in <tt>argv</tt>, just as if you had typed it in a terminal.</p>
+  
+  <p> Here are some more complex mesh files to experiment upon:
+    <ul>
+      <li><a href="csc4356-proj1-icosa.mesh">Icosahedron</a>
+      <li><a href="csc4356-proj1-teapot.mesh">Teapot</a>
+      <li><a href="csc4356-proj1-747.mesh">747</a>
+    </ul>
+  </p>
+
+  <p>Here is a <em>basic</em> example screenshot of the rendered 747. Remember your &ldquo;lagniappe&rdquo; requirement and <em>do something more interesting than this</em>.</p>
+    
+  <center><img src="csc4356-proj1-747.jpg"></center>
+  
+  <p>See the <a href="index.html">main course web page</a> for details on submission, scheduling, scoring, and grading.</p>
+  
+  <p>Have fun.</p>
+  
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+</body>

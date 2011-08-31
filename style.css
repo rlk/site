@@ -28,7 +28,7 @@ p {
     text-align: justify;
 }
 
-code {
+code, pre {
   font-family: "Lucida Sans Typewriter", "Courier New", monospace;
 }
 
