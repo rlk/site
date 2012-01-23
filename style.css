@@ -15,6 +15,11 @@ body {
     line-height: 140%;
 }
 
+code {
+    font-style: italic;
+    color: #888;
+}
+
 table {
     font-size: small;
 }
@@ -33,12 +38,6 @@ code, pre {
 }
 
 /*---------------------------------------------------------------------------*/
-
-h1, h2, h3, h4, h5 {
-    margin:  0px;
-    padding: 0.5em;
-    background-color: #EEF;
-}
 
 h1 {
     clear: both;
@@ -61,6 +60,12 @@ div.txt {
     margin-left: 336px;
 }
 
+div.txt h3 {
+    margin:  0px;
+    padding: 0.5em;
+    background-color: #EEF;
+}
+
 /*---------------------------------------------------------------------------*/
 /* Navigation table                                                          */
 
@@ -73,6 +78,12 @@ div.txt {
 #nav td {
     text-align: center;
     width: 13%;
+}
+
+#nav h3 {
+    margin:  0px;
+    padding: 0.5em;
+    background-color: #EEF;
 }
 
 /*---------------------------------------------------------------------------*/
@@ -123,6 +134,38 @@ td.off {
   vertical-align: top;
   color:      #FFF;
   background: #DDD;
+}
+
+/*---------------------------------------------------------------------------*/
+/* Diagram table                                                             */
+
+td.box {
+    width:        2.00em;
+    height:       2.00em;
+    border:       1.00px;
+    border-color: #CCC;
+    border-style: solid;
+    text-align:   center;
+}
+
+td.sqr {
+    width:        2.00em;
+    height:       2.00em;
+    text-align:   center;
+}
+
+/*---------------------------------------------------------------------------*/
+/* API definitions and source listings                                       */
+
+dt.decl {
+    font-style: italic;
+    color:      #888;
+}
+
+ol.src {
+    list-style: none;
+    font-style: italic;
+    color:      #888;
 }
 
 /*---------------------------------------------------------------------------*/
