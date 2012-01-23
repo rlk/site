@@ -16,12 +16,18 @@ body {
 }
 
 code {
+    font-family: "Lucida Grande", "Verdana", "Arial", sans-serif;
+    font-size: small;
     font-style: italic;
     color: #888;
 }
 
 table {
     font-size: small;
+}
+
+h1 {
+    clear: both;
 }
 
 hr {
@@ -31,16 +37,6 @@ hr {
 
 p {
     text-align: justify;
-}
-
-code, pre {
-  font-family: "Lucida Sans Typewriter", "Courier New", monospace;
-}
-
-/*---------------------------------------------------------------------------*/
-
-h1 {
-    clear: both;
 }
 
 /*---------------------------------------------------------------------------*/
@@ -170,3 +166,10 @@ ol.src {
 
 /*---------------------------------------------------------------------------*/
 
+img.centered {
+    display:      block;
+    margin-left:  auto;
+    margin-right: auto;
+}
+
+/*---------------------------------------------------------------------------*/
