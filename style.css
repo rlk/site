@@ -56,6 +56,12 @@ div.txt {
     margin-left: 336px;
 }
 
+div.txt h2 {
+    margin:  0px;
+    padding: 0.5em;
+    background-color: #EEF;
+}
+
 div.txt h3 {
     margin:  0px;
     padding: 0.5em;
