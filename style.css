@@ -28,6 +28,9 @@ table {
 
 h1 {
     clear: both;
+    margin:  0px;
+    padding: 0.5em;
+    background-color: #EEF;
 }
 
 hr {
