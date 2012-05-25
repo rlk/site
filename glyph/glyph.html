@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>glyph.[ch]</title>
+  <link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+  <!-- ===================================================================== -->
+  <h1>glyph.[ch]</h1>
+
+  <p>This module provides an efficient, portable means of rendering text using O<small>PEN</small>GL. It renders text as polygons, since polygonal text scales both up and down better than texture-mapped, line-stroke, or bitmap text.</p>
+
+  <ul>
+    <li><a href="glyph.h">glyph.h</a></li>
+    <li><a href="glyph.c">glyph.c</a></li>
+  </ul>
+
+  <p>Each glyph is represented using only a few triangles, specified using triangle strips. In most cases, each vertex is touched only once.</p>
+
+  <p>This code is self-contained and does <em>not</em> rely upon GLX, WGL, Freetype, or any other external library. It can be easily included in code for any platform. It has been tested under Windows, Linux, OS X, and even IRIX. The font description requires less than 2KB of memory and is specified in less than 500 lines of C code. It is linked directly with the application, so no external file loading is necessary. The module has exactly one API entry point.</p>
+
+  <dl>
+    <dt class="decl">void draw_glyph(int c)</dt></dl><dd><p>Draw the glyph for ASCII character <code>c</code>. Glyphs are drawn mono-spaced in a 1x1 unit square in the Z plane. This geometry may be transformed normally. In the opinion of the author, it looks best when scaled to a 1:2 aspect ratio.</p>
+
+    <p>A translation one unit to the right is applied after each glyph is drawn. This allows a string to be rendered as a sequence of calls to <code>draw_glyph</code>.</p>
+
+    <p>Text is rendered using the current material properties. If the text is to be lit, set the current normal to [0 0 1] before calling the renderer. <code>draw_glyph</code> uses O<small>PEN</small>GL immediate mode, but it may be called during the creation of a display list. Only slightly more effort is required to create vertex arrays. Representations of all 128 ASCII characters are defined. Non-printing characters appear as a "no glyph" box.</p></dd>
+  </dl>
+
+  <!-- ===================================================================== -->
+  <p style="text-align:right"><i>kooima&#64;csc&#46;lsu&#46;edu</i></p>
+</body>
+</html>
