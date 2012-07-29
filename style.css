@@ -10,13 +10,13 @@ body {
     margin-right:  10%;
     margin-top:    5em;
     margin-bottom: 5em;
-    font-family: "Lucida Grande", "Verdana", "Arial", sans-serif;
-    font-size: small;
-    line-height: 140%;
+    font-family: "Arial", sans-serif;
+    font-size: 14px;
+    line-height: 20px;
 }
 
 code {
-    font-family: "Lucida Grande", "Verdana", "Arial", sans-serif;
+    font-family: inherit;
     font-size: small;
     font-style: italic;
     color: #888;
