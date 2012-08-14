@@ -71,6 +71,10 @@ div.txt h3 {
     background-color: #EEF;
 }
 
+div.txt h4 {
+    margin:  0px;
+}
+
 /*---------------------------------------------------------------------------*/
 /* Navigation table                                                          */
 
