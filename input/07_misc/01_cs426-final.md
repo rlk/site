@@ -6,9 +6,9 @@ In the fall of 2004 I started the Ph.D. program at UIC. My first class was Jason
 
 [aw]:         http://www.evl.uic.edu/spiff/class/cs426/projects/fall2004/applied/index.html
 [cs426]:      http://www.evl.uic.edu/spiff/class/cs426
-[geowall]:    http://geowall.geo.lsa.umich.edu/home.html
+[geowall]:    http://www.geowall.org/
 [pilotwings]: http://en.wikipedia.org/wiki/Pilotwings_64
 [blitzbasic]: http://www.blitzbasic.com
-[electro]:    applications.html#electro
+[electro]:    code.html#electro
 [resort]:     http://en.wikipedia.org/wiki/Pilotwings_Resort
 [csc4263]:    courses.html#csc4263

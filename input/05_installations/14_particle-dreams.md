@@ -9,4 +9,4 @@
 [spiegel]:   http://www.retiary.org/
 [starcave]:  http://www.calit2.net/newsroom/release.php?id=1383
 [cuda]:      http://www.nvidia.com/object/cuda_home_new.html
-[tellurion]: installations.html#starcave
+[tellurion]: research.html#tellurion

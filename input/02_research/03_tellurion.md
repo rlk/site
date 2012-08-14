@@ -6,6 +6,6 @@ Tellurion implements a highly-scalable real-time planetary terrain composition a
 
 [installations]: installations.html
 [dissertation]:  pdfs/Kooima-Dissertation.pdf
-[youtube]:       http://www.youtube.com/user/evltube?blend=3&ob=5#p/u/15/BVHRNYOUzcA
+[youtube]:       http://www.youtube.com/watch?v=BVHRNYOUzcA
 [defense]:       talks.html#defense
 [tvcg]:          http://www.computer.org/portal/web/csdl/doi/10.1109/TVCG.2009.43

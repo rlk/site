@@ -5,5 +5,5 @@ The [image module][image] provides support for loading and storing 2D images in 
 [image]:   util3d/image.html
 [libpng]:  http://www.libpng.org/
 [libjpeg]: http://www.ijg.org/
-[libtiff]: http://example.com/
+[libtiff]: http://www.remotesensing.org/libtiff/
 [openexr]: http://www.openexr.com/

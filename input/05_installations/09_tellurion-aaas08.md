@@ -2,7 +2,7 @@
 
 *February 2008*
 
-[Tellurion][] was demonstrated as a part of [EVL's involvement][evl] in the 2008 meeting of the [American Association for the Advancement of Science][aaas] (AAAS). The installation used [Calit2][http://www.calit2.net/]'s OptIPortable, a 5&times;3 tiled display designed to unfold from a road case.
+[Tellurion][] was demonstrated as a part of [EVL's involvement][evl] in the 2008 meeting of the [American Association for the Advancement of Science][aaas] (AAAS). The installation used [Calit2][]'s OptIPortable, a 5&times;3 tiled display designed to unfold from a road case.
 
 [tellurion]: research.html#tellurion
 [evl]:       http://www.evl.uic.edu/core.php?mod=4&amp;type=4&amp;indi=552

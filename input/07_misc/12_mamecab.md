@@ -7,8 +7,8 @@ My ongoing [MAME][] cabinet project is a departure from the norm. I want to pres
 [mame]:    http://mamedev.org/
 [8020]:    http://8020.net/
 [arcade0]: misc/arcade0.png
-[arcade1]: misc/arcade1.png
-[arcade2]: misc/arcade2.png
-[arcade3]: misc/arcade3.png
-[arcade4]: misc/arcade4.png
+[arcade1]: misc/arcade1.jpg
+[arcade2]: misc/arcade2.jpg
+[arcade3]: misc/arcade3.jpg
+[arcade4]: misc/arcade4.jpg
 [xgaming]: http://www.xgaming.com/

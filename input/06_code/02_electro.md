@@ -1,4 +1,4 @@
-### <a name="electro" href="electro/electro.html">Electro</a>
+### [Electro][]
 
 *Spring 2005&mdash;2009*
 

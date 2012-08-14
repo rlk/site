@@ -1,4 +1,4 @@
-### <a name="panoview-travel" href="research.html#panoview">Panoview Installations</a></h3>
+### [Panoview][] Installations
 
 *2011*
 
