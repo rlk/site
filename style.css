@@ -28,7 +28,10 @@ table {
 
 h1 {
     clear: both;
-    margin:  0px;
+    margin-top:    0px;
+    margin-bottom: 4px;
+    margin-left:   0px;
+    margin-right:  0px;
     padding: 0.5em;
     background-color: #EEF;
 }
@@ -82,17 +85,20 @@ div.txt h4 {
     clear: both;
     width: 100%;
     margin-bottom: 2em;
+    background-color: #EEF;
+    border-collapse: collapse;
+    border-style:    hidden;
 }
 
 #nav td {
     text-align: center;
     width: 13%;
+    border: 4px solid white;
 }
 
 #nav h3 {
     margin:  0px;
     padding: 0.5em;
-    background-color: #EEF;
 }
 
 /*---------------------------------------------------------------------------*/

@@ -111,7 +111,7 @@ def makepage(root, page):
 
     f = open(name + '.html', 'w')
     if f:
-        f.write(html.substitute(content=content))
+        f.write(html.substitute(page=name, content=content))
         f.close()
 
 # Generate the site by enumerating directories and files end applying the
