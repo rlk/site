@@ -16,9 +16,8 @@ body {
 }
 
 code {
-    font-family: inherit;
-    font-size: small;
-    font-style: italic;
+    font-family: "Courier New", monospace;
+    font-size: 14px;
     color: #888;
 }
 

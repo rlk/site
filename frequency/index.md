@@ -1,8 +1,8 @@
 # Frequency Tools
 
-*Copyright (c) 2012 Robert Kooima.  All Rights Reserved.*
+*Copyright &copy; 2012 Robert Kooima.  All Rights Reserved.*
 
-This is a set of simple command line tools for performing 2D Fourier analysis and synthesis, plus basic arithmetic operations on 2D images. These tools use a strictly-defined subset of the TIFF image format as data representation. The selection of this TIFF subset, and the design of each tool work to maximize scalability. As such, all processes work out-of-core, and there is no built-in limit to the size of an input. Fine-grained multithreading is provided by OpenMP. Input sizes of several gigapixels are straightforwardly handled.
+Frequency Tools is a set of simple command line utilities for performing 2D Fourier analysis and synthesis, plus basic arithmetic operations on 2D images. These tools use a strictly-defined subset of the TIFF image format as data representation. The selection of this TIFF subset and the design of each tool work to maximize scalability. As such, all processes work out-of-core, and there is no built-in limit to the size of an input. Fine-grained multithreading is provided by OpenMP. Input sizes of several gigapixels are straightforwardly handled.
 
 The tools include:
 
