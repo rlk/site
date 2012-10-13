@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Working</string>
+	<key>settings</key>
+	<array>
+		<dict>
+			<key>settings</key>
+			<dict>
+				<key>background</key>   <string>#222222</string>
+				<key>caret</key>        <string>#FFFFFF</string>
+				<key>foreground</key>   <string>#BBBBBB</string>
+				<key>invisibles</key>   <string>#999999</string>
+				<key>lineHighlight</key><string>#333333</string>
+				<key>selection</key>    <string>#444444</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key><string>Comment</string>
+			<key>scope</key><string>comment</string>
+			<key>settings</key><dict><key>foreground</key><string>#668866</string></dict>
+		</dict>
+		<dict>
+			<key>name</key><string>Constant</string>
+			<key>scope</key><string>constant</string>
+			<key>settings</key><dict><key>foreground</key><string>#BB8888</string></dict>
+		</dict>
+		<dict>
+			<key>name</key><string>Entity</string>
+			<key>scope</key><string>entity</string>
+			<key>settings</key><dict><key>foreground</key><string>#BBBB88</string></dict>
+		</dict>
+		<dict>
+			<key>name</key><string>Invalid</string>
+			<key>scope</key><string>invalid</string>
+			<key>settings</key><dict><key>foreground</key><string>#FF0000</string></dict>
+		</dict>
+		<dict>
+			<key>name</key><string>Keyword</string>
+			<key>scope</key><string>keyword</string>
+			<key>settings</key><dict><key>foreground</key><string>#666688</string></dict>
+		</dict>
+		<dict>
+			<key>name</key><string>Markup</string>
+			<key>scope</key><string>markup</string>
+			<key>settings</key><dict><key>foreground</key><string>#7FFF00</string></dict>
+		</dict>
+		<dict>
+			<key>name</key><string>Storage</string>
+			<key>scope</key><string>storage</string>
+			<key>settings</key><dict><key>foreground</key><string>#666688</string></dict>
+		</dict>
+		<dict>
+			<key>name</key><string>String</string>
+			<key>scope</key><string>string</string>
+			<key>settings</key><dict><key>foreground</key><string>#BB7777</string></dict>
+		</dict>
+		<dict>
+			<key>name</key><string>Support</string>
+			<key>scope</key><string>support</string>
+			<key>settings</key><dict><key>foreground</key><string>#BBBB88</string></dict>
+		</dict>
+		<dict>
+			<key>name</key><string>Variable</string>
+			<key>scope</key><string>variable</string>
+			<key>settings</key><dict><key>foreground</key><string>#888888</string></dict>
+		</dict>
+	</array>
+	<key>uuid</key>
+	<string>E6C35BBE-7AD1-4BFD-8CAE-9F0831D28A9E</string>
+</dict>
+</plist>
