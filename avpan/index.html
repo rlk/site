@@ -57,7 +57,7 @@
 
     <p>The six cameras were not started simultaneously, and their recordings are therefore out of synchronization. The first step is to determine exactly how far out of sync they are.</p>
 
-    <p>To accomplish this, I loaded all six videos into Final Cut Pro X. Admittedly, FCPX is not an open source tool, but the synchronization task does not use an feature of FCPX that doesn't exist in many other video editing and playback tools. To synchronize the videos in time, I eyeballed the audio track and dragged them into rough alignment. (Click the image to enhuge.)</p>
+    <p>To accomplish this, I loaded all six videos into Final Cut Pro X. Admittedly, FCPX is not an open source tool, but the synchronization task does not use any feature of FCPX that doesn't exist in many other video editing and playback tools. To synchronize the videos in time, I eyeballed the audio track and dragged them into rough alignment. (Click the image to enhuge.)</p>
 
     <a href="fcpx1.png"><img src="fcpx1-mini.png"></a>
 
@@ -160,27 +160,13 @@ $ ls -lh *.tif
 -rw-r--r--  1 rlk  staff   5.9M Oct 20 13:57 cam6-11006.tif
 </pre>
 
-<pre>
-#!/bin/sh
-
-n=10512
-
-./avpan -fpan.sh -ofh2-%05d.tif -n30 \
-        Cam1-1.MP4:$(expr $n - 1305) \
-        Cam2-1.MP4:$(expr $n - 4044) \
-        Cam3-1.MP4:$(expr $n - 3291) \
-        Cam4-1.MP4:$(expr $n - 2461) \
-        Cam5-1.MP4:$(expr $n -    0) \
-        Cam6-1.MP4:$(expr $n - 1924)
-</pre>
-
     <h3>Alignment</h3>
 
     <p>We must now align these six images. This can be a laborious process. This example shows a uniform overcast gray sky, a uniform green expanse of grass, and some uniform brown unplanted fields. There is not nearly enough detail for an automatic alignment to be performed. I did this one by hand. <a href="http://www.ptgui.com/">PT GUI</a> and <a href="http://hugin.sourceforge.net/">Hugin</a> are more-or-less equally well-adapted to the task. Here is an in-process alignment in Hugin:</p>
 
     <a href="hugin.png"><img src="hugin-mini.png"></a>
 
-    <p>One the alignment is complete, PT GUI will save the project to a <tt>pts</tt> file or Hugin will save it to a <tt>pto</tt> file. Both of these files have similar content and format, though they are not exactly the same. A bit of hand-editing with a common text editor will extract the information necessary for <tt>nona</tt> to do its work. Here is the final calibration file for this example:</p>
+    <p>Once the alignment is complete, PT GUI will save the project to a <tt>pts</tt> file or Hugin will save it to a <tt>pto</tt> file. Both of these files have similar content and format, though they are not exactly the same. A bit of hand-editing with a common text editor will extract the information necessary for <tt>nona</tt> to do its work. Here is the final calibration file for this example:</p>
 
 <pre>
 p f3 w4096 h4096 v200
