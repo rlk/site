@@ -4,6 +4,10 @@
     <link rel=stylesheet type="text/css" href="../style.css">
     <title>AVPan</title>
     <style type="text/css">
+    p {
+      margin-left:  2em;
+      margin-right: 2em;
+    }
     pre {
       margin-left:  4em;
       margin-right: 4em;
@@ -39,21 +43,31 @@
 
     <h2>Example</h2>
 
-    <p>The functioning of AVPan is best explained through a complete example. The example video was provided by Ken Walczak of the Adler Planetarium, collected as part of the <a href="http://www.adlerplanetarium.org/investigate/participate/farhorizons">Far Horizons</a> project. Ken flew six GoPro Hero camera on a weather balloon to 90,000 feet over central Illinois.</p>
+    <p>The functioning of AVPan is best explained through a complete example. The example video was provided by Ken Walczak of the Adler Planetarium, collected as part of the <a href="http://www.adlerplanetarium.org/investigate/participate/farhorizons">Far Horizons</a> project. Ken flew six GoPro Hero cameras on a weather balloon to 90,000 feet over central Illinois.</p>
 
-    <p>In this example we'll calibrate the stitching only once, using one set of TIFF images, and use this one calibration for all frames.</p>
+    <p>The processing this example involved five steps&hellip;</p>
 
+    <ol>
+      <li><a href="#sync">Synchronization</a></li>
+      <li><a href="#frame">Frame Extraction</a></li>
+      <li><a href="#align">Alignment</a></li>
+      <li><a href="#stitch">Stitching</a></li>
+      <li><a href="#encode">Encoding</a></li>
+    </ol>
 
-    <p>Here is a stitch of the launch. The discontinuity between cameras is due to the very wide baseline of the camera mount, chosen for angular stability. This discontinuity disappears as the structure leaves the ground.</p>
+    <p>For conveniencee, I began by copying all of the GoPro MPEG4 files into one directory.</p>
 
-      <iframe width="420" height="315" src="http://www.youtube.com/embed/Hbch4n8uQ04" frameborder="0" allowfullscreen></iframe>
+<pre>
+$ ls -lh
+-rw-r--r--  1 rlk  staff   3.7G Oct 20 13:36 Cam1-1.MP4
+-rw-r--r--  1 rlk  staff   3.7G Oct 20 13:37 Cam2-1.MP4
+-rw-r--r--  1 rlk  staff   3.7G Oct 20 13:39 Cam3-1.MP4
+-rw-r--r--  1 rlk  staff   3.7G Oct 20 13:40 Cam4-1.MP4
+-rw-r--r--  1 rlk  staff   3.7G Oct 20 13:43 Cam5-1.MP4
+-rw-r--r--  1 rlk  staff   3.7G Oct 20 13:44 Cam6-1.MP4
+</pre>
 
-    <p>Here is a stitch of the balloon popping. Stitch discontinuities return as the flexible structure reacts to the stress.</p>
-
-      <iframe width="420" height="315" src="http://www.youtube.com/embed/R3BXERbLWIk" frameborder="0" allowfullscreen></iframe>
-
-
-    <h3>Synchronization</h3>
+    <h3><a name="sync">Synchronization</a></h3>
 
     <p>The six cameras were not started simultaneously, and their recordings are therefore out of synchronization. The first step is to determine exactly how far out of sync they are.</p>
 
@@ -76,25 +90,15 @@
       <tr><td>Camera 6</td><td>&hellip;</td><td>position 1924</td></tr>
     </table></blockquote>
 
-    <p>I then moved the video forward to a point where all six cameras had a clear, detailed view of the environment from a distance, and made a note of the frame number. In this example, it is frame 11006. We will use this frame to perform the alignment.</p>
+    <h3><a name="frame">Frame Extraction</a></h3>
+
+    <p>To stitch video, we assume for the sake of simplicity that the camera mount is rigid and that the cameras do not move relative to one another. (In this example, this turns out not to be the case, but the output doesn't suffer too horribly.) By assuming a rigid camera mount, we can perform the camera alignment only once and reuse the resulting calibration for every frame.</p>
+
+    <p>I moved the video forward to a point where all six cameras had a clear, detailed view of the environment from a distance, and made a note of the frame number. For this example, I chose frame 11006.</p>
 
     <a href="fcpx3.png"><img src="fcpx3-mini.png"></a>
 
-    <h3>Single Frame Extraction</h3>
-
-    <p>For conveniencee, I copied all of the GoPro MPEG4 files into one directory.</p>
-
-<pre>
-$ ls -lh
--rw-r--r--  1 rlk  staff   3.7G Oct 20 13:36 Cam1-1.MP4
--rw-r--r--  1 rlk  staff   3.7G Oct 20 13:37 Cam2-1.MP4
--rw-r--r--  1 rlk  staff   3.7G Oct 20 13:39 Cam3-1.MP4
--rw-r--r--  1 rlk  staff   3.7G Oct 20 13:40 Cam4-1.MP4
--rw-r--r--  1 rlk  staff   3.7G Oct 20 13:43 Cam5-1.MP4
--rw-r--r--  1 rlk  staff   3.7G Oct 20 13:44 Cam6-1.MP4
-</pre>
-
-    <p>Our first task is to extract a single moment in time, frame 11006, from each of these. AVPan does this for us. Here is a simple script that runs AVPan and extracts a single frame from each video.</p>
+    <p>AVPan can take care of extracting frame 11006 from all six videos. Here is a simple script <tt>gen.sh</tt> that runs AVPan and does the job.</p>
 
 <pre>
 #!/bin/sh
@@ -124,7 +128,7 @@ cp $2 $1
 
     <p>The last parameter gives the video file name annotated with the number of the first desired frame. We know we want frame 11006, but each video starts with a different frame offset, noted above, so we use BASH expression evaluation to calculate the desired frame number.</p>
 
-    <p>The script takes a few minutes to synchronize the video, and AVPan reports as follows:</p>
+    <p>The <tt>gen.sh</tt> script took a few minutes to synchronize the video, and AVPan reported each frame output as follows:</p>
 
 <pre>
 $ ./gen.sh
@@ -148,7 +152,7 @@ Skipping Cam6-1.MP4 to frame 9082
 Blending frame 0 of 1
 </pre>
 
-    <p>Best of all, we now have six TIFF images.</p>
+    <p>Six TIFF images were produced.</p>
 
 <pre>
 $ ls -lh *.tif
@@ -160,13 +164,15 @@ $ ls -lh *.tif
 -rw-r--r--  1 rlk  staff   5.9M Oct 20 13:57 cam6-11006.tif
 </pre>
 
-    <h3>Alignment</h3>
+    <img src="frames.png">
 
-    <p>We must now align these six images. This can be a laborious process. This example shows a uniform overcast gray sky, a uniform green expanse of grass, and some uniform brown unplanted fields. There is not nearly enough detail for an automatic alignment to be performed. I did this one by hand. <a href="http://www.ptgui.com/">PT GUI</a> and <a href="http://hugin.sourceforge.net/">Hugin</a> are more-or-less equally well-adapted to the task. Here is an in-process alignment in Hugin:</p>
+    <h3><a name="align">Alignment</a></h3>
+
+    <p>The next task was to align these six images. This can be a laborious process. This example shows a uniform overcast gray sky, a uniform green expanse of grass, and some uniform brown unplanted fields. There is not nearly enough detail for an automatic alignment to be performed. I did this one by hand. <a href="http://www.ptgui.com/">PT GUI</a> and <a href="http://hugin.sourceforge.net/">Hugin</a> are more-or-less equally well-adapted to the task. Here is an in-progress alignment in Hugin:</p>
 
     <a href="hugin.png"><img src="hugin-mini.png"></a>
 
-    <p>Once the alignment is complete, PT GUI will save the project to a <tt>pts</tt> file or Hugin will save it to a <tt>pto</tt> file. Both of these files have similar content and format, though they are not exactly the same. A bit of hand-editing with a common text editor will extract the information necessary for <tt>nona</tt> to do its work. Here is the final calibration file for this example:</p>
+    <p>With the alignment complete, PT GUI will save the project to a <tt>pts</tt> file or Hugin will save it to a <tt>pto</tt> file. Both of these files have similar content and format, though they are not exactly the same. A bit of hand-editing with a common text editor will extract the information necessary for <tt>nona</tt> to do its work. Here is the final calibration file for this example:</p>
 
 <pre>
 p f3 w4096 h4096 v200
@@ -180,11 +186,11 @@ o w1920 h1080 f0 y63.86812917656463 r-5.464064687655901 p10.67504750648678 v=0 a
 o w1920 h1080 f0 y-37.74676500413466 r121.5315838358511 p-57.12977880600381 v=0 a=0 b=0 c=0 d=0 e=0 g=0 t=0
 </pre>
 
-    <p>The first line, beginning with <tt>p</tt> gives the final image width and height plus the field of view in degrees. The <tt>m</tt>... I have no idea. The <tt>o</tt> lines are important. Each specifies an input image along with the transformation necessary to warp it into the right shape. PT GUI Pro, which is what I used to generate this calibration, specifies global transforms separately from per-image transforms, so we end up with seven images, the first of which doesn't really exist.</p>
+    <p>The first line, beginning with <tt>p</tt> gives the final image width and height plus the field of view in degrees. The <tt>m</tt>... I have no idea. The <tt>o</tt> lines are important. Each represents a single input image along with the transformation necessary to warp it into the right shape. PT GUI Pro, which is what I used to generate this calibration, specifies global transforms separately from per-image transforms, so we end up with seven images, the first of which doesn't really exist.</p>
 
-    <h3>Stitching</h3>
+    <h3><a name="stitch">Stitching</a></h3>
 
-    <p><i>Finally</i> we have everything we need to stitch the video. We will run AVPan again, this time to extract and process <i>all</i> of the desired frames. We begin at frame 10300, which occurs just before the baloon is released. We'll take 1800 frames, which is one minute of video at 30Hz. After this point, Ken's balloon enters the overcast and there's nothing to see for a few minutes.</p>
+    <p><i>Finally</i> I had everything needed to stitch the video. I wrote yet another script, <tt>pan.sh</tt> below, to run AVPan again to extract and process <i>all</i> of the desired frames. I begin at frame 10300, which occurs just before the baloon is released. I took 1800 frames, which is one minute of video at 30Hz. After this point, Ken's balloon enters the overcast and there's nothing to see for a few minutes.</p>
 
 <pre>
 #!/bin/sh
@@ -200,7 +206,7 @@ n=10300
           Cam6-1.MP4:$(expr $n - 1924)
 </pre>
 
-    <p>Unlike the single frame extraction above, we specify all six videos on one single AVPan command line. AVPan will extract each frame as a set of six TIFF files and pass them to the <tt>pan.sh</tt> script, which looks like this:</p>
+    <p>Unlike the single frame extraction above, all six videos are specified on one single AVPan command line. AVPan extracted each frame as a set of six TIFF files and pass them to the <tt>pan.sh</tt> script, which looks like this:</p>
 
 <pre>
 #!/bin/sh
@@ -211,13 +217,19 @@ enblend --no-optimize --fine-mask -o $1 out0001.tif out0005.tif out0002.tif out0
 
     <p>The first thing that <tt>pan.sh</tt> does is invoke <tt>nona</tt> using the calibration <tt>pto</tt> file shown above. The <tt>-o out</tt> argument tells it to write the warped images to files named &ldquo;out.&rdquo; The file name arguments list all of the TIFF file names provided by AVPan, <i>but also</i> a tiny white JPG image (included in the AVPan source) that allows <tt>nona</tt> to correctly handle PT GUI's global transformation specification without failing due to a missing image.</p>
 
-    <p>After the warping was been performed and written to six TIFF files named &ldquo;out,&rdquo; <tt>enblend</tt> performs the blending, writing the output to a finished file named and numbered <tt>fh2-00000.tif</tt>, as provided by AVPan.</p>
+    <p>After the warping was been performed and written to six TIFF files named &ldquo;out,&rdquo; <tt>enblend</tt> performs the blending, writing the output to a finished file named and numbered <tt>fh2-00000.tif</tt>, as provided by AVPan. The process then repeats to produce <tt>fh2-00001.tif</tt>, and so on, for 1800 frames.</p>
 
-    <h4>Encoding</h4>
+    <h3><a name="encode">Encoding</a></h3>
 
-    <p>Now we have 1800 TIFF files, each 4096 &times; 4096. This output consumes a lot of disk space, which is why it was necessary to utilize temporaries during the stitching process. To make a movie out of these 1800 frames, we can simply use FFmpeg, QuickTime, Final Cut, or any other movie-making tool.
+    <p>The process produced 1800 TIFF files, each 4096 &times; 4096. This output consumed a lot of disk space, which is why it was necessary to utilize temporaries during the stitching process. To make a movie out of these 1800 frames, we can simply use FFmpeg, QuickTime, Final Cut, or any other movie-making tool. I used Compressor.</p>
 
-    <p><i>Whew, that was a lot of work.</i></p>
+    <p>Here is a stitch of the launch. The initial discontinuity between cameras is due to the very wide baseline of the camera mount, chosen for angular stability. This discontinuity disappears as the structure leaves the ground.</p>
+
+      <iframe width="420" height="315" src="http://www.youtube.com/embed/Hbch4n8uQ04" frameborder="0" allowfullscreen></iframe>
+
+    <p>Here is a stitch of the balloon popping. Stitch discontinuities return as the flexible structure reacts to the stress.</p>
+
+      <iframe width="420" height="315" src="http://www.youtube.com/embed/R3BXERbLWIk" frameborder="0" allowfullscreen></iframe>
 
     <hr>
     <p style="text-align:right"><i>kooima&#64;csc&#46;lsu&#46;edu</i></p>
