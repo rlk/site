@@ -9,6 +9,6 @@ In the fall of 2004 I started the Ph.D. program at UIC. My first class was Jason
 [geowall]:    http://www.geowall.org/
 [pilotwings]: http://en.wikipedia.org/wiki/Pilotwings_64
 [blitzbasic]: http://www.blitzbasic.com
-[electro]:    code.html#electro
+[electro]:    applications.html#electro
 [resort]:     http://en.wikipedia.org/wiki/Pilotwings_Resort
 [csc4263]:    courses.html#csc4263

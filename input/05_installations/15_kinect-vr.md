@@ -6,7 +6,7 @@
 
 [youtube]:      http://www.youtube.com/watch?v=2MX1RinEXUM
 [openni]:       http://www.openni.org/
-[electro]:      code.html#electro
+[electro]:      applications.html#electro
 [vortex]:       applications.html#vortex
 [techpawlooza]: http://www.lsureveille.com/video-techpawlooza-2011-1.2504668
 [tr]:           http://www.technologyreview.com/computing/37201/
