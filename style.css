@@ -23,7 +23,7 @@ code {
 }
 
 table {
-    font-size: small;
+    font: inherit
 }
 
 h1 {
