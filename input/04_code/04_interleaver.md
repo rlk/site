@@ -1,4 +1,4 @@
-### [Autostereo Interleaver][interleaver]
+## [Autostereo Interleaver][interleaver]
 
 *Summer 2008*
 

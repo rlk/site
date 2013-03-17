@@ -1,4 +1,4 @@
-### Tellurion on the StarCAVE at Calit2
+## Tellurion on the StarCAVE at Calit2
 
 *2007&mdash;2008*
 

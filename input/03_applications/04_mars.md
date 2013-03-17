@@ -1,4 +1,4 @@
-### [Electro][]: Mars
+## [Electro][]: Mars
 
 *Summer 2006*
 

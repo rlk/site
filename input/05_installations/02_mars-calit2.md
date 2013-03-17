@@ -1,4 +1,4 @@
-### Electro: Mars at Calit2
+## Electro: Mars at Calit2
 
 *2006&mdash;2010*
 

@@ -1,4 +1,4 @@
-### [Control Panel Boxes][panels]
+## [Control Panel Boxes][panels]
 
 *Spring 2012*
 

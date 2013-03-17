@@ -1,4 +1,4 @@
-### [Electro][]: Total Perspective Vortex
+## [Electro][]: Total Perspective Vortex
 
 *Spring 2005*
 

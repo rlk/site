@@ -1,4 +1,4 @@
-### StarFlight at the Adler Planetarium
+## StarFlight at the Adler Planetarium
 
 *December 2006&mdash;present*
 

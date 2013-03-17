@@ -1,4 +1,4 @@
-### Tellurion on the Varrier at Calit2
+## Tellurion on the Varrier at Calit2
 
 *August 2007&mdash;2009*
 

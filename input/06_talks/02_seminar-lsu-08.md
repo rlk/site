@@ -1,4 +1,4 @@
-### Seminar at Louisiana State University
+## Seminar at Louisiana State University
 
 *16 May 2008*
 

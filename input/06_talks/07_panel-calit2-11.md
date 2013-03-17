@@ -1,4 +1,4 @@
-### [Synthesis: Processing and Collaboration][synthesis]
+## [Synthesis: Processing and Collaboration][synthesis]
 
 *13 January 2011*
 

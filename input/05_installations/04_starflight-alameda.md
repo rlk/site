@@ -1,4 +1,4 @@
-### StarFlight at the Laboratorio Arte Alameda
+## StarFlight at the Laboratorio Arte Alameda
 
 *November 2006&mdash;February 2007*
 

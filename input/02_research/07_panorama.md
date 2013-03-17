@@ -1,4 +1,4 @@
-### [Stereoscopic Spherical Panorama Capture][panorama]
+## [Stereoscopic Spherical Panorama Capture][panorama]
 
 *Fall 2011*
 

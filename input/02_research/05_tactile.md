@@ -1,4 +1,4 @@
-### [TacTile Multitouch Table][tactile]
+## [TacTile Multitouch Table][tactile]
 
 *2008&ndash;2009*
 

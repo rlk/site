@@ -1,5 +1,3 @@
-/*---------------------------------------------------------------------------*/
-
 a:link    { color:#0000FF; text-decoration: none; }
 a:visited { color:#2200AA; text-decoration: none; }
 a:hover   { color:#AA0000; text-decoration: underline; }
@@ -22,12 +20,6 @@ code {
     color: #999;
 }
 
-pre {
-    font-family: "Consolas", "Courier New", monospace;
-    font-size: 15px;
-    color: #999;
-}
-
 table {
     font: inherit
 }
@@ -39,7 +31,8 @@ h1 {
     margin-left:   0px;
     margin-right:  0px;
     padding:     0.5em;
-    background-color: #DDD;
+    background:         radial-gradient(center top, circle, #EEE, #DDD);
+    background: -webkit-radial-gradient(center top, circle, #EEE, #DDD);
 }
 
 h1.header {
@@ -69,8 +62,7 @@ div.all {
     padding-bottom:   8px;
 }
 
-/*---------------------------------------------------------------------------*/
-/* Lists of items each with a picture and text                               */
+/* Lists of items each with a picture and text */
 
 div.item {
     clear: both;
@@ -87,23 +79,14 @@ div.txt {
 }
 
 div.txt h2 {
-    margin:  0px;
-    padding: 0.5em;
-    background-color: #DDD;
+    font-size: 1.2em;
+    padding:   0.5em;
+    margin:      0px;
+    background:         radial-gradient(center top, circle, #EEE, #DDD);
+    background: -webkit-radial-gradient(center top, circle, #EEE, #DDD);
 }
 
-div.txt h3 {
-    margin:  0px;
-    padding: 0.5em;
-    background-color: #DDD;
-}
-
-div.txt h4 {
-    margin:  0px;
-}
-
-/*---------------------------------------------------------------------------*/
-/* Navigation table                                                          */
+/* Navigation table */
 
 #nav {
     clear: both;
@@ -114,7 +97,8 @@ div.txt h4 {
 }
 
 #nav td {
-    background-color: #DDD;
+    background:         radial-gradient(center top, circle, #EEE, #DDD);
+    background: -webkit-radial-gradient(center top, circle, #EEE, #DDD);
     border: 4px solid #EEE;
     text-align: center;
     width: 13%;
@@ -125,8 +109,7 @@ div.txt h4 {
     padding: 0.5em;
 }
 
-/*---------------------------------------------------------------------------*/
-/* Calender table                                                            */
+/* Calender table */
 
 table.calendar {
   margin-left:  auto;
@@ -174,47 +157,3 @@ td.off {
   color:      #FFF;
   background: #DDD;
 }
-
-/*---------------------------------------------------------------------------*/
-/* Diagram table                                                             */
-
-td.box {
-    width:        2.00em;
-    height:       2.00em;
-    border:       1.00px;
-    border-color: #CCC;
-    border-style: solid;
-    text-align:   center;
-}
-
-td.sqr {
-    width:        2.00em;
-    height:       2.00em;
-    text-align:   center;
-}
-
-/*---------------------------------------------------------------------------*/
-/* API definitions and source listings                                       */
-
-dt.decl {
-    font-family: "Consolas", "Courier New", monospace;
-    font-size: 15px;
-    color:     #999;
-}
-
-ol.src {
-    font-family: "Consolas", "Courier New", monospace;
-    font-size: 15px;
-    color:     #999;
-    list-style: none;
-}
-
-/*---------------------------------------------------------------------------*/
-
-img.centered {
-    display:      block;
-    margin-left:  auto;
-    margin-right: auto;
-}
-
-/*---------------------------------------------------------------------------*/

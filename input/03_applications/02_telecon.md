@@ -1,4 +1,4 @@
-### Autostereoscopic Video Telecommunications
+## Autostereoscopic Video Telecommunications
 
 *Fall 2005*
 

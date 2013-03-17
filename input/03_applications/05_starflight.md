@@ -1,4 +1,4 @@
-### [StarFlight][]
+## [StarFlight][]
 
 *Fall 2006*
 

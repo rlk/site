@@ -1,4 +1,4 @@
-### [Easy Polygonal Text][glyph]
+## [Easy Polygonal Text][glyph]
 
 *May 2002*
 

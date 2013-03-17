@@ -1,4 +1,4 @@
-### [Helvetica vs. Arial][pdf]
+## [Helvetica vs. Arial][pdf]
 
 *December 2009*
 

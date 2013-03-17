@@ -1,4 +1,4 @@
-### [3D Game with a Guy Flying a Pedal Plane][aw]
+## [3D Game with a Guy Flying a Pedal Plane][aw]
 
 *Fall 2004*
 

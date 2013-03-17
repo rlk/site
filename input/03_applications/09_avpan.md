@@ -1,4 +1,4 @@
-### [AVPan][avpan]
+## [AVPan][avpan]
 
 *Summer 2012*
 

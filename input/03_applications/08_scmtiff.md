@@ -1,4 +1,4 @@
-### [Spherical Cube Map TIFF][doc]
+## [Spherical Cube Map TIFF][doc]
 
 *Spring 2012*
 

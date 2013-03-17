@@ -1,4 +1,4 @@
-### Tellurion at AAAS '08
+## Tellurion at AAAS '08
 
 *February 2008*
 

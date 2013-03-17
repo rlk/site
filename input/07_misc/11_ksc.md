@@ -1,4 +1,4 @@
-### Kennedy Space Center Panoramas
+## Kennedy Space Center Panoramas
 
 *June 2009*
 

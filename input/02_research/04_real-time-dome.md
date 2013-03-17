@@ -1,4 +1,4 @@
-### [Real-time Digital Dome Rendering Techniques and Technologies][real-time-dome]
+## [Real-time Digital Dome Rendering Techniques and Technologies][real-time-dome]
 
 *1 July 2008*
 

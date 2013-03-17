@@ -1,4 +1,4 @@
-### Adler Planetarium Moonwall
+## Adler Planetarium Moonwall
 
 *2009&ndash;present*
 

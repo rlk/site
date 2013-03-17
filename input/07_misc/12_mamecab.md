@@ -1,4 +1,4 @@
-### MAME "Cabinet"
+## MAME "Cabinet"
 
 *Spring 2012 work-in-progress*
 

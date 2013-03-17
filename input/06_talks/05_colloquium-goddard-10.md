@@ -1,4 +1,4 @@
-### [NASA Goddard IS&amp;T Colloquium][link]
+## [NASA Goddard IS&amp;T Colloquium][link]
 
 *13 October 2010*
 

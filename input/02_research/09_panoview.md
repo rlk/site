@@ -1,4 +1,4 @@
-### Stereoscopic Spherical Panorama Rendering
+## Stereoscopic Spherical Panorama Rendering
 
 *Fall 2011*
 

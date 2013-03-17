@@ -1,4 +1,4 @@
-### TacTile at SIGGRAPH 2009
+## TacTile at SIGGRAPH 2009
 
 *4&ndash;6 August 2009*
 

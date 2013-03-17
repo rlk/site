@@ -1,4 +1,4 @@
-### [Cube Module][cube]
+## [Cube Module][cube]
 
 The [cube module][cube] renders the [3D reference cube][pdf] using O<small>PEN</small>GL. It is useful for testing object transformations and debugging O<small>PEN</small>GL applictions. The implementation gives a simple example of basic rendering with the [ARB vertex buffer object][vbo] specification.
 

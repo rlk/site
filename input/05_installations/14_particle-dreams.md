@@ -1,4 +1,4 @@
-### Particle Dreams in Spherical Harmonics
+## Particle Dreams in Spherical Harmonics
 
 *2011&ndash;present*
 

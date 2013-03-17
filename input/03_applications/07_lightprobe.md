@@ -1,4 +1,4 @@
-### [Lightprobe Composer][lightprobe]
+## [Lightprobe Composer][lightprobe]
 
 *Summer 2011, Summer 2012*
 

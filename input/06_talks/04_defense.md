@@ -1,4 +1,4 @@
-### Ph.D. Dissertation Defense
+## Ph.D. Dissertation Defense
 
 *23 October 2008*
 

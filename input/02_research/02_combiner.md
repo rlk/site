@@ -1,4 +1,4 @@
-### [A GPU Sub-pixel Algorithm for Autostereoscopic Virtual Reality][ieeevr]
+## [A GPU Sub-pixel Algorithm for Autostereoscopic Virtual Reality][ieeevr]
 
 *Spring 2007*
 

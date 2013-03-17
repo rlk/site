@@ -1,4 +1,4 @@
-### Autostereo Telecon at iGrid2005 and SC'05
+## Autostereo Telecon at iGrid2005 and SC'05
 
 *September and November 2005*
 

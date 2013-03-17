@@ -1,4 +1,4 @@
-### [GPU Day-Night Illumination Tutorial][final]
+## [GPU Day-Night Illumination Tutorial][final]
 
 *Spring 2006*
 

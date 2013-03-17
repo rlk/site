@@ -1,4 +1,4 @@
-### [Color themes][aperture-tmate]
+## [Color themes][aperture-tmate]
 
 Here are a few custom syntax color themes that I find useful.
 

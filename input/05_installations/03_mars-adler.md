@@ -1,4 +1,4 @@
-### Electro: Mars at the Adler Planetarium
+## Electro: Mars at the Adler Planetarium
 
 *January 2007&mdash;present*
 

@@ -1,4 +1,4 @@
-### [Kinect + 3D TV = Virtual Reality][youtube]
+## [Kinect + 3D TV = Virtual Reality][youtube]
 
 *February 2011*
 

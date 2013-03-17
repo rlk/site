@@ -1,4 +1,4 @@
-### [Generalized Perspective Projection][pdf]
+## [Generalized Perspective Projection][pdf]
 
 *August 2008*
 
