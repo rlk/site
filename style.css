@@ -20,6 +20,11 @@ code {
     color: #999;
 }
 
+pre {
+    margin-left: 2em;
+    line-height: 20px;
+}
+
 img {
     display: block;
     margin-left: auto;

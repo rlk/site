@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     17327,        463]
-NotebookOptionsPosition[     16948,        446]
-NotebookOutlinePosition[     17306,        462]
-CellTagsIndexPosition[     17263,        459]
+NotebookDataLength[     19440,        525]
+NotebookOptionsPosition[     19061,        508]
+NotebookOutlinePosition[     19419,        524]
+CellTagsIndexPosition[     19376,        521]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -25,7 +25,7 @@ Cell[BoxData[
   3.573060954957149*^9, 3.573060961139583*^9}}],
 
 Cell[BoxData[{
- RowBox[{"grid", "=", 
+ RowBox[{"grid1", "=", 
   RowBox[{"{", 
    RowBox[{
     RowBox[{"{", "\[IndentingNewLine]", 
@@ -86,6 +86,67 @@ Cell[BoxData[{
       RowBox[{"{", 
        RowBox[{"1", ",", "LightGray"}], "}"}]}], "\[IndentingNewLine]", 
      "}"}]}], "\[IndentingNewLine]", "}"}]}], "\[IndentingNewLine]", 
+ RowBox[{"grid0", "=", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"{", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "10"}], ",", 
+        RowBox[{"Thickness", "\[Rule]", "0.005"}]}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "9"}], ",", "LightGray"}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "8"}], ",", "LightGray"}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "7"}], ",", "LightGray"}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "6"}], ",", "LightGray"}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "5"}], ",", "LightGray"}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "4"}], ",", "LightGray"}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "3"}], ",", "LightGray"}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "2"}], ",", "LightGray"}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "1"}], ",", "LightGray"}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", 
+        RowBox[{"Thickness", "\[Rule]", "0.005"}]}], "}"}]}], 
+     "\[IndentingNewLine]", "}"}], ",", 
+    RowBox[{"{", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "1"}], ",", "LightGray"}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "LightGray"}], "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", "LightGray"}], "}"}]}], "\[IndentingNewLine]", 
+     "}"}]}], "\[IndentingNewLine]", "}"}]}], "\[IndentingNewLine]", 
  RowBox[{"tick", "=", 
   RowBox[{"{", "\[IndentingNewLine]", 
    RowBox[{
@@ -126,7 +187,7 @@ Cell[BoxData[{
  RowBox[{"far", "=", "10"}]}], "Input",
  CellChangeTimes->{{3.573059429867511*^9, 3.573059462336336*^9}, {
   3.573059717483724*^9, 3.573059809061304*^9}, {3.573062032157693*^9, 
-  3.573062075473968*^9}}],
+  3.573062075473968*^9}, {3.5730652770301723`*^9, 3.5730652932963743`*^9}}],
 
 Cell[BoxData[{
  RowBox[{
@@ -163,7 +224,7 @@ Cell[BoxData[{
       RowBox[{"{", 
        RowBox[{"Thick", ",", "Red"}], "}"}]}], ",", "\[IndentingNewLine]", 
      RowBox[{"Ticks", "\[Rule]", "tick"}], ",", "\[IndentingNewLine]", 
-     RowBox[{"GridLines", "\[Rule]", "grid"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"GridLines", "\[Rule]", "grid1"}], ",", "\[IndentingNewLine]", 
      RowBox[{"AxesStyle", "\[Rule]", "axes"}], ",", "\[IndentingNewLine]", 
      RowBox[{"ImageSize", "\[Rule]", "size"}]}], "\[IndentingNewLine]", 
     "]"}]}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
@@ -214,7 +275,7 @@ Cell[BoxData[{
          RowBox[{"Thick", ",", "Green"}], "}"}]}], "}"}]}], ",", 
      "\[IndentingNewLine]", 
      RowBox[{"Ticks", "\[Rule]", "tick"}], ",", "\[IndentingNewLine]", 
-     RowBox[{"GridLines", "\[Rule]", "grid"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"GridLines", "\[Rule]", "grid1"}], ",", "\[IndentingNewLine]", 
      RowBox[{"AxesStyle", "\[Rule]", "axes"}], ",", "\[IndentingNewLine]", 
      RowBox[{"ImageSize", "\[Rule]", "size"}]}], "\[IndentingNewLine]", 
     "]"}]}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
@@ -273,7 +334,7 @@ Cell[BoxData[{
          RowBox[{"Thick", ",", "Blue"}], "}"}]}], "}"}]}], ",", 
      "\[IndentingNewLine]", 
      RowBox[{"Ticks", "\[Rule]", "tick"}], ",", "\[IndentingNewLine]", 
-     RowBox[{"GridLines", "\[Rule]", "grid"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"GridLines", "\[Rule]", "grid0"}], ",", "\[IndentingNewLine]", 
      RowBox[{"AxesStyle", "\[Rule]", "axes"}], ",", "\[IndentingNewLine]", 
      RowBox[{"ImageSize", "\[Rule]", "size"}]}], "\[IndentingNewLine]", 
     "]"}]}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
@@ -350,7 +411,7 @@ Cell[BoxData[{
          RowBox[{"0.6", ",", "0.6", ",", "1"}], "]"}], "}"}]}], 
       "\[IndentingNewLine]", "}"}]}], ",", "\[IndentingNewLine]", 
     RowBox[{"Ticks", "\[Rule]", "tick"}], ",", "\[IndentingNewLine]", 
-    RowBox[{"GridLines", "\[Rule]", "grid"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"GridLines", "\[Rule]", "grid0"}], ",", "\[IndentingNewLine]", 
     RowBox[{"AxesStyle", "\[Rule]", "axes"}], ",", "\[IndentingNewLine]", 
     RowBox[{"ImageSize", "\[Rule]", "size"}]}], "\[IndentingNewLine]", 
    "]"}]}]}], "Input",
@@ -388,7 +449,8 @@ Cell[BoxData[{
    3.5730614180069427`*^9}, {3.573061494135447*^9, 3.5730615013485537`*^9}, {
    3.57306162986872*^9, 3.573061635587508*^9}, 3.573061710867157*^9, {
    3.573061956389719*^9, 3.573062049023827*^9}, {3.573062264443636*^9, 
-   3.573062289152809*^9}, {3.573062345550111*^9, 3.573062346325059*^9}}],
+   3.573062289152809*^9}, {3.573062345550111*^9, 3.573062346325059*^9}, {
+   3.573065297759667*^9, 3.573065305424095*^9}}],
 
 Cell[BoxData[{
  RowBox[{
@@ -462,9 +524,9 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[557, 20, 230, 4, 27, "Input"],
-Cell[790, 26, 3489, 102, 433, "Input"],
-Cell[4282, 130, 10641, 260, 853, "Input"],
-Cell[14926, 392, 2018, 52, 163, "Input"]
+Cell[790, 26, 5548, 163, 703, "Input"],
+Cell[6341, 191, 10695, 261, 853, "Input"],
+Cell[17039, 454, 2018, 52, 163, "Input"]
 }
 ]
 *)
