@@ -74,6 +74,27 @@ div.all {
 }
 
 /* Lists of items each with a picture and text */
+/*
+
+div.item {
+    clear: both;
+}
+
+div.pic {
+    float: right;
+    width: 320px;
+    margin-bottom: 1em;
+    margin-left:   1em;
+}
+
+div.txt h2 {
+    font-size: 1.2em;
+    padding:   0.5em;
+    margin:      0px;
+    background:         radial-gradient(center top, circle, #EEE, #DDD);
+    background: -webkit-radial-gradient(center top, circle, #EEE, #DDD);
+}
+*/
 
 div.item {
     clear: both;

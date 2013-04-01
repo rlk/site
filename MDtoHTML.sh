@@ -1,6 +1,6 @@
 #!/bin/sh
 
-CSS=../style.css
+CSS=../../style.css
 
 HTML=`echo $1 | sed -e 's/.md$/.html/'`
 
