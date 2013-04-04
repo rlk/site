@@ -1,6 +1,6 @@
 # Generalized Perspective Projection
 
-Copyright &copy; 2008&ndash;2013 &mdash; [Robert Kooima](kooima.net)
+Copyright &copy; 2008&ndash;2013 &mdash; [Robert Kooima](http://kooima.net)
 
 ## Introduction
 
