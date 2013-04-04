@@ -74,27 +74,6 @@ div.all {
 }
 
 /* Lists of items each with a picture and text */
-/*
-
-div.item {
-    clear: both;
-}
-
-div.pic {
-    float: right;
-    width: 320px;
-    margin-bottom: 1em;
-    margin-left:   1em;
-}
-
-div.txt h2 {
-    font-size: 1.2em;
-    padding:   0.5em;
-    margin:      0px;
-    background:         radial-gradient(center top, circle, #EEE, #DDD);
-    background: -webkit-radial-gradient(center top, circle, #EEE, #DDD);
-}
-*/
 
 div.item {
     clear: both;
@@ -139,6 +118,21 @@ div.txt h2 {
 #nav h3 {
     margin:  0px;
     padding: 0.5em;
+}
+
+/* Gridded table */
+
+table.grid {
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+table.grid td {
+    border-color: #CCC;
+    border-style: solid;
+    border-width: 1px;
+    text-align: center;
+    padding: 4px;
 }
 
 /* Calender table */
