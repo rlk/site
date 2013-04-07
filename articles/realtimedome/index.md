@@ -33,13 +33,13 @@ This image shows the logical structure of a real-time graphics processing unit (
 
 ### OpenGL
 
-GPU functionality is exposed by an application programming interface (API). OpenGL is the most widely used of these. While its competitor, Microsoft's Direct3D, sees wider usage in PC and XBox-based game development, OpenGL is the only cross-platform graphics API available. Introduced in 1992, it sees widespread use not only in gaming, but in computer-aided design, scientific visualization, and digital content creation across Windows, Linux, and Mac OS X.
+GPU functionality is exposed by an application programming interface (API). [OpenGL](http://www.opengl.org/) is the most widely used of these. While its competitor, Microsoft's Direct3D, sees wider usage in PC and XBox-based game development, OpenGL is the only cross-platform graphics API available. Introduced in 1992, it sees widespread use not only in gaming, but in computer-aided design, scientific visualization, and digital content creation across Windows, Linux, and Mac OS X.
 
 The API specification is defined by the OpenGL Architecture Review Board (ARB) Working Group. As graphics hardware evolves, the ARB extends and revises the API.
 
-The most significant change seen in nearly 400 extensions, 9 major revisions, and 16 years since the introduction of OpenGL has been the evolution from fixed functionality toward programmable functionality. Refer again to the image of the pipeline, above. The vertex, geometry, and fragment processing segments were once fixed hardware units, their functionality firmly etched in silicon logic. Today, the these are accessible as general purpose processing units, programmable like a CPU.
+The most significant change seen in nearly [400 extensions](http://www.opengl.org/documentation/extensions/), 9 major revisions, and 16 years since the introduction of OpenGL has been the evolution from fixed functionality toward programmable functionality. Refer again to the image of the pipeline, above. The vertex, geometry, and fragment processing segments were once fixed hardware units, their functionality firmly etched in silicon logic. Today, the these are accessible as general purpose processing units, programmable like a CPU.
 
-The OpenGL Shading Language (GLSL) is the ARB standard language for GPU programming. It allows the application developer to customize the action performed by the hardware. Program code written in GLSL is compiled by the video driver and uploaded to the GPU, to serve as one of the three functional elements: vertex, geometry, or fragment processing.
+The [OpenGL Shading Language](http://www.opengl.org/documentation/glsl/) (GLSL) is the ARB standard language for GPU programming. It allows the application developer to customize the action performed by the hardware. Program code written in GLSL is compiled by the video driver and uploaded to the GPU, to serve as one of the three functional elements: vertex, geometry, or fragment processing.
 
 This capability exposed incredible flexibility and initiated a fundamental shift in the design of real-time 3D algorithms. The programmable pipeline proves especially useful in the realm of real-time dome rendering, as it allows the computational load of spherical correction and edge blending to be offloaded from the CPU to the GPU.
 
@@ -63,7 +63,7 @@ The simplest means of spherical correction happens on the CPU. As the applicatio
 
 This approach is expensive, as each vertex needs to be reprocessed with each change in the scene. Not only does this incur CPU load, it consumes the bandwidth of the graphics bus, the communication channel by which the CPU and GPU communicate.
 
-However, this approach received a significant boost in 2001 with the release of the NVIDIA GeForce 3, the first hardware capable of programmable vertex processing. Vertex programming allowed the correction to be performed by the GPU, freeing the application to submit its geometry normally, and even to preload static geometry into VRAM. This author applied the technique to the point-based display of fluid flows on an Elumens VisionDome V4. A real-time motion-tracked view point and active stereo projection led to a deeply immersive virtual reality experience.
+However, this approach received a significant boost in 2001 with the release of the NVIDIA GeForce 3, the first hardware capable of [programmable vertex processing](http://www.opengl.org/registry/specs/NV/vertex_program.txt). Vertex programming allowed the correction to be performed by the GPU, freeing the application to submit its geometry normally, and even to preload static geometry into VRAM. This author applied the technique to the point-based display of fluid flows on an Elumens VisionDome V4. A real-time motion-tracked view point and active stereo projection led to a deeply immersive virtual reality experience.
 
 The flaw in this approach is that the correction is performed only at the vertices. Edges connecting these vertices are still linearly rasterized. So, this approach works well when rendering  points or finely tessellated models, but fails for large triangles and long lines.
 
@@ -80,7 +80,7 @@ Recursively apply the same algorithm to the edges of these sub-primitives, and h
 
 This was the approach taken by Elumens' SPI API in 2001. The SPI API intercepted all calls to the OpenGL API and performed the adaptive subdivision automatically. While it worked correctly, it performed badly, as the quantity of geometry tended to explode and overwhelm the GPU's vertex capacity.
 
-In 2006 this approach received new life with the release of the NVIDIA GeForce 8800, the first hardware to expose programmable geometry processing. This allows the primitive subdivision process to be offloaded to the GPU, again freeing the application to manage its geometry normally and eliminating the performance bottleneck.
+In 2006 this approach received new life with the release of the NVIDIA GeForce 8800, the first hardware to expose [programmable geometry processing](http://www.opengl.org/registry/specs/NV/geometry_program4.txt). This allows the primitive subdivision process to be offloaded to the GPU, again freeing the application to manage its geometry normally and eliminating the performance bottleneck.
 
 ### Fragment correction
 
@@ -88,11 +88,11 @@ Common practice in dome rendering focuses on fragment-level spherical correction
 
 ![](frag-correct.png)
 
-The history of OpenGL has seen a variety of techniques to accomplish this conversion. Early applications simply copied the pixel data in the frame buffer into the texture buffer. This approach suffered from poor performance due to the need to copy the image from the frame buffer memory of the GPU, to temporary storage in the main memory of the CPU, and finally to the texture memory back on the GPU. The solution to these performance woes would be the ability to render directly into a texture map. The P-Buffer and render-to-texture specifications provided this capability in 2001, though differences between windowing APIs precluded cross-platform compatibility. After much deliberation, the OpenGL ARB finally approved the frame buffer object specification in 2005, which continues to provide an optimal, cross-platform solution today.
+The history of OpenGL has seen a variety of techniques to accomplish this conversion. Early applications simply copied the pixel data in the frame buffer into the texture buffer. This approach suffered from poor performance due to the need to copy the image from the frame buffer memory of the GPU, to temporary storage in the main memory of the CPU, and finally to the texture memory back on the GPU. The solution to these performance woes would be the ability to render directly into a texture map. The [P-Buffer](http://www.opengl.org/registry/specs/ARB/wgl_pbuffer.txt) and [render-to-texture](http://www.opengl.org/registry/specs/ARB/wgl_render_texture.txt) specifications provided this capability in 2001, though differences between windowing APIs precluded cross-platform compatibility. After much deliberation, an OpenGL ARB working group finally approved the [frame buffer object specification](http://www.opengl.org/registry/specs/EXT/framebuffer_object.txt) in 2005, which continues to provide an optimal, cross-platform solution today in the form of the ARB's [official 2008 specification](http://www.opengl.org/registry/specs/ARB/framebuffer_object.txt).
 
 #### Fixed-function Fragment Correction
 
-The oldest and most common fragment-level spherical correction method predates the availability of the programmable pipeline. It relies only on the availability of cube map textures, a mechanism approved by the ARB in 1999 and widely supported by the hardware of that day, including SGI's high-end workstations and NVIDIA's consumer-grade GeForce 256.
+The oldest and most common fragment-level spherical correction method predates the availability of the programmable pipeline. It relies only on the availability of cube map textures, a mechanism approved by the [ARB in 1999](http://www.opengl.org/registry/specs/ARB/texture_cube_map.txt) and widely supported by the hardware of that day, including SGI's high-end workstations and NVIDIA's consumer-grade GeForce 256.
 
 A cube map texture consists of 6 square images corresponding to the 6 faces of a unit cube centered at the origin. While the pixels of a normal 2D texture are indexed using a 2D position (*u*, *v*), the pixels of a cube map are indexed using a 3D vector (*x*, *y*, *z*). This vector is cast from the origin and strikes the cube on one of its 6 sides. The intersection gives a 2D reference into one of the 6 images, which is then indexed normally.
 
