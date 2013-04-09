@@ -7,4 +7,4 @@
 [realtimedome]: articles/realtimedome/index.html
 [svl]:          http://www.adlerplanetarium.org/researchcollections/svl/
 [definiti]:     http://www.adlerplanetarium.org/experience/shows/theaters
-[ips2008]:      talks.html#ips-08
+[ips2008]:      events.html#ips-08

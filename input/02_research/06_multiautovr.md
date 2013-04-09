@@ -6,6 +6,6 @@
 
 [vrst2010]:    pdfs/Kooima-VRST2010.pdf
 [interleaver]: interleaver/interleaver.html
-[talk]:        talks.html#vrst-10
+[talk]:        events.html#vrst-10
 [reve]:        http://ivl.calit2.net/wiki/index.php/Infrastructure
 [future]:      http://www.evl.uic.edu/files/pdf/future.pdf

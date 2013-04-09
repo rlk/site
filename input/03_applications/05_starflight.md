@@ -7,5 +7,5 @@ StarFlight is an [Electro][] application based upon [Total Perspective Vortex][v
 [starflight]: http://mps.uchicago.edu/StarFlight/
 [electro]:    applications.html#electro
 [vortex]:     applications.html#vortex
-[adler]:      installations.html#starflight-adler
-[alameda]:    installations.html#starflight-alameda
+[adler]:      events.html#starflight-adler
+[alameda]:    events.html#starflight-alameda

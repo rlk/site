@@ -7,5 +7,5 @@ Mars is an Electro application that displays the planet Mars using a demand-page
 [electro]: applications.html#electro
 [mola]:    http://mola.gsfc.nasa.gov/
 [vortex]:  applications.html#vortex
-[adler]:   installations.html#mars-adler
-[calit2]:  installations.html#mars-calit2
+[adler]:   events.html#mars-adler
+[calit2]:  events.html#mars-calit2

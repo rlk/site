@@ -6,6 +6,6 @@ I participated in a panel discussion on collaboration in research with Dan Sandi
 
 [synthesis]:       http://www.calit2.net/events/popup.php?id=1815
 [gallery]:         http://gallery.calit2.net/portal/
-[particle-dreams]: installations.html#particle-dreams
+[particle-dreams]: events.html#particle-dreams
 [sandin]:          http://www.evl.uic.edu/dan/
 [spiegel]:         http://www.retiary.org/
