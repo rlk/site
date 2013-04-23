@@ -2,13 +2,13 @@
 
 Copyright &copy; 2012&ndash;2013 [Robert Kooima](http://kooima.net).
 
-[GIGO][] is set of command-line image processing utilities. GIGO's reason for being is the enablement of image processing tasks on very large images, consisting of hundreds of billions or even trillions of pixels. Most image manipulation tools choke at this scale. GIGO's complimentary goal is the enablement of *frequency domain* operations at all scales, which the majority of image processing tools don't even touch. This document demonstrates *deconvolution*, one of many image processing tasks that can be accomplished only through frequency domain processing. This example was found at large on the web...
+[GIGO][] is set of command-line image processing utilities. GIGO's reason for being is the enablement of image processing tasks on very large images, consisting of hundreds of billions or even trillions of pixels, that choke most image editing tools. GIGO's complimentary goal is the enablement of *frequency domain* operations at all scales, which the majority of image editing tools don't even touch. This document introduces the frequency domain and demonstrates *deconvolution*, one of many image processing tasks that can be accomplished only through frequency domain processing. The motivation for this example was found at large on the web...
 
 ## Background
 
-In November of 2011 a [question][] was posed to [Ask Metafilter][askme] asking readers to help interpret a blury photograph of the number plate on a passing truck. The posting user, "[gentle][]" from Oslo, was tight-lipped about why this information was needed, but helpful-as-ever AskMe went to work anyway. Eventually, a user named "[trevyn][]" of San Francisco would [answer][] the question in spectacular fashion, having applied [Mathematica][]'s image deconvolution capabilities to determine the number beyond the shadow of any doubt.
+In November of 2011 a [question][] was posed to [Ask Metafilter][askme] seeking help in interpreting a blury photograph of the number plate on a passing truck. The posting user, "[gentle][]" from Oslo, was tight-lipped about why this information was needed, but helpful-as-ever AskMe went to work anyway. Eventually, a user named "[trevyn][]" of San Francisco would [answer][] the question in spectacular fashion, having applied [Mathematica][]'s image deconvolution capabilities to determine the number beyond any shadow of a doubt.
 
-In this example, we'll use GIGO tools to reproduce trevyn's result and read the plate. [This][original] is the original image. As of this writing, the question, the answer, the image, and its decovolution all remain publicly accessible on Ask Metafilter. gentle's question has 36 favorites and trevyn's answer has 302 (which is *a lot*), with many subsequent posters astonished at the capability of image deconvolution. Many people learned what deconvolution was that day, and the thread is a great piece of AskMe. However, gentle never did follow up as to the reason for the question or the utility of the answer. For all I know, it may be sensitive. I am rehosting the original image here, and if gentle has a problem then he may contact me to remove it.
+In this example, we'll use GIGO to reproduce trevyn's result and read the plate. [This][original] is the original image. As of this writing, the question, the answer, the image, and its decovolution all remain publicly accessible on Ask Metafilter. gentle's question has 36 favorites and trevyn's answer has 302 (which is a lot), with many subsequent posters astonished at the capability of image deconvolution. Many people learned what deconvolution was that day, and the thread is a great piece of AskMe. However, gentle never did follow up as to the reason for the question or the utility of the answer. For all I know, it may be sensitive. I am rehosting the original image here, and if gentle has a problem then he may contact me to remove it.
 
 [gigo]:        http://kooima.net/applications.html#gigo
 [askme]:       http://ask.metafilter.com/
@@ -21,8 +21,7 @@ In this example, we'll use GIGO tools to reproduce trevyn's result and read the 
 
 ## Getting to the point
 
-For starters, I cropped the image down to power-of-two size, which is a requirement of GIGO as it admits a really nice, efficient implementation of the Fast Fourier Transform.
-I made a point of *not* scaling the image so as to preserve the precise character of the noise in it, as I want to make the impact of noise upon deconvolution obvious. All images here are stored as 32-bit floating point TIFFs, converted to 8-bit PNG for display on the web. Here's the cropped input, which I'll call `license.tif`. Click this or any other PNG to download the original TIFF.
+For starters, I cropped the image down to 512 &times; 256, which is power-of-two size, as required by GIGO. I made a point of *not* scaling the image so as to preserve the precise character of the noise in it, as I want to make the impact of noise upon deconvolution obvious. All images here are stored as 32-bit floating point TIFFs, converted to 8-bit PNG for display on the web. Here's the cropped input, which I'll call `license.tif`. Click this or any other PNG to download the original TIFF.
 
 [![](license.png)](license.tif)
 
@@ -32,7 +31,7 @@ Initial Ask Metafilter responders had varied inputs as to the interpretation of 
 
 It's still a mess, but the numbers are quite clearly legible: CMH 133.
 
-We can do a bit better by denoising the original input image. This is a perfectly reasonable thing to do, as the noise characteristics of digital cameras are well-understood by the image enhancement algorithms provided by common photo processing applications. Here, I've used Photoshop to adjust the contrast and reduce the noise in the input and saved it as `license-denoised.tif`.
+We can do a bit better by denoising the original input image. This is a perfectly reasonable thing to do, as the noise characteristics of digital cameras are well-understood by the image enhancement algorithms provided by common photo processing applications. Here, I've used Photoshop to adjust the contrast, reduce the noise, and save a copy as `license-denoised.tif`.
 
 [![](license-denoised.png)](license-denoised.tif)
 
@@ -42,30 +41,42 @@ This input is not significantly more legibile than the source input, but here's 
 
 ## The Blur
 
-Look closely at the input image, to the right of the number plate there is a little orange smudge. This is the blur of a small lightsource, probably a hole in the shroud covering the lamp that illuminates the number plate. This blur has a clear shape that indicates the motion of the photographer's hand during the 1/24th of a second that the shutter was open. Every pixel in this image has been impacted by this same motion, and it's the reason why the number plate is note clearly legible. So, to read the number plate, we must undo that motion.
+Look closely at the input image. To the right of the number plate there is a little orange smudge. This is the blur of a small lightsource, probably a hole in the shroud covering the lamp that illuminates the number plate. This blur has a clear shape that indicates the motion of the photographer's hand during the 1/24th of a second that the shutter was open. Every pixel in this image has been impacted by this same motion, and it's the reason why the number plate is not clearly legible. To read the number plate, we must undo this motion.
 
 Here is the isolated path, which we call the *blur kernel*, `blur.tif`. I've converted it to gray because, despite the fact that the path appears orange in the input, all three channels red, green, and blue underwent the same blur during exposure, and we want them all to receive the same correction.
 
 [![](blur.png)](blur.tif)
 
+## Convolution and Deconvolution
+
+Blur is *convolution*. It is a circumstance where pixels bleed into their neighbors, resulting in distortion. Out-of-focus lenses cause blur, fast motion causes blur, and even Photoshop does blur as a feature. In the photograph of the number plate, every pixel in the image has been distorted by its neighboring pixels, and `blur.tif` tells us which neighbors are at fault.
+
+The number plate image is what we call a *spatial domain* image. It's a 2D representation depicting common 3D objects positioned normally in space. There exists an alternate image representation known as the *frequency domain* which is a 2D representation depicting the distribution of energy in an image. Each of these domains has unique advantages, and we can freely transform an image back and forth between the spatial and frequency domains using the 2D Fourier transform, and its inverse.
+
+In the frequency domain, convolution, and therefore blur, is equivalent to simple multiplication. This is one of the fundamental tenets of signal processing, and is not intuitive in the least. Lets take it on faith for now.
+
+Say we somehow had a perfectly unblurred photograph of the number plate. We could calculate the Fourier transform of that image and the Fourier transform of `blur.tif` giving both images in the frequency domain. If we multiply these two frequency domain images pixel-by-pixel, we calculate their convolution. If we then compute the inverse Fourier transform of this result, we would receive `license.tif`, the blurry image that gentle posted to Ask Metafilter.
+
+Of course, we don't want `license.tif` because we already have it. We want to perform this process in reverse to receive the unblurred photo. Fortunately, the reverse of multiplication is simply division. Dividing the frequency domain images should lead us to the solution...
+
 ## Fourier Transform
 
-The process of blur removal, known as *deconvolution*, happens in the frequency domain, so we first calculate the Fourier transform of the number plate. As an out-of-core process, GIGO works strictly with image data in a tiled, complex-valued, disk-based cache. The calculation therefore begins with a conversions from TIFF to binary, with a page size of 2<sup>5</sup>. Following this, a 2D Fourier transform is applied as a pair of 1D Fourier transforms, with the second of the two done in transpose. Finally, the resulting binary cache is converted back to TIFF so we can view it.
+We first calculate the Fourier transform of the number plate. As an out-of-core process, GIGO works strictly with image data in a tiled, complex-valued, disk-based cache. The calculation therefore begins with a conversion from TIFF to binary, with a page size of 2<sup>5</sup> (see the GIGO documentation for more information.) Following this, a 2D Fourier transform is applied as a pair of 1D Fourier transforms, with the second of the two done in transpose. Finally, the resulting binary cache is converted back to TIFF so we can view it.
 
     convert -l5 license.tif license.bin
     fourier -l5 license.bin
     fourier -l5 -T license.bin
     convert -l5 license.bin license-fourier.tif
 
-Here are the frequency domain amplitude channels of `license-fourier.tif`. GIGO will output six total channels, three of amplitude and three of phase, but the amplitude is really the more interesting.
+Here are the frequency domain amplitude channels of `license-fourier.tif`. GIGO will output six total channels, three of amplitude and three of phase, but the amplitude is really the more interesting because it shows us the energy in the input.
 
 [![](license-fourier.png)](license-fourier.tif)
 
-It's more-or-less impossible to infer much about the input image from the appearance of its Fourier transform. In this case, the vertical and horizontal lines through the center of the image imply that source does not tile seamlessly. The prominent diagonal spike indicates the presence of strong edges in the input perpenticular to the spike, which correspond to the rear bumper of the truck. The rest is noise.
+Functionally speaking, it's more-or-less impossible to infer much about the input image from the appearance of its Fourier transform. In this case, the vertical and horizontal lines through the center of the image imply that source does not tile seamlessly. The prominent diagonal spike indicates the presence of strong edges in the input perpenticular to the spike, which correspond to the rear bumper of the truck. The rest is noise.
 
-To proceed with deconvolution, the blur kernel must also be transformed into the frequency domain. However, if our goal is to make a round trip from spatial domain, to frequency domain, and back to spatial domain, then any convolution kernel that we apply in the frequency domain must have *unit energy*. All of its pixels have to sum to one, and if that's not the case then the output image will not have the same brightness as the input.
+The blur kernel must also be transformed into the frequency domain. However, if our goal is to make a round trip from spatial domain, to frequency domain, and back to spatial domain, then any convolution kernel that we apply in the frequency domain must have *unit energy*. That is, all of its pixels summed together must equal one, and if that's not the case then the output image will not have the same brightness as the input.
 
-To ensure that this is the case, we must first determine the initial sum of the blur kernel pixels. We convert the image to GIGO's cache form, and measure the sum.
+To make the sum equal one, we must first determine the initial sum of the blur kernel pixels. We convert the image to GIGO's cache form, and measure it.
 
     convert -l5 blur.tif blur.bin
     measure -l5 -s blur.bin
@@ -76,25 +87,23 @@ Because the input was converted to grayscale, the sum of all three channels is t
     34.530952
     34.530952
 
-To *normalize* the blur kernel, we must scale the image such that this sum is one. 1 / 34.530952 = 0.0289595, so
+To *normalize* the blur kernel, we must scale the image by 1 / 34.530952 = 0.0289595. This corresponds to trevyn's use of Mathematica's `ImageMultiply` function with a value of 0.03, as noted in his reply.
 
     compute -l5 -s 0.0289595 blur.bin
 
-This corresponds to trevyn's use of Mathematica's `ImageMultiply` function with a value of 0.03, as noted in his reply. Now we compute the Fourier transform of the kernel.
+Now we compute the Fourier transform of the kernel.
 
     fourier -l5 blur.bin
     fourier -l5 -T blur.bin
     convert -l5 blur.bin blur-fourier.tif
 
-The resulting frequency-domain amplitudes look like this.  Again, there's not much to interpret visually here, except that there's not much information in `blur.tif` so there's not much change in `blur-fourier.tif`.
+The resulting frequency-domain amplitudes look like this.  Again, there's not much to interpret visually here, except that there's not much information in `blur.tif` so the density of `blur-fourier.tif` is low.
 
 [![](blur-fourier.png)](blur-fourier.tif)
 
-## Deconvolution
+## Naive Deconvolution
 
-Blur is convolution. Convolution is multiplication in the frequenty domain. If we magically had a perfectly unblurred image of the license, `perfect.tif`, and we computed its frequency domain representation, `perfect-fourier.tif`, then multiplication by `blur-fourier.tif` would produce our input `license-fourier.tif`. Inverse Fourier transform of this would give `license.tif` the image that gentle posted to Ask Metafilter.
-
-Of course we don't have `perfect.tif` and we don't want `license.tif`, we want to do the exact opposite. No problem, the opposite of multiplication is division, so we should be able to extract `perfect.tif` from `license.tif` by dividing in the frequency domain instead of multiplying. In an ideal world, this would indeed work! To try it, compute the division as follows
+If frequency domain convolution is multiplication and deconvolution is division, then  we should be able to extract the unblurred image from `license.tif` by dividing in the frequency domain. To try it, compute the division as follows
 
     cp license.bin license-divide.bin
     compute -l5 -D license-divide.bin shake.bin
@@ -109,9 +118,9 @@ Unfortunately, gentle's iPhone 4 has a pinhole lens and a tiny sensor and the re
 
 [![](license-divide.png)](license-divide.tif)
 
-That is not a step forward. Looking again at `blur-fourier.tif`, above, note that there are areas of black. These are low-energy spectra in the blur kernel. Black is represented by very small values, and dividing by a very small value results in a very large value. The resulting high-energy spectra overpower the relatively low-energy signal that the deconvolution has produced, and the final spatial-domain image is useless.
+That's not good. Looking again at `blur-fourier.tif`, above, note that there are areas of black. These are low-energy spectra in the blur kernel. Black is represented by very small values, and dividing by a very small value results in a very large value. The resulting high-energy spectra overpower the relatively low-energy signal that the deconvolution has produced, and the final spatial-domain image is useless.
 
-## Tuning
+## Weiner Deconvolution
 
 Fortunately, there's a solution in what's known as [Wiener deconvolution][wiener], a reformulation of the division operation to ensure that the result remains stable in the presense of small values in the frequency domain representation of the blur kernel. This reformulation provides a parameter that allows us to balance noise against deblurring. There are ways of choosing a good value for this parameter, but to keep it simple we'll go with trial and error.
 
