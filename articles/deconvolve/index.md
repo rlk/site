@@ -32,7 +32,7 @@ Initial Ask Metafilter responders had varied inputs as to the interpretation of 
 
 It's still a mess, but the numbers are quite clearly legible: CMH 133.
 
-We can do a teensy bit better by denoising the original input image. This is a perfectly reasonable thing to do, as the noise characteristics of digital cameras are well-understood by the image enhancement algorithms provided by common photo processing applications. Here, I've used Photoshop to adjust the contrast and reduce the noise in the input and saved it as `license-denoised.tif`.
+We can do a bit better by denoising the original input image. This is a perfectly reasonable thing to do, as the noise characteristics of digital cameras are well-understood by the image enhancement algorithms provided by common photo processing applications. Here, I've used Photoshop to adjust the contrast and reduce the noise in the input and saved it as `license-denoised.tif`.
 
 [![](license-denoised.png)](license-denoised.tif)
 
@@ -149,7 +149,7 @@ That's too far. Any further and it's going to resemble the useless output of the
 
 ## Conclusions
 
-[![](license-denoised-wiener-0-05.png)](license-denoised-wiener-0-05.tif)
+![](license-comparison.png)
 
 Why isn't the best output even better? Why, for example, has the little orange smudge *not* been collapsed back down to a single orange dot through the marvelous process of image deconvolution? Fundamentally, because my blur kernel is imperfect. It's too wide, it has holes... it's the result of 5 minutes of fiddling with levels in Photoshop. But even if I had labored to produce an ideal extraction of the orange smudge, this still wouldn't take into account every single factor that impacted the quality of the exposure. We would need to know everything about the camera, the lens, and the sensor noise, and we'd also need a perfect understanding of the motion of both vehicles and the photographer. It's impossible, and fortunately for gentle, it's not necessary.
 
