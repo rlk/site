@@ -61,10 +61,9 @@ fourier -l5 -I license-wiener.bin
 fourier -l5 -IT license-wiener.bin
 convert -l5 license-wiener.bin license-wiener-0-001.tif
 
-# Perform a Wiener deconvolution of the denoised input at 0.01
+# Perform a Wiener deconvolution of the denoised input at 0.05
 cp license-denoised.bin license-denoised-wiener.bin
-compute -l5 -w0.01 license-denoised-wiener.bin blur.bin
+compute -l5 -w0.05 license-denoised-wiener.bin blur.bin
 fourier -l5 -I license-denoised-wiener.bin
 fourier -l5 -IT license-denoised-wiener.bin
-convert -l5 license-denoised-wiener.bin license-denoised-wiener-0-01.tif
-
+convert -l5 license-denoised-wiener.bin license-denoised-wiener-0-05.tif
