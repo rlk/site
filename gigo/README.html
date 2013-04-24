@@ -1,10 +1,6 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<head>
-<link rel=stylesheet type="text/css" href="../style.css">
-<title>GIGO</title>
-</head>
-<body>
+<html><head>
+<link rel=stylesheet type=text/css href=http://kooima.net/style.css>
+</head><body>
 <h1>GIGO</h1>
 
 <p>Copyright &copy; 2012 Robert Kooima</p>
@@ -166,6 +162,12 @@ convert [-tr]  [-l tile] [-n height] [-m width] [-p samples] input output.tif
 <li><p><code>-P dst src</code></p>
 
 <p>Power. Destination = destination ^ source.</p></li>
+<li><p><code>-x dst src</code></p>
+
+<p>Minimum. Destination gets the smaller (by absolute value) of destination and source.</p></li>
+<li><p><code>-X dst src</code></p>
+
+<p>Maximum. Destination gets the larger (by absolute value) of destination and source.</p></li>
 <li><p><code>-I dst</code></p>
 
 <p>Inverse. Destination = 1.0 - destination.</p></li>
@@ -193,6 +195,25 @@ convert [-tr]  [-l tile] [-n height] [-m width] [-p samples] input output.tif
 <li><p><code>-R max dst</code></p>
 
 <p>Image is thresholded to 1.0 if its absolute value is less than or equal to <code>max</code>, 0.0 otherwise. Minimum and maximum thresholding may be used simultaneously to extract a middle range of values.</p></li>
+</ul>
+
+<h2>Measurement</h2>
+
+<pre><code>measure [-t] [-l size] [-n height] [-m width] [-p samples] op src
+</code></pre>
+
+<p>Perform a measurement and print the value for each sample.</p>
+
+<ul>
+<li><p><code>-s</code></p>
+
+<p>Sum all pixels.</p></li>
+<li><p><code>-x</code></p>
+
+<p>Find the minimum value of all pixels.</p></li>
+<li><p><code>-X</code></p>
+
+<p>Find the maximum value of all pixels.</p></li>
 </ul>
 
 <h2>Pixel transfer</h2>
@@ -268,6 +289,4 @@ convert [-tr]  [-l tile] [-n height] [-m width] [-p samples] input output.tif
 <p>So the answer is 5. When the image fits in RAM, a 32 x 32 tile gives parity in the performance of the row-wise and column-wise transforms, and thus level performance for most thread counts. When the image does not fit in RAM, a 32 x 32 tile gives optimal cache coherence. Smaller tiles kill performance for low thread counts or large images, while larger tiles incur large resident sets, tax the CPU cache hierarchy, and give no benefit.</p>
 
 <p>It is worth noting that a tile size of 1 x 1, the flat raster case, is never an optimal choice. While transforms of in-memory images benefit slightly from the elimination of inner loops that a unit tile would allow, the loss of column-wise locality of reference undoes the advantage. 1 x 1 tiles may enhance cross-pollination in large thread sets but cause a single thread to thrash. Most significantly, when the image cache exceeds the available RAM, an optimally-tiled layout can give double the performance of a flat raster.</p>
-
-</body>
-</html>
+</body></html>
