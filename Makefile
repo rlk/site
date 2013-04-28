@@ -11,7 +11,7 @@ clean :
 
 %.html : %.md
 	echo "<html><head>"     >  $@
-	echo "<link rel=stylesheet type="text/css" href="http://kooima.net/style.css">" >> $@
+	echo "<link rel=stylesheet type="text/css" href=\"http://kooima.net/style.css\">" >> $@
 	echo "</head><body>"   >> $@
 	./Markdown.pl $^       >> $@
 	echo "</body></html>"  >> $@
