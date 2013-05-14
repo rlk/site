@@ -188,10 +188,11 @@ template <typename T> GLuint init_texture(TIFF *in)
     for (int i = 0; i < 6 && TIFFSetDirectory(in, i); i++)
         images[i].read(in, 1);
 
+    // glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
     init_borders(images);
     init_corners(images);
 
-    return init_cubemap(images, GL_CLAMP);
+    return init_cubemap(images, GL_CLAMP_TO_EDGE);
 }
 
 GLuint init_texture(const std::string& name)
@@ -226,7 +227,7 @@ static const GLchar *frag_src =
     "uniform samplerCube cube;                                            \n"
     "void main()                                                          \n"
     "{                                                                    \n"
-    "    gl_FragColor = 10.0 * textureCube(cube, normalize(gl_TexCoord[0].xyz)); \n"
+    "    gl_FragColor = textureCube(cube, normalize(gl_TexCoord[0].xyz)); \n"
     "}                                                                    \n";
 
 // Compile, link, and apply the shaders.
