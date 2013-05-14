@@ -186,13 +186,13 @@ template <typename T> GLuint init_texture(TIFF *in)
     image<T> images[6];
 
     for (int i = 0; i < 6 && TIFFSetDirectory(in, i); i++)
-        images[i].read(in, 1);
+        images[i].read(in, 0);
 
     // glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
-    init_borders(images);
-    init_corners(images);
+    // init_borders(images);
+    // init_corners(images);
 
-    return init_cubemap(images, GL_CLAMP_TO_EDGE);
+    return init_cubemap(images, GL_REPEAT);
 }
 
 GLuint init_texture(const std::string& name)
@@ -264,10 +264,10 @@ static void special(int k, int x, int y)
 {
     switch (k)
     {
-        case GLUT_KEY_LEFT:      theta -= 2.00f; break;
-        case GLUT_KEY_RIGHT:     theta += 2.00f; break;
-        case GLUT_KEY_UP:        phi   -= 2.00f; break;
-        case GLUT_KEY_DOWN:      phi   += 2.00f; break;
+        case GLUT_KEY_LEFT:      theta -= 1.00f; break;
+        case GLUT_KEY_RIGHT:     theta += 1.00f; break;
+        case GLUT_KEY_UP:        phi   -= 1.00f; break;
+        case GLUT_KEY_DOWN:      phi   += 1.00f; break;
         case GLUT_KEY_PAGE_UP:   zoom  -= 0.01f; break;
         case GLUT_KEY_PAGE_DOWN: zoom  += 0.01f; break;
     }
@@ -284,7 +284,7 @@ static void display()
 
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    glFrustum(-zoom * a, zoom * a, -zoom, zoom, 1.0, 3.0);
+    glFrustum(-zoom * a, zoom * a, -zoom, zoom, 1.0, 10.0);
 
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
@@ -293,7 +293,7 @@ static void display()
 
     glViewport(0, 0, w, h);
     glClear(GL_COLOR_BUFFER_BIT);
-    glutSolidSphere(2.0, 16, 16);
+    glutSolidSphere(5.0, 16, 16);
     glutSwapBuffers();
 }
 
