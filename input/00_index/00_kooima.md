@@ -13,6 +13,8 @@ My [curriculum vitae][cv] includes my published and co-authored papers.
 </tr>
 </table>
 
+Connect on [GitHub](https://github.com/rlk) or on [Twitter](https://twitter.com/rlk).
+
 [csc]: http://csc.lsu.edu/
 [lsu]: http://www.lsu.edu/
 [cct]: http://www.cct.lsu.edu/
