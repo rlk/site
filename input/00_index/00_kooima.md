@@ -14,6 +14,7 @@ My [curriculum vitae][cv] includes my published and co-authored papers.
 </table>
 
 Connect on [GitHub](https://github.com/rlk) or on [Twitter](https://twitter.com/rlk).
+Secure communication using my [PGP public key](misc/pub.asc).
 
 [csc]: http://csc.lsu.edu/
 [lsu]: http://www.lsu.edu/
