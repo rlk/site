@@ -9,8 +9,8 @@ body {
   margin-top:    0em;
   margin-bottom: 3em;
   font-family: "Calibri", "Arial", sans-serif;
-  font-size:   16px;
-  line-height: 24px;
+  font-size:   18px;
+  line-height: 26px;
   color: #444;
 }
 
@@ -43,6 +43,7 @@ h1 {
   padding:     0.5em;
   background:         radial-gradient(center top, circle, #EEE, #DDD);
   background: -webkit-radial-gradient(center top, circle, #EEE, #DDD);
+  text-shadow: 1px 1px 0px #FFF
 }
 
 h1.header {
@@ -94,6 +95,7 @@ div.txt h2 {
   margin:      0px;
   background:         radial-gradient(center top, circle, #EEE, #DDD);
   background: -webkit-radial-gradient(center top, circle, #EEE, #DDD);
+  text-shadow: 1px 1px 0px #FFF
 }
 
 /* Navigation table */
@@ -117,6 +119,7 @@ div.txt h2 {
 #nav h3 {
   margin:  0px;
   padding: 0.5em;
+  text-shadow: 1px 1px 0px #FFF
 }
 
 /* Gridded table */
