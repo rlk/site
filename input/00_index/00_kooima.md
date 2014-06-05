@@ -19,4 +19,4 @@ Secure communication using my [PGP public key](misc/pub.asc).
 [csc]: http://csc.lsu.edu/
 [lsu]: http://www.lsu.edu/
 [cct]: http://www.cct.lsu.edu/
-[cv]:  pdfs/Kooima-CV.pdf
+[cv]:  kooima-cv.pdf
