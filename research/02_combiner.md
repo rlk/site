@@ -6,4 +6,4 @@ The Varrier Combiner is a GPU-based algorithm performing real-time autostereosco
 
 [varrier]:  research.html#varrier
 [ieeevr]:   pdfs/Kooima-VR07.pdf
-[combiner]: varrier_combiner/varrier_combiner.html
+[combiner]: code/varrier_combiner/varrier_combiner.html
