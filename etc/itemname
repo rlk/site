@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# This script extracts the item name from an item file name argument
+#     e.g. "code/01_glyph.md" becomes "glyph"
+
+basename $1 | sed -e 's/[0-9]*_\(.*\).md/\1/'
