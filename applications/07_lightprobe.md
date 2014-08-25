@@ -7,4 +7,4 @@ Lightprobe Composer interactively converts high dynamic range lightprobe (mirror
 [lightprobe]: applications/lightprobe/lightprobe-2552.zip
 [gpl]:        http://www.gnu.org/copyleft/gpl.html
 [example]:    http://www.cct.lsu.edu/~rkooima/images/classroom.tif
-[csc4356]:    csc4356/index.html
+[csc4356]:    courses/csc4356/index.html

@@ -6,6 +6,6 @@
 
 [panoview]: research.html#panoview
 [orbiter]:  research.html#orbiter
-[src]:      scm/scmtiff-src-3728.zip
-[doc]:      scm/scmtiff.pdf
+[src]:      https://github.com/rlk/scm
+[doc]:      pdfs/scmtiff.pdf
 [gpl]:      http://www.gnu.org/licenses/gpl.html
