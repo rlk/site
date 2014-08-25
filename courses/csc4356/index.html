@@ -6,138 +6,58 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <h1 style="text-align:center">CSC 4356 / ME 4573 &mdash; Interactive Computer Graphics</h1>
 
-  <p>This course provides an introduction to 3D computer graphics, emphasizing real-time graphics programming using OpenGL and the C or C++ programming language. Topics include the fixed function and programmable 3D pipelines, transformation, interaction, texturing, lighting, performance analysis, optimization, and a variety of intermediate and advanced topics.</p>
+  <p>This course provides an introduction to 3D computer graphics, emphasizing real-time graphics programming using WebGL and JavaScript programming language. Topics include an introduction to JavaScript, the OpenGL ES shading language, the mathematics of 3D graphics, transformation, texturing, lighting, scene management, and interaction. Topics in software engineering, including project management and source code controle, are alse covered.
 
-  <p>Prerequisites include experience with the C or C++ programming language (CSC 1253-1254 or equivalent) and working understanding of data structures (CSC 3102 or equivalent). <em>No prior experience with 3D graphics or OpenGL is required.</em></p>
+  <p>Students may expect to gain experience developing interactive 3D content running across Windows, Linux, or OSX in a web browser on their PC, laptop, or mobile device. No prior experience with 3D graphics is required.</p>
 
-  <h3>Time &amp; Place</h3>
-  <p>9:00am-10:20am<br>
+  <h2>Time &amp; Place</h2>
+  <p>9:00am&ndash;10:20am<br>
   Tuesday and Thursday<br>
-  2142 Patrick Taylor Hall</p>
+  204 Tureaud Hall</p>
 
-  <h3>Textbook</h3>
-  <p>Interactive Computer Graphics: A Top-Down Approach with Shader-Based OpenGL (6th Ed.)<br>
-  Edward Angel and Dave Shreiner<br>
-  ISBN 978-0132545235</p>
+  <h2>Textbook</h2>
+  <p><a href="http://www.amazon.com/WebGL-Programming-Guide-Interactive-Graphics/dp/0321902920">WebGL Programming Guide</a><br>
+  Kouichi Matsuda and Rodger Lea<br>
+  ISBN 978-0321902924</p>
 
-  <h3>Instructor</h3>
+  <h2>Instructor</h2>
   <p><a href="../../index.html">Dr. Robert Kooima</a><br>
-  Department of Computer Science<br>
+  Division of Computer Science &amp; Engineering<br>
   Louisiana State University<br>
   <i>kooima&#64;csc&#46;lsu&#46;edu</i></p>
 
-  <h3>Office Hours</h3>
-  <p>10:30am-12:00pm<br>
+  <h2>Office Hours</h2>
+  <p>10:30am&ndash;12:00pm<br>
   Tuesday and Thursday<br>
-  3120 Patrick Taylor Hall</p>
+  3124D Patrick Taylor Hall</p>
 
-  <h2 style="text-align:center">Assignments</h2>
-  <p>Assignments include individual programming projects plus one final programming project with a formal in-class presentation. This work may be done using the hardware and OS preferred by the student. Sufficient hardware is also made available by the instructor as needed. Graduate students will have one additional writing assignment associated with the final.</p>
+  <h2>Assignments &amp; Grading</h2>
+  <p>Assignments include six individual programming projects and one final project. This work may be done using the hardware and OS preferred by the student. However:
 
-  <p>The grading of each assignment has four components, all of which must be completed to receive an A grade:
-    <dl>
-      <dt><b>Implementation</b></dt><dd><p>The successful implementation of program code completing the requirements described by the project specification. This should be packaged in a ZIP with all source code and assets necessary to reproduce the project. Executable binaries are not necessary, and should be omitted to minimize download size.</p></dd>
-      <dt><b>Documentation</b></dt><dd><p>The creation of a web site giving the implementation ZIP, at least three screen shots of the project running, and a description of what you did and how you did it. Convince the instructor that you understand what you've done. This must be a <em>public site</em>. It will be linked from the course web site, and your classmates will see it.</p></dd>
-      <dt><b>Demonstration</b></dt><dd><p>The live, in-class demonstration and description of your completed project. Be ready for this. Be certain that your project runs correctly on whatever computer you intend to use. Test <em>before</em> class. Programming project demonstrations will be informal, but the final project demonstration will be formal, with a prepared presentation.</p></dd>
-      <dt><b>Lagniappe</b></dt><dd><p>Something extra. You are free to enhance your submission in any way you like. Your addition should be significant, creative, and should distinguish your implementation from those of your classmates.</p></dd>
-    </dl>
-  </p>
+  <ul>
+    <li>Submission will be made using <a href="http://git-scm.com/">Git</a>. The consistent use of Git throughout development is recommended.</li>
+    <li>Evaluation will be performed using <a href="https://www.google.com/chrome/browser/">Google Chrome</a> so this browser is highly recommended for development.</li>
+  </ul>
 
-  <p>To submit an assignment, simply email the URL of your documentation web site to the instructor. Do so <em>before class</em> on the scheduled due date. To be fair to everyone in the class, we can't allow late submissions. The scheduled due date stands, regardless of whether your in-class demonstration falls on that date.</p>
-
-  <p><table style="width: 100%">
-    <tr>
-      <th colspan="3">Project Scoring</th><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <th colspan="3">Final Scoring</th><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <th colspan="3">Semester Scoring</th>
-    </tr>
-    <tr>
-      <td>40 pts</td><td>&hellip;<td>Implementation</td><td></td>
-      <td>60 pts</td><td>&hellip;<td>Implementation</td><td></td>
-      <td>80 pts</td><td>&hellip;<td>Project 1</td>
-    </tr>
-    <tr>
-      <td>20 pts</td><td>&hellip;<td>Documentation</td><td></td>
-      <td>40 pts</td><td>&hellip;<td>Documentation</td><td></td>
-      <td>80 pts</td><td>&hellip;<td>Project 2</td>
-    </tr>
-    <tr>
-      <td>10 pts</td><td>&hellip;<td>Demonstration</td><td></td>
-      <td>60 pts</td><td>&hellip;<td>Demonstration</td><td></td>
-      <td>80 pts</td><td>&hellip;<td>Project 3</td>
-    </tr>
-    <tr>
-      <td> 10 pts</td><td>&hellip;<td>Lagniappe</td><td></td>
-      <td>       </td><td>        <td>         </td><td></td>
-      <td>160 pts</td><td>&hellip;<td>Final    </td>
-    </tr>
-    <tr>
-      <td colspan="3"><hr></td><td></td>
-      <td colspan="3"><hr></td><td></td>
-      <td colspan="3"><hr></td>
-    </tr>
-    <tr>
-      <td> 80 pts</td><td>&hellip;</td><td>Total</td><td>&nbsp;</td>
-      <td>160 pts</td><td>&hellip;</td><td>Total</td><td>&nbsp;</td>
-      <td>400 pts</td><td>&hellip;</td><td>Total</td>
-    </tr>
-    <tr><td colspan="11">&nbsp;</td></tr>
-    <tr>
-      <th colspan="3">Project Grading</th><td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <th colspan="3">Final Grading</th><td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <th colspan="3">Semester Grading</th>
-    </tr>
-    <tr>
-      <td>&gt;  70</td><td>&hellip;<td>A</td><td></td>
-      <td>&gt; 140</td><td>&hellip;<td>A</td><td></td>
-      <td>&gt; 350</td><td>&hellip;<td>A</td>
-    </tr>
-    <tr>
-      <td>&gt;  60</td><td>&hellip;<td>B</td><td></td>
-      <td>&gt; 120</td><td>&hellip;<td>B</td><td></td>
-      <td>&gt; 300</td><td>&hellip;<td>B</td>
-    </tr>
-    <tr>
-      <td>&gt;  50</td><td>&hellip;<td>C</td><td></td>
-      <td>&gt; 100</td><td>&hellip;<td>C</td><td></td>
-      <td>&gt; 250</td><td>&hellip;<td>C</td>
-    </tr>
-    <tr>
-      <td>&gt;  40</td><td>&hellip;<td>D</td><td></td>
-      <td>&gt;  80</td><td>&hellip;<td>D</td><td></td>
-      <td>&gt; 200</td><td>&hellip;<td>D</td>
-    </tr>
+  <p><table>
+    <tr><th>Weeks</th><th>Chapter</th><th>Assignment</th><th>Value</th></tr>
+    <tr><td>1&ndash;2</td><td>Ch. 2</td><td>Programming project due Sept. 4</td><td>12 pts</td></tr>
+    <tr><td>1&ndash;2</td><td>Ch. 2</td><td>Programming project due Sept. 4</td><td>12 pts</td></tr>
+    <tr><td>1&ndash;2</td><td>Ch. 2</td><td>Programming project due Sept. 4</td><td>12 pts</td></tr>
+    <tr><td>1&ndash;2</td><td>Ch. 2</td><td>Programming project due Sept. 4</td><td>12 pts</td></tr>
+    <tr><td>1&ndash;2</td><td>Ch. 2</td><td>Programming project due Sept. 4</td><td>12 pts</td></tr>
+    <tr><td>1&ndash;2</td><td>Ch. 2</td><td>Programming project due Sept. 4</td><td>12 pts</td></tr>
+    <tr><td>1&ndash;2</td><td>Ch. 2</td><td>Programming project due Sept. 4</td><td>28 pts</td></tr>
+    <tr><td></td><td></td><td>Coursse Total</td><td>100 pts</td></tr>
   </table></p>
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<!--
-  <h2 style="text-align:center">Useful Code</h2>
 
-  <p>It's difficult to do anything interesting in real-time computer graphics without taking advantage of existing sources and libraries. While most useful libraries are included by default or otherwise easy to install under Linux and Mac OS X, resolving cross-platform dependencies is difficult under Windows. For this reason, I provide the Windows PITA, which includes a number of dependencies useful for 3D computer graphics.</p>
-
-  <blockquote>
-    <table>
-      <tr>
-        <td><a href="Windows-PITA-2010.zip">Windows-PITA-2010.zip</td>
-        <td>&mdash;</td>
-        <td><a href="Windows-PITA-2010.png">Installation in Visual Studio</td>
-      </tr>
-      <tr>
-        <td><a href="Windows-PITA-2011.zip">Windows-PITA-2011.zip</td>
-        <td>&mdash;</td>
-        <td><a href="Windows-PITA-2011.png">Installation in MinGW</td>
-      </tr>
-    </table>
-  </blockquote>
-
-  <p>In addition to these binaries, the following sources may be of use.</p>
-
-  <dl>
-    <dt><table width="100%"><tr><td>&bull; <a href="src/hello-world/hello-world.c"><code>hello-world.c</code></a> &mdash; <a href="src/hello-world/Makefile"><code>Makefile</code></a></td></tr></table></dt><dd><p>A very simple example program using O<small>PEN</small>GL and GLUT to display a teapot.</p></dd>
-
-    <dt><table width="100%"><tr><td>&bull; <a href="../util3d/index.html">Util3D</a></td></tr></table></dt><dd><p>A set of O<small>PEN</small>GL code modules providing services that may be useful in creating complex renderings. Several of these modules are already listed on the <a href="../code.html">Code</a> page, but a few more simple examples appear here.</p></dd>
-  </dl>
--->
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <p><table>
+    <tr><td>&gt; 90 pts</td><td>&hellip;</td><td>A</td></tr>
+    <tr><td>&gt; 80 pts</td><td>&hellip;</td><td>B</td></tr>
+    <tr><td>&gt; 70 pts</td><td>&hellip;</td><td>C</td></tr>
+    <tr><td>&gt; 60 pts</td><td>&hellip;</td><td>D</td></tr>
+    <tr><td>&le; 60 pts</td><td>&hellip;</td><td>F</td></tr>
+  </table></p>
 
   <h2 style="text-align:center">Calendar Fall 2013</h2>
   <p></p>
@@ -152,152 +72,151 @@
       <th><i>Sat</i></th>
     </tr>
     <tr>
-      <td class="hol">Aug 25</td>
-      <td class="off">Aug 26</td>
-      <td class="lec">Aug 27</td>
-      <td class="off">Aug 28</td>
-      <td class="lec">Aug 29</td>
-      <td class="off">Aug 30</td>
+      <td class="hol">Aug 24</td>
+      <td class="off">Aug 25</td>
+      <td class="lec">Aug 26</td>
+      <td class="off">Aug 27</td>
+      <td class="lec">Aug 28</td>
+      <td class="off">Aug 39</td>
+      <td class="hol">Aug 30</td>
+    </tr>
+    <tr>
       <td class="hol">Aug 31</td>
+      <td class="hol">Sept 1<br>Labor Day</td>
+      <td class="lec">Sept 2</td>
+      <td class="off">Sept 3<br><i>Last day to drop</i></td>
+      <td class="lec">Sept 4<br><i>Last day to add</i></td>
+      <td class="off">Sept 5</td>
+      <td class="hol">Sept 6</td>
     </tr>
     <tr>
-      <td class="hol">Sept 1</td>
-      <td class="off">Sept 2</td>
-      <td class="lec">Sept 3</td>
-      <td class="off">Sept 4</td>
-      <td class="lec">Sept 5</td>
-      <td class="off">Sept 6</td>
       <td class="hol">Sept 7</td>
+      <td class="off">Sept 8</td>
+      <td class="lec">Sept 9</td>
+      <td class="off">Sept 10</td>
+      <td class="lec">Sept 11</td>
+      <td class="off">Sept 12</td>
+      <td class="hol">Sept 13</td>
     </tr>
     <tr>
-      <td class="hol">Sept 8</td>
-      <td class="off">Sept 9</td>
-      <td class="lec">Sept 10</td>
-      <td class="off">Sept 11</td>
-      <td class="lec">Sept 12</td>
-      <td class="off">Sept 13</td>
       <td class="hol">Sept 14</td>
+      <td class="off">Sept 15</td>
+      <td class="lec">Sept 16</td>
+      <td class="off">Sept 17</td>
+      <td class="lec">Sept 18</td>
+      <td class="off">Sept 19</td>
+      <td class="hol">Sept 20</td>
     </tr>
     <tr>
-      <td class="hol">Sept 15</td>
-      <td class="off">Sept 16</td>
-      <td class="lec">Sept 17</td>
-      <td class="off">Sept 18</td>
-      <td class="lec">Sept 19</td>
-      <td class="off">Sept 20</td>
       <td class="hol">Sept 21</td>
+      <td class="off">Sept 22</td>
+      <td class="lec">Sept 23</td>
+      <td class="off">Sept 24</td>
+      <td class="lec">Sept 25</td>
+      <td class="off">Sept 26</td>
+      <td class="hol">Sept 27</td>
     </tr>
     <tr>
-      <td class="hol">Sept 22</td>
-      <td class="off">Sept 23</td>
-      <td class="lec">Sept 24</td>
-      <td class="off">Sept 25</td>
-      <td class="lec">Sept 26</td>
-      <td class="off">Sept 27</td>
       <td class="hol">Sept 28</td>
+      <td class="off">Sept 29</td>
+      <td class="lec">Sept 30</td>
+      <td class="off">Oct 1</td>
+      <td class="hol">Oct 2<br>Fall Holiday</td>
+      <td class="hol">Oct 3<br>Fall Holiday</td>
+      <td class="hol">Oct 4</td>
     </tr>
     <tr>
-      <td class="hol">Sept 29</td>
-      <td class="off">Sept 30</td>
-      <td class="lec">Oct 1</td>
-      <td class="off">Oct 2</td>
-      <td class="lec">Oct 3</td>
-      <td class="off">Oct 4</td>
       <td class="hol">Oct 5</td>
+      <td class="off">Oct 6</td>
+      <td class="lec">Oct 7</td>
+      <td class="off">Oct 8</td>
+      <td class="lec">Oct 9</td>
+      <td class="off">Oct 10</td>
+      <td class="hol">Oct 11</td>
     </tr>
     <tr>
-      <td class="hol">Oct 6</td>
-      <td class="off">Oct 7</td>
-      <td class="lec">Oct 8</td>
-      <td class="off">Oct 9</td>
-      <td class="lec">Oct 10</td>
-      <td class="off">Oct 11</td>
       <td class="hol">Oct 12</td>
+      <td class="off">Oct 13</td>
+      <td class="lec">Oct 14</td>
+      <td class="off">Oct 15</td>
+      <td class="lec">Oct 16</td>
+      <td class="off">Oct 17</td>
+      <td class="hol">Oct 18</td>
     </tr>
     <tr>
-      <td class="hol">Oct 13</td>
-      <td class="off">Oct 14</td>
-      <td class="lec">Oct 15</td>
-      <td class="off">Oct 16</td>
-      <td class="lec">Oct 17</td>
-      <td class="off">Oct 18</td>
       <td class="hol">Oct 19</td>
+      <td class="off">Oct 20</td>
+      <td class="lec">Oct 21</td>
+      <td class="off">Oct 22</td>
+      <td class="lec">Oct 23</td>
+      <td class="off">Oct 24</td>
+      <td class="hol">Oct 25</td>
     </tr>
     <tr>
-      <td class="hol">Oct 20</td>
-      <td class="off">Oct 21</td>
-      <td class="lec">Oct 22</td>
-      <td class="off">Oct 23</td>
-      <td class="lec">Oct 24</td>
-      <td class="off">Oct 25</td>
       <td class="hol">Oct 26</td>
-    </tr>
-    <tr>
-      <td class="hol">Oct 27</td>
-      <td class="off">Oct 28</td>
-      <td class="lec">Oct 29</td>
-      <td class="off">Oct 30</td>
-      <td class="lec">Oct 31</td>
-      <td class="off">Oct 26</td>
-      <td class="hol">Oct 27</td>
-    </tr>
-    <tr>
-      <td class="hol">Oct 28</td>
+      <td class="off">Oct 27</td>
+      <td class="lec">Oct 28</td>
       <td class="off">Oct 29</td>
       <td class="lec">Oct 30</td>
       <td class="off">Oct 31</td>
-      <td class="lec">Nov 1</td>
-      <td class="off">Nov 2</td>
-      <td class="hol">Nov 3</td>
+      <td class="hol">Nov 1</td>
     </tr>
     <tr>
-      <td class="hol">Nov 4</td>
+      <td class="hol">Nov 2</td>
+      <td class="off">Nov 3</td>
+      <td class="lec">Nov 4</td>
       <td class="off">Nov 5</td>
       <td class="lec">Nov 6</td>
       <td class="off">Nov 7</td>
-      <td class="lec">Nov 8</td>
-      <td class="off">Nov 9</td>
-      <td class="hol">Nov 10</td>
+      <td class="hol">Nov 8</td>
     </tr>
     <tr>
-      <td class="hol">Nov 11</td>
+      <td class="hol">Nov 9</td>
+      <td class="off">Nov 10</td>
+      <td class="lec">Nov 11</td>
       <td class="off">Nov 12</td>
       <td class="lec">Nov 13</td>
       <td class="off">Nov 14</td>
-      <td class="lec">Nov 15</td>
-      <td class="off">Nov 16</td>
-      <td class="hol">Nov 17</td>
+      <td class="hol">Nov 15</td>
     </tr>
     <tr>
-      <td class="hol">Nov 18</td>
+      <td class="hol">Nov 16</td>
+      <td class="off">Nov 17</td>
+      <td class="lec">Nov 18</td>
       <td class="off">Nov 19</td>
       <td class="lec">Nov 20</td>
       <td class="off">Nov 21</td>
-      <td class="lec">Nov 22</td>
-      <td class="off">Nov 23</td>
-      <td class="hol">Nov 24</td>
+      <td class="hol">Nov 22</td>
     </tr>
     <tr>
-      <td class="hol">Nov 25</td>
-      <td class="off">Nov 26</td>
-      <td class="lec">Nov 27</td>
-      <td class="off">Nov 28</td>
-      <td class="lec">Nov 29</td>
-      <td class="off">Nov 30</td>
-      <td class="hol">Dec 1</td>
+      <td class="hol">Nov 23</td>
+      <td class="off">Nov 24</td>
+      <td class="lec">Nov 25</td>
+      <td class="hol">Nov 26<br>Thanksgiving</td>
+      <td class="hol">Nov 27<br>Thanksgiving</td>
+      <td class="hol">Nov 28<br>Thanksgiving</td>
+      <td class="hol">Nov 29</td>
     </tr>
     <tr>
-      <td class="hol">Dec 2</td>
-      <td class="fin">Dec 3<br>Finals</td>
-      <td class="fin">Dec 4<br>Finals</td>
-      <td class="fin">Dec 5<br>Finals</td>
-      <td class="fin">Dec 6<br>Finals</td>
-      <td class="fin">Dec 7<br>Finals</td>
+      <td class="hol">Nov 30</td>
+      <td class="off">Dec 1</td>
+      <td class="lec">Dec 2</td>
+      <td class="off">Dec 3<br>Concentrated Study</td>
+      <td class="lec">Dec 4<br>Concentrated Study</td>
+      <td class="off">Dec 5<br>Concentrated Study</td>
+      <td class="hol">Dec 6</td>
+    </tr>
+    <tr>
+      <td class="hol">Dec 7</td>
       <td class="fin">Dec 8<br>Finals</td>
+      <td class="fin">Dec 9<br>Finals</td>
+      <td class="fin">Dec 10<br>Finals</td>
+      <td class="fin">Dec 11<br>Finals</td>
+      <td class="fin">Dec 12<br>Finals</td>
+      <td class="fin">Dec 13<br>Finals<br>12:30&ndash;2:30</td>
     </tr>
   </table>
 
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <hr>
   <p style="text-align:right"><i>kooima&#64;csc&#46;lsu&#46;edu</i></p>
 </body>
