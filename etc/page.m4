@@ -23,7 +23,7 @@ changecom
 <td id="misc"><h3><a href="misc.html">Misc.</a></h3></td>
 </tr>
 </table>
-syscmd(find PAGE -depth 1 -name '*.html' -print | sort -r | xargs cat)
+syscmd(find PAGE -maxdepth 1 -name '*.html' -print | sort -r | xargs cat)
 <hr>
 </div>
 <p style="text-align:right"><i>kooima&#64;csc&#46;lsu&#46;edu</i></p>
