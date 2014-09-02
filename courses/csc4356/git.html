@@ -10,7 +10,9 @@
 
 <p>The following notes describe the procedure for setting up and using your <code>classes.csc.lsu.edu</code> account as a Git server. All programming projects for this course will be stored on that server and all assignment submissions will be made using Git repositories there. This mechanism provides a central location to store all your code, while allowing easy access to that code from your laptop, PC, or wherever.</p>
 
-<p>For general guidance on the usage of Git, see the <a href="http://git-scm.com/book">Git Book</a>.</p>
+<p>For a full tutorial on the usage of Git, see the <a href="http://git-scm.com/book">Git Book</a>.</p>
+
+<p>For a brief list of useful Git operations, see the <a href="https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf">GitHub Cheat Sheet</a>.</p>
 
 <h2>Summary</h2>
 
@@ -76,21 +78,21 @@ git clone cs4356XX@classes.csc.lsu.edu:project0.git
 
 <h2>Modify the working copy</h2>
 
-<p>Now you do whatever work that you need to do. Create files. Modify files. Delete or rename files. Do what needs to be done.</p>
+<p>Now you do some work on the project. Create files. Modify files. Delete or rename files. Do what needs to be done. For this example, let's say you've created a new file called <code>README.md</code> that describes the content of your project (using <a href="http://daringfireball.net/projects/markdown/syntax">Markdown syntax</a>).</p>
 
-<p>For this example, assume you've created a new file called <code>README.md</code> that describes the content of the project. At any time, we can ask Git for a summary of all of the changes made to a working copy:</p>
+<p>At any time, we can ask Git for a summary of all of the changes made to your working copy:</p>
 
 <code><pre>
 git status
 </pre></code>
 
-<p>Requesting the status of the project tells you that <code>README.md</code> is "untracked". That means Git doesn't care about it. First, let's add it to the set of files that Git cares about.</p>
+<p>Requesting the status of the project tells you that <code>README.md</code> is "untracked". That means Git doesn't care about it, so let's first add it to the set of files that Git cares about.</p>
 
 <code><pre>
 git add README.md
 </pre></code>
 
-<p>Now, the status will tell you that <code>README.md</code> has "Changes to be committed". Let's commit those changes to the local repository. In so doing, we always include a message stating exactly what change we made.</p>
+<p>Now, <code>git status</code> will tell you that <code>README.md</code> has "Changes to be committed". That means that the work you've done hasn't yet been stored permanantly, so let's commit those changes to the local repository. In so doing, we always include a message stating exactly what change we made.</p>
 
 <code><pre>
 git commit -m 'Added README'
