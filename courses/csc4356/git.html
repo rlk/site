@@ -1,55 +1,66 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>CSC 4356 / ME 4573 - Interactive Computer Graphics</title>
-  <link rel="stylesheet" type="text/css" href="../../style.css" />
+<meta charset="UTF-8">
+<title>Using Git with classes.csc.lsu.edu</title>
+<link rel="stylesheet" type="text/css" href="../../style.css" />
 </head>
 <body>
-<h1>Using Git with <i>classes.csc.lsu.edu</i></h1>
+<h1>Using Git with classes.csc.lsu.edu</h1>
 
-<p>The following notes describe the procedure for setting up your <i>classes.csc.lsu.edu</i> account to act as a Git server. All programming projects for this course will be stored on that server and all assignment submissions will be made using Git repositories there. This mechanism provides a central location to store all your code, while allowing easy access to that code for editing on your laptop, PC, or wherever.</p>
+<p>The following notes describe the procedure for setting up and using your <code>classes.csc.lsu.edu</code> account as a Git server. All programming projects for this course will be stored on that server and all assignment submissions will be made using Git repositories there. This mechanism provides a central location to store all your code, while allowing easy access to that code from your laptop, PC, or wherever.</p>
 
 <p>For general guidance on the usage of Git, see the <a href="http://git-scm.com/book">Git Book</a>.</p>
 
+<h2>Summary</h2>
+
+<table>
+<tr><td><b>Do what?</b></td><td><b>Do it when?</b></td></tr>
+<tr><td>Set up the client&hellip;</td><td>Only after downloading and installing a Git client</td></tr>
+<tr><td>Set up a new repository&hellip;</td><td>When first beginning work on a new programming project</td></tr>
+<tr><td>Clone a repository&hellip;</td><td>When getting down to work on an ongoing project with an already-existing repository</td></tr>
+<tr><td>Modify the working copy&hellip;</td><td>Very frequently</td></tr>
+<tr><td>Push the changes to the server&hellip;</td><td>Quite frequently</td></tr>
+</table>
 
 <h2>Set up the client</h2>
 
-<p>Download and install <a href="http://git-scm.com/downloads">the Git client</a>. In this class, we will focus on command-line Git usage because this is the most general and powerful Git interface. It is also the most consistent between Windows, OS X, and Linux, so everyone in the class will see the same behavior and your new skills will translate across platforms.</p>
+<p>Download and install the <a href="http://git-scm.com/downloads">Git client</a>. In this class, we will focus on command-line Git usage because this is the most general and powerful Git interface. It is also the most consistent between Windows, OS X, and Linux, so everyone in the class will see the same behavior and your new skills will translate across platforms.</p>
 
-<p>Once installed, a tiny bit of client configuration is required. Use the following commands to tell the Git client who you are. Your instructor is using his own name and email address as an example, and you must <b>use your own name and email address</b> to configure your own client.</p>
+<p>Once installed, a tiny bit of client configuration is required. Use the following commands to tell the Git client who you are. It's critical that you use your LSU email address here, as this is the means by which the grader will know your work.</p>
 
-<pre>
-git config --global user.name "Robert Kooima"
-git config --global user.email kooima@csc.lsu.edu
+<code><pre>
+git config --global user.name "Mike Tiger VI"
+git config --global user.email mtiger6@csc.lsu.edu
 git config --global push.default simple
-</pre>
+</pre></code>
 
 <p><b>You only need to do this once</b> for your client. You would need to do this a second time only if you wish to set up a second machine as a Git client.</p>
 
 <h2>Set up a new repository</h2>
 
-<p>This course involves several programming projects. Each of these projects lives in its own Git repository. You create a new Git repository for each new assigment.</p>
+<p>This course involves several programming projects. Each of these projects will live in its own Git repository. You'll create a new Git repository for each new assigment as you begin to work on it.</p>
 
-<p>A repository is created on the Git server, in our case <i>classes.csc.lsu.edu</i>. To create a repository, you must SSH into your <i>classes</i> account. This example uses <tt>csc4356XX</tt> as login name.</p>
+<p>A repository is created on the Git server, in our case <code>classes.csc.lsu.edu</code>. To create a repository, you must SSH into your <code>classes</code> account. This example uses <code>csc4356XX</code> as login name.</p>
 
-<pre>
+<code><pre>
 slogin -l csc4356XX classes.csc.lsu.edu
-</pre>
+</pre></code>
 
-<p>Once there, create a directory for the repository. This example assumes you're doing the first programming project which will have the repository name "<tt>project1.git</tt>". You will eventually have "<tt>project2.git</tt>", "<tt>project3.git</tt>", etc.</p>
+<p>Once there, create a directory for the repository. This example assumes you're doing the first programming project which will have the repository name "<code>project0.git</code>". You will eventually have "<code>project1.git</code>", "<code>project2.git</code>", etc.</p>
 
-<pre>
-mkdir project1.git
-</pre>
+<code><pre>
+mkdir project0.git
+</pre></code>
 
 <p>Move into this directory and initialize a "bare" git repository there.</p>
 
-<pre>
-cd project1.git
+<code><pre>
+cd project0.git
 git --bare init
-</pre>
+</pre></code>
 
-<p>Now a new, empty Git repository exists in your account on the <i>classes</i> server.</p>
+<p>Now a new, empty Git repository exists in your account on the <code>classes</code> server.</p>
 
 <h2>Clone a repository</h2>
 
@@ -57,57 +68,45 @@ git --bare init
 
 <p>On your laptop or PC, move to a reasonable location for a working project and clone the project repository like so.</p>
 
-<pre>
-git clone cs4356XX@classes.csc.lsu.edu:project1.git
-</pre>
+<code><pre>
+git clone cs4356XX@classes.csc.lsu.edu:project0.git
+</pre></code>
 
-<p>This creates a directory called "project1" in the current working directory.</p>
+<p>This creates a directory called "<code>project0</code>" in the current working directory. This directory contains a <i>local copy</i> of the project repository. It represents the current state of the project, but also contains hidden copies of all previous versions in the project's history.</p>
 
 <h2>Modify the working copy</h2>
 
 <p>Now you do whatever work that you need to do. Create files. Modify files. Delete or rename files. Do what needs to be done.</p>
 
-<p>For this example, assume you've created a new file called <tt>README.md</tt> that describes the content of the project.</p>
+<p>For this example, assume you've created a new file called <code>README.md</code> that describes the content of the project. At any time, we can ask Git for a summary of all of the changes made to a working copy:</p>
 
-<pre>
+<code><pre>
 git status
-</pre>
+</pre></code>
 
-<p>Requesting the status of the project tells you that <tt>README.md</tt> is "untracked". That means Git doesn't care about it. First, let's add it to the set of files that Git cares about.</p>
+<p>Requesting the status of the project tells you that <code>README.md</code> is "untracked". That means Git doesn't care about it. First, let's add it to the set of files that Git cares about.</p>
 
-<pre>
+<code><pre>
 git add README.md
-</pre>
+</pre></code>
 
-<p>Now, the status will tell you that <tt>README.md</tt> has "Changes to be committed". Let's commit those changes to the repository. In so doing, we always include a message stating exactly what change we made.</p>
+<p>Now, the status will tell you that <code>README.md</code> has "Changes to be committed". Let's commit those changes to the local repository. In so doing, we always include a message stating exactly what change we made.</p>
 
-<pre>
+<code><pre>
 git commit -m 'Added README'
-</pre>
+</pre></code>
 
 <p>With the commit complete, the local copy of your Git repository has embraced all of the additions you have made.</p>
 
 <h2>Push the changes to the server</h2>
 
-<p>Modifications to the project have been committed, but they have not yet been transmitted to the server. Synchronize the local copy with the remote server like so.</p>
+<p>Modifications to the project have been committed to the local repository, but they have not yet been transmitted to the remote repository server. Synchronize the local copy with the remote copy like so.</p>
 
-<pre>
+<code><pre>
 git push
-</pre>
+</pre></code>
 
-<p>With that, the copy of the project on <i>classes.csc.lsu.edu</i> includes all of your additions and changes. That remote copy is definitive, and it is accessible to the instructor and the grader. When the project deadline arrives, we'll clone it ourselves and evaluate the work on the basis of that clone.</p>
+<p>With that, the copy of the project on <code>classes.csc.lsu.edu</code> includes all of your additions and changes. That remote copy is definitive, and it is accessible to the instructor and the grader. When the project deadline arrives, we'll clone it ourselves and evaluate the work on the basis of that clone.</p>
 
-<h2>Summary</h2>
-
-<blockquote>
-<table>
-<tr><td><b>Do what?</b></td><td><b>Do it when?</b></td></tr>
-<tr><td>Set up the client&hellip;</td><td>After downloading and installing a Git client</td></tr>
-<tr><td>Set up a new repository&hellip;</td><td>When first beginning work on a new programming project</td></tr>
-<tr><td>Clone a repository&hellip;</td><td>When getting down to work on an ongoing project with an already-existing repository</td></tr>
-<tr><td>Modify the working copy&hellip;</td><td>Very frequently</td></tr>
-<tr><td>Push the changes to the server&hellip;</td><td>Quite frequently</td></tr>
-</table>
-</blockquote>
 </body>
 </html>
