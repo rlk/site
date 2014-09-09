@@ -1,0 +1,52 @@
+<html>
+<head>
+	<title>CSC 4356 / ME 4573 - Project 1</title>
+	<link rel="stylesheet" type="text/css" href="../../style.css" />
+</head>
+<body>
+	<h1>Project 1 &mdash; Getting Started</h1>
+
+	<h2>Overview</h2>
+
+	<p>The purpose of Project 1 is to ensure that you can organize HTML and JavaScript code into a working WebGL project and commit that working project to a Git repository.</p>
+
+	<p>The code in question will come right out of Chapter 2. At this time, we'll have only a light understanding of how this code truly works. We'll come to understand it more deeply over the next couple of weeks.</p>
+
+	<h2>Specifics</h2>
+
+	<ul>
+		<li><p>Read chapter 2 of the WebGL Programming Guide, at least through page 40. This chapter gives a high level overview of almost every aspect of 3D programming for the web, including the necessary HTML, a bit of JavaScript with WebGL, and an early taste of the GPU programming language. It includes a very simple example that draws a single WebGL point to an HTML canvas.</p></li>
+
+		<li><p>Following the instructions given in <a href="git.html">Using Git with <b>classes.csc.lsu.edu</b></a>, create a new remote repository called "project1", and clone it to your local computer.</p></li>
+
+		<li><p>Download the following JavaScript libraries and add them to your project's working directory:</p></li>
+
+		<ul>
+			<li><code><a href="https://www.khronos.org/registry/webgl/sdk/demos/common/webgl-utils.js">webgl-utils.js</a></code></li>
+			<li><code><a href="https://www.khronos.org/registry/webgl/sdk/debug/webgl-debug.js">webgl-debug.js</a></code></li>
+			<li><code><a href="http://www.magic.ubc.ca/webgl-pg/uploads/examples/lib/cuon-utils.js">cuon-utils.js</a></code></li>
+		</ul>
+
+		<li><p>Type in the HelloPoint1 example. This will include:</p></li>
+
+		<ul>
+			<li><code>HelloPoint1.html</code> from Listing 2.4.</li>
+			<li><code>HelloPoint1.js</code> from Listing 2.5.</li>
+		</ul>
+
+		<li><p>There are two corrections to be made to this code:</p></li>
+
+		<ol>
+			<li>You'll note that the <code>script</code> source paths in <code>HelloPoint1.html</code> point to a different directory. These paths are incorrect for your project, as the JavaScript files that they mention are in the project's working directory. Remove the "<code>../libs/</code>" portion of each path to correct them.</li>
+
+			<li>The background is black and the point is red. This being LSU, everything must be purple and gold. Change the background to purple and the point to gold. See Chapter 2 to determine how.</li>
+		</ol>
+
+		<li><p>Confirm that the code works by loading the HTML file in Chrome. It should look something like Figure 2.9.</p></li>
+
+		<li><p>Referring again to our <a href="git.html">Git instructions</a>, add the five files you've created to the working copy and commit them to the local repository.</p></li>
+
+		<li><p>Push these changes from your local repository to your remote repository on <b>classes.csc.lsu.edu</b> before the deadline.</p></li>
+	</ul>
+</body>
+</html>
