@@ -18,14 +18,16 @@
 
 <table>
 <tr><td><b>Do what?</b></td><td><b>Do it when?</b></td></tr>
-<tr><td>Set up the client&hellip;</td><td>Only after downloading and installing a Git client</td></tr>
-<tr><td>Set up a new repository&hellip;</td><td>When first beginning work on a new programming project</td></tr>
-<tr><td>Clone a repository&hellip;</td><td>When getting down to work on an ongoing project with an already-existing repository</td></tr>
-<tr><td>Modify the working copy&hellip;</td><td>Very frequently</td></tr>
-<tr><td>Push the changes to the server&hellip;</td><td>Quite frequently</td></tr>
+<tr><td><a href="#client">Set up the client</a>&hellip;</td><td>Only after downloading and installing a Git client</td></tr>
+<tr><td><a href="#local">Set up a new local repository</a>&hellip;</td><td>When first beginning work on a new programming project</td></tr>
+<tr><td><a href="#remote">Set up a new remote repository</a>&hellip;</td><td>When first beginning work on a new programming project</td></tr>
+<tr><td><a href="#connect">Connect a local repository to a remote</a>&hellip;</td><td>When first beginning work on a new programming project</td></tr>
+<tr><td><a href="#modify">Modify the contents of a repository</a>&hellip;</td><td>Whenever you do work</td></tr>
+<tr><td><a href="#sync">Synchronize the remote with the local</a>&hellip;</td><td>Whenever you've done work</td></tr>
+<tr><td><a href="#clone">Clone a repository</a>&hellip;</td><td>If ever you have a remote repository but no local repository</td></tr>
 </table>
 
-<h2>Set up the client</h2>
+<a name="client"><h2>Set up the client</h2></a>
 
 <p>Download and install the <a href="http://git-scm.com/downloads">Git client</a>. In this class, we will focus on command-line Git usage because this is the most general and powerful Git interface. It is also the most consistent between Windows, OS X, and Linux, so everyone in the class will see the same behavior and your new skills will translate across platforms.</p>
 
@@ -39,46 +41,71 @@ git config --global push.default simple
 
 <p><b>You only need to do this once</b> for your client. You would need to do this a second time only if you wish to set up a second machine as a Git client.</p>
 
-<h2>Set up a new repository</h2>
+<a name="local"><h2>Set up a new local repository</h2></a>
 
-<p>This course involves several programming projects. Each of these projects will live in its own Git repository. You'll create a new Git repository for each new assigment as you begin to work on it.</p>
+<p>When working on a programming project, even if only by yourself, it's important to maintain the discipline of version control usage. Every project should have a <i>local</i> Git repository within it on your PC or laptop.</p>
 
-<p>A repository is created on the Git server, in our case <code>classes.csc.lsu.edu</code>. To create a repository, you must SSH into your <code>classes</code> account. This example uses <code>cs4356XX</code> as login name.</p>
+<p>When starting a new project, you create a directory for it. This example assumes you're doing a programming project called &ldquo;<code>project0</code>&rdquo;.</p>
+
+<code><pre>
+mkdir project0
+cd project0
+</pre></code>
+
+<p>Begin by initializing the Git repository for this project.</p>
+
+<code><pre>
+git init
+</pre></code>
+
+<p>This will create a hidden directory called <code>.git</code> within the <code>project0</code> directory.</p>
+
+<a name="remote"><h2>Set up a new remote repository</h2></a>
+
+<p>This course involves several programming projects. Each project will be submitted for grading via a Git repository stored on a Git server, in our case on <code>classes.csc.lsu.edu</code>. You'll create one such repository for each project.</p>
+
+<p>To create a remote repository, you must SSH into your <code>classes</code> account. This example uses <code>cs4356XX</code> as login name.</p>
 
 <code><pre>
 ssh cs4356XX@classes.csc.lsu.edu
 </pre></code>
 
-<p>Once there, create a directory for the repository. This example assumes you're doing the first programming project which will have the repository name "<code>project0.git</code>". You will eventually have "<code>project1.git</code>", "<code>project2.git</code>", etc.</p>
+<p>Once there, create a directory for the repository. If the local directory is called &ldquo;<code>project0</code>&rdquo; then the remote directory should be called "<code>project0.git</code>".
 
 <code><pre>
 mkdir project0.git
+cd project0.git
 </pre></code>
 
-<p>Move into this directory and initialize a "bare" git repository there.</p>
+<p>Initialize a "bare" git repository there.</p>
 
 <code><pre>
-cd project0.git
 git --bare init
 </pre></code>
 
-<p>Now a new, empty Git repository exists in your account on the <code>classes</code> server.</p>
-
-<h2>Clone a repository</h2>
-
-<p>When you want to add content to a repository, you "clone" it using your local client, modify it by adding and changing files, and "push" the modifications to the server.</p>
-
-<p>On your laptop or PC, move to a reasonable location for a working project and clone the project repository like so.</p>
+<p>Now a new, empty Git repository exists in your account on the <code>classes</code> server. Remember that you're still connected to <code>classes.csc.lsu.edu</code> via <code>ssh</code> and disconnect before proceeding.</p>
 
 <code><pre>
-git clone cs4356XX@classes.csc.lsu.edu:project0.git
+exit
 </pre></code>
 
-<p>This creates a directory called "<code>project0</code>" in the current working directory. This directory contains a <i>local copy</i> of the project repository. It represents the current state of the project, but also contains hidden copies of all previous versions in the project's history.</p>
+<a name="connect"><h2>Connect the local and remote repositories</h2></a>
 
-<h2>Modify the working copy</h2>
+<p>The work you do on your PC or laptop must be copied to the server. For this to happen, the location of the remote repository must be added to the local repository. This only needs to be done once, when these repositories are first created.</p>
 
-<p>Now you do some work on the project. Create files. Modify files. Delete or rename files. Do what needs to be done. For this example, let's say you've created a new file called <code>README.md</code> that describes the content of your project (using <a href="http://daringfireball.net/projects/markdown/syntax">Markdown syntax</a>).</p>
+<code><pre>
+git remote add cs4356XX@classes.csc.lsu.edu:project0.git
+</pre></code>
+
+<p>With this connection made, we can &ldquo;push&rdquo; from local to remote for the first time, synchronizing the remote repository with the local repository.</p>
+
+<code><pre>
+git push -u origin master
+</pre></code>
+
+<a name="modify"><h2>Modify the local repository</h2></a>
+
+<p>Do some work on the project. Create files. Modify files. Delete or rename files. Do what needs to be done. For this example, let's say you've created a new file called <code>README.md</code> that describes the content of your project (using <a href="http://daringfireball.net/projects/markdown/syntax">Markdown syntax</a>).</p>
 
 <p>At any time, we can ask Git for a summary of all of the changes made to your working copy:</p>
 
@@ -100,15 +127,29 @@ git commit -m 'Added README'
 
 <p>With the commit complete, the local copy of your Git repository has embraced all of the additions you have made.</p>
 
-<h2>Push the changes to the server</h2>
+<a name="sync"><h2>Synchronize the remote with the local</h2></a>
 
-<p>Modifications to the project have been committed to the local repository, but they have not yet been transmitted to the remote repository server. Synchronize the local copy with the remote copy like so.</p>
+<p>After making changes and committing them to the local repository, do a &ldquo;push&rdquo; to synchronize the remote repository with the local repository.</p>
 
 <code><pre>
 git push
 </pre></code>
 
 <p>With that, the copy of the project on <code>classes.csc.lsu.edu</code> includes all of your additions and changes. That remote copy is definitive, and it is accessible to the instructor and the grader. When the project deadline arrives, we'll clone it ourselves and evaluate the work on the basis of that clone.</p>
+
+<a name="clone"><h2>Clone a repository</h2></a>
+
+<p>With the remote repository being definitive, your local repository is disposable, and you may often find yourself without a local copy of your project repository. This may happen because you want to work on different PC, or because you deleted or lost your local copy. This is a normal part of working with Git.</p>
+
+<p>When you want to add content to a remote repository, you &ldquo;clone&rdquo; a local copy of it. You can then modify the contents by adding and changing files, and "push" the modifications back to the remote.</p>
+
+<p>On your laptop or PC, move to a reasonable location for a working project and clone the project repository like so.</p>
+
+<code><pre>
+git clone cs4356XX@classes.csc.lsu.edu:project0.git
+</pre></code>
+
+<p>This creates a directory called "<code>project0</code>" in the current working directory. This directory contains a <i>local copy</i> of the project repository. It represents the current state of the project, but also contains hidden copies of all previous versions in the project's history.</p>
 
 </body>
 </html>
