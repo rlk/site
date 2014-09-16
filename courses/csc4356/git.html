@@ -20,9 +20,9 @@
 <tr><td><b>Do what?</b></td><td><b>Do it when?</b></td></tr>
 <tr><td><a href="#client">Set up the client</a>&hellip;</td><td>Only after downloading and installing a Git client</td></tr>
 <tr><td><a href="#local">Set up a new local repository</a>&hellip;</td><td>When first beginning work on a new programming project</td></tr>
+<tr><td><a href="#modify">Modify the contents of a repository</a>&hellip;</td><td>Whenever you do work</td></tr>
 <tr><td><a href="#remote">Set up a new remote repository</a>&hellip;</td><td>When first beginning work on a new programming project</td></tr>
 <tr><td><a href="#connect">Connect a local repository to a remote</a>&hellip;</td><td>When first beginning work on a new programming project</td></tr>
-<tr><td><a href="#modify">Modify the contents of a repository</a>&hellip;</td><td>Whenever you do work</td></tr>
 <tr><td><a href="#sync">Synchronize the remote with the local</a>&hellip;</td><td>Whenever you've done work</td></tr>
 <tr><td><a href="#clone">Clone a repository</a>&hellip;</td><td>If ever you have a remote repository but no local repository</td></tr>
 </table>
@@ -59,6 +59,30 @@ git init
 </pre></code>
 
 <p>This will create a hidden directory called <code>.git</code> within the <code>project0</code> directory.</p>
+
+<a name="modify"><h2>Modify the local repository</h2></a>
+
+<p>Do some work on the project. Create files. Modify files. Delete or rename files. Do what needs to be done. For this example, let's say you've created a new file called <code>README.md</code> that describes the content of your project (using <a href="http://daringfireball.net/projects/markdown/syntax">Markdown syntax</a>).</p>
+
+<p>At any time, we can ask Git for a summary of all of the changes made to your working copy:</p>
+
+<code><pre>
+git status
+</pre></code>
+
+<p>Requesting the status of the project tells you that <code>README.md</code> is "untracked". That means Git doesn't care about it, so let's first add it to the set of files that Git cares about.</p>
+
+<code><pre>
+git add README.md
+</pre></code>
+
+<p>Now, <code>git status</code> will tell you that <code>README.md</code> has "Changes to be committed". That means that the work you've done hasn't yet been stored permanantly, so let's commit those changes to the local repository. In so doing, we always include a message stating exactly what change we made.</p>
+
+<code><pre>
+git commit -m 'Added README'
+</pre></code>
+
+<p>With the commit complete, the local copy of your Git repository has embraced all of the additions you have made.</p>
 
 <a name="remote"><h2>Set up a new remote repository</h2></a>
 
@@ -103,40 +127,6 @@ git remote add origin cs4356XX@classes.csc.lsu.edu:project0.git
 git push -u origin master
 </pre></code>
 
-<a name="modify"><h2>Modify the local repository</h2></a>
-
-<p>Do some work on the project. Create files. Modify files. Delete or rename files. Do what needs to be done. For this example, let's say you've created a new file called <code>README.md</code> that describes the content of your project (using <a href="http://daringfireball.net/projects/markdown/syntax">Markdown syntax</a>).</p>
-
-<p>At any time, we can ask Git for a summary of all of the changes made to your working copy:</p>
-
-<code><pre>
-git status
-</pre></code>
-
-<p>Requesting the status of the project tells you that <code>README.md</code> is "untracked". That means Git doesn't care about it, so let's first add it to the set of files that Git cares about.</p>
-
-<code><pre>
-git add README.md
-</pre></code>
-
-<p>Now, <code>git status</code> will tell you that <code>README.md</code> has "Changes to be committed". That means that the work you've done hasn't yet been stored permanantly, so let's commit those changes to the local repository. In so doing, we always include a message stating exactly what change we made.</p>
-
-<code><pre>
-git commit -m 'Added README'
-</pre></code>
-
-<p>With the commit complete, the local copy of your Git repository has embraced all of the additions you have made.</p>
-
-<a name="sync"><h2>Synchronize the remote with the local</h2></a>
-
-<p>After making changes and committing them to the local repository, do a &ldquo;push&rdquo; to synchronize the remote repository with the local repository.</p>
-
-<code><pre>
-git push
-</pre></code>
-
-<p>With that, the copy of the project on <code>classes.csc.lsu.edu</code> includes all of your additions and changes. That remote copy is definitive, and it is accessible to the instructor and the grader. When the project deadline arrives, we'll clone it ourselves and evaluate the work on the basis of that clone.</p>
-
 <a name="clone"><h2>Clone a repository</h2></a>
 
 <p>With the remote repository being definitive, your local repository is disposable, and you may often find yourself without a local copy of your project repository. This may happen because you want to work on different PC, or because you deleted or lost your local copy. This is a normal part of working with Git.</p>
@@ -150,6 +140,16 @@ git clone cs4356XX@classes.csc.lsu.edu:project0.git
 </pre></code>
 
 <p>This creates a directory called "<code>project0</code>" in the current working directory. This directory contains a <i>local copy</i> of the project repository. It represents the current state of the project, but also contains hidden copies of all previous versions in the project's history.</p>
+
+<a name="sync"><h2>Synchronize the remote with the local</h2></a>
+
+<p>After making changes and committing them to the local repository, do a &ldquo;push&rdquo; to synchronize the remote repository with the local repository.</p>
+
+<code><pre>
+git push
+</pre></code>
+
+<p>With that, the copy of the project on <code>classes.csc.lsu.edu</code> includes all of your additions and changes. That remote copy is definitive, and it is accessible to the instructor and the grader. When the project deadline arrives, we'll clone it ourselves and evaluate the work on the basis of that clone.</p>
 
 </body>
 </html>
