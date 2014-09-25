@@ -1,0 +1,121 @@
+/* These allow the content to fill the viewport. */
+
+html, body {
+ height:  100%;
+ padding: 0;
+ margin:  0;
+}
+
+/* A viewport-filling table and a middle-aligned cell enable centering. */
+
+div.slide {
+	display: table;
+	height: 100%;
+	width: 100%;
+}
+
+div.row {
+	display: table-row;
+}
+
+div.cell {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+div.text {
+	margin: 0 auto;
+	width: 80%;
+}
+
+.center {
+	margin: 0 auto;
+}
+
+img {
+  margin: 0 auto;
+  display: block;
+}
+
+/* Header styles */
+
+h1, h2, h3, h4, h5 {
+	font-size: 100%;
+}
+
+/* Text formatting */
+
+body {
+	font-family: "Times", "Times New Roman", serif;
+	font-size:   32px;
+	line-height: 48px;
+ 	color:       #444;
+ 	background: radial-gradient(circle, #FFF 70%, #DDD);
+}
+
+/* Code formatting */
+
+code {
+	font-family: "Consolas", "Inconsolata", monospace;
+	font-size:   28px;
+	line-height: 32px;
+	color:       #888;
+}
+
+pre {
+	line-height: 32px;
+}
+
+/* Table styling */
+
+table {
+	border-collapse: collapse;
+	line-height:     1.5em;
+}
+
+th {
+	border-bottom: 1px solid #444;
+}
+
+th.index, td.index {
+	border-right: 1px solid #444;
+}
+
+table.small {
+	font-size: 70%;
+}
+
+table.small th, table.small td {
+	padding-left:  0.5em;
+	padding-right: 0.5em;
+}
+
+/* Navigation styles. */
+
+a#prev {
+	position: fixed;
+	left:  20px;
+	bottom: 5px;
+}
+
+a#next {
+	position: fixed;
+	right: 20px;
+	bottom: 5px;
+}
+
+a#prev::before {
+	content: '\2039';
+}
+
+a#next::after {
+	content: '\203A';
+}
+
+/* Link styles */
+
+a:link    { color:#0000FF; text-decoration: none; }
+a:visited { color:#2200DD; text-decoration: none; }
+a:hover   { color:#AA0000; text-decoration: underline; }
+a:active  { color:#FF0000; text-decoration: underline; }
+
