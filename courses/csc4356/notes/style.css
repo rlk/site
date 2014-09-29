@@ -32,11 +32,6 @@ div.text {
 	margin: 0 auto;
 }
 
-img {
-  margin: 0 auto;
-  display: block;
-}
-
 /* Header styles */
 
 h1, h2, h3, h4, h5 {
@@ -73,7 +68,15 @@ table {
 	line-height:     1.5em;
 }
 
-th {
+table.data td {
+	text-align: right;
+}
+
+table.short {
+	line-height: 1.25em;
+}
+
+table.data th {
 	border-bottom: 1px solid #444;
 }
 
