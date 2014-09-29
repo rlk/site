@@ -46,6 +46,7 @@ body {
 	line-height: 48px;
  	color:       #444;
  	background: radial-gradient(circle, #FFF 70%, #DDD);
+ 	background-attachment: fixed;
 }
 
 /* Code formatting */
@@ -73,7 +74,7 @@ table.data td {
 }
 
 table.short {
-	line-height: 1.25em;
+	line-height: 1.1em;
 }
 
 table.data th {
@@ -91,6 +92,10 @@ table.small {
 table.small th, table.small td {
 	padding-left:  0.5em;
 	padding-right: 0.5em;
+}
+
+td.pad {
+	width:2em;
 }
 
 /* Navigation styles. */
