@@ -77,6 +77,10 @@ table.short {
 	line-height: 1.1em;
 }
 
+table.veryshort {
+	line-height: 1.0em;
+}
+
 table.data th {
 	border-bottom: 1px solid #444;
 }
@@ -90,6 +94,15 @@ table.small {
 }
 
 table.small th, table.small td {
+	padding-left:  0.5em;
+	padding-right: 0.5em;
+}
+
+table.tiny {
+	font-size: 50%;
+}
+
+table.tiny th, table.tiny td {
 	padding-left:  0.5em;
 	padding-right: 0.5em;
 }
