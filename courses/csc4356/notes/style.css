@@ -28,6 +28,8 @@ div.text {
 	width: 80%;
 }
 
+/* Or wrap in div with text-align center? */
+
 .center {
 	margin: 0 auto;
 }
@@ -58,8 +60,12 @@ code {
 	color:       #888;
 }
 
-pre {
+ul.listing {
+	font-family: "Consolas", "Inconsolata", monospace;
+	font-size:   28px;
 	line-height: 32px;
+	color:       #888;
+	list-style-type: none;
 }
 
 /* Table styling */
