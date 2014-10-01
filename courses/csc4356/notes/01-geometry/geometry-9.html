@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+	<script type="text/javascript" src="../script.js"></script>
+</head>
+<body>
+	<div class="slide">
+		<div class="cell">
+			<div class="text">
+				<h1>A Mesh with Lighting</h1>
+
+				<p>But when the geometry is faceted, <i>every</i> vertex has a different normal for every face that touches it.</p>
+
+				<table class="center">
+					<tr>
+						<td>
+							<img class="center" src="../img/tinyhouse-normals-all.svg">
+						</td>
+						<td class="pad"></td>
+						<td>
+							<table class="center tiny data veryshort">
+								<tr><th class="index">\(i\)</th><th>\(p_x\)</th><th>\(p_y\)</th><th class="index">\(p_z\)</th><th>\(r\)</th><th>\(g\)</th><th class="index">\(b\)</th><th>\(n_x\)</th><th>\(n_y\)</th><th>\(n_z\)</th></tr>
+
+								<tr><td class="index"> 0</td><td>       0.0</td><td>1.0</td><td class="index">       0.5</td><td>1.0</td><td>1.0</td><td class="index">0.8</td><td>       0.0</td><td>       0.0</td><td>       1.0</td></tr>
+								<tr><td class="index"> 1</td><td>&minus;0.5</td><td>0.5</td><td class="index">       0.5</td><td>1.0</td><td>1.0</td><td class="index">0.8</td><td>       0.0</td><td>       0.0</td><td>       1.0</td></tr>
+								<tr><td class="index"> 2</td><td>&minus;0.5</td><td>0.0</td><td class="index">       0.5</td><td>1.0</td><td>1.0</td><td class="index">0.8</td><td>       0.0</td><td>       0.0</td><td>       1.0</td></tr>
+								<tr><td class="index"> 3</td><td>       0.5</td><td>0.0</td><td class="index">       0.5</td><td>1.0</td><td>1.0</td><td class="index">0.8</td><td>       0.0</td><td>       0.0</td><td>       1.0</td></tr>
+								<tr><td class="index"> 4</td><td>       0.5</td><td>0.5</td><td class="index">       0.5</td><td>1.0</td><td>1.0</td><td class="index">0.8</td><td>       0.0</td><td>       0.0</td><td>       1.0</td></tr>
+								<tr><td class="index"> 5</td><td>       0.0</td><td>1.0</td><td class="index">       0.5</td><td>0.8</td><td>0.0</td><td class="index">0.0</td><td>&minus;0.7</td><td>       0.7</td><td>       0.0</td></tr>
+								<tr><td class="index"> 6</td><td>       0.0</td><td>1.0</td><td class="index">&minus;0.5</td><td>0.8</td><td>0.0</td><td class="index">0.0</td><td>&minus;0.7</td><td>       0.7</td><td>       0.0</td></tr>
+								<tr><td class="index"> 7</td><td>&minus;0.5</td><td>0.5</td><td class="index">&minus;0.5</td><td>0.8</td><td>0.0</td><td class="index">0.0</td><td>&minus;0.7</td><td>       0.7</td><td>       0.0</td></tr>
+								<tr><td class="index"> 8</td><td>&minus;0.5</td><td>0.5</td><td class="index">       0.5</td><td>0.8</td><td>0.0</td><td class="index">0.0</td><td>&minus;0.7</td><td>       0.7</td><td>       0.0</td></tr>
+								<tr><td class="index"> 9</td><td>&minus;0.5</td><td>0.5</td><td class="index">       0.5</td><td>1.0</td><td>1.0</td><td class="index">0.8</td><td>&minus;1.0</td><td>       0.0</td><td>       0.0</td></tr>
+								<tr><td class="index">10</td><td>&minus;0.5</td><td>0.5</td><td class="index">&minus;0.5</td><td>1.0</td><td>1.0</td><td class="index">0.8</td><td>&minus;1.0</td><td>       0.0</td><td>       0.0</td></tr>
+								<tr><td class="index">11</td><td>&minus;0.5</td><td>0.0</td><td class="index">&minus;0.5</td><td>1.0</td><td>1.0</td><td class="index">0.8</td><td>&minus;1.0</td><td>       0.0</td><td>       0.0</td></tr>
+								<tr><td class="index">12</td><td>&minus;0.5</td><td>0.0</td><td class="index">       0.5</td><td>1.0</td><td>1.0</td><td class="index">0.8</td><td>&minus;1.0</td><td>       0.0</td><td>       0.0</td></tr>
+								<tr><td class="index">13</td><td>&minus;0.5</td><td>0.0</td><td class="index">       0.5</td><td>1.0</td><td>1.0</td><td class="index">0.8</td><td>       0.0</td><td>&minus;1.0</td><td>       0.0</td></tr>
+								<tr><td class="index">14</td><td>&minus;0.5</td><td>0.0</td><td class="index">&minus;0.5</td><td>1.0</td><td>1.0</td><td class="index">0.8</td><td>       0.0</td><td>&minus;1.0</td><td>       0.0</td></tr>
+								<tr><td class="index">15</td><td>       0.5</td><td>0.0</td><td class="index">&minus;0.5</td><td>1.0</td><td>1.0</td><td class="index">0.8</td><td>       0.0</td><td>&minus;1.0</td><td>       0.0</td></tr>
+								<tr><td class="index">16</td><td>       0.5</td><td>0.0</td><td class="index">       0.5</td><td>1.0</td><td>1.0</td><td class="index">0.8</td><td>       0.0</td><td>&minus;1.0</td><td>       0.0</td></tr>
+								<tr><td class="index">17</td><td>       0.5</td><td>0.0</td><td class="index">       0.5</td><td>1.0</td><td>1.0</td><td class="index">0.8</td><td>       1.0</td><td>       0.0</td><td>       0.0</td></tr>
+								<tr><td class="index">18</td><td>       0.5</td><td>0.0</td><td class="index">&minus;0.5</td><td>1.0</td><td>1.0</td><td class="index">0.8</td><td>       1.0</td><td>       0.0</td><td>       0.0</td></tr>
+								<tr><td class="index">19</td><td>       0.5</td><td>0.5</td><td class="index">&minus;0.5</td><td>1.0</td><td>1.0</td><td class="index">0.8</td><td>       1.0</td><td>       0.0</td><td>       0.0</td></tr>
+								<tr><td class="index">20</td><td>       0.5</td><td>0.5</td><td class="index">       0.5</td><td>1.0</td><td>1.0</td><td class="index">0.8</td><td>       1.0</td><td>       0.0</td><td>       0.0</td></tr>
+								<tr><td class="index">21</td><td>       0.5</td><td>0.5</td><td class="index">       0.5</td><td>0.8</td><td>0.0</td><td class="index">0.0</td><td>       0.7</td><td>       0.7</td><td>       0.0</td></tr>
+								<tr><td class="index">22</td><td>       0.5</td><td>0.5</td><td class="index">&minus;0.5</td><td>0.8</td><td>0.0</td><td class="index">0.0</td><td>       0.7</td><td>       0.7</td><td>       0.0</td></tr>
+								<tr><td class="index">23</td><td>       0.0</td><td>1.0</td><td class="index">&minus;0.5</td><td>0.8</td><td>0.0</td><td class="index">0.0</td><td>       0.7</td><td>       0.7</td><td>       0.0</td></tr>
+								<tr><td class="index">24</td><td>       0.0</td><td>1.0</td><td class="index">       0.5</td><td>0.8</td><td>0.0</td><td class="index">0.0</td><td>       0.7</td><td>       0.7</td><td>       0.0</td></tr>
+								<tr><td class="index">25</td><td>       0.0</td><td>1.0</td><td class="index">&minus;0.5</td><td>1.0</td><td>1.0</td><td class="index">0.8</td><td>       0.0</td><td>       0.0</td><td>&minus;1.0</td></tr>
+								<tr><td class="index">26</td><td>&minus;0.5</td><td>0.5</td><td class="index">&minus;0.5</td><td>1.0</td><td>1.0</td><td class="index">0.8</td><td>       0.0</td><td>       0.0</td><td>&minus;1.0</td></tr>
+								<tr><td class="index">27</td><td>&minus;0.5</td><td>0.0</td><td class="index">&minus;0.5</td><td>1.0</td><td>1.0</td><td class="index">0.8</td><td>       0.0</td><td>       0.0</td><td>&minus;1.0</td></tr>
+								<tr><td class="index">28</td><td>       0.5</td><td>0.0</td><td class="index">&minus;0.5</td><td>1.0</td><td>1.0</td><td class="index">0.8</td><td>       0.0</td><td>       0.0</td><td>&minus;1.0</td></tr>
+								<tr><td class="index">29</td><td>       0.5</td><td>0.5</td><td class="index">&minus;0.5</td><td>1.0</td><td>1.0</td><td class="index">0.8</td><td>       0.0</td><td>       0.0</td><td>&minus;1.0</td></tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+				<p>With 30 vertices, the triangle indices must again change, but still the total number of triangles in the table remains the same.</p>
+			</div>
+		</div>
+	</div>
+	<a id="prev" href="geometry-8.html"></a>
+	<a id="next" href="geometry-10.html"></a>
+</body>
+</html>

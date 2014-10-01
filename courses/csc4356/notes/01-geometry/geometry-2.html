@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+	<script type="text/javascript" src="../script.js"></script>
+</head>
+<body>
+	<div class="slide">
+		<div class="cell">
+			<div class="text">
+				<h1>A Simple Mesh</h1>
+
+				<p>The sides of the house are polygons defined by a table of indices. Counter-clockwise order indicates which side faces outward.</p>
+
+				<table class="center">
+					<tr>
+						<td>
+							<img src="../img/tinyhouse-vertices.svg">
+						</td>
+						<td>
+							<img src="../img/tinyhouse-faces.svg">
+						</td>
+						<td>
+							<table class="small data">
+								<tr><th class="index">\(j\)</th><th>\(i_0\)</th><th>\(i_1\)</th><th>\(i_2\)</th><th>\(i_3\)</th><th>\(i_4\)</th></tr>
+								<tr><td class="index"> 0</td><td> 0</td><td> 1</td><td> 2</td><td> 3</td><td> 4</td></tr>
+								<tr><td class="index"> 1</td><td> 5</td><td> 9</td><td> 8</td><td> 7</td><td> 6</td></tr>
+								<tr><td class="index"> 2</td><td> 5</td><td> 6</td><td> 1</td><td> 0</td><td> &ndash;</td></tr>
+								<tr><td class="index"> 3</td><td> 6</td><td> 7</td><td> 2</td><td> 1</td><td> &ndash;</td></tr>
+								<tr><td class="index"> 4</td><td> 7</td><td> 8</td><td> 3</td><td> 2</td><td> &ndash;</td></tr>
+								<tr><td class="index"> 5</td><td> 8</td><td> 9</td><td> 4</td><td> 3</td><td> &ndash;</td></tr>
+								<tr><td class="index"> 6</td><td> 9</td><td> 5</td><td> 0</td><td> 4</td><td> &ndash;</td></tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+
+				<p>Some are pentagons and some are quadrilaterals. This is irregular&hellip;</p>
+			</div>
+		</div>
+	</div>
+	<a id="prev" href="geometry-1.html"></a>
+	<a id="next" href="geometry-3.html"></a>
+</body>
+</html>
