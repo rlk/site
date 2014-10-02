@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://csc.lsu.edu/~kooima/MathJax.js"></script>
+	<script type="text/javascript" src="../script.js"></script>
+</head>
+<body>
+	<div class="slide">
+		<div class="cell">
+			<div class="text">
+				<h1>Scaling Transformation</h1>
+
+				<p>The <i>scaling</i> transform stretches or squishes geometry.</p>
+
+				\[\M{S}=\left[\begin{array}{cccc}
+				\red{x} & 0       & 0       & 0 \\
+				0       & \red{y} & 0       & 0 \\
+				0       & 0       & \red{z} & 0 \\
+				0       & 0       & 0       & 1 \\
+				\end{array}\right]\]
+
+				\[\begin{array}{ccccccccccl}
+				w_x &=& v_x\cdot\red{x} &+& v_y\cdot 0      &+& v_z\cdot 0      &+& v_w\cdot 0 &=& v_x\cdot\red{x} \\
+				w_y &=& v_x\cdot 0      &+& v_y\cdot\red{y} &+& v_z\cdot 0      &+& v_w\cdot 0 &=& v_y\cdot\red{y} \\
+				w_z &=& v_x\cdot 0      &+& v_y\cdot 0      &+& v_z\cdot\red{z} &+& v_w\cdot 0 &=& v_z\cdot\red{z} \\
+				w_w &=& v_x\cdot 0      &+& v_y\cdot 0      &+& v_z\cdot 0      &+& v_w\cdot 1 &=& v_w \\
+				\end{array}\]
+			</div>
+		</div>
+	</div>
+	<a id="prev" href="transformation-08.html"></a>
+	<a id="next" href="transformation-09.html"></a>
+</body>
+</html>

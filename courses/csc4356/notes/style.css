@@ -42,6 +42,12 @@ div.text {
 	font-size: 50%;
 }
 
+.adjustable {
+	font-family: "Consolas", "Inconsolata", monospace;
+	font-size: 28px;
+	width:      3em;
+}
+
 /* Header styles */
 
 h1, h2, h3, h4, h5 {
@@ -122,6 +128,14 @@ table.tiny th, table.tiny td {
 
 td.pad {
 	width:2em;
+}
+
+/* Demo canvas */
+
+canvas.clip {
+	width:  300px;
+	height: 300px;
+	border: 1px solid black;
 }
 
 /* Navigation styles. */
