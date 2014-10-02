@@ -28,10 +28,18 @@ div.text {
 	width: 80%;
 }
 
-/* Or wrap in div with text-align center? */
+/* General-use classes */
 
 .center {
 	margin: 0 auto;
+}
+
+.small {
+	font-size: 70%;
+}
+
+.tiny {
+	font-size: 50%;
 }
 
 /* Header styles */
@@ -68,6 +76,13 @@ ul.listing {
 	list-style-type: none;
 }
 
+/* Footnotes */
+
+p.note {
+	font-size: 70%;
+	color: #888;
+}
+
 /* Table styling */
 
 table {
@@ -95,17 +110,9 @@ th.index, td.index {
 	border-right: 1px solid #444;
 }
 
-table.small {
-	font-size: 70%;
-}
-
 table.small th, table.small td {
 	padding-left:  0.5em;
 	padding-right: 0.5em;
-}
-
-table.tiny {
-	font-size: 50%;
 }
 
 table.tiny th, table.tiny td {

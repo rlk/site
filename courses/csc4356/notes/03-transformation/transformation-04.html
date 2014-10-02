@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://csc.lsu.edu/~kooima/MathJax.js"></script>
+	<script type="text/javascript" src="../script.js"></script>
+</head>
+<body>
+	<div class="slide">
+		<div class="cell">
+			<div class="text">
+				<h1>Vector Transformation</h1>
+
+				<p>Multiplying a vector by a matrix results in a new, <i>transformed</i> vector.</p>
+
+				\[\V{w}=\M{M}\cdot \V{v}\]
+
+				\[\left[\begin{array}{c}
+				w_x \\
+				w_y \\
+				w_z \\
+				w_w \\
+				\end{array}\right]=
+				\left[\begin{array}{cccc}
+				m_{ 0} & m_{ 4} & m_{ 8} &m_{12} \\
+				m_{ 1} & m_{ 5} & m_{ 9} &m_{13} \\
+				m_{ 2} & m_{ 6} & m_{10} &m_{14} \\
+				m_{ 3} & m_{ 7} & m_{11} &m_{15} \\
+				\end{array}\right]\,
+				\left[\begin{array}{c}
+				v_x \\
+				v_y \\
+				v_z \\
+				v_w \\
+				\end{array}\right]\]
+
+				\[\begin{array}{ccccccccc}
+				w_x &=& v_x\cdot m_{ 0} &+& v_y\cdot m_{ 4} &+& v_z\cdot m_{ 8} &+& v_w\cdot m_{12} \\
+				w_y &=& v_x\cdot m_{ 1} &+& v_y\cdot m_{ 5} &+& v_z\cdot m_{ 9} &+& v_w\cdot m_{13} \\
+				w_z &=& v_x\cdot m_{ 2} &+& v_y\cdot m_{ 6} &+& v_z\cdot m_{10} &+& v_w\cdot m_{14} \\
+				w_w &=& v_x\cdot m_{ 3} &+& v_y\cdot m_{ 7} &+& v_z\cdot m_{11} &+& v_w\cdot m_{15} \\
+				\end{array}\]
+			</div>
+		</div>
+	</div>
+	<a id="prev" href="transformation-03.html"></a>
+	<a id="next" href="transformation-05.html"></a>
+</body>
+</html>

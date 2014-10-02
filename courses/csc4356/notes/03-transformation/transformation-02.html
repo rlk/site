@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://csc.lsu.edu/~kooima/MathJax.js"></script>
+	<script type="text/javascript" src="../script.js"></script>
+</head>
+<body>
+	<div class="slide">
+		<div class="cell">
+			<div class="text">
+				<h1>Homogeneous Vectors</h1>
+
+				3D graphics uses a 4D <i>generalization</i> of the 3D vector. This enables
+
+				<table class="center">
+					<tr>
+						<td>
+							\[\V{v}=\left[\begin{array}{c}
+								v_x \\
+								v_y \\
+								v_z \\
+								v_w \\
+							\end{array}\right]=\left[\begin{array}{c}
+								v_x / v_w \\
+								v_y / v_w\\
+								v_z / v_w\\
+								1 \\
+							\end{array}\right]\]
+						</td>
+						<td class="pad"></td>
+						<td>
+							<ul>
+								<li>Infinity</li>
+								<li>Translation</li>
+								<li>Perspective</li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+
+				<p>to be handled using only matrix multiplication.</p>
+
+				<p class="note">* Vectors are named with bold lower-case. Vector elements use italic subscripted lower-case.</p>
+			</div>
+		</div>
+	</div>
+	<a id="prev" href="transformation-01.html"></a>
+	<a id="next" href="transformation-03.html"></a>
+</body>
+</html>
