@@ -1,5 +1,9 @@
+// Copyright (c) 2014 Robert Kooima
+
+// Requires demo-transformation.js
 
 function update() {
+
     // Get the current (x, y, z) slider values.
 
     var x = parseInt(document.getElementById("xin").value);

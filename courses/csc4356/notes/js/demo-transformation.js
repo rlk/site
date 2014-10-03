@@ -1,3 +1,14 @@
+// Copyright (c) 2014 Robert Kooima
+
+// Requires gl-shader.js and gl-matrix.js
+
+// Requires a string named vertex_shader_source
+// Requires a string named fragment_shader_source
+
+// Requires a Float32Array named vertices
+// Requires a Uint16Array named triangles
+// Requires a Uint16Array named points
+// Requires a Uint16Array named lines
 
 var gl;
 var program;

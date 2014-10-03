@@ -1,3 +1,4 @@
+// Copyright (c) 2014 Robert Kooima
 
 var vertices = new Float32Array([
      0.0, 1.0,  0.5, 1.0, 1.0, 0.9,
