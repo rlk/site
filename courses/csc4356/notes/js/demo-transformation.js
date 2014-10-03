@@ -80,6 +80,7 @@ function init() {
         // Set up to render.
 
         gl.clearColor(0.0, 0.0, 0.0, 0.0);
+        gl.enable(gl.DEPTH_TEST);
 
         gl.uniformMatrix4fv(ModelLocation, false, mat4.create());
 

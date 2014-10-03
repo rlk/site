@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://csc.lsu.edu/~kooima/MathJax.js"></script>
+	<script type="text/javascript" src="../script.js"></script>
+	<script type="text/javascript" src="../js/gl-matrix.js"></script>
+	<script type="text/javascript" src="../js/gl-shader.js"></script>
+	<script type="text/javascript" src="../js/data-tinyhouse.js"></script>
+	<script type="text/javascript" src="../js/glsl-transformation.js"></script>
+	<script type="text/javascript" src="../js/demo-transformation.js"></script>
+	<script type="text/javascript" src="../js/demo-transformation-rotate.js"></script>
+</head>
+<body onload="init()">
+	<div class="slide">
+		<div class="cell">
+			<div class="text">
+				<h1>Rotation Transformation</h1>
+
+				<table class="center">
+					<tr>
+						<td>
+							<table>
+								<tr><td>$x$ =</td><td class="adjustable" id="xout">0</td><td><input id="xin" type="range" min="-180" max="180" value="0" step="10" oninput="update()"/></td></tr>
+								<tr><td>$y$ =</td><td class="adjustable" id="yout">0</td><td><input id="yin" type="range" min="-180" max="180" value="0" step="10" oninput="update()"/></td></tr>
+								<tr><td>$z$ =</td><td class="adjustable" id="zout">0</td><td><input id="zin" type="range" min="-180" max="180" value="0" step="10" oninput="update()"/></td></tr>
+							</table>
+						</td>
+						<td class="pad"></td>
+						<td>
+							<canvas class="clip" width="300px" height="300px" id="webgl">
+								This content requires <a href="http://get.webgl.org/">WebGL</a>.
+							</canvas>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	<a id="prev" href="transformation-05.html"></a>
+	<a id="next" href="transformation-07.html"></a>
+</body>
+</html>
