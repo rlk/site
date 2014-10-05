@@ -2,7 +2,7 @@
 
 // Requires demo-transformation.js
 
-function update() {
+DemoTransformation.prototype.update = function() {
 
     // Get the current (x, y, z) slider values.
 
@@ -19,14 +19,15 @@ function update() {
     // Create a transformation matrix and set its uniform.
 
     var M = mat4.create();
+
     mat4.ortho(M, -1, +1, -1, +1, -1, +1);
     mat4.rotateX(M, M, glMatrix.toRadian(x));
     mat4.rotateY(M, M, glMatrix.toRadian(y));
     mat4.rotateZ(M, M, glMatrix.toRadian(z));
 
-    gl.uniformMatrix4fv(ModelLocation, false, M);
+    gl.uniformMatrix4fv(this.ModelLocation, false, M);
 
     // Draw the updated frame.
 
-    draw();
+    this.draw();
 }

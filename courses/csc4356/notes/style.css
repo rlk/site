@@ -5,7 +5,14 @@ html, body {
 	padding: 0;
 	margin:  0;
 	width: 1024px;
-	border: 1px dashed black;
+}
+
+html {
+	border: 1px dotted red;
+}
+
+body {
+	border: 1px dotted green;
 }
 
 /* A viewport-filling table and a middle-aligned cell enable centering. */
@@ -40,7 +47,7 @@ div.text {
 	font-size: 50%;
 }
 
-.adjustable {
+.variable {
 	font-family: "Consolas", "Inconsolata", monospace;
 	font-size: 28px;
 	width:      3em;
