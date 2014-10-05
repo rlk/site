@@ -8,11 +8,11 @@ html, body {
 }
 
 html {
-	border: 1px dotted red;
+	/*border: 1px dotted red;*/
 }
 
 body {
-	border: 1px dotted green;
+	/*border: 1px dotted green;*/
 }
 
 /* A viewport-filling table and a middle-aligned cell enable centering. */
@@ -37,6 +37,10 @@ div.text {
 
 .center {
 	margin: 0 auto;
+}
+
+.right {
+	text-align: right;
 }
 
 .small {
@@ -139,6 +143,10 @@ td.pad {
 
 canvas.clip {
 	background: url(img/clip-grid.svg);
+}
+
+canvas.persp {
+	background: url(img/persp-grid.svg);
 }
 
 input[type='range'] {
