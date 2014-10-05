@@ -2,7 +2,14 @@
 
 // Requires demo-transformation.js
 
-DemoTransformation.prototype.update = function() {
+function DemoTranslate() {
+    DemoTransform.call(this);
+}
+
+DemoTranslate.prototype = Object.create(DemoTransform.prototype);
+DemoTranslate.prototype.constructor = DemoTranslate;
+
+DemoTranslate.prototype.update = function() {
 
 	// Get the current (x, y, z) slider values.
 

@@ -89,7 +89,7 @@ var fragment_shader_source =
 
 //------------------------------------------------------------------------------
 
-function DemoTransformation() {
+function DemoTransform() {
     try {
         // Initialize the WebGL context.
 
@@ -150,7 +150,7 @@ function DemoTransformation() {
 	}
 }
 
-DemoTransformation.prototype.draw = function() {
+DemoTransform.prototype.draw = function() {
     gl.clear(gl.COLOR_BUFFER_BIT);
 
     // Draw the triangles in color.
