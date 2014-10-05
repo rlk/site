@@ -7,13 +7,10 @@ html, body {
 	width: 1024px;
 }
 
-html {
-	border: 1px dotted red;
-}
-
-body {
-	border: 1px dotted green;
-}
+/*
+html { border: 1px dotted red;   }
+body { border: 1px dotted green; }
+*/
 
 /* A viewport-filling table and a middle-aligned cell enable centering. */
 
@@ -89,9 +86,6 @@ ul.listing {
 	line-height: 28px;
 	color:       #888;
 	list-style-type: none;
-}
-
-ul.small {
 }
 
 /* Footnotes */
