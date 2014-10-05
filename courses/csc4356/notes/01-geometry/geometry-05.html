@@ -12,7 +12,13 @@
 			<div class="text">
 				<h1>A Mesh with Color</h1>
 
-				<p>Now let's add color: a red roof and yellow sides. Ideally, each vertex in the table would now have 6 components, $x$, $y$, and $z$, plus $r$, $g$ and $b$.</p>
+				<p>Now let's add color. Let's make the roof red and walls yellow.</p>
+
+				<p>Ideally we would associate color with the triangles. We would add $r$, $g$, and $b$ values to each row of the triangle table.</p>
+
+				<p>Unfortunately, the design of the GL requires that we instead associate <i>attributes</i>, such as color, with the vertices.</p>
+
+				<p>So, each vertex in the table will now have 6 components, $x$, $y$, and $z$, plus $r$, $g$ and $b$.</p>
 
 				<table class="center">
 					<tr>
@@ -39,7 +45,7 @@
 					</tr>
 				</table>
 
-				<p>But there's a problem. Vertex 4, for example, has one position, but <i>two</i> colors.</p>
+				<p>But there's a problem. Vertex 4, for example, has <i>two</i> colors.</p>
 			</div>
 		</div>
 	</div>

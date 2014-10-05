@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://csc.lsu.edu/~kooima/MathJax.js"></script>
+	<script type="text/javascript" src="../script.js"></script>
+</head>
+<body>
+	<div class="slide">
+		<div class="cell">
+			<div class="text">
+				<h1>Meshes in Code</h1>
+
+				<p>Even when each vertex includes multiple attributes, an &ldquo;interleaved&rdquo; array of attributes is used. Here are the tables for the colored house.</p>
+
+				<table class="center">
+					<tr>
+						<td>
+							<ul class="listing">
+								<li>var vertices = [
+									<ul class="listing">
+										<li>&nbsp;0.0, &nbsp;1.0, &nbsp;0.5, 1.0, 1.0, 0.9,</li>
+										<li>     -0.5, &nbsp;0.5, &nbsp;0.5, 1.0, 1.0, 0.9,</li>
+										<li>     -0.5, &nbsp;0.0, &nbsp;0.5, 1.0, 1.0, 0.9,</li>
+										<li>&nbsp;0.5, &nbsp;0.0, &nbsp;0.5, 1.0, 1.0, 0.9,</li>
+										<li>&nbsp;0.5, &nbsp;0.5, &nbsp;0.5, 1.0, 1.0, 0.9,</li>
+										<li>&nbsp;0.0, &nbsp;1.0,      -0.5, 1.0, 1.0, 0.9,</li>
+										<li>     -0.5, &nbsp;0.5,      -0.5, 1.0, 1.0, 0.9,</li>
+										<li>     -0.5, &nbsp;0.0,      -0.5, 1.0, 1.0, 0.9,</li>
+										<li>&nbsp;0.5, &nbsp;0.0,      -0.5, 1.0, 1.0, 0.9,</li>
+										<li>&nbsp;0.5, &nbsp;0.5,      -0.5, 1.0, 1.0, 0.9,</li>
+										<li>&nbsp;0.0, &nbsp;1.0, &nbsp;0.5, 0.8, 0.0, 0.0,</li>
+										<li>     -0.5, &nbsp;0.5, &nbsp;0.5, 0.8, 0.0, 0.0,</li>
+										<li>&nbsp;0.5, &nbsp;0.5, &nbsp;0.5, 0.8, 0.0, 0.0,</li>
+										<li>&nbsp;0.0, &nbsp;1.0,      -0.5, 0.8, 0.0, 0.0,</li>
+										<li>     -0.5, &nbsp;0.5,      -0.5, 0.8, 0.0, 0.0,</li>
+										<li>&nbsp;0.5, &nbsp;0.5,      -0.5, 0.8, 0.0, 0.0,</li>
+									</ul>
+								</li>
+								<li>];</li>
+							</ul>
+						</td>
+						<td class="pad"></td>
+						<td>
+							<ul class="listing">
+								<li>var triangles = [
+									<ul class="listing">
+									<li>&nbsp;0, &nbsp;1, &nbsp;4,</li>
+									<li>&nbsp;4, &nbsp;1, &nbsp;3,</li>
+									<li>&nbsp;3, &nbsp;1, &nbsp;2,</li>
+									<li>10, 13, 11,</li>
+									<li>13, 11, 14,</li>
+									<li>&nbsp;1, &nbsp;6, &nbsp;2,</li>
+									<li>&nbsp;2, &nbsp;6, &nbsp;7,</li>
+									<li>&nbsp;2, &nbsp;7, &nbsp;3,</li>
+									<li>&nbsp;3, &nbsp;7, &nbsp;8,</li>
+									<li>&nbsp;3, &nbsp;8, &nbsp;4,</li>
+									<li>&nbsp;4, &nbsp;8, &nbsp;9,</li>
+									<li>12, 15, 10,</li>
+									<li>10, 15, 13,</li>
+									<li>&nbsp;5, &nbsp;9, &nbsp;6,</li>
+									<li>&nbsp;6, &nbsp;9, &nbsp;7,</li>
+									<li>&nbsp;7, &nbsp;9, &nbsp;8,</li>
+									</ul>
+								</li>
+								<li>];</li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+				<p>These tables will be used in the introduction to <a href="../03-transformation/transformation-01.html">transformation.</a></p>
+			</div>
+		</div>
+	</div>
+	<a id="prev" href="geometry-10.html"></a>
+	<a id="next" href="../index.html"></a>
+</body>
+</html>

@@ -8,11 +8,11 @@ html, body {
 }
 
 html {
-	/*border: 1px dotted red;*/
+	border: 1px dotted red;
 }
 
 body {
-	/*border: 1px dotted green;*/
+	border: 1px dotted green;
 }
 
 /* A viewport-filling table and a middle-aligned cell enable centering. */
@@ -85,10 +85,13 @@ code {
 
 ul.listing {
 	font-family: "Consolas", "Inconsolata", monospace;
-	font-size:   28px;
-	line-height: 32px;
+	font-size:   24px;
+	line-height: 28px;
 	color:       #888;
 	list-style-type: none;
+}
+
+ul.small {
 }
 
 /* Footnotes */
