@@ -3,7 +3,7 @@
 // Requires demo-transformation.js
 
 function DemoRotate() {
-    DemoTransform.call(this);
+    DemoTransform.call(this, "DemoRotate");
 }
 
 DemoRotate.prototype = Object.create(DemoTransform.prototype);
@@ -32,7 +32,7 @@ DemoRotate.prototype.update = function() {
     mat4.rotateY(M, M, glMatrix.toRadian(y));
     mat4.rotateZ(M, M, glMatrix.toRadian(z));
 
-    gl.uniformMatrix4fv(this.ModelLocation, false, M);
+    this.gl.uniformMatrix4fv(this.ModelLocation, false, M);
 
     // Draw the updated frame.
 

@@ -10,7 +10,7 @@
 	<script type="text/javascript" src="../js/demo-transform.js"></script>
 	<script type="text/javascript" src="../js/demo-scale.js"></script>
 </head>
-<body onload="demo = new DemoScale()">
+<body onload="demo = new DemoScale(); demo.update()">
 	<div class="slide">
 		<div class="cell">
 			<div class="text">
@@ -29,7 +29,7 @@
 						</td>
 						<td class="pad"></td>
 						<td>
-							<canvas class="clip" width="300px" height="300px" id="webgl">
+							<canvas class="clip" width="300px" height="300px" id="DemoScale">
 								This content requires <a href="http://get.webgl.org/">WebGL</a>.
 							</canvas>
 						</td>

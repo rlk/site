@@ -3,8 +3,6 @@
 // Requires gl-shader.js
 // Requires gl-matrix.js
 
-var gl;
-
 //------------------------------------------------------------------------------
 
 var vertices = new Float32Array([
@@ -89,61 +87,55 @@ var fragment_shader_source =
 
 //------------------------------------------------------------------------------
 
-function DemoTransform() {
+function DemoTransform(id) {
     try {
         // Initialize the WebGL context.
 
-        gl = document.getElementById('webgl').getContext('webgl');
+        this.gl = document.getElementById(id).getContext('webgl');
 
         // Initialize the program object and its uniforms.
 
-	    this.program = newProgram(gl, vertex_shader_source, fragment_shader_source);
+	    this.program = newProgram(this.gl, vertex_shader_source, fragment_shader_source);
 
-        gl.useProgram(this.program);
+        this.gl.useProgram(this.program);
 
-        this.ModelLocation = gl.getUniformLocation(this.program, 'Model');
-        this.LightLocation = gl.getUniformLocation(this.program, 'Light');
+        this.ModelLocation = this.gl.getUniformLocation(this.program, 'Model');
+        this.LightLocation = this.gl.getUniformLocation(this.program, 'Light');
 
         // Initialize vertex and index buffer objects.
 
-        this.vertexBuffer   = gl.createBuffer();
-        this.triangleBuffer = gl.createBuffer();
-        this.pointBuffer    = gl.createBuffer();
-        this.lineBuffer     = gl.createBuffer();
+        this.vertexBuffer   = this.gl.createBuffer();
+        this.triangleBuffer = this.gl.createBuffer();
+        this.pointBuffer    = this.gl.createBuffer();
+        this.lineBuffer     = this.gl.createBuffer();
 
-        gl.bindBuffer(gl.ARRAY_BUFFER, this.vertexBuffer);
-        gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW);
+        this.gl.bindBuffer(this.gl.ARRAY_BUFFER, this.vertexBuffer);
+        this.gl.bufferData(this.gl.ARRAY_BUFFER, vertices, this.gl.STATIC_DRAW);
 
-        gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, this.lineBuffer);
-        gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, lines, gl.STATIC_DRAW);
+        this.gl.bindBuffer(this.gl.ELEMENT_ARRAY_BUFFER, this.lineBuffer);
+        this.gl.bufferData(this.gl.ELEMENT_ARRAY_BUFFER, lines, this.gl.STATIC_DRAW);
 
-        gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, this.pointBuffer);
-        gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, points, gl.STATIC_DRAW);
+        this.gl.bindBuffer(this.gl.ELEMENT_ARRAY_BUFFER, this.pointBuffer);
+        this.gl.bufferData(this.gl.ELEMENT_ARRAY_BUFFER, points, this.gl.STATIC_DRAW);
 
-        gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, this.triangleBuffer);
-        gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, triangles, gl.STATIC_DRAW);
+        this.gl.bindBuffer(this.gl.ELEMENT_ARRAY_BUFFER, this.triangleBuffer);
+        this.gl.bufferData(this.gl.ELEMENT_ARRAY_BUFFER, triangles, this.gl.STATIC_DRAW);
 
         // Link the shader attributes to the vertex buffer object.
 
-        var vPositionLocation = gl.getAttribLocation(this.program, 'vPosition');
-        var vColorLocation    = gl.getAttribLocation(this.program, 'vColor');
+        var vPositionLocation = this.gl.getAttribLocation(this.program, 'vPosition');
+        var vColorLocation    = this.gl.getAttribLocation(this.program, 'vColor');
 
-        gl.vertexAttribPointer(vPositionLocation, 3, gl.FLOAT, false, 24,  0);
-        gl.vertexAttribPointer(vColorLocation,    3, gl.FLOAT, false, 24, 12);
+        this.gl.vertexAttribPointer(vPositionLocation, 3, this.gl.FLOAT, false, 24,  0);
+        this.gl.vertexAttribPointer(vColorLocation,    3, this.gl.FLOAT, false, 24, 12);
 
-        gl.enableVertexAttribArray(vPositionLocation);
-        gl.enableVertexAttribArray(vColorLocation);
+        this.gl.enableVertexAttribArray(vPositionLocation);
+        this.gl.enableVertexAttribArray(vColorLocation);
 
         // Set up to render.
 
-        gl.clearColor(0.0, 0.0, 0.0, 0.0);
-        gl.enable(gl.DEPTH_TEST);
-
-        gl.uniformMatrix4fv(this.ModelLocation, false, mat4.create());
-
-        // Render a first frame.
-
-        this.draw();
+        this.gl.clearColor(0.0, 0.0, 0.0, 0.0);
+        this.gl.enable(this.gl.DEPTH_TEST);
 
 	} catch (e) {
 		console.log(e.message);
@@ -151,25 +143,25 @@ function DemoTransform() {
 }
 
 DemoTransform.prototype.draw = function() {
-    gl.clear(gl.COLOR_BUFFER_BIT);
+    this.gl.clear(this.gl.COLOR_BUFFER_BIT);
 
     // Draw the triangles in color.
 
-    gl.uniform3f(this.LightLocation, 1, 1, 1);
-    gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, this.triangleBuffer);
-    gl.drawElements(gl.TRIANGLES, triangles.length, gl.UNSIGNED_SHORT, 0);
+    this.gl.uniform3f(this.LightLocation, 1, 1, 1);
+    this.gl.bindBuffer(this.gl.ELEMENT_ARRAY_BUFFER, this.triangleBuffer);
+    this.gl.drawElements(this.gl.TRIANGLES, triangles.length, this.gl.UNSIGNED_SHORT, 0);
 
     // Draw the points in black.
 
-    gl.uniform3f(this.LightLocation, 0, 0, 0);
-    gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, this.pointBuffer);
-    gl.drawElements(gl.POINTS, points.length, gl.UNSIGNED_SHORT, 0);
+    this.gl.uniform3f(this.LightLocation, 0, 0, 0);
+    this.gl.bindBuffer(this.gl.ELEMENT_ARRAY_BUFFER, this.pointBuffer);
+    this.gl.drawElements(this.gl.POINTS, points.length, this.gl.UNSIGNED_SHORT, 0);
 
     // Draw the lines in black.
 
-    gl.uniform3f(this.LightLocation, 0, 0, 0);
-    gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, this.lineBuffer);
-    gl.drawElements(gl.LINES, lines.length, gl.UNSIGNED_SHORT, 0);
+    this.gl.uniform3f(this.LightLocation, 0, 0, 0);
+    this.gl.bindBuffer(this.gl.ELEMENT_ARRAY_BUFFER, this.lineBuffer);
+    this.gl.drawElements(this.gl.LINES, lines.length, this.gl.UNSIGNED_SHORT, 0);
 }
 
 

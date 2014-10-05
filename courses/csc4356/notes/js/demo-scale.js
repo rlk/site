@@ -3,7 +3,7 @@
 // Requires demo-transformation.js
 
 function DemoScale() {
-    DemoTransform.call(this);
+    DemoTransform.call(this, "DemoScale");
 }
 
 DemoScale.prototype = Object.create(DemoTransform.prototype);
@@ -30,7 +30,7 @@ DemoScale.prototype.update = function() {
     mat4.ortho(M, -1, +1, -1, +1, -1, +1);
     mat4.scale(M, M, vec3.fromValues(x, y, z));
 
-    gl.uniformMatrix4fv(this.ModelLocation, false, M);
+    this.gl.uniformMatrix4fv(this.ModelLocation, false, M);
 
     // Draw the updated frame.
 
