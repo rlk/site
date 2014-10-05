@@ -4,19 +4,58 @@
 
 //------------------------------------------------------------------------------
 
-function DemoRotateTranslate() {
-    DemoTransform.call(this, "DemoRotateTranslate");
+function DemoScaleTranslate() {
+    DemoTransform.call(this, "DemoScaleTranslate");
 }
 
-DemoRotateTranslate.prototype = Object.create(DemoTransform.prototype);
-DemoRotateTranslate.prototype.constructor = DemoRotateTranslate;
+DemoScaleTranslate.prototype = Object.create(DemoTransform.prototype);
+DemoScaleTranslate.prototype.constructor = DemoScaleTranslate;
 
-DemoRotateTranslate.prototype.update = function() {
+DemoScaleTranslate.prototype.update = function() {
 
     // Get the current slider values.
 
     var x = parseFloat(document.getElementById("xin").value);
-    var y = parseInt  (document.getElementById("yin").value);
+    var y = parseFloat(document.getElementById("yin").value);
+
+    // Set the current numerical display.
+
+    document.getElementById("xout").innerHTML = x.toFixed(1);
+    document.getElementById("yout").innerHTML = y.toFixed(1);
+
+    // Create a transformation matrix and set its uniform.
+
+    var M = mat4.create();
+
+    mat4.perspective(M, glMatrix.toRadian(45), 1, 1, 10);
+    mat4.translate(M, M, vec3.fromValues(0, 0, -5));
+    mat4.rotateX(M, M, glMatrix.toRadian(30));
+
+    mat4.scale(M, M, vec3.fromValues(y, y, y));
+    mat4.translate(M, M, vec3.fromValues(x, 0, 0));
+
+    this.gl.uniformMatrix4fv(this.ModelLocation, false, M);
+
+    // Draw the updated frame.
+
+    this.draw();
+}
+
+//------------------------------------------------------------------------------
+
+function DemoTranslateScale() {
+    DemoTransform.call(this, "DemoTranslateScale");
+}
+
+DemoTranslateScale.prototype = Object.create(DemoTransform.prototype);
+DemoTranslateScale.prototype.constructor = DemoTranslateScale;
+
+DemoTranslateScale.prototype.update = function() {
+
+    // Get the current slider values.
+
+    var x = parseFloat(document.getElementById("xin").value);
+    var y = parseFloat(document.getElementById("yin").value);
 
     // Set the current numerical display.
 
@@ -31,47 +70,8 @@ DemoRotateTranslate.prototype.update = function() {
     mat4.translate(M, M, vec3.fromValues(0, 0, -5));
     mat4.rotateX(M, M, glMatrix.toRadian(30));
 
-    mat4.rotateY(M, M, glMatrix.toRadian(y));
     mat4.translate(M, M, vec3.fromValues(x, 0, 0));
-
-    this.gl.uniformMatrix4fv(this.ModelLocation, false, M);
-
-    // Draw the updated frame.
-
-    this.draw();
-}
-
-//------------------------------------------------------------------------------
-
-function DemoTranslateRotate() {
-    DemoTransform.call(this, "DemoTranslateRotate");
-}
-
-DemoTranslateRotate.prototype = Object.create(DemoTransform.prototype);
-DemoTranslateRotate.prototype.constructor = DemoTranslateRotate;
-
-DemoTranslateRotate.prototype.update = function() {
-
-    // Get the current slider values.
-
-    var x = parseFloat(document.getElementById("xin").value);
-    var y = parseInt  (document.getElementById("yin").value);
-
-    // Set the current numerical display.
-
-    document.getElementById("xout").innerHTML = x.toFixed(1);
-    document.getElementById("yout").innerHTML = y + '&deg;';
-
-    // Create a transformation matrix and set its uniform.
-
-    var M = mat4.create();
-
-    mat4.perspective(M, glMatrix.toRadian(45), 1, 1, 10);
-    mat4.translate(M, M, vec3.fromValues(0, 0, -5));
-    mat4.rotateX(M, M, glMatrix.toRadian(30));
-
-    mat4.translate(M, M, vec3.fromValues(x, 0, 0));
-    mat4.rotateY(M, M, glMatrix.toRadian(y));
+    mat4.scale(M, M, vec3.fromValues(y, y, y));
 
     this.gl.uniformMatrix4fv(this.ModelLocation, false, M);
 

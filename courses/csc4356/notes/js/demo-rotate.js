@@ -19,9 +19,9 @@ DemoRotate.prototype.update = function() {
 
     // Set the current numerical display.
 
-    document.getElementById("xout").innerHTML = x;
-    document.getElementById("yout").innerHTML = y;
-    document.getElementById("zout").innerHTML = z;
+    document.getElementById("xout").innerHTML = x + '&deg;';
+    document.getElementById("yout").innerHTML = y + '&deg;';
+    document.getElementById("zout").innerHTML = z + '&deg;';
 
     // Create a transformation matrix and set its uniform.
 
