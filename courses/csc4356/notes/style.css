@@ -7,10 +7,8 @@ html, body {
 	width: 1024px;
 }
 
-/*
 html { border: 1px dotted red;   }
 body { border: 1px dotted green; }
-*/
 
 /* A viewport-filling table and a middle-aligned cell enable centering. */
 
@@ -54,6 +52,10 @@ div.text {
 	width:      3em;
 }
 
+img {
+	display: block;
+}
+
 /* Header styles */
 
 h1, h2, h3, h4, h5 {
@@ -67,8 +69,13 @@ body {
 	font-size:   32px;
 	line-height: 48px;
  	color:       #444;
- 	background: radial-gradient(circle, #FFF 70%, #DDD);
- 	background-attachment: fixed;
+}
+
+@media screen {
+	body {
+	 	background: radial-gradient(circle, #FFF 70%, #DDD);
+	 	background-attachment: fixed;
+	}
 }
 
 /* Code formatting */
@@ -154,24 +161,27 @@ input[type='range'] {
 
 /* Navigation styles. */
 
-a#prev {
-	position: fixed;
-	left:  20px;
-	bottom: 5px;
-}
+@media screen {
 
-a#next {
-	position: fixed;
-	right: 20px;
-	bottom: 5px;
-}
+	a#prev {
+		position: fixed;
+		left:  20px;
+		bottom: 5px;
+	}
 
-a#prev::before {
-	content: '\2039';
-}
+	a#next {
+		position: fixed;
+		right: 20px;
+		bottom: 5px;
+	}
 
-a#next::after {
-	content: '\203A';
+	a#prev::before {
+		content: '\2039';
+	}
+
+	a#next::after {
+		content: '\203A';
+	}
 }
 
 /* Link styles */
