@@ -22,7 +22,7 @@
 
 				<p>This equation defines the set of all points $(x, y, z)$ that fall on the plane $(a, b, c, d)$. This plane faces along the vector $(a, b, c)$ at a distance $d$ to the origin.</p>
 
-				<p>For example, if the top of your desk is 75 cm off the floor then $y=0.75$&nbsp;m for all points on the surface of your desk. The normal vector of the top of your desk faces up, $(0, 1, 0)$.</p>
+				<p>For example, if the top of your desk is 75 cm off the floor then $y=0.75$&nbsp;m for all points on the surface of your desk. The normal vector of the top of your desk faces up, $(0, 1, 0)$, so</p>
 
 				\[0\,x + 1\,y + 0\,z - 0.75 = 0\]
 
@@ -45,7 +45,7 @@
 
 				\[\V{p}\cdot\V{v}'=\V{p}\cdot\M{M}\cdot\V{v}\neq 0\]
 
-				<p>But we can fix it by introducing the transform inverse.</p>
+				<p>But we can fix it by introducing the transform inverse, which cancels out the transformation of the position.</p>
 
 				\[\V{p}\cdot\M{M}^{-1}\cdot\M{M}\cdot\V{v}=0\]
 
@@ -53,15 +53,13 @@
 
 				\[\V{p}'=\V{p}\cdot\M{M}^{-1}\]
 
-				<p>then</p>
+				<p>then the plane equation holds for the transformed position and transformed plane.</p>
 
 				\[\V{p}'\cdot\V{v}'=0\]
 
-				<p>as we want.</p>
+				<p>This, therefore, is how planes should transform: multiplied on the left of the inverse matrix.</p>
 
-				<p>This, therefore, is how plane equations should transform: by the inverse matrix, multiplied on the left.</p>
-
-				<p>But the incumbent mechanisms of computer graphics don't use transformation of row vectors on the left, they use transformation of column vectors on the right. We accommodate this and change a plane transformation into a position transformation simply by taking the transpose of both sides of the equation.</p>
+				<p>But the incumbent mechanisms of computer graphics don't do transformation of row vectors on the left, they do transformation of column vectors on the right. We accommodate this and change a plane transformation into a position transformation simply by taking the transpose of both sides of the equation.</p>
 
 				\[(\V{p}')^T=(\V{p}\cdot\M{M}^{-1})^T\]
 
