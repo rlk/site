@@ -10,7 +10,16 @@
 	<div class="slide">
 		<div class="cell">
 			<div class="text">
+				<h1>The CPU and the GPU</h1>
+
 				<img class="center" src="../img/cpu-gpu-2.svg">
+
+				<p>Next we configure the renderer. Vertex and fragment shader source strings are compiled, linked, and loaded onto the GPU for execution.</p>
+
+				<code>var program = initShaders(gl, vert_src, frag_src)</code>
+
+				<p>In return, we receive a <i>handle</i> to the program on the GPU. During this configuration process, the GPU's notion of the <i>current</i> program is set.</p>
+
 			</div>
 		</div>
 	</div>

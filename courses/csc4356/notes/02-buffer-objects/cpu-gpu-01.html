@@ -10,7 +10,17 @@
 	<div class="slide">
 		<div class="cell">
 			<div class="text">
+				<h1>The CPU and the GPU</h1>
+
 				<img class="center" src="../img/cpu-gpu-1.svg">
+
+				<p>Our JavaScript program is one of many that run on the CPU.</p>
+
+				<p>The first thing it must do is initialize a GL <i>context</i> which maintains the state of the GPU and its memory.</p>
+
+				<code>var gl = document.getElementById(id).getContext('webgl');</code>
+
+				<p>We can manipulate that context, but we can't directly touch the state and memory that it manages.</p>
 			</div>
 		</div>
 	</div>

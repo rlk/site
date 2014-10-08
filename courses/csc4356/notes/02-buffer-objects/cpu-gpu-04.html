@@ -10,7 +10,15 @@
 	<div class="slide">
 		<div class="cell">
 			<div class="text">
+				<h1>The CPU and the GPU</h1>
+
 				<img class="center" src="../img/cpu-gpu-4.svg">
+
+				<p>We'll want to copy that data to the GPU for rendering. First we must create a place to store it, called a <i>vertex buffer object</i>.</p>
+
+		    <code>var vertexBuffer = gl.createBuffer();</code>
+
+		    <p>Again, that buffer is in GPU memory, so we receive only a <i>handle</i> to it.</p>
 			</div>
 		</div>
 	</div>
