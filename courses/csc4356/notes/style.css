@@ -97,6 +97,10 @@ ul.listing {
 	list-style-type: none;
 }
 
+ul.pseudocode {
+	list-style-type: none;
+}
+
 /* Footnotes */
 
 p.note {

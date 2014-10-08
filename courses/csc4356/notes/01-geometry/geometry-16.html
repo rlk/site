@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://csc.lsu.edu/~kooima/MathJax.js"></script>
+	<script type="text/javascript" src="../script.js"></script>
+</head>
+<body>
+	<div class="slide">
+		<div class="cell">
+			<div class="text">
+				<h1>A Generated Mesh</h1>
+
+				<p>So to generate all of the vertices and triangles for this mesh, begin with an empty vertex array and an empty triangle array.</p>
+
+				<table class="center">
+					<tr>
+						<td>
+							<ul class="pseudocode">
+								<li>Loop $r = 0$ to $n$
+									<ul class="pseudocode">
+										<li>Loop $c = 0$ to $n$
+											<ul class="pseudocode">
+												<li>Add a new vertex $[x, y, z]$ at row $r$ column $c$.</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<ul class="pseudocode">
+								<li>Loop $r = 0$ to $n-1$
+									<ul class="pseudocode">
+										<li>Loop $c = 0$ to $n-1$
+											<ul class="pseudocode">
+												<li>Add a new triangle $[i_0, i_1, i_2]$ at row $r$ column $c$.</li>
+												<li>Add a new triangle $[i_3, i_4, i_5]$ at row $r$ column $c$.</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+
+				<p>That's all there is to it.</p>
+			</div>
+		</div>
+	</div>
+	<a id="prev" href="empty.html"></a>
+	<a id="next" href="empty.html"></a>
+</body>
+</html>
