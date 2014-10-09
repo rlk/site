@@ -1,0 +1,63 @@
+<html>
+<head>
+	<title>CSC 4356 / ME 4573 - Project 3</title>
+	<link rel="stylesheet" type="text/css" href="../../style.css" />
+</head>
+<body>
+	<h1>Project 3 &mdash; Function Grapher</h1>
+
+	<h2>Overview</h2>
+
+	<p>The purpose of Project 3 is to further an understanding of vertex buffers by <i>generating</i> a geometric figure in JavaScript code, conveying that definition to the GPU, and triggering the rendering of the figure by the GPU.</p>
+
+	<p>The basic details of this geometric figure are given in the notes on the course web site</a>, under the section <a href="notes/01-geometry/geometry-10.html">A Generated Mesh</a>.</p>
+
+	<p>This project is tougher than the previous two.</p>
+
+	<h2>Specifics</h2>
+
+	<ul>
+		<li><p>Create a new remote repository called "project3" on <b>classes.csc.lsu.edu</b>, and clone it to your local computer.</p></li>
+
+		<li><p>Instead of building off an example from the book, build off your solution for Project 2. To begin, copy the five files from that project into your project3 directory, but rename the HTML and Javascript files to:</p>
+
+			<ul>
+				<li><code>Grapher.html</code></li>
+				<li><code>Grapher.js</code></li>
+			</ul>
+		</li>
+
+		<p>As before, format your code consistently. We will deduct points for bad format.</p>
+
+		<li><p>Implement code to <b>generate a mesh in the <i>xz</i>-plane where <i>n</i> = 16</b> and render it as triangles.</p></li>
+
+		<li><p><a href="notes/01-geometry/geometry-14.html">The notes</a> describe a flat plane, where <i>y</i> = 0 everywhere. <b>Modify this so that <i>y</i> = 1 - <i>x</i><sup>2</sup> - <i>z</i><sup>2</sup></b>. The output will be a <a href="http://www.wolframalpha.com/input/?i=1-x%5E2-z%5E2">3D graph of an inverted paraboloid</a>, like a graphing calculator might produce.</p></li>
+
+		<li><p>A few notes on GL usage</p>
+
+			<ul>
+				<li><p>Use this vertex shader:
+</p><pre><code>attribute vec4 a_Position;
+varying mediump vec4 v_Color;
+void main() {
+    v_Color = (a_Position + 1.0) / 2.0;
+    gl_Position = a_Position;
+}
+</code></pre></li>
+
+				<li><p>Use this fragment shader:</p>
+<pre><code>varying mediump vec4 v_Color;
+void main() {
+    gl_FragColor = v_Color;
+}
+</code></pre></li>
+				<li><p>Be sure to <code>gl.enable(gl.DEPTH_TEST);</code> in your initialization code.</p></li>
+			</ul>
+		</li>
+
+		<li>It should look like this: <img src="data/Grapher.jpg"></li>
+
+		<li><p>Add the files you've created to the project's working copy and commit them to the local repository. Push these changes from your local repository to your remote repository on <b>classes.csc.lsu.edu</b> before the deadline.</p></li>
+	</ul>
+</body>
+</html>
