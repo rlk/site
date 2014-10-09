@@ -12,8 +12,6 @@
 
 	<p>The basic details of this geometric figure are given in the notes on the course web site</a>, under the section <a href="notes/01-geometry/geometry-10.html">A Generated Mesh</a>.</p>
 
-	<p>This project is tougher than the previous two.</p>
-
 	<h2>Specifics</h2>
 
 	<ul>
@@ -33,7 +31,7 @@
 
 		<li><p><a href="notes/01-geometry/geometry-14.html">The notes</a> describe a flat plane, where <i>y</i> = 0 everywhere. <b>Modify this so that <i>y</i> = 1 - <i>x</i><sup>2</sup> - <i>z</i><sup>2</sup></b>. The output will be a <a href="http://www.wolframalpha.com/input/?i=1-x%5E2-z%5E2">3D graph of an inverted paraboloid</a>, like a graphing calculator might produce.</p></li>
 
-		<li><p>A few notes on GL usage</p>
+		<li><p>A few notes on GL usage:</p>
 
 			<ul>
 				<li><p>Use this vertex shader:
@@ -52,10 +50,12 @@ void main() {
 }
 </code></pre></li>
 				<li><p>Be sure to <code>gl.enable(gl.DEPTH_TEST);</code> in your initialization code.</p></li>
+				<li><p>A correct output looks like this:</p><img src="data/Grapher.jpg"></li>
 			</ul>
 		</li>
 
-		<li>It should look like this: <img src="data/Grapher.jpg"></li>
+
+		<li><p><b>Remove any dead code</b> that was copied forward from Project 2. Make certain that every line of code in Project 3 does something relevant. For example, the triforce vertex array isn't used anymore, so remove it. Code maintenance is an important skill, and we deduct points for junk code.</p>
 
 		<li><p>Add the files you've created to the project's working copy and commit them to the local repository. Push these changes from your local repository to your remote repository on <b>classes.csc.lsu.edu</b> before the deadline.</p></li>
 	</ul>
