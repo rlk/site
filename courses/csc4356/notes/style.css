@@ -170,12 +170,14 @@ input[type='range'] {
 @media screen {
 
 	a#prev {
+		font-size: 64px;
 		position: fixed;
 		left:  20px;
 		bottom: 5px;
 	}
 
 	a#next {
+		font-size: 64px;
 		position: fixed;
 		right: 20px;
 		bottom: 5px;
@@ -183,10 +185,14 @@ input[type='range'] {
 
 	a#prev::before {
 		content: '\2039';
+		margin-left: 16px;
+		margin-right: 16px;
 	}
 
 	a#next::after {
 		content: '\203A';
+		margin-left: 16px;
+		margin-right: 16px;
 	}
 }
 
