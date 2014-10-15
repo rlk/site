@@ -8,26 +8,26 @@
 	<script type="text/javascript" src="../js/gl-matrix.js"></script>
 	<script type="text/javascript" src="../js/gl-shader.js"></script>
 	<script type="text/javascript" src="../js/demo-transform.js"></script>
-	<script type="text/javascript" src="../js/demo-rotate-translate.js"></script>
+	<script type="text/javascript" src="../js/demo-scale-translate.js"></script>
 </head>
-<body onload="demo1 = new DemoRotateTranslate(); demo2 = new DemoTranslateRotate(); demo1.update(); demo2.update()">
+<body onload="demo1 = new DemoScaleTranslate(); demo2 = new DemoTranslateScale(); demo1.update(); demo2.update()">
 	<div class="slide">
 		<div class="cell">
 			<div class="text">
-				<h1>Composition of Rotation and Translation</h1>
+				<h1>Composition of Scale and Translation</h1>
 
-				<p>These demonstrations combine rotation and translation both ways.</p>
+				<p>These demonstrations combine scaling and translation both ways.</p>
 
 				<table class="center">
 					<tr>
 						<td>
-							<canvas class="persp" width="300px" height="300px" id="DemoRotateTranslate">
+							<canvas class="persp" width="300px" height="300px" id="DemoScaleTranslate">
 								This content requires <a href="http://get.webgl.org/">WebGL</a>.
 							</canvas>
 						</td>
 						<td class="pad"></td>
 						<td>
-							<canvas class="persp" width="300px" height="300px" id="DemoTranslateRotate">
+							<canvas class="persp" width="300px" height="300px" id="DemoTranslateScale">
 								This content requires <a href="http://get.webgl.org/">WebGL</a>.
 							</canvas>
 						</td>
@@ -39,13 +39,13 @@
 				</table>
 				<p>Note the difference in behavior.</p>
 				<table class="center">
-					<tr><td class="right">Translation along $x$</td><td>&nbsp;=&nbsp;</td><td class="variable" id="xout">0</td><td><input id="xin" type="range" min="-2"   max="2"   value="0" step="0.1" oninput="demo1.update(); demo2.update();"/></td></tr>
-					<tr><td class="right">Rotation about $y$   </td><td>&nbsp;=&nbsp;</td><td class="variable" id="yout">0</td><td><input id="yin" type="range" min="-180" max="180" value="0" step="10"  oninput="demo1.update(); demo2.update();"/></td></tr>
+					<tr><td class="right">Translation along $x$</td><td>&nbsp;=&nbsp;</td><td class="variable" id="xout">0</td><td><input id="xin" type="range" min="-2" max="2" value="0" step="0.1" oninput="demo1.update(); demo2.update();"/></td></tr>
+					<tr><td class="right">Scaling              </td><td>&nbsp;=&nbsp;</td><td class="variable" id="yout">1</td><td><input id="yin" type="range" min="0"  max="2" value="1" step="0.1" oninput="demo1.update(); demo2.update();"/></td></tr>
 				</table>
 			</div>
 		</div>
 	</div>
-	<a id="prev" href="transformation-15.html"></a>
-	<a id="next" href="transformation-17.html"></a>
+	<a id="prev" href="transformation-composition-2.html"></a>
+	<a id="next" href="transformation-composition-4.html"></a>
 </body>
 </html>
