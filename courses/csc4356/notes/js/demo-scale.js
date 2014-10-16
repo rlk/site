@@ -34,5 +34,6 @@ DemoScale.prototype.update = function() {
 
     // Draw the updated frame.
 
+    this.gl.clear(this.gl.COLOR_BUFFER_BIT);
     this.draw();
 }

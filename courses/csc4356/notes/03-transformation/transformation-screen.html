@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://csc.lsu.edu/~kooima/MathJax.js"></script>
+	<script type="text/javascript" src="../script.js"></script>
+</head>
+<body>
+	<div class="slide">
+		<div class="cell">
+			<div class="text">
+				<h1>Screen Transformation</h1>
+
+				<p>One final transformation maps the 3D scene onto the pixels of the screen.</p>
+
+				<table class="center">
+					<tr>
+						<td>
+							\[S=\begin{bmatrix}
+								w/2 &   0 &     0 & w / 2 \\
+								  0 & h/2 &     0 & h / 2 \\
+								  0 &   0 & d / 2 & d / 2 \\
+								  0 &   0 &     0 &     1 \\
+							\end{bmatrix}\]
+						</td>
+						<td class="pad"></td>
+						<td>
+							For example:
+							\[\begin{array}{lcr}
+								w &=& 1920 \\
+								h &=& 1080 \\
+								h &=& 65536 \\
+							\end{array}\]
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	<a id="prev" href="transformation-mvp.html"></a>
+	<a id="next" href="transformation-composition-full.html"></a>
+</body>
+</html>

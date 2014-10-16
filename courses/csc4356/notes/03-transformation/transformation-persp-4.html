@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://csc.lsu.edu/~kooima/MathJax.js"></script>
+	<script type="text/javascript" src="../script.js"></script>
+	<script type="text/javascript" src="../js/gl-matrix.js"></script>
+	<script type="text/javascript" src="../js/gl-shader.js"></script>
+	<script type="text/javascript" src="../js/demo-transform.js"></script>
+	<script type="text/javascript" src="../js/demo-perspective.js"></script>
+</head>
+<body onload="demo = new DemoPerspective(); demo.update()">
+	<div class="slide">
+		<div class="cell">
+			<div class="text">
+				<h1>Perspective Transformation</h1>
+
+				<p>With $-1$ in the $z$ column of the $w$ row, the perspective transform introduces the $-z$ value of the input into the $w$ value of the output.</p>
+
+				<p>And remember, we're dealing with homogeneous vectors.</p>
+
+				<table class="center">
+					<tr>
+						<td>
+							\[\V{v}=\begin{bmatrix}
+								v_x \\
+								v_y \\
+								v_z \\
+								v_w \\
+							\end{bmatrix}=\begin{bmatrix}
+								v_x / v_w \\
+								v_y / v_w\\
+								v_z / v_w\\
+								1 \\
+							\end{bmatrix}\]
+						</td>
+					</tr>
+				</table>
+
+				<p>So, when the 4D vector is converted back to 3D, division by $-z$ occurs.</p>
+
+				<p>Thus, farther objects appear smaller.</p>
+			</div>
+		</div>
+	</div>
+	<a id="prev" href="transformation-persp-3.html"></a>
+	<a id="next" href="transformation-matrix-mult-1.html"></a>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://csc.lsu.edu/~kooima/MathJax.js"></script>
+	<script type="text/javascript" src="../script.js"></script>
+	<script type="text/javascript" src="../js/gl-matrix.js"></script>
+	<script type="text/javascript" src="../js/gl-shader.js"></script>
+	<script type="text/javascript" src="../js/demo-transform.js"></script>
+	<script type="text/javascript" src="../js/demo-perspective.js"></script>
+</head>
+<body onload="demo = new DemoPerspective(); demo.update()">
+	<div class="slide">
+		<div class="cell">
+			<div class="text">
+				<h1>Perspective Transformation</h1>
+
+				<table class="center">
+					<tr>
+						<td>
+							\[\M{P}=\begin{bmatrix}
+								\frac{1}{r \tan\alpha/2} & 0 & 0 & 0 \\
+								0 & \frac{1}{\tan\alpha/2} & 0 & 0 \\
+								\phantom{\frac{}{}}0 & 0 & \frac{n+f}{n-f} & \frac{2\,n\,f}{n-f} \\
+								\phantom{\frac{}{}}0 & 0 & -1 & 0 \\
+							\end{bmatrix}\]
+						</td>
+					</tr>
+				</table>
+				<ul>
+					<li>$\alpha$ is the field of view</li>
+					<li>$r$ is the aspect ratio</li>
+					<li>$n$ is the near distance</li>
+					<li>$f$ is the far distance</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<a id="prev" href="transformation-persp-2.html"></a>
+	<a id="next" href="transformation-persp-4.html"></a>
+</body>
+</html>

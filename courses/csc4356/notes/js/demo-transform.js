@@ -143,8 +143,6 @@ function DemoTransform(id) {
 }
 
 DemoTransform.prototype.draw = function() {
-    this.gl.clear(this.gl.COLOR_BUFFER_BIT);
-
     // Draw the triangles in color.
 
     this.gl.uniform3f(this.LightLocation, 1, 1, 1);
