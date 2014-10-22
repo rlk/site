@@ -7,24 +7,18 @@
 	<script type="text/javascript" src="../script.js"></script>
 </head>
 <body>
-	<div class="slide">
-		<div class="cell">
-			<div class="text">
-				<h1>Transform Composition</h1>
+	<h1>Transform Composition</h1>
 
-				<p>We can thus define a composition all the way from an object's definition to the pixels of the screen.</p>
+	<p>We can thus define a composition all the way from an object's definition to the pixels of the screen.</p>
 
-				<table class="center">
-					<tr><td>$\V{v}_o$                    </td><td class="pad"></td><td>Object coordinates</td></tr>
-					<tr><td>$\V{v}_w = \M{M}\cdot\V{v}_o$</td><td class="pad"></td><td>World coordinates</td></tr>
-					<tr><td>$\V{v}_e = \M{V}\cdot\V{v}_w$</td><td class="pad"></td><td>Eye coordinates</td></tr>
-					<tr><td>$\V{v}_c = \M{P}\cdot\V{v}_e$</td><td class="pad"></td><td>Clip coordinates</td></tr>
-					<tr><td>$\V{v}_d = \V{v}_c\,/\,v_{cw}$ </td><td class="pad"></td><td>Normalized device coordinates</td></tr>
-					<tr><td>$\V{v}_s = \M{S}\cdot\V{v}_d$</td><td class="pad"></td><td>Screen coordinates</td></tr>
-				</table>
-			</div>
-		</div>
-	</div>
+	<table class="center">
+		<tr><td>$\V{v}_o$                    </td><td class="pad"></td><td>Object coordinates</td></tr>
+		<tr><td>$\V{v}_w = \M{M}\cdot\V{v}_o$</td><td class="pad"></td><td>World coordinates</td></tr>
+		<tr><td>$\V{v}_e = \M{V}\cdot\V{v}_w$</td><td class="pad"></td><td>Eye coordinates</td></tr>
+		<tr><td>$\V{v}_c = \M{P}\cdot\V{v}_e$</td><td class="pad"></td><td>Clip coordinates</td></tr>
+		<tr><td>$\V{v}_d = \V{v}_c\,/\,v_{cw}$ </td><td class="pad"></td><td>Normalized device coordinates</td></tr>
+		<tr><td>$\V{v}_s = \M{S}\cdot\V{v}_d$</td><td class="pad"></td><td>Screen coordinates</td></tr>
+	</table>
 	<a id="prev" href="transformation-screen.html"></a>
 	<a id="next" href="transformation-inverse.html"></a>
 </body>

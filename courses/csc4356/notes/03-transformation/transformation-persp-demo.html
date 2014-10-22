@@ -11,31 +11,25 @@
 	<script type="text/javascript" src="../js/demo-perspective.js"></script>
 </head>
 <body onload="demo = new DemoPerspective(); demo.update()">
-	<div class="slide">
-		<div class="cell">
-			<div class="text">
-				<h1>Perspective Transformation</h1>
+	<h1>Perspective Transformation</h1>
 
-				<p><i>Perspective projection</i> makes distant objects appear smaller. More importantly, it <i>projects</i> the 3D scene onto the 2D plane.</p>
+	<p><i>Perspective projection</i> makes distant objects appear smaller. More importantly, it <i>projects</i> the 3D scene onto the 2D plane.</p>
 
-				<table class="center">
-					<tr>
-						<td>
-							<table>
-								<tr><td>$z$ =</td><td class="variable" id="zout">0</td><td><input id="zin" type="range" min="-5" max="5" value="0" step="0.1" oninput="demo.update()"/></td></tr>
-							</table>
-						</td>
-						<td class="pad"></td>
-						<td>
-							<canvas class="persp" width="300px" height="300px" id="DemoPerspective">
-								This content requires <a href="http://get.webgl.org/">WebGL</a>.
-							</canvas>
-						</td>
-					</tr>
+	<table class="center">
+		<tr>
+			<td>
+				<table>
+					<tr><td>$z$ =</td><td class="variable" id="zout">0</td><td><input id="zin" type="range" min="-5" max="5" value="0" step="0.1" oninput="demo.update()"/></td></tr>
 				</table>
-			</div>
-		</div>
-	</div>
+			</td>
+			<td class="pad"></td>
+			<td>
+				<canvas class="persp" width="300px" height="300px" id="DemoPerspective">
+					This content requires <a href="http://get.webgl.org/">WebGL</a>.
+				</canvas>
+			</td>
+		</tr>
+	</table>
 	<a id="prev" href="transformation-rotate-math.html"></a>
 	<a id="next" href="transformation-persp-1.html"></a>
 </body>

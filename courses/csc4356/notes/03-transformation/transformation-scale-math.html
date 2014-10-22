@@ -7,29 +7,23 @@
 	<script type="text/javascript" src="../script.js"></script>
 </head>
 <body>
-	<div class="slide">
-		<div class="cell">
-			<div class="text">
-				<h1>Scaling Transformation</h1>
+	<h1>Scaling Transformation</h1>
 
-				<p>The scaling transformation matrix is defined like this.</p>
+	<p>The scaling transformation matrix is defined like this.</p>
 
-				\[\M{S}=\begin{bmatrix}
-				\red{x} & 0       & 0       & 0 \\
-				0       & \red{y} & 0       & 0 \\
-				0       & 0       & \red{z} & 0 \\
-				0       & 0       & 0       & 1 \\
-				\end{bmatrix}\]
+	\[\M{S}=\begin{bmatrix}
+	\red{x} & 0       & 0       & 0 \\
+	0       & \red{y} & 0       & 0 \\
+	0       & 0       & \red{z} & 0 \\
+	0       & 0       & 0       & 1 \\
+	\end{bmatrix}\]
 
-				\[\begin{array}{ccccccccccl}
-				w_x &=& v_x\cdot\red{x} &+& v_y\cdot 0      &+& v_z\cdot 0      &+& v_w\cdot 0 &=& v_x\cdot\red{x} \\
-				w_y &=& v_x\cdot 0      &+& v_y\cdot\red{y} &+& v_z\cdot 0      &+& v_w\cdot 0 &=& v_y\cdot\red{y} \\
-				w_z &=& v_x\cdot 0      &+& v_y\cdot 0      &+& v_z\cdot\red{z} &+& v_w\cdot 0 &=& v_z\cdot\red{z} \\
-				w_w &=& v_x\cdot 0      &+& v_y\cdot 0      &+& v_z\cdot 0      &+& v_w\cdot 1 &=& v_w \\
-				\end{array}\]
-			</div>
-		</div>
-	</div>
+	\[\begin{array}{ccccccccccl}
+	w_x &=& v_x\cdot\red{x} &+& v_y\cdot 0      &+& v_z\cdot 0      &+& v_w\cdot 0 &=& v_x\cdot\red{x} \\
+	w_y &=& v_x\cdot 0      &+& v_y\cdot\red{y} &+& v_z\cdot 0      &+& v_w\cdot 0 &=& v_y\cdot\red{y} \\
+	w_z &=& v_x\cdot 0      &+& v_y\cdot 0      &+& v_z\cdot\red{z} &+& v_w\cdot 0 &=& v_z\cdot\red{z} \\
+	w_w &=& v_x\cdot 0      &+& v_y\cdot 0      &+& v_z\cdot 0      &+& v_w\cdot 1 &=& v_w \\
+	\end{array}\]
 	<a id="prev" href="transformation-scale-demo.html"></a>
 	<a id="next" href="transformation-translate-demo.html"></a>
 </body>

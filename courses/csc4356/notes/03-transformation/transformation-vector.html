@@ -7,47 +7,41 @@
 	<script type="text/javascript" src="../script.js"></script>
 </head>
 <body>
-	<div class="slide">
-		<div class="cell">
-			<div class="text">
-				<h1>Homogeneous Vectors</h1>
+	<h1>Homogeneous Vectors</h1>
 
-				3D graphics uses a 4D <i>generalization</i> of the 3D vector. This enables
+	3D graphics uses a 4D <i>generalization</i> of the 3D vector. This enables
 
-				<table class="center">
-					<tr>
-						<td>
-							\[\V{v}=\begin{bmatrix}
-								v_x \\
-								v_y \\
-								v_z \\
-								v_w \\
-							\end{bmatrix}=\begin{bmatrix}
-								v_x / v_w \\
-								v_y / v_w\\
-								v_z / v_w\\
-								1 \\
-							\end{bmatrix}\]
-						</td>
-						<td class="pad"></td>
-						<td>
-							<ul>
-								<li>Infinity</li>
-								<li>Translation</li>
-								<li>Perspective</li>
-							</ul>
-						</td>
-					</tr>
-				</table>
+	<table class="center">
+		<tr>
+			<td>
+				\[\V{v}=\begin{bmatrix}
+				v_x \\
+				v_y \\
+				v_z \\
+				v_w \\
+				\end{bmatrix}=\begin{bmatrix}
+				v_x / v_w \\
+				v_y / v_w\\
+				v_z / v_w\\
+				1 \\
+				\end{bmatrix}\]
+			</td>
+			<td class="pad"></td>
+			<td>
+				<ul>
+					<li>Infinity</li>
+					<li>Translation</li>
+					<li>Perspective</li>
+				</ul>
+			</td>
+		</tr>
+	</table>
 
-				<p>to be handled using only matrix multiplication.</p>
+	<p>to be handled using only matrix multiplication.</p>
 
-				<p>The GL allows the $w$ component to be omitted. By default, $w=1$.</p>
+	<p>The GL allows the $w$ component to be omitted. By default, $w=1$.</p>
 
-				<p class="note">* Vectors are named with bold lower-case. Vector elements use italic subscripted lower-case.</p>
-			</div>
-		</div>
-	</div>
+	<p class="note">* Vectors are named with bold lower-case. Vector elements use italic subscripted lower-case.</p>
 	<a id="next" href="transformation-matrix.html"></a>
 </body>
 </html>

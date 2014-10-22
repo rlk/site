@@ -7,57 +7,51 @@
 	<script type="text/javascript" src="../script.js"></script>
 </head>
 <body>
-	<div class="slide">
-		<div class="cell">
-			<div class="text">
-				<h1>Meshes in Code</h1>
+	<h1>Meshes in Code</h1>
 
-				<p>In program code, we represent a mesh table as an array of numbers.</p>
+	<p>In program code, we represent a mesh table as an array of numbers.</p>
 
-				<table class="center">
-					<tr>
-						<td>
-							<table class="center small data">
-								<tr><th class="index">$i$</th><th>$x$</th><th>$y$</th><th>$z$</th></tr>
+	<table class="center">
+		<tr>
+			<td>
+				<table class="center small data">
+					<tr><th class="index">$i$</th><th>$x$</th><th>$y$</th><th>$z$</th></tr>
 
-								<tr><td class="index">  0</td><td>       0.0</td><td>1.0</td><td>       0.5</td></tr>
-								<tr><td class="index">  1</td><td>&minus;0.5</td><td>0.5</td><td>       0.5</td></tr>
-								<tr><td class="index">  2</td><td>&minus;0.5</td><td>0.0</td><td>       0.5</td></tr>
-								<tr><td class="index">  3</td><td>       0.5</td><td>0.0</td><td>       0.5</td></tr>
-								<tr><td class="index">  4</td><td>       0.5</td><td>0.5</td><td>       0.5</td></tr>
-								<tr><td class="index">  5</td><td>       0.0</td><td>1.0</td><td>&minus;0.5</td></tr>
-								<tr><td class="index">  6</td><td>&minus;0.5</td><td>0.5</td><td>&minus;0.5</td></tr>
-								<tr><td class="index">  7</td><td>&minus;0.5</td><td>0.0</td><td>&minus;0.5</td></tr>
-								<tr><td class="index">  8</td><td>       0.5</td><td>0.0</td><td>&minus;0.5</td></tr>
-								<tr><td class="index">  9</td><td>       0.5</td><td>0.5</td><td>&minus;0.5</td></tr>
-							</table>
-						</td>
-						<td class="pad"></td>
-						<td>
-							<ul class="listing">
-								<li>var vertices = [
-									<ul class="listing">
-										<li>&nbsp;0.0, &nbsp;1.0, &nbsp;0.5,</li>
-										<li>     -0.5, &nbsp;0.5, &nbsp;0.5,</li>
-										<li>     -0.5, &nbsp;0.0, &nbsp;0.5,</li>
-										<li>&nbsp;0.5, &nbsp;0.0, &nbsp;0.5,</li>
-										<li>&nbsp;0.5, &nbsp;0.5, &nbsp;0.5,</li>
-										<li>&nbsp;0.0, &nbsp;1.0,      -0.5,</li>
-										<li>     -0.5, &nbsp;0.5,      -0.5,</li>
-										<li>     -0.5, &nbsp;0.0,      -0.5,</li>
-										<li>&nbsp;0.5, &nbsp;0.0,      -0.5,</li>
-										<li>&nbsp;0.5, &nbsp;0.5,      -0.5,</li>
-									</ul>
-								</li>
-								<li>]</li>
-							</ul>
-						</td>
-					</tr>
+					<tr><td class="index">  0</td><td>       0.0</td><td>1.0</td><td>       0.5</td></tr>
+					<tr><td class="index">  1</td><td>&minus;0.5</td><td>0.5</td><td>       0.5</td></tr>
+					<tr><td class="index">  2</td><td>&minus;0.5</td><td>0.0</td><td>       0.5</td></tr>
+					<tr><td class="index">  3</td><td>       0.5</td><td>0.0</td><td>       0.5</td></tr>
+					<tr><td class="index">  4</td><td>       0.5</td><td>0.5</td><td>       0.5</td></tr>
+					<tr><td class="index">  5</td><td>       0.0</td><td>1.0</td><td>&minus;0.5</td></tr>
+					<tr><td class="index">  6</td><td>&minus;0.5</td><td>0.5</td><td>&minus;0.5</td></tr>
+					<tr><td class="index">  7</td><td>&minus;0.5</td><td>0.0</td><td>&minus;0.5</td></tr>
+					<tr><td class="index">  8</td><td>       0.5</td><td>0.0</td><td>&minus;0.5</td></tr>
+					<tr><td class="index">  9</td><td>       0.5</td><td>0.5</td><td>&minus;0.5</td></tr>
 				</table>
-				<p>While we think of it as a 2D block of numbers, we specify it as a 1D list of numbers.</p>
-			</div>
-		</div>
-	</div>
+			</td>
+			<td class="pad"></td>
+			<td>
+				<ul class="listing">
+					<li>var vertices = [
+						<ul class="listing">
+							<li>&nbsp;0.0, &nbsp;1.0, &nbsp;0.5,</li>
+							<li>     -0.5, &nbsp;0.5, &nbsp;0.5,</li>
+							<li>     -0.5, &nbsp;0.0, &nbsp;0.5,</li>
+							<li>&nbsp;0.5, &nbsp;0.0, &nbsp;0.5,</li>
+							<li>&nbsp;0.5, &nbsp;0.5, &nbsp;0.5,</li>
+							<li>&nbsp;0.0, &nbsp;1.0,      -0.5,</li>
+							<li>     -0.5, &nbsp;0.5,      -0.5,</li>
+							<li>     -0.5, &nbsp;0.0,      -0.5,</li>
+							<li>&nbsp;0.5, &nbsp;0.0,      -0.5,</li>
+							<li>&nbsp;0.5, &nbsp;0.5,      -0.5,</li>
+						</ul>
+					</li>
+					<li>]</li>
+				</ul>
+			</td>
+		</tr>
+	</table>
+	<p>While we think of it as a 2D block of numbers, we specify it as a 1D list of numbers.</p>
 	<a id="prev" href="geometry-09.html"></a>
 	<a id="next" href="geometry-11.html"></a>
 </body>

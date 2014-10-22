@@ -7,73 +7,67 @@
 	<script type="text/javascript" src="../script.js"></script>
 </head>
 <body>
-	<div class="slide">
-		<div class="cell">
-			<div class="text">
-				<h1>Transformation of Normals</h1>
+	<h1>Transformation of Normals</h1>
 
-				<p>It is commonly stated in the computer graphics literature that normals are transformed using the transpose of the inverse, often without explanation.</p>
+	<p>It is commonly stated in the computer graphics literature that normals are transformed using the transpose of the inverse, often without explanation.</p>
 
-				\[\V{n}'=(\M{M}^{-1})^T\cdot\V{n}\]
+	\[\V{n}'=(\M{M}^{-1})^T\cdot\V{n}\]
 
-				<p>This bears some discussion. Consider a <em>plane equation</em>.</p>
+	<p>This bears some discussion. Consider a <em>plane equation</em>.</p>
 
-				\[a\,x + b\,y + c\,z + d = 0\]
+	\[a\,x + b\,y + c\,z + d = 0\]
 
-				<p>This equation defines the set of all points $(x, y, z)$ that fall on the plane $(a, b, c, d)$. This plane faces along the vector $(a, b, c)$ at a distance $d$ to the origin.</p>
+	<p>This equation defines the set of all points $(x, y, z)$ that fall on the plane $(a, b, c, d)$. This plane faces along the vector $(a, b, c)$ at a distance $d$ to the origin.</p>
 
-				<p>For example, if the top of your desk is 75 cm off the floor then $y=0.75$&nbsp;m for all points on the surface of your desk. The normal vector of the top of your desk faces up, $(0, 1, 0)$, so</p>
+	<p>For example, if the top of your desk is 75 cm off the floor then $y=0.75$&nbsp;m for all points on the surface of your desk. The normal vector of the top of your desk faces up, $(0, 1, 0)$, so</p>
 
-				\[0\,x + 1\,y + 0\,z - 0.75 = 0\]
+	\[0\,x + 1\,y + 0\,z - 0.75 = 0\]
 
-				<p>While we often think of the plane equation as the dot product of two vectors, it's enlightening to phrase it as a matrix product.</p>
+	<p>While we often think of the plane equation as the dot product of two vectors, it's enlightening to phrase it as a matrix product.</p>
 
-				\[\begin{bmatrix} a & b & c & d\end{bmatrix}\cdot
-					\begin{bmatrix} x \\ y \\ z \\ 1\end{bmatrix} = 0\]
+	\[\begin{bmatrix} a & b & c & d\end{bmatrix}\cdot
+	\begin{bmatrix} x \\ y \\ z \\ 1\end{bmatrix} = 0\]
 
-				<p>Here, a position is represented as a column vector, while a plane is represented as a row vector. Take this to be the case universally.</p>
+	<p>Here, a position is represented as a column vector, while a plane is represented as a row vector. Take this to be the case universally.</p>
 
-				<p>Now, assume the plane equation holds for a vector $\V{v}=[x, y, z, 1]^T$ and a plane $\V{p}=[a, b, c, d]$. Position $\V{v}$ falls within plane $\V{p}$.
+	<p>Now, assume the plane equation holds for a vector $\V{v}=[x, y, z, 1]^T$ and a plane $\V{p}=[a, b, c, d]$. Position $\V{v}$ falls within plane $\V{p}$.
 
-				\[\V{p}\cdot\V{v}=0\]
+		\[\V{p}\cdot\V{v}=0\]
 
-				<p>Let's transform $\V{v}$.</p>
+		<p>Let's transform $\V{v}$.</p>
 
-				\[\V{v}'=\M{M}\cdot\V{v}\]
+		\[\V{v}'=\M{M}\cdot\V{v}\]
 
-				<p>The equation no longer holds for that same $\V{p}$.</p>
+		<p>The equation no longer holds for that same $\V{p}$.</p>
 
-				\[\V{p}\cdot\V{v}'=\V{p}\cdot\M{M}\cdot\V{v}\neq 0\]
+		\[\V{p}\cdot\V{v}'=\V{p}\cdot\M{M}\cdot\V{v}\neq 0\]
 
-				<p>But we can fix it by introducing the transform inverse, which cancels out the transformation of the position.</p>
+		<p>But we can fix it by introducing the transform inverse, which cancels out the transformation of the position.</p>
 
-				\[\V{p}\cdot\M{M}^{-1}\cdot\M{M}\cdot\V{v}=0\]
+		\[\V{p}\cdot\M{M}^{-1}\cdot\M{M}\cdot\V{v}=0\]
 
-				<p>From this we can see that if we transform of plane $\V{p}$ like so,</p>
+		<p>From this we can see that if we transform of plane $\V{p}$ like so,</p>
 
-				\[\V{p}'=\V{p}\cdot\M{M}^{-1}\]
+		\[\V{p}'=\V{p}\cdot\M{M}^{-1}\]
 
-				<p>then the plane equation holds for the transformed position and transformed plane.</p>
+		<p>then the plane equation holds for the transformed position and transformed plane.</p>
 
-				\[\V{p}'\cdot\V{v}'=0\]
+		\[\V{p}'\cdot\V{v}'=0\]
 
-				<p>This, therefore, is how planes should transform: multiplied on the left of the inverse matrix.</p>
+		<p>This, therefore, is how planes should transform: multiplied on the left of the inverse matrix.</p>
 
-				<p>But the incumbent mechanisms of computer graphics don't do transformation of row vectors on the left, they do transformation of column vectors on the right. We accommodate this and change a plane transformation into a position transformation simply by taking the transpose of both sides of the equation.</p>
+		<p>But the incumbent mechanisms of computer graphics don't do transformation of row vectors on the left, they do transformation of column vectors on the right. We accommodate this and change a plane transformation into a position transformation simply by taking the transpose of both sides of the equation.</p>
 
-				\[(\V{p}')^T=(\V{p}\cdot\M{M}^{-1})^T\]
+		\[(\V{p}')^T=(\V{p}\cdot\M{M}^{-1})^T\]
 
-				\[(\V{p}')^T=(\M{M}^{-1})^T\cdot(\V{p})^T\]
+		\[(\V{p}')^T=(\M{M}^{-1})^T\cdot(\V{p})^T\]
 
-				<p>In this way, a plane can be treated like a position.</p>
+		<p>In this way, a plane can be treated like a position.</p>
 
-				<p>A normal vector, being an <i>orientation</i>, behaves as a plane rather than a position, with the fourth component $d=0$. As such, it's transformed by the transpose of the inverse.</p>
+		<p>A normal vector, being an <i>orientation</i>, behaves as a plane rather than a position, with the fourth component $d=0$. As such, it's transformed by the transpose of the inverse.</p>
 
-				\[\V{n}'=(\M{M}^{-1})^T\cdot\V{n}\]
-			</div>
-		</div>
-	</div>
-	<a id="prev" href="empty.html"></a>
-	<a id="next" href="empty.html"></a>
-</body>
-</html>
+		\[\V{n}'=(\M{M}^{-1})^T\cdot\V{n}\]
+		<a id="prev" href="empty.html"></a>
+		<a id="next" href="empty.html"></a>
+	</body>
+	</html>

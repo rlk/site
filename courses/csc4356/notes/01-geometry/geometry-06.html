@@ -7,46 +7,40 @@
 	<script type="text/javascript" src="../script.js"></script>
 </head>
 <body>
-	<div class="slide">
-		<div class="cell">
-			<div class="text">
-				<h1>A Mesh with Color</h1>
+	<h1>A Mesh with Color</h1>
 
-				<p>So we duplicate each conflicted vertex. Now vertex 4 and vertex 12 have the same position, but different colors.</p>
+	<p>So we duplicate each conflicted vertex. Now vertex 4 and vertex 12 have the same position, but different colors.</p>
 
-				<table class="center">
-					<tr>
-						<td>
-							<img class="center" src="../img/tinyhouse-colors-split.svg">
-						</td>
-						<td class="pad"></td>
-						<td>
-							<table class="center small data short">
-								<tr><th class="index">$i$</th><th>$x$</th><th>$y$</th><th class="index">$z$</th><th>$r$</th><th>$g$</th><th>$b$</th></tr>
+	<table class="center">
+		<tr>
+			<td>
+				<img class="center" src="../img/tinyhouse-colors-split.svg">
+			</td>
+			<td class="pad"></td>
+			<td>
+				<table class="center small data short">
+					<tr><th class="index">$i$</th><th>$x$</th><th>$y$</th><th class="index">$z$</th><th>$r$</th><th>$g$</th><th>$b$</th></tr>
 
-								<tr><td class="index">  0</td><td>       0.0</td><td>1.0</td><td class="index">       0.5</td><td>1.0</td><td>1.0</td><td>0.9</td></tr>
-								<tr><td class="index">  1</td><td>&minus;0.5</td><td>0.5</td><td class="index">       0.5</td><td>1.0</td><td>1.0</td><td>0.9</td></tr>
-								<tr><td class="index">  2</td><td>&minus;0.5</td><td>0.0</td><td class="index">       0.5</td><td>1.0</td><td>1.0</td><td>0.9</td></tr>
-								<tr><td class="index">  3</td><td>       0.5</td><td>0.0</td><td class="index">       0.5</td><td>1.0</td><td>1.0</td><td>0.9</td></tr>
-								<tr><td class="index">  4</td><td>       0.5</td><td>0.5</td><td class="index">       0.5</td><td>1.0</td><td>1.0</td><td>0.9</td></tr>
-								<tr><td class="index">  5</td><td>       0.0</td><td>1.0</td><td class="index">&minus;0.5</td><td>1.0</td><td>1.0</td><td>0.9</td></tr>
-								<tr><td class="index">  6</td><td>&minus;0.5</td><td>0.5</td><td class="index">&minus;0.5</td><td>1.0</td><td>1.0</td><td>0.9</td></tr>
-								<tr><td class="index">  7</td><td>&minus;0.5</td><td>0.0</td><td class="index">&minus;0.5</td><td>1.0</td><td>1.0</td><td>0.9</td></tr>
-								<tr><td class="index">  8</td><td>       0.5</td><td>0.0</td><td class="index">&minus;0.5</td><td>1.0</td><td>1.0</td><td>0.9</td></tr>
-								<tr><td class="index">  9</td><td>       0.5</td><td>0.5</td><td class="index">&minus;0.5</td><td>1.0</td><td>1.0</td><td>0.9</td></tr>
-								<tr><td class="index"> 10</td><td>       0.0</td><td>1.0</td><td class="index">       0.5</td><td>0.8</td><td>0.0</td><td>0.0</td></tr>
-								<tr><td class="index"> 11</td><td>&minus;0.5</td><td>0.5</td><td class="index">       0.5</td><td>0.8</td><td>0.0</td><td>0.0</td></tr>
-								<tr><td class="index"> 12</td><td>       0.5</td><td>0.5</td><td class="index">       0.5</td><td>0.8</td><td>0.0</td><td>0.0</td></tr>
-								<tr><td class="index"> 13</td><td>       0.0</td><td>1.0</td><td class="index">&minus;0.5</td><td>0.8</td><td>0.0</td><td>0.0</td></tr>
-								<tr><td class="index"> 14</td><td>&minus;0.5</td><td>0.5</td><td class="index">&minus;0.5</td><td>0.8</td><td>0.0</td><td>0.0</td></tr>
-								<tr><td class="index"> 15</td><td>       0.5</td><td>0.5</td><td class="index">&minus;0.5</td><td>0.8</td><td>0.0</td><td>0.0</td></tr>
-							</table>
-						</td>
-					</tr>
+					<tr><td class="index">  0</td><td>       0.0</td><td>1.0</td><td class="index">       0.5</td><td>1.0</td><td>1.0</td><td>0.9</td></tr>
+					<tr><td class="index">  1</td><td>&minus;0.5</td><td>0.5</td><td class="index">       0.5</td><td>1.0</td><td>1.0</td><td>0.9</td></tr>
+					<tr><td class="index">  2</td><td>&minus;0.5</td><td>0.0</td><td class="index">       0.5</td><td>1.0</td><td>1.0</td><td>0.9</td></tr>
+					<tr><td class="index">  3</td><td>       0.5</td><td>0.0</td><td class="index">       0.5</td><td>1.0</td><td>1.0</td><td>0.9</td></tr>
+					<tr><td class="index">  4</td><td>       0.5</td><td>0.5</td><td class="index">       0.5</td><td>1.0</td><td>1.0</td><td>0.9</td></tr>
+					<tr><td class="index">  5</td><td>       0.0</td><td>1.0</td><td class="index">&minus;0.5</td><td>1.0</td><td>1.0</td><td>0.9</td></tr>
+					<tr><td class="index">  6</td><td>&minus;0.5</td><td>0.5</td><td class="index">&minus;0.5</td><td>1.0</td><td>1.0</td><td>0.9</td></tr>
+					<tr><td class="index">  7</td><td>&minus;0.5</td><td>0.0</td><td class="index">&minus;0.5</td><td>1.0</td><td>1.0</td><td>0.9</td></tr>
+					<tr><td class="index">  8</td><td>       0.5</td><td>0.0</td><td class="index">&minus;0.5</td><td>1.0</td><td>1.0</td><td>0.9</td></tr>
+					<tr><td class="index">  9</td><td>       0.5</td><td>0.5</td><td class="index">&minus;0.5</td><td>1.0</td><td>1.0</td><td>0.9</td></tr>
+					<tr><td class="index"> 10</td><td>       0.0</td><td>1.0</td><td class="index">       0.5</td><td>0.8</td><td>0.0</td><td>0.0</td></tr>
+					<tr><td class="index"> 11</td><td>&minus;0.5</td><td>0.5</td><td class="index">       0.5</td><td>0.8</td><td>0.0</td><td>0.0</td></tr>
+					<tr><td class="index"> 12</td><td>       0.5</td><td>0.5</td><td class="index">       0.5</td><td>0.8</td><td>0.0</td><td>0.0</td></tr>
+					<tr><td class="index"> 13</td><td>       0.0</td><td>1.0</td><td class="index">&minus;0.5</td><td>0.8</td><td>0.0</td><td>0.0</td></tr>
+					<tr><td class="index"> 14</td><td>&minus;0.5</td><td>0.5</td><td class="index">&minus;0.5</td><td>0.8</td><td>0.0</td><td>0.0</td></tr>
+					<tr><td class="index"> 15</td><td>       0.5</td><td>0.5</td><td class="index">&minus;0.5</td><td>0.8</td><td>0.0</td><td>0.0</td></tr>
 				</table>
-			</div>
-		</div>
-	</div>
+			</td>
+		</tr>
+	</table>
 	<a id="prev" href="geometry-05.html"></a>
 	<a id="next" href="geometry-07.html"></a>
 </body>

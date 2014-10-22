@@ -1,33 +1,19 @@
-/* These allow the content to fill the viewport. */
 
-html, body {
-	height:  100%;
-	padding: 0;
-	margin:  0;
-	width: 1024px;
+/* Text formatting */
+
+body {
+	font-family: "Times", "Times New Roman", serif;
+	font-size:   32px;
+	line-height: 48px;
+ 	color:       #444;
+	margin:      2em;
 }
 
-/*
-html { border: 1px dotted red;   }
-body { border: 1px dotted green; }
-*/
-
-/* A viewport-filling table and a middle-aligned cell enable centering. */
-
-div.slide {
-	display: table;
-	height: 100%;
-	width: 100%;
-}
-
-div.cell {
-	display: table-cell;
-	vertical-align: middle;
-}
-
-div.text {
-	margin: 0 auto;
-	width: 90%;
+@media screen {
+	body {
+	 	background: radial-gradient(circle, #FFF 70%, #DDD);
+	 	background-attachment: fixed;
+	}
 }
 
 /* General-use classes */
@@ -62,22 +48,6 @@ img {
 
 h1, h2, h3, h4, h5 {
 	font-size: 100%;
-}
-
-/* Text formatting */
-
-body {
-	font-family: "Times", "Times New Roman", serif;
-	font-size:   32px;
-	line-height: 48px;
- 	color:       #444;
-}
-
-@media screen {
-	body {
-	 	background: radial-gradient(circle, #FFF 70%, #DDD);
-	 	background-attachment: fixed;
-	}
 }
 
 /* Code formatting */
