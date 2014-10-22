@@ -12,7 +12,7 @@
 			<div class="text">
 				<h1>A Generated Mesh</h1>
 
-				<p>So to generate all of the vertices and triangles for this mesh, begin with an empty vertex array and an empty triangle array.</p>
+				<p>To generate a grid of lines for this mesh, begin with an empty line array. Generate the row-wise grid lines.</p>
 
 				<table class="center">
 					<tr>
@@ -20,21 +20,29 @@
 							<ul class="pseudocode">
 								<li>Loop $r = 0$ to $n$
 									<ul class="pseudocode">
-										<li>Loop $c = 0$ to $n$
+										<li>Loop $c = 0$ to $n-1$
 											<ul class="pseudocode">
-												<li>Add a new vertex $[x, y, z]$ at row $r$ column $c$.</li>
+												<li>Add a new line $[i_0, i_2]$ at row $r$ column $c$.</li>
 											</ul>
 										</li>
 									</ul>
 								</li>
 							</ul>
+						</td>
+					</tr>
+				</table>
+
+				<p>And generate the column-wise grid lines.</p>
+
+				<table class="center">
+					<tr>
+						<td>
 							<ul class="pseudocode">
 								<li>Loop $r = 0$ to $n-1$
 									<ul class="pseudocode">
-										<li>Loop $c = 0$ to $n-1$
+										<li>Loop $c = 0$ to $n$
 											<ul class="pseudocode">
-												<li>Add a new triangle $[i_0, i_1, i_2]$ at row $r$ column $c$.</li>
-												<li>Add a new triangle $[i_2, i_1, i_3]$ at row $r$ column $c$.</li>
+												<li>Add a new line $[i_0, i_1]$ at row $r$ column $c$.</li>
 											</ul>
 										</li>
 									</ul>
@@ -46,7 +54,7 @@
 			</div>
 		</div>
 	</div>
-	<a id="prev" href="geometry-15.html"></a>
-	<a id="next" href="geometry-17.html"></a>
+	<a id="prev" href="geometry-16.html"></a>
+	<a id="next" href="../index.html"></a>
 </body>
 </html>

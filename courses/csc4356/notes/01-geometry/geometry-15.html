@@ -17,20 +17,20 @@
 						<td><img width="400px" height="400px" src="../img/grid-mesh.svg"></td>
 						<td class="pad"></td>
 						<td>
-							<p>The triangles at row $r$ and column $c$ have indices:</p>
+							<p>The <em>square</em> at row $r$ and column $c$ has indices:</p>
 
-							\[\begin{array}{lllll}
+							\[\begin{array}{l}
 							i_0 = (r+0) \cdot n+ (c+0) \\
 							i_1 = (r+1) \cdot n+ (c+0) \\
 							i_2 = (r+0) \cdot n+ (c+1) \\
+							i_3 = (r+1) \cdot n+ (c+1) \\
 							\end{array}\]
 
-							<p>and:</p>
+							<p>And the triangulation of that square is:</p>
 
-							\[\begin{array}{lllll}
-							i_3 = (r+0) \cdot n+ (c+1) \\
-							i_4 = (r+1) \cdot n+ (c+0) \\
-							i_5 = (r+1) \cdot n+ (c+1) \\
+							\[\begin{array}{lll}
+							[i_0, &i_1, &i_2] \\
+							[i_2, &i_1, &i_3] \\
 							\end{array}\]
 						</td>
 					</tr>
