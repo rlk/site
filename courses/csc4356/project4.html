@@ -1,0 +1,70 @@
+<html>
+<head>
+	<title>CSC 4356 / ME 4573 - Project 3</title>
+	<link rel="stylesheet" type="text/css" href="../../style.css" />
+</head>
+<body>
+	<h1>Project 4 &mdash; Better Function Grapher</h1>
+
+	<h2>Overview</h2>
+
+	<p>The purpose of Project 4 is to exercise the use of transformation for viewing. You will modify your implementation of Project 3 to improve the appearance of the renderered function and to allow the user to interactively view it from any angle and distance.</p>
+
+	<h2>Specifics</h2>
+
+	<ul>
+		<li><p>Create a new remote repository called "project4" on <b>classes.csc.lsu.edu</b>, and clone it to your local computer.</p></li>
+
+		<li><p>Copy the five files from your project3 directory into your project4 directory.</p>
+
+			<ul>
+				<li><code>Grapher.html</code></li>
+				<li><code>Grapher.js</code></li>
+				<li><code><a href="https://www.khronos.org/registry/webgl/sdk/demos/common/webgl-utils.js">webgl-utils.js</a></code></li>
+				<li><code><a href="https://www.khronos.org/registry/webgl/sdk/debug/webgl-debug.js">webgl-debug.js</a></code></li>
+				<li><code><a href="http://www.magic.ubc.ca/webgl-pg/uploads/examples/lib/cuon-utils.js">cuon-utils.js</a></code></li>
+			</ul>
+
+			<p>You'll also need the textbook's matrix library.</p>
+
+			<ul>
+				<li><code><a href="http://www.magic.ubc.ca/webgl-pg/uploads/examples/lib/cuon-matrix.js">cuon-matrix.js</a></code></li>
+			</ul>
+
+			<p>As always, format your code consistently and remove any dead code.</p>
+		</li>
+
+		<li><p>Display the 1-x<sup>2</sup>-z<sup>2</sup> mesh as follows:</p>
+
+			<ul>
+				<li>Render the surface of the mesh with colored triangles, as before.</li>
+				<li>Also render a <a href="file:///Users/rlk/Projects/site/courses/csc4356/notes/01-geometry/geometry-17.html">grid of black lines</a> <i>on top</i> of the triangle mesh.
+					<blockquote>(This will probably involve the introduction of a <b>uniform</b> variable to disable the appearance of color, like the <em>Light</em> uniform used by <a href="file:///Users/rlk/Projects/site/courses/csc4356/notes/js/demo-transform.js">this code</a> for <a href="file:///Users/rlk/Projects/site/courses/csc4356/notes/03-transformation/transformation-scale-demo.html">this demo</a>.)</blockquote>
+				</li>
+			</ul>
+		</li>
+
+		<li><p>Break the code into separate initialization and draw functions, and allow interaction as follows:</p>
+
+			<ul>
+				<li><p>Click and drag in the canvas to rotate the mesh <em>relatively</em>.</p>
+					<ul>
+						<li>Click and drag vertically to rotate the mesh about the X axis.</li>
+						<li>Click and drag horizontally to rotate the mesh about the Y axis.</li>
+					</ul>
+				</li>
+				<li><p>Provide an HTML range slider to move the mesh forward and back along the Z axis.</p></li>
+			</ul>
+		</li>
+
+		<li><p>Use <b>transformation matrices</b> where needed:</p>
+			<ul>
+				<li>Use a perspective projection matrix to produce the 3D effect.</li>
+ 				<li>Use model rotation and translation matrices to produce the interaction.</li>
+ 			</ul>
+ 		</li>
+
+		<li><p>Add the files you've created to the project's working copy and commit them to the local repository. Push these changes from your local repository to your remote repository on <b>classes.csc.lsu.edu</b> before the deadline.</p></li>
+	</ul>
+</body>
+</html>
