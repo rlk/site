@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1 Tiny//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11-tiny.dtd">
+<svg version="1.1" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 x="0px" y="0px" width="522px" height="234px" viewBox="0 0 522 234" overflow="inherit" xml:space="preserve">
+<circle fill="#FFFFFF" stroke="#000000" stroke-miterlimit="10" cx="45" cy="153" r="36"/>
+<circle fill="#FFFFFF" stroke="#000000" stroke-miterlimit="10" cx="153" cy="153" r="36"/>
+<circle fill="#FFFFFF" stroke="#000000" stroke-miterlimit="10" cx="261" cy="153" r="36"/>
+<circle fill="#FFFFFF" stroke="#000000" stroke-miterlimit="10" cx="369" cy="153" r="36"/>
+<path fill="#E6E7E8" stroke="#000000" stroke-miterlimit="10" d="M441,180c0,4.971,4.029,9,9,9h54c4.971,0,9-4.029,9-9v-54
+	c0-4.971-4.029-9-9-9h-54c-4.971,0-9,4.029-9,9V180z"/>
+<path fill="#E6E7E8" stroke="#000000" stroke-miterlimit="10" d="M9,72c0,4.971,4.029,9,9,9h54c4.971,0,9-4.029,9-9V18
+	c0-4.971-4.029-9-9-9H18c-4.971,0-9,4.029-9,9V72z"/>
+<path fill="#E6E7E8" stroke="#000000" stroke-miterlimit="10" d="M117,72c0,4.971,4.029,9,9,9h54c4.971,0,9-4.029,9-9V18
+	c0-4.971-4.029-9-9-9h-54c-4.971,0-9,4.029-9,9V72z"/>
+<path fill="#E6E7E8" stroke="#000000" stroke-miterlimit="10" d="M225,72c0,4.971,4.029,9,9,9h54c4.971,0,9-4.029,9-9V18
+	c0-4.971-4.029-9-9-9h-54c-4.971,0-9,4.029-9,9V72z"/>
+<g>
+	<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="189" y1="153" x2="218.965" y2="153"/>
+	<g>
+		<path d="M225,153c-2.84,1.054-6.363,2.852-8.547,4.756l1.72-4.756l-1.72-4.755C218.637,150.149,222.16,151.947,225,153z"/>
+	</g>
+</g>
+<g>
+	<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="297" y1="153" x2="326.965" y2="153"/>
+	<g>
+		<path d="M333,153c-2.84,1.054-6.363,2.852-8.547,4.756l1.72-4.756l-1.72-4.755C326.637,150.149,330.16,151.947,333,153z"/>
+	</g>
+</g>
+<g>
+	<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="405" y1="153" x2="434.965" y2="153"/>
+	<g>
+		<path d="M441,153c-2.84,1.054-6.363,2.852-8.547,4.756l1.72-4.756l-1.72-4.755C434.637,150.15,438.16,151.948,441,153z"/>
+	</g>
+</g>
+<text transform="matrix(1 0 0 1 121.3447 155.7783)" font-family="'TimesNewRomanPSMT'" font-size="12">Rasterization</text>
+<text transform="matrix(1 0 0 1 128.332 47.7783)" font-family="'TimesNewRomanPSMT'" font-size="12">Primitives</text>
+<g>
+	<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="81" y1="153" x2="110.965" y2="153"/>
+	<g>
+		<path d="M117,153c-2.84,1.054-6.363,2.852-8.547,4.756l1.72-4.756l-1.72-4.755C110.637,150.149,114.16,151.947,117,153z"/>
+	</g>
+</g>
+<text transform="matrix(1 0 0 1 29.3408 148.5781)" font-family="'TimesNewRomanPSMT'" font-size="12">V</text>
+<text transform="matrix(1 0 0 1 36.6768 148.5781)" font-family="'TimesNewRomanPSMT'" font-size="12">e</text>
+<text transform="matrix(1 0 0 1 42.0029 148.5781)" font-family="'TimesNewRomanPSMT'" font-size="12">r</text>
+<text transform="matrix(1 0 0 1 45.999 148.5781)" font-family="'TimesNewRomanPSMT'" font-size="12">t</text>
+<text transform="matrix(1 0 0 1 49.333 148.5781)" font-family="'TimesNewRomanPSMT'" font-size="12">e</text>
+<text transform="matrix(1 0 0 1 54.6592 148.5781)" font-family="'TimesNewRomanPSMT'" font-size="12">x</text>
+<text transform="matrix(1 0 0 1 19.002 162.978)" font-family="'TimesNewRomanPSMT'" font-size="12">P</text>
+<text transform="matrix(1 0 0 1 25.6758 162.978)" font-family="'TimesNewRomanPSMT'" font-size="12">r</text>
+<text transform="matrix(1 0 0 1 29.6719 162.978)" font-family="'TimesNewRomanPSMT'" font-size="12">o</text>
+<text transform="matrix(1 0 0 1 35.6719 162.978)" font-family="'TimesNewRomanPSMT'" font-size="12">c</text>
+<text transform="matrix(1 0 0 1 40.998 162.978)" font-family="'TimesNewRomanPSMT'" font-size="12">e</text>
+<text transform="matrix(1 0 0 1 46.3242 162.978)" font-family="'TimesNewRomanPSMT'" font-size="12">s</text>
+<text transform="matrix(1 0 0 1 50.9941 162.978)" font-family="'TimesNewRomanPSMT'" font-size="12">s</text>
+<text transform="matrix(1 0 0 1 55.6641 162.978)" font-family="'TimesNewRomanPSMT'" font-size="12">i</text>
+<text transform="matrix(1 0 0 1 58.998 162.978)" font-family="'TimesNewRomanPSMT'" font-size="12">n</text>
+<text transform="matrix(1 0 0 1 64.998 162.978)" font-family="'TimesNewRomanPSMT'" font-size="12">g</text>
+<text transform="matrix(1 0 0 1 21.0029 47.9341)" font-family="'TimesNewRomanPSMT'" font-size="12">Attributes</text>
+<text transform="matrix(1 0 0 1 238.0049 148.5781)" font-family="'TimesNewRomanPSMT'" font-size="12">Fragment</text>
+<text transform="matrix(1 0 0 1 235.002 162.978)" font-family="'TimesNewRomanPSMT'" font-size="12">Processing</text>
+<text transform="matrix(1 0 0 1 240.4287 47.9341)" font-family="'TimesNewRomanPSMT'" font-size="12">T</text>
+<text transform="matrix(1 0 0 1 246.9209 47.9341)" font-family="'TimesNewRomanPSMT'" font-size="12">e</text>
+<text transform="matrix(1 0 0 1 252.2471 47.9341)" font-family="'TimesNewRomanPSMT'" font-size="12">x</text>
+<text transform="matrix(1 0 0 1 258.2471 47.9341)" font-family="'TimesNewRomanPSMT'" font-size="12">t</text>
+<text transform="matrix(1 0 0 1 261.5811 47.9341)" font-family="'TimesNewRomanPSMT'" font-size="12">u</text>
+<text transform="matrix(1 0 0 1 267.5811 47.9341)" font-family="'TimesNewRomanPSMT'" font-size="12">r</text>
+<text transform="matrix(1 0 0 1 271.5771 47.9341)" font-family="'TimesNewRomanPSMT'" font-size="12">e</text>
+<text transform="matrix(1 0 0 1 276.9033 47.9341)" font-family="'TimesNewRomanPSMT'" font-size="12">s</text>
+<text transform="matrix(1 0 0 1 353.6719 148.5781)" font-family="'TimesNewRomanPSMT'" font-size="12">Raster</text>
+<text transform="matrix(1 0 0 1 342.6738 162.978)" font-family="'TimesNewRomanPSMT'" font-size="12">Operations</text>
+<text transform="matrix(1 0 0 1 447.0088 155.7783)" font-family="'TimesNewRomanPSMT'" font-size="12">F</text>
+<text transform="matrix(1 0 0 1 453.6826 155.7783)" font-family="'TimesNewRomanPSMT'" font-size="12">r</text>
+<text transform="matrix(1 0 0 1 457.6787 155.7783)" font-family="'TimesNewRomanPSMT'" font-size="12">a</text>
+<text transform="matrix(1 0 0 1 463.0049 155.7783)" font-family="'TimesNewRomanPSMT'" font-size="12">m</text>
+<text transform="matrix(1 0 0 1 472.3389 155.7783)" font-family="'TimesNewRomanPSMT'" font-size="12">e</text>
+<text transform="matrix(1 0 0 1 477.665 155.7783)" font-family="'TimesNewRomanPSMT'" font-size="12">b</text>
+<text transform="matrix(1 0 0 1 483.665 155.7783)" font-family="'TimesNewRomanPSMT'" font-size="12">u</text>
+<text transform="matrix(1 0 0 1 489.665 155.7783)" font-family="'TimesNewRomanPSMT'" font-size="12">f</text>
+<text transform="matrix(1 0 0 1 493.4443 155.7783)" font-family="'TimesNewRomanPSMT'" font-size="12">f</text>
+<text transform="matrix(1 0 0 1 497.4404 155.7783)" font-family="'TimesNewRomanPSMT'" font-size="12">e</text>
+<text transform="matrix(1 0 0 1 502.7666 155.7783)" font-family="'TimesNewRomanPSMT'" font-size="12">r</text>
+<text transform="matrix(1 0 0 1 305.5488 171)" fill="#808080" font-family="'TimesNewRomanPSMT'" font-size="10">SRC</text>
+<text transform="matrix(1 0 0 1 341.2891 207)" fill="#808080" font-family="'TimesNewRomanPSMT'" font-size="10">D</text>
+<text transform="matrix(1 0 0 1 348.5107 207)" fill="#808080" font-family="'TimesNewRomanPSMT'" font-size="10">S</text>
+<text transform="matrix(1 0 0 1 354.0723 207)" fill="#808080" font-family="'TimesNewRomanPSMT'" font-size="10">T</text>
+<g>
+	<path fill="none" stroke="#000000" stroke-miterlimit="10" d="M477,189v27c0,0,0,9-9,9s-90,0-90,0s-9,0-9-9
+		c0-5.667,0-14.904,0-20.967"/>
+	<g>
+		<path d="M369,189c1.054,2.84,2.852,6.363,4.756,8.547l-4.756-1.72l-4.755,1.72C366.149,195.363,367.947,191.84,369,189z"/>
+	</g>
+</g>
+<g>
+	<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="45" y1="81" x2="45" y2="110.965"/>
+	<g>
+		<path d="M45,117c-1.054-2.84-2.852-6.363-4.756-8.547l4.756,1.72l4.755-1.72C47.851,110.637,46.053,114.16,45,117z"/>
+	</g>
+</g>
+<g>
+	<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="153" y1="81" x2="153" y2="110.965"/>
+	<g>
+		<path d="M153,117c-1.054-2.84-2.852-6.363-4.756-8.547l4.756,1.72l4.755-1.72C155.851,110.637,154.053,114.16,153,117z"/>
+	</g>
+</g>
+<g>
+	<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="261" y1="81" x2="261" y2="110.965"/>
+	<g>
+		<path d="M261,117c-1.054-2.84-2.852-6.363-4.756-8.547l4.756,1.72l4.755-1.72C263.851,110.637,262.053,114.16,261,117z"/>
+	</g>
+</g>
+</svg>
