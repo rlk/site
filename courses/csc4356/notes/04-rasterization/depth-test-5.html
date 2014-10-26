@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://csc.lsu.edu/~kooima/MathJax.js"></script>
+	<script type="text/javascript" src="../script.js"></script>
+</head>
+<body>
+	<h1>Depth Test</h1>
+
+	<p>To use the depth test, enable it <em>during initialization</em>.</p>
+	<blockquote class="listing"><a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glEnable.xml">gl.enable(gl.DEPTH_TEST);</a></blockquote>
+
+	<p>And clear the depth buffer along with the color buffer <em>during rendering</em>.</p>
+	<blockquote class="listing"><a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glClear.xml">gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);</a></blockquote>
+
+	<p>If necessary, depth <em>writes</em> disables separately from depth <em>tests</em>.</p>
+	<blockquote class="listing">
+		<a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glDepthMask.xml">gl.depthMask(gl.TRUE);</a>
+		<br><br>
+		<a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glDepthMask.xml">gl.depthMask(gl.FALSE);</a>
+	</blockquote>
+
+	<p>The Depth Test is used in almost every GL application. Only the most trivial of demonstrations overlook it.</p>
+
+	<a id="prev" href="depth-test-4.html"></a>
+	<a id="next" href="blending-0.html"></a>
+</body>
+</html>
