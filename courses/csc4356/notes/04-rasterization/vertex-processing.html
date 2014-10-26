@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://csc.lsu.edu/~kooima/MathJax.js"></script>
+	<script type="text/javascript" src="../script.js"></script>
+</head>
+<body>
+	<h1>Vertex Processing</h1>
+
+	<p><a href="../01-geometry/geometry-06.html">As we've seen</a>, each vertex of a mesh may have several attributes:</p>
+
+	<ul>
+		<li>3D position</li>
+		<li>Material color</li>
+		<li>Normal vector</li>
+		<li><i>etc.</i></li>
+	</ul>
+
+	<p>The Vertex Processing stage converts these attributes into <em>varyings</em>.</p>
+
+	<img class="center" width="75%" src="../img/pipeline.svg">
+
+	<p>A varying is a value, defined at the vertices, that <em>varies</em> over the area of a triangle by linear interpolation.</p>
+
+	<img class="center" width="33%" src="../img/rasterization-2.png">
+
+	<p>The most important varying is the <a href="../03-transformation/transformation-composition-full.html">screen space position</a> of each vertex. The linear interpolation of these positions is what generates the surface of the triangle.</p>
+
+	<img class="center" width="33%" src="../img/rasterization-1.png">
+
+	<p>This simple example vertex shader takes position and color <em>attributes</em> as input.</p>
+
+	<blockquote class="listing">
+		uniform&nbsp;&nbsp; mat4 Model;<br>
+		uniform&nbsp;&nbsp; mat4 Projection;<br>
+		<br>
+		attribute vec4 vPosition;<br>
+		attribute vec3 vColor;<br>
+		<br>
+		varying&nbsp;&nbsp; vec3 fColor;<br>
+		<br>
+		void main() {<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;gl_Position = Projection * Model * vPosition;<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;fColor = vColor;<br>
+		}<br>
+	</blockquote>
+
+	<p>Its gives position and color <em>varyings</em> as output.</p>
+
+	<p>Note, the position varying is so important that it is predeclared and its use is required.</p>
+
+	<p>The Vertex Processing stage usually does more than this. It often <em>computes</em> the output color based on lighting parameters. We'll see examples of this soon.</p>
+
+
+	<a id="prev" href="rasterization-1.html"></a>
+	<a id="next" href="rasterization-3.html"></a>
+</body>
+</html>
