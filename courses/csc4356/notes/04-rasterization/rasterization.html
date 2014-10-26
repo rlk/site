@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://csc.lsu.edu/~kooima/MathJax.js"></script>
+	<script type="text/javascript" src="../script.js"></script>
+</head>
+<body>
+	<h1>Rasterization</h1>
+
+	<p>The Rasterization stage interpolates varying values across the area of a primitive.</p>
+
+	<img class="center" width="75%" src="../img/pipeline.svg">
+
+	<p>It determines which of the <em>fragments</em> (a.k.a. pixels) on the screen lie within that primitive.</p>
+
+	<img class="center" width="33%" src="../img/rasterization-3.png">
+
+	<p>It calculates an interpolated varying value at the center of each fragment.</p>
+
+	<img class="center" width="33%" src="../img/rasterization-4.png">
+
+	<p>The resulting values are the input to the Fragment Processing stage.</p>
+
+	<a id="prev" href="vertex-processing.html"></a>
+	<a id="next" href="fragment-processing.html"></a>
+</body>
+</html>

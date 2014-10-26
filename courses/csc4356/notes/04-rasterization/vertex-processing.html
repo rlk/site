@@ -26,7 +26,7 @@
 
 	<img class="center" width="33%" src="../img/rasterization-2.png">
 
-	<p>The most important varying is the <a href="../03-transformation/transformation-composition-full.html">screen space position</a> of each vertex. The linear interpolation of these positions is what generates the surface of the triangle.</p>
+	<p>The most important varying is the <a href="../03-transformation/transformation-composition-full.html">screen coordinate</a> of each vertex. The linear interpolation of these coordinates is what generates the surface of the triangle.</p>
 
 	<img class="center" width="33%" src="../img/rasterization-1.png">
 
@@ -37,9 +37,9 @@
 		uniform&nbsp;&nbsp; mat4 Projection;<br>
 		<br>
 		attribute vec4 vPosition;<br>
-		attribute vec3 vColor;<br>
+		attribute vec4 vColor;<br>
 		<br>
-		varying&nbsp;&nbsp; vec3 fColor;<br>
+		varying&nbsp;&nbsp; vec4 fColor;<br>
 		<br>
 		void main() {<br>
 		&nbsp;&nbsp;&nbsp;&nbsp;gl_Position = Projection * Model * vPosition;<br>
@@ -47,14 +47,13 @@
 		}<br>
 	</blockquote>
 
-	<p>Its gives position and color <em>varyings</em> as output.</p>
+	<p>Its applies model and projection transforms, giving position and color <em>varyings</em> as output.</p>
 
-	<p>Note, the position varying is so important that it is predeclared and its use is required.</p>
+	<p>Note, the position varying <code>gl_Position</code> is so important that it is pre-declared and its use is mandatory.</p>
 
 	<p>The Vertex Processing stage usually does more than this. It often <em>computes</em> the output color based on lighting parameters. We'll see examples of this soon.</p>
 
-
-	<a id="prev" href="rasterization-1.html"></a>
-	<a id="next" href="rasterization-3.html"></a>
+	<a id="prev" href="pipeline.html"></a>
+	<a id="next" href="rasterization.html"></a>
 </body>
 </html>

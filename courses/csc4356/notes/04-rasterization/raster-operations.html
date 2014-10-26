@@ -7,11 +7,11 @@
 	<script type="text/javascript" src="../script.js"></script>
 </head>
 <body>
-	<h1>The Graphics Pipeline</h1>
+	<h1>Raster Operations</h1>
 
-	<p>The process by which <em>primitives</em> become <em>fragments</em> is called <em>rasterization</em>.</p>
+	<p>The pipeline has taken vertex attributes and primitives, and produced fragments.</p>
 
-	<table class="center" width="100%">
+	<table class="center" width="75%">
 		<tr>
 			<td style="width:25%"><img width="95%" src="../img/rasterization-1.png"></td>
 			<td style="width:25%"><img width="95%" src="../img/rasterization-2.png"></td>
@@ -20,9 +20,17 @@
 		</tr>
 	</table>
 
-	<p>Consider a colored triangle primitive. We'll follow it through the pipeline&hellip;</p>
+	<p>The Raster Operations stage combines these new fragments with those already in the framebuffer.</p>
 
-	<a id="prev" href="vertex-processing.html"></a>
-	<a id="next" href="rasterization-1.html"></a>
+	<img class="center" width="75%" src="../img/pipeline.svg">
+
+	<p>There are two primary types of Raster Operation:</p>
+
+	<ul>
+		<li>The Depth Test decides which surfaces are in front of others.</li>
+		<li>Blending enables the mixing of fragments, giving transparency.</li>
+	</ul>
+	<a id="prev" href="fragment-processing.html"></a>
+	<a id="next" href="rasterization-3.html"></a>
 </body>
 </html>
