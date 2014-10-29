@@ -1,23 +1,8 @@
 
-// Return the text of src. It may be a string or an element. Throw if not found.
-
-function getSource(src) {
-    if (typeof src == "string") {
-        return src
-    } else {
-        var element = document.getElementById(src);
-        if (element) {
-            return element.text;
-        } else {
-            throw new Error("Failed to get shader element " + src);
-        }
-    }
-}
-
 // Compile the shader source. Throw if compilation fails.
 
-function makeShader(gl, shader, src) {
-    gl.shaderSource(shader, getSource(src));
+function makeShader(gl, shader, source) {
+    gl.shaderSource(shader, source);
     gl.compileShader(shader);
 
     if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
@@ -28,10 +13,10 @@ function makeShader(gl, shader, src) {
 // Create and initialize a new shader object using the given type and source.
 // Delete the shader object and rethrow on failure.
 
-function newShader(gl, type, src) {
+function newShader(gl, type, source) {
     var shader = gl.createShader(type);
     try {
-        makeShader(gl, shader, src);
+        makeShader(gl, shader, source);
     } catch (e) {
         gl.deleteShader(shader);
         throw e;
@@ -39,11 +24,11 @@ function newShader(gl, type, src) {
     return shader;
 }
 
-// Link the program with the given source elements. Throw if linking fails.
+// Link the program with the given source strings. Throw if linking fails.
 
-function makeProgram(gl, program, vertId, fragId) {
-    gl.attachShader(program, newShader(gl, gl.VERTEX_SHADER,   vertId));
-    gl.attachShader(program, newShader(gl, gl.FRAGMENT_SHADER, fragId));
+function makeProgram(gl, program, vertSource, fragSource) {
+    gl.attachShader(program, newShader(gl, gl.VERTEX_SHADER,   vertSource));
+    gl.attachShader(program, newShader(gl, gl.FRAGMENT_SHADER, fragSource));
 
     gl.bindAttribLocation(program, 0, "vPosition");
     gl.bindAttribLocation(program, 1, "vOffset");
@@ -55,12 +40,12 @@ function makeProgram(gl, program, vertId, fragId) {
 }
 
 // Create and makeialize a new program object using the given shader source
-// elements. Delete the program and rethrow on failure.
+// strings. Delete the program and rethrow on failure.
 
-function newProgram(gl, vertId, fragId) {
+function newProgram(gl, vertSource, fragSource) {
     var program = gl.createProgram();
     try {
-        makeProgram(gl, program, vertId, fragId);
+        makeProgram(gl, program, vertSource, fragSource);
     } catch (e) {
         deleteProgram(gl, program);
         throw e;
