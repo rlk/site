@@ -1,0 +1,10 @@
+lighting-1.html
+lighting-2.html
+lighting-3.html
+lighting-4.html
+lighting-5.html
+normal-1.html
+normal-2.html
+normal-3.html
+normal-4.html
+normal-5.html

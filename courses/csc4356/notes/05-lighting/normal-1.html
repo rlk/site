@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Interactive Computer Graphics</title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://csc.lsu.edu/~kooima/MathJax.js"></script>
+	<script type="text/javascript" src="../script.js"></script>
+</head>
+<body>
+	<h1>The Normal Vector</h1>
+
+	<p>The lighting equation depends upon the presense of a view vector $\V{v}$, a light vector $\V{l}$, and a normal vector $\V{n}$.</p>
+
+	<img class="center" width="40%" src="../img/lighting-model.svg">
+
+	<p>The view and light are given, as the location of the viewer and light are constant.</p>
+
+	<p>However, the normal vector is a property of the object. To compute the normal vector $\V{n}$, consider each triangle in turn.</p>
+
+	<p>Three vertex positions, $\V{v}_0$, $\V{v}_1$, and $\V{v}_2$, define a triangle.</p>
+
+	<table class="center" width="75%">
+		<tr>
+			<td style="width:50%"><img width="100%" src="../img/normal-computation-1.svg"></td>
+ 			<td style="width:50%"></td>
+		</tr>
+	</table>
+
+	<a id="prev" href="lighting-5.html"></a>
+	<a id="next" href="normal-2.html"></a>
+</body>
+</html>
