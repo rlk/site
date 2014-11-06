@@ -15,11 +15,11 @@
 		<tr>
 			<td style="width:45%"><img width="100%" src="../img/lit-sphere-diffuse.png"></td>
 			<td style="width:10%"></td>
-			<td style="width:45%">$\V{c}_d=\V{c}_o\,\V{c}_l\,(\V{n}\cdot\V{l})$</td>
+			<td style="width:45%">$\V{c}_d=\V{c}_o\,\V{c}_l\,\max(\V{n}\cdot\V{l}, 0)$</td>
 		</tr>
 	</table>
 
-	<p>The color of the object $\V{c}_o$ is modulated by the color of the light $\V{c}_l$, and this product is scaled by the dot product of the normal $\V{n}$ and light $\V{l}$ vectors.</p>
+	<p>The color of the object $\V{c}_o$ is modulated by the color of the light $\V{c}_l$, and this product is scaled by the dot product of the normal $\V{n}$ and light $\V{l}$ vectors. Care is taken to ensure this dot product is not negative.</p>
 	<a id="prev" href="lighting-2.html"></a>
 	<a id="next" href="lighting-4.html"></a>
 </body>
