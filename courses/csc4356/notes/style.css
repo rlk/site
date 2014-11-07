@@ -44,6 +44,12 @@ img {
 	display: block;
 }
 
+figcaption {
+	text-align: center;
+	font-size: 70%;
+	color: #888;
+}
+
 /* Header styles */
 
 h1, h2, h3, h4, h5 {

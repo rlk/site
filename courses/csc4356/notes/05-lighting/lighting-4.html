@@ -11,17 +11,20 @@
 
 	<p><em>Specular</em> lighting models glossy surfaces.</p>
 
-	<table class="center" width="75%">
+	<table class="center">
 		<tr>
-			<td style="width:45%"><img width="100%" src="../img/lit-sphere-specular.png"></td>
-			<td style="width:10%"></td>
-			<td style="width:45%">$\V{c}_s=\V{c}_l\,\max(\V{n}\cdot\V{h}, 0)^\alpha$</td>
+			<td><img style="width:10em" src="../img/lit-sphere-specular.png"></td>
+			<td>&emsp;</td>
+			<td>$\V{c}_s=\V{c}_l\,\max(\V{n}\cdot\V{h}, 0)^\alpha$</td>
 		</tr>
 	</table>
 
 	<p>The color of the light $\V{c}_l$ is modulated by the dot product of the normal $\V{n}$ and half-angle $\V{h}$ vectors, raised to a power.</p>
 
-	<img class="center" width="70%" src="../img/lighting-graphs.svg">
+	<figure>
+		<img class="center" width="60%" src="../img/lighting-graphs.svg">
+		<figcaption>A graph from $-\frac{\pi}{2}$ to $+\frac{\pi}{2}$ of $(\V{n}\cdot\V{h})^\alpha$ for $\alpha=0$ in black, and $\alpha=1, 2, 4, 8, 16, 32, 64$ in red.</figcaption>
+	</figure>
 
 	<p>That power $\alpha$ determines the <em>tightness</em> of the distribution of color.</p>
 
