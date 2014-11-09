@@ -65,24 +65,15 @@ code {
 	color:       #888;
 }
 
-ul.listing {
+figure.code {
 	font-family: "Consolas", "Inconsolata", monospace;
 	font-size:   24px;
 	line-height: 28px;
 	color:       #888;
-	list-style-type: none;
 }
 
-blockquote.listing {
-	font-family: "Consolas", "Inconsolata", monospace;
-	font-size:   24px;
-	line-height: 28px;
-	color:       #888;
-	list-style-type: none;
-}
-
-ul.pseudocode {
-	list-style-type: none;
+figure.pseudocode {
+	margin-left: 2em;
 }
 
 /* Footnotes */
@@ -127,10 +118,6 @@ table.small th, table.small td {
 table.tiny th, table.tiny td {
 	padding-left:  0.5em;
 	padding-right: 0.5em;
-}
-
-td.pad {
-	width:2em;
 }
 
 /* Demo canvas */

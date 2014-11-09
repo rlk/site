@@ -10,17 +10,17 @@
 	<h1>Blending</h1>
 
 	<p>To use blending, enable it <em>during initialization</em>.</p>
-	<blockquote class="listing"><a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glEnable.xml">gl.enable(gl.BLEND);</a></blockquote>
+	<figure class="code"><a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glEnable.xml">gl.enable(gl.BLEND);</a></figure>
 
 	<p>The Raster Operations stage's two inputs <code>SRC</code> and <code>DST</code> can be blended arbitrarily.</p>
 
 	<img class="center" width="75%" src="../img/pipeline.svg">
 
 	<p>To acculumate all layers additively:</p>
-	<blockquote class="listing"><a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glBlendFunc.xml">gl.blendFunc(gl.ONE, gl.ONE);</a></blockquote>
+	<figure class="code"><a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glBlendFunc.xml">gl.blendFunc(gl.ONE, gl.ONE);</a></figure>
 
 	<p>For transparency effects:</p>
-	<blockquote class="listing"><a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glBlendFunc.xml">gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);</a></blockquote>
+	<figure class="code"><a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glBlendFunc.xml">gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);</a></figure>
 
 	<a id="prev" href="blending-3.html"></a>
 </body>

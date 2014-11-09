@@ -32,7 +32,7 @@
 
 	<p>This simple example vertex shader takes position and color <em>attributes</em> as input.</p>
 
-	<blockquote class="listing">
+	<figure class="code">
 		uniform&nbsp;&nbsp; mat4 Projection;<br>
 		uniform&nbsp;&nbsp; mat4 Model;<br>
 		<br>
@@ -45,7 +45,7 @@
 		&nbsp;&nbsp;&nbsp;&nbsp;gl_Position = Projection * Model * vPosition;<br>
 		&nbsp;&nbsp;&nbsp;&nbsp;fColor = vColor;<br>
 		}<br>
-	</blockquote>
+	</figure>
 
 	<p>Its applies model and projection transforms, giving position and color <em>varyings</em> as output.</p>
 

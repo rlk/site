@@ -15,13 +15,13 @@
 
 	<p>This trivial fragment shader simply copies the varying color onto the screen.</p>
 
-	<blockquote class="listing">
+	<figure class="code">
 		varying vec4 fColor;<br>
 		<br>
 		void main() {<br>
 		&nbsp;&nbsp;&nbsp;&nbsp;gl_FragColor = fColor;<br>
 		}<br>
-	</blockquote>
+	</figure>
 
 	<p>This is a <em>big</em> topic. The Fragment Processing stage often derives material properties from texture images. When high quality illumination is desired, lighting calculation happens here instead of in the Vertex Processing stage. We'll see examples of these soon.</p>
 

@@ -9,7 +9,7 @@
 <body>
 	<h1>Meshes in Code</h1>
 
-	<p>In program code, we represent a mesh table as an array of numbers.</p>
+	<p>A table is a 2D block of numbers.</p>
 
 	<table class="center">
 		<tr>
@@ -29,29 +29,28 @@
 					<tr><td class="index">  9</td><td>       0.5</td><td>0.5</td><td>&minus;0.5</td></tr>
 				</table>
 			</td>
-			<td class="pad"></td>
+			<td>&emsp;</td>
 			<td>
-				<ul class="listing">
-					<li>var vertices = [
-						<ul class="listing">
-							<li>&nbsp;0.0, &nbsp;1.0, &nbsp;0.5,</li>
-							<li>     -0.5, &nbsp;0.5, &nbsp;0.5,</li>
-							<li>     -0.5, &nbsp;0.0, &nbsp;0.5,</li>
-							<li>&nbsp;0.5, &nbsp;0.0, &nbsp;0.5,</li>
-							<li>&nbsp;0.5, &nbsp;0.5, &nbsp;0.5,</li>
-							<li>&nbsp;0.0, &nbsp;1.0,      -0.5,</li>
-							<li>     -0.5, &nbsp;0.5,      -0.5,</li>
-							<li>     -0.5, &nbsp;0.0,      -0.5,</li>
-							<li>&nbsp;0.5, &nbsp;0.0,      -0.5,</li>
-							<li>&nbsp;0.5, &nbsp;0.5,      -0.5,</li>
-						</ul>
-					</li>
-					<li>]</li>
-				</ul>
+				<figure class="code">
+					var vertices = [<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;[ &nbsp;0.0, &nbsp;1.0, &nbsp;0.5 ],<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;[ -0.5, &nbsp;0.5, &nbsp;0.5 ],<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;[ -0.5, &nbsp;0.0, &nbsp;0.5 ],<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;[ &nbsp;0.5, &nbsp;0.0, &nbsp;0.5 ],<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;[ &nbsp;0.5, &nbsp;0.5, &nbsp;0.5 ],<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;[ &nbsp;0.0, &nbsp;1.0, -0.5 ],<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;[ -0.5, &nbsp;0.5, -0.5 ],<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;[ -0.5, &nbsp;0.0, -0.5 ],<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;[ &nbsp;0.5, &nbsp;0.0, -0.5 ],<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;[ &nbsp;0.5, &nbsp;0.5, -0.5 ]<br>
+					]
+				</figure>
 			</td>
 		</tr>
 	</table>
-	<p>While we think of it as a 2D block of numbers, we specify it as a 1D list of numbers.</p>
+
+	<p>In program code, we represent a table as an array of arrays.</p>
+
 	<a id="prev" href="geometry-09.html"></a>
 	<a id="next" href="geometry-11.html"></a>
 </body>

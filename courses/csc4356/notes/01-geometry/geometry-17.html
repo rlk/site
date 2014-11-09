@@ -11,43 +11,20 @@
 
 	<p>To generate a grid of lines for this mesh, begin with an empty line array. Generate the row-wise grid lines.</p>
 
-	<table class="center">
-		<tr>
-			<td>
-				<ul class="pseudocode">
-					<li>Loop $r = 0$ to $n$
-						<ul class="pseudocode">
-							<li>Loop $c = 0$ to $n-1$
-								<ul class="pseudocode">
-									<li>Add a new line $[i_0, i_2]$ at row $r$ column $c$.</li>
-								</ul>
-							</li>
-						</ul>
-					</li>
-				</ul>
-			</td>
-		</tr>
-	</table>
+	<figure class="pseudocode">
+		Loop $r = 0$ to $n$<br>
+		&emsp;&emsp;Loop $c = 0$ to $n-1$<br>
+		&emsp;&emsp;&emsp;&emsp;Add a new line $[i_0, i_2]$ at row $r$ column $c$.<br>
+	</figure>
 
 	<p>And generate the column-wise grid lines.</p>
 
-	<table class="center">
-		<tr>
-			<td>
-				<ul class="pseudocode">
-					<li>Loop $r = 0$ to $n-1$
-						<ul class="pseudocode">
-							<li>Loop $c = 0$ to $n$
-								<ul class="pseudocode">
-									<li>Add a new line $[i_0, i_1]$ at row $r$ column $c$.</li>
-								</ul>
-							</li>
-						</ul>
-					</li>
-				</ul>
-			</td>
-		</tr>
-	</table>
+	<figure class="pseudocode">
+		Loop $r = 0$ to $n-1$<br>
+		&emsp;&emsp;Loop $c = 0$ to $n$<br>
+		&emsp;&emsp;&emsp;&emsp;Add a new line $[i_0, i_1]$ at row $r$ column $c$.<br>
+	</figure>
+
 	<a id="prev" href="geometry-16.html"></a>
 </body>
 </html>

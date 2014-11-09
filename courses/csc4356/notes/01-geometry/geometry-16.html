@@ -11,35 +11,19 @@
 
 	<p>So to generate all of the vertices and triangles for this mesh, begin with an empty vertex array and an empty triangle array.</p>
 
-	<table class="center">
-		<tr>
-			<td>
-				<ul class="pseudocode">
-					<li>Loop $r = 0$ to $n$
-						<ul class="pseudocode">
-							<li>Loop $c = 0$ to $n$
-								<ul class="pseudocode">
-									<li>Add a new vertex $[x, y, z]$ at row $r$ column $c$.</li>
-								</ul>
-							</li>
-						</ul>
-					</li>
-				</ul>
-				<ul class="pseudocode">
-					<li>Loop $r = 0$ to $n-1$
-						<ul class="pseudocode">
-							<li>Loop $c = 0$ to $n-1$
-								<ul class="pseudocode">
-									<li>Add a new triangle $[i_0, i_1, i_2]$ at row $r$ column $c$.</li>
-									<li>Add a new triangle $[i_2, i_1, i_3]$ at row $r$ column $c$.</li>
-								</ul>
-							</li>
-						</ul>
-					</li>
-				</ul>
-			</td>
-		</tr>
-	</table>
+	<figure class="pseudocode">
+		Loop $r = 0$ to $n$<br>
+		&emsp;&emsp;Loop $c = 0$ to $n$<br>
+		&emsp;&emsp;&emsp;&emsp;Add a new vertex $[x, y, z]$ at row $r$ column $c$.<br>
+	</figure>
+
+	<figure class="pseudocode">
+		Loop $r = 0$ to $n-1$<br>
+		&emsp;&emsp;Loop $c = 0$ to $n-1$<br>
+		&emsp;&emsp;&emsp;&emsp;Add a new triangle $[i_0, i_1, i_2]$ at row $r$ column $c$.<br>
+		&emsp;&emsp;&emsp;&emsp;Add a new triangle $[i_2, i_1, i_3]$ at row $r$ column $c$.<br>
+	</figure>
+
 	<a id="prev" href="geometry-15.html"></a>
 	<a id="next" href="geometry-17.html"></a>
 </body>
