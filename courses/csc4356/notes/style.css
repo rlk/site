@@ -138,24 +138,26 @@ input[type='range'] {
 
 /* Navigation styles. */
 
+nav {
+	position: fixed;
+	right: 20px;
+	bottom: 5px;
+}
+
 @media screen {
-
-	a#prev {
+	a#prev, a#home, a#next {
 		font-size: 64px;
-		position: fixed;
-		left:  20px;
-		bottom: 5px;
+		text-align: right;
 	}
 
-	a#next {
-		font-size: 64px;
-		position: fixed;
-		right: 20px;
-		bottom: 5px;
-	}
-
-	a#prev::before {
+	a#prev::after {
 		content: '\2039';
+		margin-left: 16px;
+		margin-right: 16px;
+	}
+
+	a#home::after {
+		content: '\2302';
 		margin-left: 16px;
 		margin-right: 16px;
 	}
