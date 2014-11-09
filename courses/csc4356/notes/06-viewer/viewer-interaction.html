@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Interactive Computer Graphics</title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://csc.lsu.edu/~kooima/MathJax.js"></script>
+	<script type="text/javascript" src="../script.js"></script>
+</head>
+<body>
+	<h1>Tumble Interaction</h1>
+
+	<p>A tumble interaction allows the user to view the model from any angle by clicking and dragging in the canvas. Let the current position and orientation of the model be stored globally:</p>
+
+	<figure class="pseudocode">
+	&#x3008;Interaction&#x3009; &rarr;<br>
+		&emsp;&emsp;<b>variable</b> <i>modelRotationX</i>    = 0<br>
+		&emsp;&emsp;<b>variable</b> <i>modelRotationY</i>    = 0<br>
+		&emsp;&emsp;<b>variable</b> <i>modelTranslationZ</i> = 3<br>
+	</figure>
+
+	<p>We'll want a <em>relative</em> tumble, so we'll need to track whether a mouse drag is happenning and where it was dragged from:</p>
+
+	<figure class="pseudocode">
+    &emsp;&emsp;<b>variable</b> <i>dragging</i> = <i>false</i><br>
+    &emsp;&emsp;<b>variable</b> <i>lastX</i><br>
+    &emsp;&emsp;<b>variable</b> <i>lastY</i><br>
+  </figure>
+
+  <p>When the user presses the mouse button, make a note of it and start tracking the most recent mouse location.</p>
+
+	<figure class="pseudocode">
+    &emsp;&emsp;<b>function</b> onmousedown(<i>event</i>)<br>
+    &emsp;&emsp;&emsp;&emsp;<i>dragging</i> = <i>true</i><br>
+    &emsp;&emsp;&emsp;&emsp;<i>lastX</i> = <i>event.clientX</i><br>
+    &emsp;&emsp;&emsp;&emsp;<i>lastY</i> = <i>event.clientY</i><br>
+  </figure>
+
+  <p>When the user release the mouse button, stop tracking.</p>
+
+	<figure class="pseudocode">
+    &emsp;&emsp;<b>function</b> onmouseup(<i>event</i>)<br>
+    &emsp;&emsp;&emsp;&emsp;<i>dragging</i> = <i>false</i><br>
+  </figure>
+
+  <p>When the user moves the mouse while the button is down, alter the orientation of the model accordingly.</p>
+
+	<figure class="pseudocode">
+    &emsp;&emsp;<b>function</b> onmousemove(<i>event</i>)<br>
+    &emsp;&emsp;&emsp;&emsp;<b>if</b> <i>dragging</i><br>
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<i>modelRotationY</i> = <i>modelRotationY</i> + <i>event.clientX</i> &minus; <i>lastX</i>;<br>
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<i>modelRotationX</i> = <i>modelRotationX</i> + <i>event.clientY</i> &minus; <i>lastY</i>;<br>
+    <br>
+    &emsp;&emsp;&emsp;&emsp;<b>if</b> <i>modelRotationX</i> &gt; 90.0<br>
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<i>modelRotationX</i> = 90.0<br>
+    &emsp;&emsp;&emsp;&emsp;<b>if</b> <i>modelRotationX</i> &lt; &minus;90.0<br>
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<i>modelRotationX</i> = &minus;90.0<br>
+    <br>
+    &emsp;&emsp;&emsp;&emsp;<i>lastX</i> = <i>event.clientX</i>;<br>
+    &emsp;&emsp;&emsp;&emsp;<i>lastY</i> = <i>event.clientY</i>;<br>
+    <br>
+    &emsp;&emsp;&emsp;&emsp;Request a new animation frame.
+ 	</figure>
+
+ 	<p>These functions must be made properties of the <code>canvas</code> entity.</p>
+
+	<nav>
+		<a id="prev" href="empty.html"></a>
+		<a id="home" href="../index.html"></a>
+		<a id="next" href="viewer-vector.html"></a>
+	</nav>
+</body>
+</html>

@@ -13,7 +13,7 @@
 
 	<p>We want to apply the <a href="../05-lighting/lighting-5.html">lighting equation</a> to shade that object. Lighting requires that each vertex have a <em>normal</em> attribute, so we must <a href="../05-lighting/normal-1.html">calculate them</a>.</p>
 
-	<p>Assume we have an array of vertices called <code>vertices</code> and an array of triangles called <code>triangles</code>. We will generate a new array of normals, called <code>normals</code>, like so:</p>
+	<p>Assume we have an array of vertices called <i>vertices</i> and an array of triangles called <i>triangles</i>. We will generate a new array of normals, called <i>normals</i>, like so:</p>
 
 	<ol>
 		<li>Initialize a zero-valued normal for each vertex.</li>
@@ -26,22 +26,22 @@
 	<figure class="pseudocode">
 		&#x3008;Normal Calculation&#x3009; &rarr;<br>
 		<br>
-		&emsp;&emsp;<code>normals</code> = []<br>
-		&emsp;&emsp;For each vertex in <code>vertices</code><br>
-		&emsp;&emsp;&emsp;&emsp;Push $\V{n} = [0, 0, 0]$ onto <code>normals</code>.<br>
+		&emsp;&emsp;<i>normals</i> = []<br>
+		&emsp;&emsp;For each vertex in <i>vertices</i><br>
+		&emsp;&emsp;&emsp;&emsp;Push $\V{n}$ = [0, 0, 0] onto <i>normals</i>.<br>
 		<br>
-		&emsp;&emsp;For each triangle $[i_0, i_1, i_2]$ in <code>triangles</code><br>
-		&emsp;&emsp;&emsp;&emsp;$\V{a} =$ <code>normalize</code>(<code>vertices</code>[$i_1$] $-$ <code>vertices</code>[$i_0$])<br>
-		&emsp;&emsp;&emsp;&emsp;$\V{b} =$ <code>normalize</code>(<code>vertices</code>[$i_2$] $-$ <code>vertices</code>[$i_0$])<br>
+		&emsp;&emsp;For each triangle $[i_0, i_1, i_2]$ in <i>triangles</i><br>
+		&emsp;&emsp;&emsp;&emsp;$\V{a}$ = normalize(<i>vertices</i>[$i_1$] &minus; <i>vertices</i>[$i_0$])<br>
+		&emsp;&emsp;&emsp;&emsp;$\V{b}$ = normalize(<i>vertices</i>[$i_2$] &minus; <i>vertices</i>[$i_0$])<br>
 		<br>
-		&emsp;&emsp;&emsp;&emsp;$\V{n} =$ <code>normalize</code>($\V{a}\times \V{b}$)<br>
+		&emsp;&emsp;&emsp;&emsp;$\V{n}$ = normalize($\V{a}\times \V{b}$)<br>
 		<br>
-		&emsp;&emsp;&emsp;&emsp;<code>normals</code>[$i_0$] = <code>normals</code>[$i_0$] + $\V{n}$ <br>
-		&emsp;&emsp;&emsp;&emsp;<code>normals</code>[$i_1$] = <code>normals</code>[$i_1$] + $\V{n}$ <br>
-		&emsp;&emsp;&emsp;&emsp;<code>normals</code>[$i_2$] = <code>normals</code>[$i_2$] + $\V{n}$ <br>
+		&emsp;&emsp;&emsp;&emsp;<i>normals</i>[$i_0$] = <i>normals</i>[$i_0$] + $\V{n}$ <br>
+		&emsp;&emsp;&emsp;&emsp;<i>normals</i>[$i_1$] = <i>normals</i>[$i_1$] + $\V{n}$ <br>
+		&emsp;&emsp;&emsp;&emsp;<i>normals</i>[$i_2$] = <i>normals</i>[$i_2$] + $\V{n}$ <br>
 		<br>
-		&emsp;&emsp;For each normal $\V{n}$ in <code>normals</code><br>
-		&emsp;&emsp;&emsp;&emsp;$\V{n} =$ <code>normalize</code>($\V{n}$)
+		&emsp;&emsp;For each normal $\V{n}$ in <i>normals</i><br>
+		&emsp;&emsp;&emsp;&emsp;$\V{n} =$ normalize($\V{n}$)
 	</figure>
 
 	<nav>
