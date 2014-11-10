@@ -1,3 +1,10 @@
 viewer-overview.html
+viewer-interaction.html
+viewer-initialization.html
 viewer-vector.html
 viewer-normal.html
+viewer-buffers.html
+viewer-rendering.html
+viewer-shaders.html
+viewer-elements.html
+viewer-headers.html

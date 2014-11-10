@@ -24,66 +24,72 @@
 	<p>Subscripts translate into JavaScript array references.</p>
 
 	<figure class="pseudocode">
-		$a_x$ &rarr; <code>a[0]</code><br>
-		$a_y$ &rarr; <code>a[1]</code><br>
-		$a_z$ &rarr; <code>a[2]</code><br>
+		$a_x$ &equiv; <code>a[0]</code><br>
+		$a_y$ &equiv; <code>a[1]</code><br>
+		$a_z$ &equiv; <code>a[2]</code><br>
 	</figure>
 
-	<p>Vector addition is thus an array of array element additions:</p>
+	<p>Vector addition is then an array of array element additions:</p>
 
 	<figure class="pseudocode">
-		$\V{a}+\V{b}$ &rarr; <code>[a[0] + b[0], a[1] + b[1], a[2] + b[2]]</code>
+		$\V{a}+\V{b}$ &equiv; <code>[a[0] + b[0], a[1] + b[1], a[2] + b[2]]</code>
 	</figure>
 
 	<p>Vector subtraction:</p>
 
 	<figure class="pseudocode">
-		$\V{a}-\V{b}$ &rarr; <code>[a[0] - b[0], a[1] - b[1], a[2] - b[2]]</code>
+		$\V{a}-\V{b}$ &equiv; <code>[a[0] &minus; b[0], a[1] &minus; b[1], a[2] &minus; b[2]]</code>
 	</figure>
 
 	<p>The dot product is a scalar value:</p>
 
 	<figure class="pseudocode">
-		$\V{a}\cdot\V{b}$ &rarr; <code>a[0] * b[0] + a[1] * b[1] + a[2] * b[2]</code>
+		$\V{a}\cdot\V{b}$ &equiv; <code>a[0] * b[0] + a[1] * b[1] + a[2] * b[2]</code>
 	</figure>
 
 	<p>The cross product:</p>
 
 	<figure class="pseudocode">
-		$\V{a}\times\V{b}$ &rarr; <code>[</code><br>
-    &emsp;&emsp;<code>a[1] * b[2] - a[2] * b[1],</code><br>
-    &emsp;&emsp;<code>a[2] * b[0] - a[0] * b[2],</code><br>
-    &emsp;&emsp;<code>a[0] * b[1] - a[1] * b[0]</code><br>
+		$\V{a}\times\V{b}$ &equiv; <code>[</code><br>
+    &emsp;&emsp;<code>a[1] * b[2] &minus; a[2] * b[1],</code><br>
+    &emsp;&emsp;<code>a[2] * b[0] &minus; a[0] * b[2],</code><br>
+    &emsp;&emsp;<code>a[0] * b[1] &minus; a[1] * b[0]</code><br>
     <code>]</code>
   </figure>
 
-  <p>To write each of these operations out in full with each use would lead to lengthy and error-prone programs. It's best to translate each of these into a separate JavaScript function. For example:</p>
+  <p>To write each of these operations out in full with each use would lead to lengthy and error-prone programs. It's best to translate each of these into a separate JavaScript function. This will be content of the Vector Operations section.</p>
 
-  <figure class="code">
-	  function add(a, b) {<br>
-		&nbsp;&nbsp;&nbsp;&nbsp;return [<br>
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a[0] + b[0],<br>
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a[1] + b[1],<br>
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a[2] + b[2]<br>
-		&nbsp;&nbsp;&nbsp;&nbsp;];<br>
-		}
+	<figure class="pseudocode">
+		&#x3008;Vector Operations&#x3009; &equiv;<br>
+	</figure>
+
+	<figure class="pseudocode">
+	  &emsp;&emsp;<code>function add(a, b) {</code><br>
+		&emsp;&emsp;&emsp;&emsp;<code>return [</code><br>
+		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>a[0] + b[0],</code><br>
+		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>a[1] + b[1],</code><br>
+		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>a[2] + b[2]</code><br>
+		&emsp;&emsp;&emsp;&emsp;<code>];</code><br>
+		&emsp;&emsp;<code>}</code>
   </figure>
 
-  <p>Vector normalization is extremely common. Given a JavaScript function for the dot product, a normalize function might look like this:</p>
+  <p>Implementations of vector subtraction, dot product, and cross product will be similar.</p>
 
-  <figure class="code">
-	  function normalize(a) {<br>
-	  &nbsp;&nbsp;&nbsp;&nbsp;var l = Math.sqrt(dot(a, a));<br>
-		&nbsp;&nbsp;&nbsp;&nbsp;return [<br>
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a[0] / l,<br>
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a[1] / l,<br>
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a[2] / l,<br>
-		&nbsp;&nbsp;&nbsp;&nbsp;];<br>
-		}
+  <p>Additionally, vector normalization is extremely common. Given a JavaScript function for the dot product, a normalize function might look like this:</p>
+
+  <figure class="pseudocode">
+	  &emsp;&emsp;<code>function normalize(a) {</code><br>
+	  &emsp;&emsp;&emsp;&emsp;<code>var l = Math.sqrt(dot(a, a));</code><br>
+		&emsp;&emsp;&emsp;&emsp;<code>return [</code><br>
+		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>a[0] / l,</code><br>
+		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>a[1] / l,</code><br>
+		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>a[2] / l</code><br>
+		&emsp;&emsp;&emsp;&emsp;<code>];</code><br>
+		&emsp;&emsp;<code>}</code>
   </figure>
 
   <nav>
-		<a id="prev" href="viewer-overview.html"></a>
+		<a id="prev" href="viewer-initialization.html"></a>
 		<a id="home" href="../index.html"></a>
 		<a id="next" href="viewer-normal.html"></a>
 	</nav>

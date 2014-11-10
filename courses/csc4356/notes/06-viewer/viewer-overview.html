@@ -12,15 +12,30 @@
 	<p>These pages define the structure of a complete application for processing and interactively viewing a 3D model. This definition is given as <em>pseudocode</em> to be translated into JavaScript and GLSL.</p>
 
 	<figure class="pseudocode">
-		<code>Viewer.js</code> &rarr;<br>
-		&emsp;&emsp;&#x3008;Initialization&#x3009;<br>
-		&emsp;&emsp;&#x3008;Rendering&#x3009;<br>
+		<code>Viewer.js</code> &equiv;<br>
+		&emsp;&emsp;&#x3008;<a href="viewer-interaction.html">Interaction&#x3009;</a><br>
+		&emsp;&emsp;&#x3008;<a href="viewer-initialization.html">Initialization&#x3009;</a><br>
+		&emsp;&emsp;&#x3008;<a href="viewer-rendering.html">Rendering&#x3009;</a><br>
 	</figure>
 
+	<figure class="pseudocode">
+		<code>Viewer.html</code> &equiv;<br>
+		&emsp;<code>&lt;html&gt;</code><br>
+		&emsp;&emsp;<code>&lt;head&gt;</code><br>
+		&emsp;&emsp;&emsp;&#x3008;<a href="viewer-headers.html">Headers&#x3009;</a><br>
+		&emsp;&emsp;<code>&lt;/head&gt;</code><br>
+		&emsp;&emsp;<code>&lt;body&gt;</code><br>
+		&emsp;&emsp;&emsp;&#x3008;<a href="viewer-shaders.html">Shaders&#x3009;</a><br>
+		&emsp;&emsp;&emsp;&#x3008;<a href="viewer-elements.html">Elements&#x3009;</a><br>
+		&emsp;&emsp;<code>&lt;/body&gt;</code><br>
+		&emsp;<code>&lt;/html&gt;</code><br>
+	</figure>
+
+	<p>The section ordering shown here gives a correct implementation because every symbol is defined before it is used. However, we need not necessarily discuss these sections in that same order&hellip;</p>
+
 	<nav>
-		<a id="prev" href="empty.html"></a>
 		<a id="home" href="../index.html"></a>
-		<a id="next" href="viewer-vector.html"></a>
+		<a id="next" href="viewer-interaction.html"></a>
 	</nav>
 </body>
 </html>

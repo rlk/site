@@ -69,6 +69,7 @@ figure.code {
 	font-family: "Consolas", "Inconsolata", monospace;
 	font-size:   24px;
 	line-height: 28px;
+	margin-left: 2em;
 	color:       #888;
 }
 
@@ -147,7 +148,7 @@ nav {
 @media screen {
 	a#prev, a#home, a#next {
 		font-size: 64px;
-		text-align: right;
+		text-decoration: none;
 	}
 
 	a#prev::after {
@@ -171,8 +172,8 @@ nav {
 
 /* Link styles */
 
-a:link    { color:#0000FF; text-decoration: none; }
-a:visited { color:#2200DD; text-decoration: none; }
-a:hover   { color:#AA0000; text-decoration: underline; }
-a:active  { color:#FF0000; text-decoration: underline; }
+a:link    { color:#444; text-decoration: underline; }
+a:visited { color:#444; text-decoration: underline; }
+a:hover   { color:#A44; text-decoration: underline; }
+a:active  { color:#F44; text-decoration: underline; }
 
