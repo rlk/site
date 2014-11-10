@@ -12,16 +12,16 @@
 	<p>To generate a grid of lines for this mesh, begin with an empty line array. Generate the row-wise grid lines.</p>
 
 	<figure class="pseudocode">
-		Loop $r = 0$ to $n$<br>
-		&emsp;&emsp;Loop $c = 0$ to $n-1$<br>
+		<b>for</b> $r = 0$ to $n-1$<br>
+		&emsp;&emsp;<b>for</b> $c = 0$ to $n-2$<br>
 		&emsp;&emsp;&emsp;&emsp;Add a new line $[i_0, i_2]$ at row $r$ column $c$.<br>
 	</figure>
 
 	<p>And generate the column-wise grid lines.</p>
 
 	<figure class="pseudocode">
-		Loop $r = 0$ to $n-1$<br>
-		&emsp;&emsp;Loop $c = 0$ to $n$<br>
+		<b>for</b> $r = 0$ to $n-2$<br>
+		&emsp;&emsp;<b>for</b> $c = 0$ to $n-1$<br>
 		&emsp;&emsp;&emsp;&emsp;Add a new line $[i_0, i_1]$ at row $r$ column $c$.<br>
 	</figure>
 
