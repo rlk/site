@@ -50,15 +50,15 @@
     &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<i>modelRotationY</i> &larr; <i>modelRotationY</i> + <i>event.clientX</i> &minus; <i>lastX</i>;<br>
     &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<i>modelRotationX</i> &larr; <i>modelRotationX</i> + <i>event.clientY</i> &minus; <i>lastY</i>;<br>
     <br>
-    &emsp;&emsp;&emsp;&emsp;<b>if</b> <i>modelRotationX</i> &gt; 90.0<br>
-    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<i>modelRotationX</i> &larr; 90.0<br>
-    &emsp;&emsp;&emsp;&emsp;<b>if</b> <i>modelRotationX</i> &lt; &minus;90.0<br>
-    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<i>modelRotationX</i> &larr; &minus;90.0<br>
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>if</b> <i>modelRotationX</i> &gt; 90.0<br>
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<i>modelRotationX</i> &larr; 90.0<br>
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>if</b> <i>modelRotationX</i> &lt; &minus;90.0<br>
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<i>modelRotationX</i> &larr; &minus;90.0<br>
     <br>
-    &emsp;&emsp;&emsp;&emsp;<i>lastX</i> &larr; <i>event.clientX</i>;<br>
-    &emsp;&emsp;&emsp;&emsp;<i>lastY</i> &larr; <i>event.clientY</i>;<br>
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<i>lastX</i> &larr; <i>event.clientX</i>;<br>
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<i>lastY</i> &larr; <i>event.clientY</i>;<br>
     <br>
-    &emsp;&emsp;&emsp;&emsp;Request a new animation frame.
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Request a new animation frame.
  	</figure>
 
  	<p>These functions must be made properties of the <code>canvas</code> entity.</p>

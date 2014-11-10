@@ -11,14 +11,23 @@
 
 	<p>The initialization section includes everything that must be done exactly once at the beginning of the application's execution.</p>
 
-	<figure class="pseudocode">
-		&#x3008;Interaction&#x3009; &equiv;<br>
-		&emsp;&emsp;&#x3008;<a href="viewer-vector.html">Vector Operators&#x3009;</a><br>
-		&emsp;&emsp;&#x3008;<a href="viewer-normal.html">Normal Calculation&#x3009;</a><br>
-		&emsp;&emsp;&#x3008;<a href="viewer-buffers.html">Buffer Initialization&#x3009;</a><br>
-	</figure>
+	<p>An initialization function sets up for GL rendering and accomplishes all application initialization tasks, doing so with the help of a few vector operators.</p>
 
-	<p>
+	<figure class="pseudocode">
+		&#x3008;Initialization&#x3009; &equiv;<br>
+		&emsp;&emsp;<code>var canvas</code><br>
+		&emsp;&emsp;<code>var gl</code><br>
+		<br>
+		&emsp;&emsp;&#x3008;<a href="viewer-vector.html">Vector Operators&#x3009;</a><br>
+		&emsp;&emsp;&#x3008;<a href="viewer-buffers.html">Buffer Objects&#x3009;</a><br>
+		<br>
+		&emsp;&emsp;<b>function</b> init()<br>
+    &emsp;&emsp;&emsp;&emsp;<code>canvas = document.getElementById('webgl');</code><br>
+    &emsp;&emsp;&emsp;&emsp;<code>gl&nbsp;&nbsp;&nbsp;&nbsp; = getWebGLContext(canvas, false);</code><br>
+		&emsp;&emsp;&emsp;&emsp;&#x3008;<a href="viewer-normal.html">Normal Calculation&#x3009;</a><br>
+		&emsp;&emsp;&emsp;&emsp;&#x3008;<a href="viewer-shaders.html#initialization">Shader Initialization&#x3009;</a><br>
+		&emsp;&emsp;&emsp;&emsp;&#x3008;<a href="viewer-buffers.html">Buffer Initialization&#x3009;</a><br>
+	</figure>
 
 	<nav>
 		<a id="prev" href="viewer-interaction.html"></a>
