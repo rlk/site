@@ -82,57 +82,14 @@
 		</tr>
 	</table>
 
-	<p>Alternatively, an &ldquo;interleaved&rdquo; array of attributes is sometimes used.</p>
+	<p>In truth, this array-of-arrays representation is used because it makes <em>geometry processing</em> more straightforward, which we'll see later on. To use these tables for rendering, we must flatten each to a single linear array. This JavaScript function does so, returning its input in a new, flat array.</p>
 
-	<table class="center">
-		<tr>
-			<td>
-				<figure class="code">
-					var vertices = [<br>
-					&nbsp;&nbsp;&nbsp;&nbsp;[ &nbsp;0.0, &nbsp;1.0, &nbsp;0.5, 1.0, 1.0, 0.9 ],<br>
-					&nbsp;&nbsp;&nbsp;&nbsp;[ -0.5, &nbsp;0.5, &nbsp;0.5, 1.0, 1.0, 0.9 ],<br>
-					&nbsp;&nbsp;&nbsp;&nbsp;[ -0.5, &nbsp;0.0, &nbsp;0.5, 1.0, 1.0, 0.9 ],<br>
-					&nbsp;&nbsp;&nbsp;&nbsp;[ &nbsp;0.5, &nbsp;0.0, &nbsp;0.5, 1.0, 1.0, 0.9 ],<br>
-					&nbsp;&nbsp;&nbsp;&nbsp;[ &nbsp;0.5, &nbsp;0.5, &nbsp;0.5, 1.0, 1.0, 0.9 ],<br>
-					&nbsp;&nbsp;&nbsp;&nbsp;[ &nbsp;0.0, &nbsp;1.0, -0.5, 1.0, 1.0, 0.9 ],<br>
-					&nbsp;&nbsp;&nbsp;&nbsp;[ -0.5, &nbsp;0.5, -0.5, 1.0, 1.0, 0.9 ],<br>
-					&nbsp;&nbsp;&nbsp;&nbsp;[ -0.5, &nbsp;0.0, -0.5, 1.0, 1.0, 0.9 ],<br>
-					&nbsp;&nbsp;&nbsp;&nbsp;[ &nbsp;0.5, &nbsp;0.0, -0.5, 1.0, 1.0, 0.9 ],<br>
-					&nbsp;&nbsp;&nbsp;&nbsp;[ &nbsp;0.5, &nbsp;0.5, -0.5, 1.0, 1.0, 0.9 ],<br>
-					&nbsp;&nbsp;&nbsp;&nbsp;[ &nbsp;0.0, &nbsp;1.0, &nbsp;0.5, 0.8, 0.0, 0.0 ],<br>
-					&nbsp;&nbsp;&nbsp;&nbsp;[ -0.5, &nbsp;0.5, &nbsp;0.5, 0.8, 0.0, 0.0 ],<br>
-					&nbsp;&nbsp;&nbsp;&nbsp;[ &nbsp;0.5, &nbsp;0.5, &nbsp;0.5, 0.8, 0.0, 0.0 ],<br>
-					&nbsp;&nbsp;&nbsp;&nbsp;[ &nbsp;0.0, &nbsp;1.0, -0.5, 0.8, 0.0, 0.0 ],<br>
-					&nbsp;&nbsp;&nbsp;&nbsp;[ -0.5, &nbsp;0.5, -0.5, 0.8, 0.0, 0.0 ],<br>
-					&nbsp;&nbsp;&nbsp;&nbsp;[ &nbsp;0.5, &nbsp;0.5, -0.5, 0.8, 0.0, 0.0 ]<br>
-					];
-				</figure>
-			</td>
-			<td>
-				<figure class="code">
-					var triangles = [<br>
-					&nbsp;&nbsp;&nbsp;&nbsp;[ &nbsp;0, &nbsp;1, &nbsp;4 ],<br>
-					&nbsp;&nbsp;&nbsp;&nbsp;[ &nbsp;4, &nbsp;1, &nbsp;3 ],<br>
-					&nbsp;&nbsp;&nbsp;&nbsp;[ &nbsp;3, &nbsp;1, &nbsp;2 ],<br>
-					&nbsp;&nbsp;&nbsp;&nbsp;[ 10, 13, 11 ],<br>
-					&nbsp;&nbsp;&nbsp;&nbsp;[ 13, 11, 14 ],<br>
-					&nbsp;&nbsp;&nbsp;&nbsp;[ &nbsp;1, &nbsp;6, &nbsp;2 ],<br>
-					&nbsp;&nbsp;&nbsp;&nbsp;[ &nbsp;2, &nbsp;6, &nbsp;7 ],<br>
-					&nbsp;&nbsp;&nbsp;&nbsp;[ &nbsp;2, &nbsp;7, &nbsp;3 ],<br>
-					&nbsp;&nbsp;&nbsp;&nbsp;[ &nbsp;3, &nbsp;7, &nbsp;8 ],<br>
-					&nbsp;&nbsp;&nbsp;&nbsp;[ &nbsp;3, &nbsp;8, &nbsp;4 ],<br>
-					&nbsp;&nbsp;&nbsp;&nbsp;[ &nbsp;4, &nbsp;8, &nbsp;9 ],<br>
-					&nbsp;&nbsp;&nbsp;&nbsp;[ 12, 15, 10 ],<br>
-					&nbsp;&nbsp;&nbsp;&nbsp;[ 10, 15, 13 ],<br>
-					&nbsp;&nbsp;&nbsp;&nbsp;[ &nbsp;5, &nbsp;9, &nbsp;6 ],<br>
-					&nbsp;&nbsp;&nbsp;&nbsp;[ &nbsp;6, &nbsp;9, &nbsp;7 ],<br>
-					&nbsp;&nbsp;&nbsp;&nbsp;[ &nbsp;7, &nbsp;9, &nbsp;8 ]<br>
-					];
-				</figure>
-			</td>
-		</tr>
-	</table>
-	<p>These tables will be used in the introduction to <a href="../03-transformation/transformation-06.html">transformation.</a></p>
+	<figure class="code" id="flatten">
+		function flatten(a) {<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;return a.reduce(function (b, v) { b.push.apply(b, v); return b; }, [])<br>
+		}<br>
+	</figure>
+
 	<nav>
 		<a id="prev" href="geometry-10.html"></a>
 		<a id="home" href="../index.html"></a>

@@ -9,7 +9,7 @@
 <body>
 	<h1>Tumble Interaction</h1>
 
-	<p>A tumble interaction allows the user to view the model from any angle by clicking and dragging in the canvas. Let the current position and orientation of the model be stored globally:</p>
+	<p>A tumble interaction allows the user to view the model from any angle by clicking and dragging in the canvas. Let the current position and orientation of the model be initialized and stored globally:</p>
 
 	<figure class="pseudocode">
 	&#x3008;Interaction&#x3009; &equiv;<br>
@@ -55,10 +55,10 @@
     &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>if</b> <i>modelRotationX</i> &lt; &minus;90.0<br>
     &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<i>modelRotationX</i> &larr; &minus;90.0<br>
     <br>
-    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<i>lastX</i> &larr; <i>event.clientX</i>;<br>
-    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<i>lastY</i> &larr; <i>event.clientY</i>;<br>
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Request a new animation frame.<br>
     <br>
-    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Request a new animation frame.
+    &emsp;&emsp;&emsp;&emsp;<i>lastX</i> &larr; <i>event.clientX</i>;<br>
+    &emsp;&emsp;&emsp;&emsp;<i>lastY</i> &larr; <i>event.clientY</i>;<br>
  	</figure>
 
  	<p>These functions must be made properties of the <code>canvas</code> entity.</p>

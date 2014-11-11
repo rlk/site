@@ -24,17 +24,17 @@
 	<p>To be useful, these attribute locations must be <em>enabled</em>.</p>
 
 	<figure class="pseudocode">
-		&emsp;&emsp;<code>gl.enableVertexAttribArray(vertexPositionLocation)</code>
-		&emsp;&emsp;<code>gl.enableVertexAttribArray(vertexNormalLocation)</code>
+		&emsp;&emsp;<code>gl.enableVertexAttribArray</code>(<i>vertexPositionLocation</i>)</code>
+		&emsp;&emsp;<code>gl.enableVertexAttribArray</code>(<i>vertexNormalLocation</i>)</code>
 	</figure>
 
 	<p>We have our data in three arrays, <code>vertices</code>, <code>normals</code>, and <code>triangles</code>, but GL doesn't accept data in this form. These must converted to <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays">typed arrays</a>.</p>
 
 	<figure class="pseudocode">
 		<table style="margin-left:2em">
-			<tr><td><i>positionArray</i> </td><td>&nbsp;&larr;&nbsp;<code>new Float32Array</code>(<code>flatten</code>(<i>vertices</i>))</td></tr>
-			<tr><td><i>normalArray</i>   </td><td>&nbsp;&larr;&nbsp;<code>new Float32Array</code>(<code>flatten</code>(<i>normals</i>))</td></tr>
-			<tr><td><i>triangleArray</i> </td><td>&nbsp;&larr;&nbsp;<code>new Uint16Array </code>(<code>flatten</code>(<i>triangles</i>))</td></tr>
+			<tr><td><i>positionArray</i> </td><td>&nbsp;&larr;&nbsp;<code>new Float32Array</code>(<a href="../01-geometry/geometry-11.html#flatten"><code>flatten</code></a>(<i>vertices</i>))</td></tr>
+			<tr><td><i>normalArray</i>   </td><td>&nbsp;&larr;&nbsp;<code>new Float32Array</code>(<a href="../01-geometry/geometry-11.html#flatten"><code>flatten</code></a>(<i>normals</i>))</td></tr>
+			<tr><td><i>triangleArray</i> </td><td>&nbsp;&larr;&nbsp;<code>new Uint16Array </code>(<a href="../01-geometry/geometry-11.html#flatten"><code>flatten</code></a>(<i>triangles</i>))</td></tr>
 		</table>
 	</figure>
 

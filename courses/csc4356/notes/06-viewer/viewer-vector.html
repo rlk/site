@@ -57,9 +57,9 @@
     <code>]</code>
   </figure>
 
-  <p>To write each of these operations out in full with each use would lead to lengthy and error-prone programs. It's best to translate each of these into a separate JavaScript function. This will be content of the Vector Operations section.</p>
+  <p>To write each of these operations out in full with each use would lead to lengthy and error-prone programs. It's best to translate each of these into a separate JavaScript function.</p>
 
-	<figure class="pseudocode">
+	<figure class="pseudocode" id="vector_operations">
 		&#x3008;Vector Operations&#x3009; &equiv;<br>
 	</figure>
 
@@ -79,11 +79,11 @@
 
   <figure class="pseudocode">
 	  &emsp;&emsp;<code>function normalize(a) {</code><br>
-	  &emsp;&emsp;&emsp;&emsp;<code>var l = Math.sqrt(dot(a, a));</code><br>
+	  &emsp;&emsp;&emsp;&emsp;<code>var len = Math.sqrt(dot(a, a));</code><br>
 		&emsp;&emsp;&emsp;&emsp;<code>return [</code><br>
-		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>a[0] / l,</code><br>
-		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>a[1] / l,</code><br>
-		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>a[2] / l</code><br>
+		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>a[0] / len,</code><br>
+		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>a[1] / len,</code><br>
+		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>a[2] / len</code><br>
 		&emsp;&emsp;&emsp;&emsp;<code>];</code><br>
 		&emsp;&emsp;<code>}</code>
   </figure>

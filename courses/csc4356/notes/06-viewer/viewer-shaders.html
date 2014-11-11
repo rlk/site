@@ -68,8 +68,8 @@
 	<figure class="pseudocode" id="initialization">
 		&#x3008;Shader Initialization&#x3009; &equiv;<br>
 		<table style="margin-left:2em">
-			<tr class="small"><td><code>initShaders(gl,</code></td><td>&nbsp;<code>document.getElementById('fragmentShader').text, </code></td></tr>
-			<tr class="small"><td><code>               </code></td><td>&nbsp;<code>document.getElementById(  'vertexShader').text);</code></td></tr>
+			<tr><td><code>initShaders(gl,</code></td><td>&nbsp;<code>document.getElementById</code>(&ldquo;fragmentShader&rdquo;).text, </code></td></tr>
+			<tr><td><code>               </code></td><td>&nbsp;<code>document.getElementById</code>(&ldquo;vertexShader&rdquo;).text);</code></td></tr>
 		</table>
 	</figure>
 
@@ -77,11 +77,11 @@
 
 	<figure class="pseudocode">
 		<table style="margin-left:2em">
-			<tr class="small"><td><i>projectionMatrixLocation</i></td><td>&nbsp;&larr;&nbsp;</td><td><code>gl.getUniformLocation(gl.program, 'projectionMatrix');</code></td></tr>
-			<tr class="small"><td><i>modelMatrixLocation</i>     </td><td>&nbsp;&larr;&nbsp;</td><td><code>gl.getUniformLocation(gl.program, 'modelMatrix');</code></td></tr>
-			<tr class="small"><td><i>lightDirectionLocation</i>  </td><td>&nbsp;&larr;&nbsp;</td><td><code>gl.getUniformLocation(gl.program, 'lightDirection');</code></td></tr>
-			<tr class="small"><td><i>lightColorLocation</i>      </td><td>&nbsp;&larr;&nbsp;</td><td><code>gl.getUniformLocation(gl.program, 'lightColor');</code></td></tr>
-			<tr class="small"><td><i>objectColorLocation</i>     </td><td>&nbsp;&larr;&nbsp;</td><td><code>gl.getUniformLocation(gl.program, 'objectColor');</code></td></tr>
+			<tr><td><i>projectionMatrixLocation</i></td><td>&nbsp;&larr;&nbsp;</td><td><code class="small">gl.getUniformLocation</code>(<code>gl.program</code>, &ldquo;projectionMatrix&rdquo;);</code></td></tr>
+			<tr><td><i>modelMatrixLocation</i>     </td><td>&nbsp;&larr;&nbsp;</td><td><code class="small">gl.getUniformLocation</code>(<code>gl.program</code>, &ldquo;modelMatrix&rdquo;);</code></td></tr>
+			<tr><td><i>lightDirectionLocation</i>  </td><td>&nbsp;&larr;&nbsp;</td><td><code class="small">gl.getUniformLocation</code>(<code>gl.program</code>, &ldquo;lightDirection&rdquo;);</code></td></tr>
+			<tr><td><i>lightColorLocation</i>      </td><td>&nbsp;&larr;&nbsp;</td><td><code class="small">gl.getUniformLocation</code>(<code>gl.program</code>, &ldquo;lightColor&rdquo;);</code></td></tr>
+			<tr><td><i>objectColorLocation</i>     </td><td>&nbsp;&larr;&nbsp;</td><td><code class="small">gl.getUniformLocation</code>(<code>gl.program</code>, &ldquo;objectColor&rdquo;);</code></td></tr>
 		</table>
 	</figure>
 
