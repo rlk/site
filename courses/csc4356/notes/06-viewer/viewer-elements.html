@@ -7,6 +7,29 @@
 	<script type="text/javascript" src="../script.js"></script>
 </head>
 <body>
+	<h1>HTML Elements</h1>
+
+	<p>The only HTML element that is absolutely required is the <code>canvas</code>. This is where the rendering appears.</p>
+
+	<p>It's generally smart to add a helpful message to the text of the element. If all goes well, the user will never see this. But if the browser lacks WebGL support the user will be informed.</p>
+
+	<figure class="pseudocode">
+		&#x3008;Elements&#x3009; &equiv;<br>
+  	&emsp;&emsp;<code>&lt;canvas id="webgl" width="500px" height="500px"&gt;</code><br>
+  	&emsp;&emsp;<code>&nbsp;&nbsp;This content requires &lt;a href="http://get.webgl.org/"&gt;WebGL&lt;/a&gt;.</code><br>
+  	&emsp;&emsp;<code>&lt;/canvas&gt;</code><br>
+  </figure>
+
+  <p>A few notes:</p>
+
+  <ol>
+  <li>The <code>id</code> of the canvas must coincide with the identifier requested during <a href="viewer-initialization.html">Initialization</a>.</li>
+  <li>The aspect ratio given during <a href="viewer-rendering.html">rendering</a> should equal <code>width / height</code>.</li>
+  <li>The <a href="viewer-interaction.html">interaction functions</a> must be made properties of this <code>canvas</code> element.</li>
+  </ol>
+
+  <p>This section may also include <code>input</code> elements permitting interactive manipulation of such variables as <i>objectColor</i>, <i>lightColor</i>, <i>lightDirection</i>, <i>modelTranslateZ</i>, and others.</p>
+
 	<nav>
 		<a id="prev" href="viewer-rendering.html"></a>
 		<a id="home" href="../index.html"></a>
