@@ -15,50 +15,48 @@
 		&#x3008;Buffer Initialization&#x3009; &equiv;<br>
 	</figure>
 	<figure class="pseudocode">
-		<table style="margin-left:2em">
-			<tr><td><i>vertexPositionLocation</i></td><td>&nbsp;&larr;&nbsp;</td><td><code class="small">gl.getAttribLocation</code>(<code>gl.program</code>, &ldquo;vertexPosition&rdquo;)</code></td></tr>
-			<tr><td><i>vertexNormalLocation</i>  </td><td>&nbsp;&larr;&nbsp;</td><td><code class="small">gl.getAttribLocation</code>(<code>gl.program</code>, &ldquo;vertexNormal&rdquo;)</code></td></tr>
-		</table>
+		&emsp;&emsp;<i>vertexPositionLocation</i> &larr; <code class="small">gl.getAttribLocation</code>(<code class="small">gl.program</code>, &ldquo;vertexPosition&rdquo;)</code><br>
+		&emsp;&emsp;<i>vertexNormalLocation</i>   &larr; <code class="small">gl.getAttribLocation</code>(<code class="small">gl.program</code>, &ldquo;vertexNormal&rdquo;)</code><br>
 	</figure>
 
 	<p>To be useful, these attribute locations must be <em>enabled</em>.</p>
 
 	<figure class="pseudocode">
-		&emsp;&emsp;<code>gl.enableVertexAttribArray</code>(<i>vertexPositionLocation</i>)</code>
-		&emsp;&emsp;<code>gl.enableVertexAttribArray</code>(<i>vertexNormalLocation</i>)</code>
+		&emsp;&emsp;<code class="small">gl.enableVertexAttribArray</code>(<i>vertexPositionLocation</i>)</code>
+		&emsp;&emsp;<code class="small">gl.enableVertexAttribArray</code>(<i>vertexNormalLocation</i>)</code>
 	</figure>
 
-	<p>We have our data in three arrays, <code>vertices</code>, <code>normals</code>, and <code>triangles</code>, but GL doesn't accept data in this form. These must converted to <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays">typed arrays</a>.</p>
+	<p>We have our data in three arrays, <i>vertices</i>, <i>normals</i>, and <i>triangles</i>, but GL doesn't accept data in this form. These must converted to flat <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays">typed arrays</a>.</p>
 
 	<figure class="pseudocode">
-		<table style="margin-left:2em">
-			<tr><td><i>positionArray</i> </td><td>&nbsp;&larr;&nbsp;<code>new Float32Array</code>(<a href="../01-geometry/geometry-11.html#flatten"><code>flatten</code></a>(<i>vertices</i>))</td></tr>
-			<tr><td><i>normalArray</i>   </td><td>&nbsp;&larr;&nbsp;<code>new Float32Array</code>(<a href="../01-geometry/geometry-11.html#flatten"><code>flatten</code></a>(<i>normals</i>))</td></tr>
-			<tr><td><i>triangleArray</i> </td><td>&nbsp;&larr;&nbsp;<code>new Uint16Array </code>(<a href="../01-geometry/geometry-11.html#flatten"><code>flatten</code></a>(<i>triangles</i>))</td></tr>
-		</table>
+		&emsp;&emsp;<span style="width:6em"><i>positionArray</i></span> &larr; <code>new Float32Array</code>(<a href="../01-geometry/geometry-11.html#flatten"><code>flatten</code></a>(<i>vertices</i>))<br>
+		&emsp;&emsp;<span style="width:6em"><i>normalArray</i></span>   &larr; <code>new Float32Array</code>(<a href="../01-geometry/geometry-11.html#flatten"><code>flatten</code></a>(<i>normals</i>))<br>
+		&emsp;&emsp;<span style="width:6em"><i>triangleArray</i></span> &larr; <code>new Uint16Array </code>(<a href="../01-geometry/geometry-11.html#flatten"><code>flatten</code></a>(<i>triangles</i>))<br>
 	</figure>
 
-	<p>Then, each of these typed arrays is copied to a newly-created vertex buffer object. The vertex positions and normals go into array buffers.</p>
+	<p>Then, each of these typed arrays is copied to a newly-created buffer object. The vertex positions and normals go into array buffers.</p>
 
 	<figure class="pseudocode">
 		&emsp;&emsp;<i>positionBuffer</i> &larr; <code>gl.createBuffer()</code><br>
-		&emsp;&emsp;<code class="small">gl.bindBuffer</code>(<code>gl.ARRAY_BUFFER</code>, <i>positionBuffer</i>)<br>
-		&emsp;&emsp;<code class="small">gl.bufferData</code>(<code>gl.ARRAY_BUFFER</code>, <i>positionArray</i>, <code>gl.STATIC_DRAW</code>)<br>
+		&emsp;&emsp;<code class="small">gl.bindBuffer</code>(<code class="small">gl.ARRAY_BUFFER</code>, <i>positionBuffer</i>)<br>
+		&emsp;&emsp;<code class="small">gl.bufferData</code>(<code class="small">gl.ARRAY_BUFFER</code>, <i>positionArray</i>, <code class="small">gl.STATIC_DRAW</code>)<br>
 	</figure>
 
 	<figure class="pseudocode">
 		&emsp;&emsp;<i>normalBuffer</i> &larr; <code>gl.createBuffer()</code><br>
-		&emsp;&emsp;<code class="small">gl.bindBuffer</code>(<code>gl.ARRAY_BUFFER</code>, <i>normalBuffer</i>)<br>
-		&emsp;&emsp;<code class="small">gl.bufferData</code>(<code>gl.ARRAY_BUFFER</code>, <i>normalArray</i>, <code>gl.STATIC_DRAW</code>)<br>
+		&emsp;&emsp;<code class="small">gl.bindBuffer</code>(<code class="small">gl.ARRAY_BUFFER</code>, <i>normalBuffer</i>)<br>
+		&emsp;&emsp;<code class="small">gl.bufferData</code>(<code class="small">gl.ARRAY_BUFFER</code>, <i>normalArray</i>, <code class="small">gl.STATIC_DRAW</code>)<br>
 	</figure>
 
 	<p>The triangles go into an element array buffer.</p>
 
 	<figure class="pseudocode">
 		&emsp;&emsp;<i>triangleBuffer</i> &larr; <code>gl.createBuffer()</code><br>
-		&emsp;&emsp;<code class="small">gl.bindBuffer</code>(<code>gl.ELEMENT_ARRAY_BUFFER</code>, <i>triangleBuffer</i>)<br>
-		&emsp;&emsp;<code class="small">gl.bufferData</code>(<code>gl.ELEMENT_ARRAY_BUFFER</code>, <i>triangleArray</i>, <code>gl.STATIC_DRAW</code>)<br>
+		&emsp;&emsp;<code class="small">gl.bindBuffer</code>(<code class="small">gl.ELEMENT_ARRAY_BUFFER</code>, <i>triangleBuffer</i>)<br>
+		&emsp;&emsp;<code class="small">gl.bufferData</code>(<code class="small">gl.ELEMENT_ARRAY_BUFFER</code>, <i>triangleArray</i>, <code class="small">gl.STATIC_DRAW</code>)<br>
 	</figure>
+
+	<p>These buffer objects will need to be accessible from the draw function, so they must be scoped accordingly.</p>
 
 	<nav>
 		<a id="prev" href="viewer-shaders.html"></a>

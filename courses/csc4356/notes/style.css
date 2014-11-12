@@ -71,8 +71,14 @@ figure.code {
 	color:       #888;
 }
 
+/* Pseudocode formatting. The inline-block span allows width styling. */
+
 figure.pseudocode {
 	margin-left: 2em;
+}
+
+figure.pseudocode span {
+	display: inline-block;
 }
 
 /* Footnotes */
@@ -175,3 +181,6 @@ a:visited { color:#444; text-decoration: underline; }
 a:hover   { color:#A44; text-decoration: underline; }
 a:active  { color:#F44; text-decoration: underline; }
 
+a[href ^= "http"]:link::after {
+	content: '\279A';
+}
