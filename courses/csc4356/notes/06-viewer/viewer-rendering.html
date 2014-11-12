@@ -16,7 +16,7 @@
 	<figure class="pseudocode">
 		&#x3008;Rendering&#x3009; &equiv;<br>
 		&emsp;&emsp;<b>function</b> draw()<br>
-		&emsp;&emsp;&emsp;&emsp;<span style="width:7em"><i>projectionMatrix</i></span> &larr; persective(<code>45</code>, <code>1</code>, <code>1</code>, <code>10</code>);<br>
+		&emsp;&emsp;&emsp;&emsp;<span style="width:7em"><i>projectionMatrix</i></span> &larr; perspective(<code>45</code>, <code>1</code>, <code>1</code>, <code>10</code>);<br>
 		&emsp;&emsp;&emsp;&emsp;<span style="width:7em"><i>modelMatrix</i>     </span> &larr; translation(<code>0</code>, <code>0</code>, &minus;<i>modelTranslationZ</i>)<br>
 		&emsp;&emsp;&emsp;&emsp;<span style="width:7em">                       </span> &emsp;&middot; rotation(<i>modelRotationX</i>, <code>1</code>, <code>0</code>, <code>0</code>)<br>
 		&emsp;&emsp;&emsp;&emsp;<span style="width:7em">                       </span> &emsp;&middot; rotation(<i>modelRotationY</i>, <code>0</code>, <code>1</code>, <code>0</code>)<br>
@@ -51,6 +51,7 @@
 
 	<figure class="pseudocode">
 		&emsp;&emsp;&emsp;&emsp;<code class="small">gl.clear</code>(<code class="small">gl.COLOR_BUFFER_BIT</code> | <code class="small">gl.DEPTH_BUFFER_BIT</code>);</code><br>
+		<br>
 		&emsp;&emsp;&emsp;&emsp;<code class="small">gl.bindBuffer</code>(<code class="small">gl.ELEMENT_ARRAY_BUFFER</code>, <i>triangleBuffer</i>)<br>
 		&emsp;&emsp;&emsp;&emsp;<code class="small">gl.drawElements</code>(<code class="small">gl.TRIANGLES</code>, <i>triangleArray</i>.<code>length</code>, <code class="small">gl.UNSIGNED_SHORT</code>, <code>0</code>)<br>
 	</figure>

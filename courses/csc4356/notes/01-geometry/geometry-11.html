@@ -11,7 +11,7 @@
 
 	<p>When a vertex has multiple attributes, we use multiple arrays. Here are the tables for the colored house.</p>
 
-	<table class="center">
+	<table class="center" style="font-size:80%">
 		<tr>
 			<td>
 				<figure class="code">
@@ -84,9 +84,9 @@
 
 	<p>In truth, this array-of-arrays representation is used because it makes <em>geometry processing</em> more straightforward, which we'll see later on. To use these tables for rendering, we must flatten each to a single linear array. This JavaScript function does so, returning its input in a new, flat array.</p>
 
-	<figure class="code" id="flatten">
+	<figure class="code" id="flatten" style="font-size:80%">
 		function flatten(a) {<br>
-		&nbsp;&nbsp;&nbsp;&nbsp;return a.reduce(function (b, v) { b.push.apply(b, v); return b; }, [])<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;return a.reduce(function (b, v) { b.push.apply(b, v); return b }, [])<br>
 		}<br>
 	</figure>
 
