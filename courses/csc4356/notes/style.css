@@ -36,8 +36,8 @@ body {
 
 .variable {
 	font-family: "Consolas", "Inconsolata", monospace;
-	font-size: 28px;
-	width:      3em;
+	font-size: 80%;
+	width:     3em;
 }
 
 img {

@@ -47,10 +47,11 @@
 		&emsp;&emsp;&emsp;&emsp;<code class="small">gl.vertexAttribPointer</code>(<var>vertexNormalLocation</var>, <code>3</code>, <code>gl.FLOAT</code>, <code>false</code>, <code>0</code>, <code>0</code>)<br>
 	</figure>
 
-	<p>With all configuration in place, we can finally render. Begin by clearing the screen, and finish by drawing the contents of the triangle element buffer.</p>
+	<p>With all configuration in place, we can finally render. Begin by clearing the screen, make sure the depth test is enabled, and finish by drawing the contents of the triangle element buffer.</p>
 
 	<figure class="pseudocode">
 		&emsp;&emsp;&emsp;&emsp;<code class="small">gl.clear</code>(<code class="small">gl.COLOR_BUFFER_BIT</code> | <code class="small">gl.DEPTH_BUFFER_BIT</code>);</code><br>
+    &emsp;&emsp;&emsp;&emsp;<code class="small">gl.enable</code>(<code class="small">gl.DEPTH_TEST</code>)<br>
 		<br>
 		&emsp;&emsp;&emsp;&emsp;<code class="small">gl.bindBuffer</code>(<code class="small">gl.ELEMENT_ARRAY_BUFFER</code>, <var>triangleBuffer</var>)<br>
 		&emsp;&emsp;&emsp;&emsp;<code class="small">gl.drawElements</code>(<code class="small">gl.TRIANGLES</code>, <var>triangleArray</var>.<code>length</code>, <code class="small">gl.UNSIGNED_SHORT</code>, <code>0</code>)<br>
