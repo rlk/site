@@ -12,16 +12,16 @@
 	<p>So to generate all of the vertices and triangles for this mesh, begin with an empty vertex array and an empty triangle array.</p>
 
 	<figure class="pseudocode">
-		<b>for</b> $r = 0$ to $n-1$<br>
-		&emsp;&emsp;<b>for</b> $c = 0$ to $n-1$<br>
-		&emsp;&emsp;&emsp;&emsp;Add a new vertex $[x, y, z]$ at row $r$ column $c$.<br>
+		<b>for</b> <var>r</var> = 0 to <var>n</var> &minus; 1<br>
+		&emsp;&emsp;<b>for</b> <var>c</var> = 0 to <var>n</var> &minus; 1<br>
+		&emsp;&emsp;&emsp;&emsp;Add a new vertex $[x, y, z]$ at row <var>r</var> column <var>c</var>.<br>
 	</figure>
 
 	<figure class="pseudocode">
-		<b>for</b> $r = 0$ to $n-2$<br>
-		&emsp;&emsp;<b>for</b> $c = 0$ to $n-2$<br>
-		&emsp;&emsp;&emsp;&emsp;Add a new triangle $[i_0, i_1, i_2]$ at row $r$ column $c$.<br>
-		&emsp;&emsp;&emsp;&emsp;Add a new triangle $[i_2, i_1, i_3]$ at row $r$ column $c$.<br>
+		<b>for</b> <var>r</var> = 0 to <var>n</var> &minus; 2<br>
+		&emsp;&emsp;<b>for</b> <var>c</var> = 0 to <var>n</var> &minus; 2<br>
+		&emsp;&emsp;&emsp;&emsp;Add a new triangle $[i_0, i_1, i_2]$ at row <var>r</var> column <var>c</var>.<br>
+		&emsp;&emsp;&emsp;&emsp;Add a new triangle $[i_2, i_1, i_3]$ at row <var>r</var> column <var>c</var>.<br>
 	</figure>
 
 	<nav>

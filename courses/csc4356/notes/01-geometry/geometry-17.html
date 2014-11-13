@@ -12,17 +12,17 @@
 	<p>To generate a grid of lines for this mesh, begin with an empty line array. Generate the row-wise grid lines.</p>
 
 	<figure class="pseudocode">
-		<b>for</b> $r = 0$ to $n-1$<br>
-		&emsp;&emsp;<b>for</b> $c = 0$ to $n-2$<br>
-		&emsp;&emsp;&emsp;&emsp;Add a new line $[i_0, i_2]$ at row $r$ column $c$.<br>
+		<b>for</b> <var>r</var> = 0 to <var>n</var> &minus; 1<br>
+		&emsp;&emsp;<b>for</b> <var>c</var> = 0 to <var>n</var> &minus; 2<br>
+		&emsp;&emsp;&emsp;&emsp;Add a new line $[i_0, i_2]$ at row <var>r</var> column <var>c</var>.<br>
 	</figure>
 
 	<p>And generate the column-wise grid lines.</p>
 
 	<figure class="pseudocode">
-		<b>for</b> $r = 0$ to $n-2$<br>
-		&emsp;&emsp;<b>for</b> $c = 0$ to $n-1$<br>
-		&emsp;&emsp;&emsp;&emsp;Add a new line $[i_0, i_1]$ at row $r$ column $c$.<br>
+		<b>for</b> <var>r</var> = 0 to <var>n</var> &minus; 2<br>
+		&emsp;&emsp;<b>for</b> <var>c</var> = 0 to <var>n</var> &minus; 1<br>
+		&emsp;&emsp;&emsp;&emsp;Add a new line $[i_0, i_1]$ at row <var>r</var> column <var>c</var>.<br>
 	</figure>
 
 	<nav>
