@@ -16,35 +16,35 @@
 	<figure class="pseudocode">
 		&#x3008;Rendering&#x3009; &equiv;<br>
 		&emsp;&emsp;<b>function</b> draw()<br>
-		&emsp;&emsp;&emsp;&emsp;<span style="width:7em"><i>projectionMatrix</i></span> &larr; perspective(<code>45</code>, <code>1</code>, <code>1</code>, <code>10</code>);<br>
-		&emsp;&emsp;&emsp;&emsp;<span style="width:7em"><i>modelMatrix</i>     </span> &larr; translation(<code>0</code>, <code>0</code>, &minus;<i>modelTranslationZ</i>)<br>
-		&emsp;&emsp;&emsp;&emsp;<span style="width:7em">                       </span> &emsp;&middot; rotation(<i>modelRotationX</i>, <code>1</code>, <code>0</code>, <code>0</code>)<br>
-		&emsp;&emsp;&emsp;&emsp;<span style="width:7em">                       </span> &emsp;&middot; rotation(<i>modelRotationY</i>, <code>0</code>, <code>1</code>, <code>0</code>)<br>
+		&emsp;&emsp;&emsp;&emsp;<span style="width:7em"><var>projectionMatrix</var></span> &larr; perspective(<code>45</code>, <code>1</code>, <code>1</code>, <code>10</code>);<br>
+		&emsp;&emsp;&emsp;&emsp;<span style="width:7em"><var>modelMatrix</var>     </span> &larr; translation(<code>0</code>, <code>0</code>, &minus;<var>modelTranslationZ</var>)<br>
+		&emsp;&emsp;&emsp;&emsp;<span style="width:7em">                           </span> &emsp;&middot; rotation(<var>modelRotationX</var>, <code>1</code>, <code>0</code>, <code>0</code>)<br>
+		&emsp;&emsp;&emsp;&emsp;<span style="width:7em">                           </span> &emsp;&middot; rotation(<var>modelRotationY</var>, <code>0</code>, <code>1</code>, <code>0</code>)<br>
 	</figure>
 
 	<p>These are delivered to the <a href="viewer-shaders.html">vertex shader</a> via uniforms. Again, the textbook's matrix library gets involved.</p>
 
 	<figure class="pseudocode">
-		&emsp;&emsp;&emsp;&emsp;<code class="small">gl.uniformMatrix4fv</code>(<span style="width:11em"><i>projectionMatrixLocation</i>,</span> <code>false</code>, <i>projectionMatrix</i>)<br>
-		&emsp;&emsp;&emsp;&emsp;<code class="small">gl.uniformMatrix4fv</code>(<span style="width:11em"><i>modelMatrixLocation</i>,</span>      <code>false</code>, <i>modelMatrix</i>)<br>
+		&emsp;&emsp;&emsp;&emsp;<code class="small">gl.uniformMatrix4fv</code>(<span style="width:11em"><var>projectionMatrixLocation</var>,</span> <code>false</code>, <var>projectionMatrix</var>)<br>
+		&emsp;&emsp;&emsp;&emsp;<code class="small">gl.uniformMatrix4fv</code>(<span style="width:11em"><var>modelMatrixLocation</var>,</span>      <code>false</code>, <var>modelMatrix</var>)<br>
 	</figure>
 
 	<p>Second, we have the opportunity to specify the parameters of the lighting equation. Here, some simple defaults are given, but these values could easily be taken from GUI elements.</p>
 
 	<figure class="pseudocode">
-		&emsp;&emsp;&emsp;&emsp;<code class="small">gl.uniform3f</code>(<span style="width:10em"><i>lightDirectionLocation</i>,</span> <code>0.0</code>, <code>1.0</code>, <code>1.0</code>)<br>
-		&emsp;&emsp;&emsp;&emsp;<code class="small">gl.uniform3f</code>(<span style="width:10em"><i>lightColorLocation</i>,</span>     <code>1.0</code>, <code>1.0</code>, <code>1.0</code>)<br>
-		&emsp;&emsp;&emsp;&emsp;<code class="small">gl.uniform3f</code>(<span style="width:10em"><i>objectColorLocation</i>,</span>    <code>0.8</code>, <code>0.8</code>, <code>0.8</code>)<br>
+		&emsp;&emsp;&emsp;&emsp;<code class="small">gl.uniform3f</code>(<span style="width:10em"><var>lightDirectionLocation</var>,</span> <code>0.0</code>, <code>1.0</code>, <code>1.0</code>)<br>
+		&emsp;&emsp;&emsp;&emsp;<code class="small">gl.uniform3f</code>(<span style="width:10em"><var>lightColorLocation</var>,</span>     <code>1.0</code>, <code>1.0</code>, <code>1.0</code>)<br>
+		&emsp;&emsp;&emsp;&emsp;<code class="small">gl.uniform3f</code>(<span style="width:10em"><var>objectColorLocation</var>,</span>    <code>0.8</code>, <code>0.8</code>, <code>0.8</code>)<br>
 	</figure>
 
 	<p>Finally, having finished with the uniforms, move on to configure the attributes. Each of the array buffers contains a list of 3-compotent floating point vectors.</p>
 
 	<figure class="pseudocode">
-		&emsp;&emsp;&emsp;&emsp;<code class="small">gl.bindBuffer</code>(<code class="small">gl.ARRAY_BUFFER</code>, <i>positionBuffer</i>)<br>
-		&emsp;&emsp;&emsp;&emsp;<code class="small">gl.vertexAttribPointer</code>(<i>vertexPositionLocation</i>, <code>3</code>, <code>gl.FLOAT</code>, <code>false</code>, <code>0</code>, <code>0</code>)<br>
+		&emsp;&emsp;&emsp;&emsp;<code class="small">gl.bindBuffer</code>(<code class="small">gl.ARRAY_BUFFER</code>, <var>positionBuffer</var>)<br>
+		&emsp;&emsp;&emsp;&emsp;<code class="small">gl.vertexAttribPointer</code>(<var>vertexPositionLocation</var>, <code>3</code>, <code>gl.FLOAT</code>, <code>false</code>, <code>0</code>, <code>0</code>)<br>
 		<br>
-		&emsp;&emsp;&emsp;&emsp;<code class="small">gl.bindBuffer</code>(<code class="small">gl.ARRAY_BUFFER</code>, <i>normalBuffer</i>)<br>
-		&emsp;&emsp;&emsp;&emsp;<code class="small">gl.vertexAttribPointer</code>(<i>vertexNormalLocation</i>, <code>3</code>, <code>gl.FLOAT</code>, <code>false</code>, <code>0</code>, <code>0</code>)<br>
+		&emsp;&emsp;&emsp;&emsp;<code class="small">gl.bindBuffer</code>(<code class="small">gl.ARRAY_BUFFER</code>, <var>normalBuffer</var>)<br>
+		&emsp;&emsp;&emsp;&emsp;<code class="small">gl.vertexAttribPointer</code>(<var>vertexNormalLocation</var>, <code>3</code>, <code>gl.FLOAT</code>, <code>false</code>, <code>0</code>, <code>0</code>)<br>
 	</figure>
 
 	<p>With all configuration in place, we can finally render. Begin by clearing the screen, and finish by drawing the contents of the triangle element buffer.</p>
@@ -52,8 +52,8 @@
 	<figure class="pseudocode">
 		&emsp;&emsp;&emsp;&emsp;<code class="small">gl.clear</code>(<code class="small">gl.COLOR_BUFFER_BIT</code> | <code class="small">gl.DEPTH_BUFFER_BIT</code>);</code><br>
 		<br>
-		&emsp;&emsp;&emsp;&emsp;<code class="small">gl.bindBuffer</code>(<code class="small">gl.ELEMENT_ARRAY_BUFFER</code>, <i>triangleBuffer</i>)<br>
-		&emsp;&emsp;&emsp;&emsp;<code class="small">gl.drawElements</code>(<code class="small">gl.TRIANGLES</code>, <i>triangleArray</i>.<code>length</code>, <code class="small">gl.UNSIGNED_SHORT</code>, <code>0</code>)<br>
+		&emsp;&emsp;&emsp;&emsp;<code class="small">gl.bindBuffer</code>(<code class="small">gl.ELEMENT_ARRAY_BUFFER</code>, <var>triangleBuffer</var>)<br>
+		&emsp;&emsp;&emsp;&emsp;<code class="small">gl.drawElements</code>(<code class="small">gl.TRIANGLES</code>, <var>triangleArray</var>.<code>length</code>, <code class="small">gl.UNSIGNED_SHORT</code>, <code>0</code>)<br>
 	</figure>
 
 	<nav>

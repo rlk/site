@@ -13,52 +13,52 @@
 
 	<figure class="pseudocode">
     &#x3008;Interaction&#x3009; &equiv;<br>
-		&emsp;&emsp;<b>variable</b> <i>modelRotationX</i>    &larr; 0<br>
-		&emsp;&emsp;<b>variable</b> <i>modelRotationY</i>    &larr; 0<br>
-		&emsp;&emsp;<b>variable</b> <i>modelTranslationZ</i> &larr; 3<br>
+		&emsp;&emsp;<b>variable</b> <var>modelRotationX</var>    &larr; 0<br>
+		&emsp;&emsp;<b>variable</b> <var>modelRotationY</var>    &larr; 0<br>
+		&emsp;&emsp;<b>variable</b> <var>modelTranslationZ</var> &larr; 3<br>
 	</figure>
 
 	<p>We'll want a <em>relative</em> tumble, so we'll need to track whether a mouse drag is happening and where the pointer has been:</p>
 
 	<figure class="pseudocode">
-    &emsp;&emsp;<b>variable</b> <i>dragging</i> &larr; <i>false</i><br>
-    &emsp;&emsp;<b>variable</b> <i>lastX</i><br>
-    &emsp;&emsp;<b>variable</b> <i>lastY</i><br>
+    &emsp;&emsp;<b>variable</b> <var>dragging</var> &larr; <b>false</b><br>
+    &emsp;&emsp;<b>variable</b> <var>lastX</var><br>
+    &emsp;&emsp;<b>variable</b> <var>lastY</var><br>
   </figure>
 
   <p>When the user <a href="https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent">presses the mouse button</a>, make a note of it and start tracking the most recent mouse location.</p>
 
 	<figure class="pseudocode">
-    &emsp;&emsp;<b>function</b> onmousedown(<i>event</i>)<br>
-    &emsp;&emsp;&emsp;&emsp;<i>dragging</i> &larr; <i>true</i><br>
-    &emsp;&emsp;&emsp;&emsp;<i>lastX</i> &larr; <i>event.clientX</i><br>
-    &emsp;&emsp;&emsp;&emsp;<i>lastY</i> &larr; <i>event.clientY</i><br>
+    &emsp;&emsp;<b>function</b> onmousedown(<var>event</var>)<br>
+    &emsp;&emsp;&emsp;&emsp;<var>dragging</var> &larr; <b>true</b><br>
+    &emsp;&emsp;&emsp;&emsp;<var>lastX</var> &larr; <var>event.clientX</var><br>
+    &emsp;&emsp;&emsp;&emsp;<var>lastY</var> &larr; <var>event.clientY</var><br>
   </figure>
 
   <p>When the user <a href="https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent">releases the mouse button</a>, stop tracking.</p>
 
 	<figure class="pseudocode">
-    &emsp;&emsp;<b>function</b> onmouseup(<i>event</i>)<br>
-    &emsp;&emsp;&emsp;&emsp;<i>dragging</i> &larr; <i>false</i><br>
+    &emsp;&emsp;<b>function</b> onmouseup(<var>event</var>)<br>
+    &emsp;&emsp;&emsp;&emsp;<var>dragging</var> &larr; <b>false</b><br>
   </figure>
 
   <p>When the user <a href="https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent">moves the mouse</a> while the button is down, alter the orientation of the model accordingly.</p>
 
 	<figure class="pseudocode">
-    &emsp;&emsp;<b>function</b> onmousemove(<i>event</i>)<br>
-    &emsp;&emsp;&emsp;&emsp;<b>if</b> <i>dragging</i><br>
-    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<i>modelRotationY</i> &larr; <i>modelRotationY</i> + <i>event.clientX</i> &minus; <i>lastX</i><br>
-    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<i>modelRotationX</i> &larr; <i>modelRotationX</i> + <i>event.clientY</i> &minus; <i>lastY</i><br>
+    &emsp;&emsp;<b>function</b> onmousemove(<var>event</var>)<br>
+    &emsp;&emsp;&emsp;&emsp;<b>if</b> <var>dragging</var><br>
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<var>modelRotationY</var> &larr; <var>modelRotationY</var> + <var>event.clientX</var> &minus; <var>lastX</var><br>
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<var>modelRotationX</var> &larr; <var>modelRotationX</var> + <var>event.clientY</var> &minus; <var>lastY</var><br>
     <br>
-    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>if</b> <i>modelRotationX</i> &gt; 90.0<br>
-    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<i>modelRotationX</i> &larr; 90.0<br>
-    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>if</b> <i>modelRotationX</i> &lt; &minus;90.0<br>
-    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<i>modelRotationX</i> &larr; &minus;90.0<br>
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>if</b> <var>modelRotationX</var> &gt; 90.0<br>
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<var>modelRotationX</var> &larr; 90.0<br>
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>if</b> <var>modelRotationX</var> &lt; &minus;90.0<br>
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<var>modelRotationX</var> &larr; &minus;90.0<br>
     <br>
     &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Request a new animation frame.<br>
     <br>
-    &emsp;&emsp;&emsp;&emsp;<i>lastX</i> &larr; <i>event.clientX</i><br>
-    &emsp;&emsp;&emsp;&emsp;<i>lastY</i> &larr; <i>event.clientY</i><br>
+    &emsp;&emsp;&emsp;&emsp;<var>lastX</var> &larr; <var>event.clientX</var><br>
+    &emsp;&emsp;&emsp;&emsp;<var>lastY</var> &larr; <var>event.clientY</var><br>
  	</figure>
 
  	<p>These functions must be made properties of the <code>canvas</code> entity.</p>
