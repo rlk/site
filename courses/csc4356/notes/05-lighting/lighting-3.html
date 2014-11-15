@@ -7,19 +7,21 @@
 	<script type="text/javascript" src="../script.js"></script>
 </head>
 <body>
-	<h1>Diffuse Lighting</h1>
+	<section>
+		<h1>Diffuse Lighting</h1>
 
-	<p><em>Diffuse</em> lighting models matte surfaces.</p>
+		<p><em>Diffuse</em> lighting models matte surfaces.</p>
 
-	<table class="center">
-		<tr>
-			<td><img style="width:10em" src="../img/lit-sphere-diffuse.png"></td>
-			<td>&emsp;</td>
-			<td>$\V{c}_d=\V{c}_o\,\V{c}_l\,\max(\V{n}\cdot\V{l}, 0)$</td>
-		</tr>
-	</table>
+		<table class="center">
+			<tr>
+				<td><img style="width:10em" src="../img/lit-sphere-diffuse.png"></td>
+				<td>&emsp;</td>
+				<td>$\V{c}_d=\V{c}_o\,\V{c}_l\,\max(\V{n}\cdot\V{l}, 0)$</td>
+			</tr>
+		</table>
 
-	<p>The color of the object $\V{c}_o$ is modulated by the color of the light $\V{c}_l$, and this product is scaled by the dot product of the normal $\V{n}$ and light $\V{l}$ vectors. Care is taken to ensure this dot product is not negative.</p>
+		<p>The color of the object $\V{c}_o$ is modulated by the color of the light $\V{c}_l$, and this product is scaled by the dot product of the normal $\V{n}$ and light $\V{l}$ vectors. Care is taken to ensure this dot product is not negative.</p>
+	</section>
 	<nav>
 		<a id="prev" href="lighting-2.html"></a>
 		<a id="home" href="../index.html"></a>

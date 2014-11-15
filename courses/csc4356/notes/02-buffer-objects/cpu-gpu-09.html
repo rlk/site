@@ -7,16 +7,17 @@
 	<script type="text/javascript" src="../script.js"></script>
 </head>
 <body>
-	<h1>The CPU and the GPU</h1>
+	<section>
+		<h1>The CPU and the GPU</h1>
 
-	<img class="center" src="../img/cpu-gpu-9.svg">
+		<img class="center" src="../img/cpu-gpu-9.svg">
 
-	<p>When rendering, we may choose what data is used and how it is displayed. In this case, we'll start with the first vertex, and display the next 9 vertices as points.</p>
+		<p>When rendering, we may choose what data is used and how it is displayed. In this case, we'll start with the first vertex, and display the next 9 vertices as points.</p>
 
-	<code>gl.drawArrays(gl.POINTS, 0, 9);</code>
+		<code>gl.drawArrays(gl.POINTS, 0, 9);</code>
 
-	<p>Because the GPU knows the type and layout of the data, it can step down the rows, processing each in turn.</p>
-
+		<p>Because the GPU knows the type and layout of the data, it can step down the rows, processing each in turn.</p>
+	</section>
 	<nav>
 		<a id="prev" href="cpu-gpu-08.html"></a>
 		<a id="home" href="../index.html"></a>

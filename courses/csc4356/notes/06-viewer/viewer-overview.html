@@ -7,37 +7,38 @@
 	<script type="text/javascript" src="../script.js"></script>
 </head>
 <body>
-	<h1>A complete model viewer application</h1>
+	<section>
+		<h1>A complete model viewer application</h1>
 
-	<p>These pages define the structure of a complete application for processing and interactively viewing a 3D model. This definition is given as <em>pseudocode</em> to be translated into JavaScript and the <a href="https://www.khronos.org/registry/gles/specs/2.0/GLSL_ES_Specification_1.0.17.pdf">OpenGL Shading Language</a>.</p>
+		<p>These pages define the structure of a complete application for processing and interactively viewing a 3D model. This definition is given as <em>pseudocode</em> to be translated into JavaScript and the <a href="https://www.khronos.org/registry/gles/specs/2.0/GLSL_ES_Specification_1.0.17.pdf">OpenGL Shading Language</a>.</p>
 
-	<figure class="pseudocode">
-		<code>Viewer.js</code> &equiv;<br>
-		&emsp;&emsp;&#x3008;<a href="viewer-interaction.html">Interaction&#x3009;</a><br>
-		&emsp;&emsp;&#x3008;<a href="viewer-initialization.html">Initialization&#x3009;</a><br>
-		&emsp;&emsp;&#x3008;<a href="viewer-rendering.html">Rendering&#x3009;</a><br>
-	</figure>
+		<figure class="pseudocode">
+			<code>Viewer.js</code> &equiv;<br>
+			&emsp;&emsp;&#x3008;<a href="viewer-interaction.html">Interaction&#x3009;</a><br>
+			&emsp;&emsp;&#x3008;<a href="viewer-initialization.html">Initialization&#x3009;</a><br>
+			&emsp;&emsp;&#x3008;<a href="viewer-rendering.html">Rendering&#x3009;</a><br>
+		</figure>
 
-	<figure class="pseudocode">
-		<code>Viewer.html</code> &equiv;<br>
-		&emsp;<code>&lt;html&gt;</code><br>
-		&emsp;&emsp;<code>&lt;head&gt;</code><br>
-		&emsp;&emsp;&emsp;&#x3008;<a href="viewer-headers.html">Headers&#x3009;</a><br>
-		&emsp;&emsp;<code>&lt;/head&gt;</code><br>
-		&emsp;&emsp;<code>&lt;body onload="init()"&gt;</code><br>
-		&emsp;&emsp;&emsp;&emsp;<code>&lt;script id="vertexShader" type="x-shader/x-vertex"&gt;</code><br>
-		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#x3008;<a href="viewer-shaders.html#vertex_shader">Vertex Shader&#x3009;</a><br>
-    &emsp;&emsp;&emsp;&emsp;<code>&lt;/script&gt;</code><br>
-		&emsp;&emsp;&emsp;&emsp;<code>&lt;script id="fragmentShader" type="x-shader/x-fragment"&gt;</code><br>
-		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#x3008;<a href="viewer-shaders.html#fragment_shader">Fragment Shader&#x3009;</a><br>
-    &emsp;&emsp;&emsp;&emsp;<code>&lt;/script&gt;</code><br>
-		&emsp;&emsp;&emsp;&#x3008;<a href="viewer-elements.html">Elements&#x3009;</a><br>
-		&emsp;&emsp;<code>&lt;/body&gt;</code><br>
-		&emsp;<code>&lt;/html&gt;</code><br>
-	</figure>
+		<figure class="pseudocode">
+			<code>Viewer.html</code> &equiv;<br>
+			&emsp;<code>&lt;html&gt;</code><br>
+			&emsp;&emsp;<code>&lt;head&gt;</code><br>
+			&emsp;&emsp;&emsp;&#x3008;<a href="viewer-headers.html">Headers&#x3009;</a><br>
+			&emsp;&emsp;<code>&lt;/head&gt;</code><br>
+			&emsp;&emsp;<code>&lt;body onload="init()"&gt;</code><br>
+			&emsp;&emsp;&emsp;&emsp;<code>&lt;script id="vertexShader" type="x-shader/x-vertex"&gt;</code><br>
+			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#x3008;<a href="viewer-shaders.html#vertex_shader">Vertex Shader&#x3009;</a><br>
+			&emsp;&emsp;&emsp;&emsp;<code>&lt;/script&gt;</code><br>
+			&emsp;&emsp;&emsp;&emsp;<code>&lt;script id="fragmentShader" type="x-shader/x-fragment"&gt;</code><br>
+			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#x3008;<a href="viewer-shaders.html#fragment_shader">Fragment Shader&#x3009;</a><br>
+			&emsp;&emsp;&emsp;&emsp;<code>&lt;/script&gt;</code><br>
+			&emsp;&emsp;&emsp;&#x3008;<a href="viewer-elements.html">Elements&#x3009;</a><br>
+			&emsp;&emsp;<code>&lt;/body&gt;</code><br>
+			&emsp;<code>&lt;/html&gt;</code><br>
+		</figure>
 
-	<p>The section ordering shown here gives a correct implementation because every symbol is defined before it is used. However, we need not necessarily discuss these sections in that same order&hellip;</p>
-
+		<p>The section ordering shown here gives a correct implementation because every symbol is defined before it is used. However, we need not necessarily discuss these sections in that same order&hellip;</p>
+	</section>
 	<nav>
 		<a id="home" href="../index.html"></a>
 		<a id="next" href="viewer-interaction.html"></a>

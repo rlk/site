@@ -7,29 +7,31 @@
 	<script type="text/javascript" src="../script.js"></script>
 </head>
 <body>
-	<h1>A Generated Mesh</h1>
+	<section>
+		<h1>A Generated Mesh</h1>
 
-	<table class="center">
-		<tr>
-			<td><img width="400px" height="400px" src="../img/grid-mesh.svg"></td>
-			<td>&emsp;</td>
-			<td>
-				<p>The <em>square</em> at row $r$ and column $c$ has indices:</p>
+		<table class="center">
+			<tr>
+				<td><img width="400px" height="400px" src="../img/grid-mesh.svg"></td>
+				<td>&emsp;</td>
+				<td>
+					<p>The <em>square</em> at row $r$ and column $c$ has indices:</p>
 
-				\[\begin{array}{l}
-				i_0 = (r+0) \cdot n+ (c+0) \\
-				i_1 = (r+1) \cdot n+ (c+0) \\
-				i_2 = (r+0) \cdot n+ (c+1) \\
-				i_3 = (r+1) \cdot n+ (c+1) \\
-				\end{array}\]
+					\[\begin{array}{l}
+					i_0 = (r+0) \cdot n+ (c+0) \\
+					i_1 = (r+1) \cdot n+ (c+0) \\
+					i_2 = (r+0) \cdot n+ (c+1) \\
+					i_3 = (r+1) \cdot n+ (c+1) \\
+					\end{array}\]
 
-				<p>And the triangulation of that square is:</p>
+					<p>And the triangulation of that square is:</p>
 
-				\[[i_0, i_1, i_2] \\
-				  [i_2, i_1, i_3]\]
-			</td>
-		</tr>
-	</table>
+					\[[i_0, i_1, i_2] \\
+					[i_2, i_1, i_3]\]
+				</td>
+			</tr>
+		</table>
+	</section>
 	<nav>
 		<a id="prev" href="geometry-14.html"></a>
 		<a id="home" href="../index.html"></a>

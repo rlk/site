@@ -7,24 +7,25 @@
 	<script type="text/javascript" src="../script.js"></script>
 </head>
 <body>
-	<h1>Fragment Processing</h1>
+	<section>
+		<h1>Fragment Processing</h1>
 
-	<p>The Fragment Processing stage converts varying values to on-screen pixels.</p>
+		<p>The Fragment Processing stage converts varying values to on-screen pixels.</p>
 
-	<img class="center" width="75%" src="../img/pipeline.svg">
+		<img class="center" width="75%" src="../img/pipeline.svg">
 
-	<p>This trivial fragment shader simply copies the varying color onto the screen.</p>
+		<p>This trivial fragment shader simply copies the varying color onto the screen.</p>
 
-	<figure class="code">
-		varying vec4 fColor;<br>
-		<br>
-		void main() {<br>
-		&nbsp;&nbsp;&nbsp;&nbsp;gl_FragColor = fColor;<br>
-		}<br>
-	</figure>
+		<figure class="code">
+			varying vec4 fColor;<br>
+			<br>
+			void main() {<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;gl_FragColor = fColor;<br>
+			}<br>
+		</figure>
 
-	<p>This is a <em>big</em> topic. The Fragment Processing stage often derives material properties from texture images. When high quality illumination is desired, lighting calculation happens here instead of in the Vertex Processing stage. We'll see examples of these soon.</p>
-
+		<p>This is a <em>big</em> topic. The Fragment Processing stage often derives material properties from texture images. When high quality illumination is desired, lighting calculation happens here instead of in the Vertex Processing stage. We'll see examples of these soon.</p>
+	</section>
 	<nav>
 		<a id="prev" href="rasterization.html"></a>
 		<a id="home" href="../index.html"></a>

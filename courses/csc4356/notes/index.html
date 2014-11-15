@@ -10,127 +10,129 @@
 	</style>
 </head>
 <body>
-	<h1>CSC 4356 / ME 4573 &mdash; Interactive Computer Graphics</h1>
+	<section>
+		<h1>CSC 4356 / ME 4573 &mdash; Interactive Computer Graphics</h1>
 
-	<p>This courses introduces the theory and practice of 3D computer graphics.</p>
+		<p>This courses introduces the theory and practice of 3D computer graphics.</p>
 
-	<p>This topic deals with geometry and illumination. Geometry describes the form of a scene and illumination influences how that scene appears.</p>
+		<p>This topic deals with geometry and illumination. Geometry describes the form of a scene and illumination influences how that scene appears.</p>
 
-	<p>Rendering is the process by which illumination calculation on 3D data produces a 2D image. Your computer's graphics processing unit (GPU) performs that process.</p>
+		<p>Rendering is the process by which illumination calculation on 3D data produces a 2D image. Your computer's graphics processing unit (GPU) performs that process.</p>
 
-	<p>These notes carefully develop only what is essential to making that process happen using WebGL and the JavaScript programming language.</p>
+		<p>These notes carefully develop only what is essential to making that process happen using WebGL and the JavaScript programming language.</p>
 
-	<ol>
-		<li><p>We begin by defining how to represent geometry.<br>
-			<a href="01-geometry/geometry-01.html">&diams;</a>
-			<a href="01-geometry/geometry-02.html">&bull;</a>
-			<a href="01-geometry/geometry-03.html">&bull;</a>
-			<a href="01-geometry/geometry-04.html">&bull;</a>
-			<a href="01-geometry/geometry-05.html">&diams;</a>
-			<a href="01-geometry/geometry-06.html">&bull;</a>
-			<a href="01-geometry/geometry-07.html">&bull;</a>
-			<a href="01-geometry/geometry-08.html">&diams;</a>
-			<a href="01-geometry/geometry-09.html">&bull;</a>
-			<a href="01-geometry/geometry-10.html">&diams;</a>
-			<a href="01-geometry/geometry-11.html">&bull;</a>
-			<a href="01-geometry/geometry-12.html">&diams;</a>
-			<a href="01-geometry/geometry-13.html">&bull;</a>
-			<a href="01-geometry/geometry-14.html">&bull;</a>
-			<a href="01-geometry/geometry-15.html">&bull;</a>
-			<a href="01-geometry/geometry-16.html">&bull;</a>
-			<a href="01-geometry/geometry-17.html">&bull;</a>
-		</p></li>
+		<ol>
+			<li><p>We begin by defining how to represent geometry.<br>
+				<a href="01-geometry/geometry-01.html">&diams;</a>
+				<a href="01-geometry/geometry-02.html">&bull;</a>
+				<a href="01-geometry/geometry-03.html">&bull;</a>
+				<a href="01-geometry/geometry-04.html">&bull;</a>
+				<a href="01-geometry/geometry-05.html">&diams;</a>
+				<a href="01-geometry/geometry-06.html">&bull;</a>
+				<a href="01-geometry/geometry-07.html">&bull;</a>
+				<a href="01-geometry/geometry-08.html">&diams;</a>
+				<a href="01-geometry/geometry-09.html">&bull;</a>
+				<a href="01-geometry/geometry-10.html">&diams;</a>
+				<a href="01-geometry/geometry-11.html">&bull;</a>
+				<a href="01-geometry/geometry-12.html">&diams;</a>
+				<a href="01-geometry/geometry-13.html">&bull;</a>
+				<a href="01-geometry/geometry-14.html">&bull;</a>
+				<a href="01-geometry/geometry-15.html">&bull;</a>
+				<a href="01-geometry/geometry-16.html">&bull;</a>
+				<a href="01-geometry/geometry-17.html">&bull;</a>
+			</p></li>
 
-		<li><p>Then, how to deliver that geometry to the GPU for display.<br>
-			<a href="02-buffer-objects/cpu-gpu-00.html">&diams;</a>
-			<a href="02-buffer-objects/cpu-gpu-01.html">&bull;</a>
-			<a href="02-buffer-objects/cpu-gpu-02.html">&bull;</a>
-			<a href="02-buffer-objects/cpu-gpu-03.html">&bull;</a>
-			<a href="02-buffer-objects/cpu-gpu-04.html">&bull;</a>
-			<a href="02-buffer-objects/cpu-gpu-05.html">&bull;</a>
-			<a href="02-buffer-objects/cpu-gpu-06.html">&bull;</a>
-			<a href="02-buffer-objects/cpu-gpu-07.html">&bull;</a>
-			<a href="02-buffer-objects/cpu-gpu-08.html">&bull;</a>
-			<a href="02-buffer-objects/cpu-gpu-09.html">&bull;</a>
-		</p></li>
+			<li><p>Then, how to deliver that geometry to the GPU for display.<br>
+				<a href="02-buffer-objects/cpu-gpu-00.html">&diams;</a>
+				<a href="02-buffer-objects/cpu-gpu-01.html">&bull;</a>
+				<a href="02-buffer-objects/cpu-gpu-02.html">&bull;</a>
+				<a href="02-buffer-objects/cpu-gpu-03.html">&bull;</a>
+				<a href="02-buffer-objects/cpu-gpu-04.html">&bull;</a>
+				<a href="02-buffer-objects/cpu-gpu-05.html">&bull;</a>
+				<a href="02-buffer-objects/cpu-gpu-06.html">&bull;</a>
+				<a href="02-buffer-objects/cpu-gpu-07.html">&bull;</a>
+				<a href="02-buffer-objects/cpu-gpu-08.html">&bull;</a>
+				<a href="02-buffer-objects/cpu-gpu-09.html">&bull;</a>
+			</p></li>
 
-		<li><p>Transformation gives us the mathematical tools to arrange geometry in a scene.<br>
-			<a href="03-transformation/transformation-vector.html">&diams;</a>
-			<a href="03-transformation/transformation-matrix.html">&bull;</a>
-			<a href="03-transformation/transformation-transform.html">&bull;</a>
-			<a href="03-transformation/transformation-identity.html">&diams;</a>
-			<a href="03-transformation/transformation-scale-demo.html">&diams;</a>
-			<a href="03-transformation/transformation-scale-math.html">&bull;</a>
-			<a href="03-transformation/transformation-translate-demo.html">&diams;</a>
-			<a href="03-transformation/transformation-translate-math.html">&bull;</a>
-			<a href="03-transformation/transformation-rotate-demo.html">&diams;</a>
-			<a href="03-transformation/transformation-rotate-math.html">&bull;</a>
-			<a href="03-transformation/transformation-persp-demo.html">&diams;</a>
-			<a href="03-transformation/transformation-persp-1.html">&bull;</a>
-			<a href="03-transformation/transformation-persp-2.html">&bull;</a>
-			<a href="03-transformation/transformation-persp-3.html">&bull;</a>
-			<a href="03-transformation/transformation-persp-4.html">&bull;</a>
-			<a href="03-transformation/transformation-matrix-mult-1.html">&diams;</a>
-			<a href="03-transformation/transformation-matrix-mult-2.html">&bull;</a>
-			<a href="03-transformation/transformation-matrix-mult-3.html">&bull;</a>
-			<a href="03-transformation/transformation-composition-1.html">&diams;</a>
-			<a href="03-transformation/transformation-composition-2.html">&bull;</a>
-			<a href="03-transformation/transformation-composition-3.html">&bull;</a>
-			<a href="03-transformation/transformation-composition-4.html">&bull;</a>
-			<a href="03-transformation/transformation-mvp.html">&diams;</a>
-			<a href="03-transformation/transformation-screen.html">&bull;</a>
-			<a href="03-transformation/transformation-composition-full.html">&bull;</a>
-			<a href="03-transformation/transformation-inverse.html">&bull;</a>
-			<a href="03-transformation/transformation-transpose.html">&bull;</a>
-			<a href="03-transformation/transformation-normal-1.html">&bull;</a>
-			<a href="03-transformation/transformation-normal-2.html">&lowast;</a>
-		</p></li>
+			<li><p>Transformation gives us the mathematical tools to arrange geometry in a scene.<br>
+				<a href="03-transformation/transformation-vector.html">&diams;</a>
+				<a href="03-transformation/transformation-matrix.html">&bull;</a>
+				<a href="03-transformation/transformation-transform.html">&bull;</a>
+				<a href="03-transformation/transformation-identity.html">&diams;</a>
+				<a href="03-transformation/transformation-scale-demo.html">&diams;</a>
+				<a href="03-transformation/transformation-scale-math.html">&bull;</a>
+				<a href="03-transformation/transformation-translate-demo.html">&diams;</a>
+				<a href="03-transformation/transformation-translate-math.html">&bull;</a>
+				<a href="03-transformation/transformation-rotate-demo.html">&diams;</a>
+				<a href="03-transformation/transformation-rotate-math.html">&bull;</a>
+				<a href="03-transformation/transformation-persp-demo.html">&diams;</a>
+				<a href="03-transformation/transformation-persp-1.html">&bull;</a>
+				<a href="03-transformation/transformation-persp-2.html">&bull;</a>
+				<a href="03-transformation/transformation-persp-3.html">&bull;</a>
+				<a href="03-transformation/transformation-persp-4.html">&bull;</a>
+				<a href="03-transformation/transformation-matrix-mult-1.html">&diams;</a>
+				<a href="03-transformation/transformation-matrix-mult-2.html">&bull;</a>
+				<a href="03-transformation/transformation-matrix-mult-3.html">&bull;</a>
+				<a href="03-transformation/transformation-composition-1.html">&diams;</a>
+				<a href="03-transformation/transformation-composition-2.html">&bull;</a>
+				<a href="03-transformation/transformation-composition-3.html">&bull;</a>
+				<a href="03-transformation/transformation-composition-4.html">&bull;</a>
+				<a href="03-transformation/transformation-mvp.html">&diams;</a>
+				<a href="03-transformation/transformation-screen.html">&bull;</a>
+				<a href="03-transformation/transformation-composition-full.html">&bull;</a>
+				<a href="03-transformation/transformation-inverse.html">&bull;</a>
+				<a href="03-transformation/transformation-transpose.html">&bull;</a>
+				<a href="03-transformation/transformation-normal-1.html">&bull;</a>
+				<a href="03-transformation/transformation-normal-2.html">&lowast;</a>
+			</p></li>
 
-		<li><p>The graphics pipeline orchestrates the rendering process.<br>
-			<a href="04-pipeline/pipeline.html">&diams;</a>
-			<a href="04-pipeline/vertex-processing.html">&bull;</a>
-			<a href="04-pipeline/rasterization.html">&bull;</a>
-			<a href="04-pipeline/fragment-processing.html">&bull;</a>
-			<a href="04-pipeline/raster-operations.html">&bull;</a>
-			<a href="04-pipeline/depth-test-0.html">&diams;</a>
-			<a href="04-pipeline/depth-test-1.html">&bull;</a>
-			<a href="04-pipeline/depth-test-2.html">&bull;</a>
-			<a href="04-pipeline/depth-test-3.html">&bull;</a>
-			<a href="04-pipeline/depth-test-4.html">&bull;</a>
-			<a href="04-pipeline/depth-test-5.html">&bull;</a>
-			<a href="04-pipeline/blending-0.html">&diams;</a>
-			<a href="04-pipeline/blending-1.html">&bull;</a>
-			<a href="04-pipeline/blending-2.html">&bull;</a>
-			<a href="04-pipeline/blending-3.html">&bull;</a>
-			<a href="04-pipeline/blending-4.html">&bull;</a>
-		</p></li>
+			<li><p>The graphics pipeline orchestrates the rendering process.<br>
+				<a href="04-pipeline/pipeline.html">&diams;</a>
+				<a href="04-pipeline/vertex-processing.html">&bull;</a>
+				<a href="04-pipeline/rasterization.html">&bull;</a>
+				<a href="04-pipeline/fragment-processing.html">&bull;</a>
+				<a href="04-pipeline/raster-operations.html">&bull;</a>
+				<a href="04-pipeline/depth-test-0.html">&diams;</a>
+				<a href="04-pipeline/depth-test-1.html">&bull;</a>
+				<a href="04-pipeline/depth-test-2.html">&bull;</a>
+				<a href="04-pipeline/depth-test-3.html">&bull;</a>
+				<a href="04-pipeline/depth-test-4.html">&bull;</a>
+				<a href="04-pipeline/depth-test-5.html">&bull;</a>
+				<a href="04-pipeline/blending-0.html">&diams;</a>
+				<a href="04-pipeline/blending-1.html">&bull;</a>
+				<a href="04-pipeline/blending-2.html">&bull;</a>
+				<a href="04-pipeline/blending-3.html">&bull;</a>
+				<a href="04-pipeline/blending-4.html">&bull;</a>
+			</p></li>
 
-		<li><p>Light interacts with material properties to determine surface color.<br>
-			<a href="05-lighting/lighting-1.html">&diams;</a>
-			<a href="05-lighting/lighting-2.html">&bull;</a>
-			<a href="05-lighting/lighting-3.html">&bull;</a>
-			<a href="05-lighting/lighting-4.html">&bull;</a>
-			<a href="05-lighting/lighting-5.html">&bull;</a>
-			<a href="05-lighting/normal-1.html">&diams;</a>
-			<a href="05-lighting/normal-2.html">&bull;</a>
-			<a href="05-lighting/normal-3.html">&bull;</a>
-			<a href="05-lighting/normal-4.html">&bull;</a>
-			<a href="05-lighting/normal-5.html">&bull;</a>
-		</p></li>
+			<li><p>Light interacts with material properties to determine surface color.<br>
+				<a href="05-lighting/lighting-1.html">&diams;</a>
+				<a href="05-lighting/lighting-2.html">&bull;</a>
+				<a href="05-lighting/lighting-3.html">&bull;</a>
+				<a href="05-lighting/lighting-4.html">&bull;</a>
+				<a href="05-lighting/lighting-5.html">&bull;</a>
+				<a href="05-lighting/normal-1.html">&diams;</a>
+				<a href="05-lighting/normal-2.html">&bull;</a>
+				<a href="05-lighting/normal-3.html">&bull;</a>
+				<a href="05-lighting/normal-4.html">&bull;</a>
+				<a href="05-lighting/normal-5.html">&bull;</a>
+			</p></li>
 
-		<li><p>With these pieces in place, a complete application can emerge.<br>
-			<a href="06-viewer/viewer-overview.html">&diams;</a>
-			<a href="06-viewer/viewer-interaction.html">&bull;</a>
-			<a href="06-viewer/viewer-initialization.html">&bull;</a>
-			<a href="06-viewer/viewer-vector.html">&bull;</a>
-			<a href="06-viewer/viewer-normal.html">&bull;</a>
-			<a href="06-viewer/viewer-shaders.html">&bull;</a>
-			<a href="06-viewer/viewer-buffers.html">&bull;</a>
-			<a href="06-viewer/viewer-rendering.html">&bull;</a>
-			<a href="06-viewer/viewer-elements.html">&bull;</a>
-			<a href="06-viewer/viewer-headers.html">&bull;</a>
-		</p></li>
-	</ol>
-	<p style="text-align:right">Robert Kooima &mdash; <em>kooima&#64;csc&#46;lsu&#46;edu</em></p>
+			<li><p>With these pieces in place, a complete application can emerge.<br>
+				<a href="06-viewer/viewer-overview.html">&diams;</a>
+				<a href="06-viewer/viewer-interaction.html">&bull;</a>
+				<a href="06-viewer/viewer-initialization.html">&bull;</a>
+				<a href="06-viewer/viewer-vector.html">&bull;</a>
+				<a href="06-viewer/viewer-normal.html">&bull;</a>
+				<a href="06-viewer/viewer-shaders.html">&bull;</a>
+				<a href="06-viewer/viewer-buffers.html">&bull;</a>
+				<a href="06-viewer/viewer-rendering.html">&bull;</a>
+				<a href="06-viewer/viewer-elements.html">&bull;</a>
+				<a href="06-viewer/viewer-headers.html">&bull;</a>
+			</p></li>
+		</ol>
+		<p style="text-align:right">Robert Kooima &mdash; <em>kooima&#64;csc&#46;lsu&#46;edu</em></p>
+	</section>
 </body>
 </html>

@@ -7,24 +7,25 @@
 	<script type="text/javascript" src="../script.js"></script>
 </head>
 <body>
-	<h1>A Generated Mesh</h1>
+	<section>
+		<h1>A Generated Mesh</h1>
 
-	<p>To generate a grid of lines for this mesh, begin with an empty line array. Generate the row-wise grid lines.</p>
+		<p>To generate a grid of lines for this mesh, begin with an empty line array. Generate the row-wise grid lines.</p>
 
-	<figure class="pseudocode">
-		<b>for</b> <var>r</var> = 0 to <var>n</var> &minus; 1<br>
-		&emsp;&emsp;<b>for</b> <var>c</var> = 0 to <var>n</var> &minus; 2<br>
-		&emsp;&emsp;&emsp;&emsp;Add a new line $[i_0, i_2]$ at row <var>r</var> column <var>c</var>.<br>
-	</figure>
+		<figure class="pseudocode">
+			<b>for</b> <var>r</var> = 0 to <var>n</var> &minus; 1<br>
+			&emsp;&emsp;<b>for</b> <var>c</var> = 0 to <var>n</var> &minus; 2<br>
+			&emsp;&emsp;&emsp;&emsp;Add a new line $[i_0, i_2]$ at row <var>r</var> column <var>c</var>.<br>
+		</figure>
 
-	<p>And generate the column-wise grid lines.</p>
+		<p>And generate the column-wise grid lines.</p>
 
-	<figure class="pseudocode">
-		<b>for</b> <var>r</var> = 0 to <var>n</var> &minus; 2<br>
-		&emsp;&emsp;<b>for</b> <var>c</var> = 0 to <var>n</var> &minus; 1<br>
-		&emsp;&emsp;&emsp;&emsp;Add a new line $[i_0, i_1]$ at row <var>r</var> column <var>c</var>.<br>
-	</figure>
-
+		<figure class="pseudocode">
+			<b>for</b> <var>r</var> = 0 to <var>n</var> &minus; 2<br>
+			&emsp;&emsp;<b>for</b> <var>c</var> = 0 to <var>n</var> &minus; 1<br>
+			&emsp;&emsp;&emsp;&emsp;Add a new line $[i_0, i_1]$ at row <var>r</var> column <var>c</var>.<br>
+		</figure>
+	</section>
 	<nav>
 		<a id="prev" href="geometry-16.html"></a>
 		<a id="home" href="../index.html"></a>

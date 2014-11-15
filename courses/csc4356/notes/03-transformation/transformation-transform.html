@@ -7,37 +7,39 @@
 	<script type="text/javascript" src="../script.js"></script>
 </head>
 <body>
-	<h1>Vector Transformation</h1>
+	<section>
+		<h1>Vector Transformation</h1>
 
-	<p>Multiplying a vector by a matrix results in a new, <em>transformed</em> vector.</p>
+		<p>Multiplying a vector by a matrix results in a new, <em>transformed</em> vector.</p>
 
-	\[\V{w}=\M{M}\cdot \V{v}\]
+		\[\V{w}=\M{M}\cdot \V{v}\]
 
-	\[\begin{bmatrix}
-	w_x \\
-	w_y \\
-	w_z \\
-	w_w \\
-	\end{bmatrix}=
-	\begin{bmatrix}
-	m_{ 0} & m_{ 4} & m_{ 8} &m_{12} \\
-	m_{ 1} & m_{ 5} & m_{ 9} &m_{13} \\
-	m_{ 2} & m_{ 6} & m_{10} &m_{14} \\
-	m_{ 3} & m_{ 7} & m_{11} &m_{15} \\
-	\end{bmatrix}\,
-	\begin{bmatrix}
-	v_x \\
-	v_y \\
-	v_z \\
-	v_w \\
-	\end{bmatrix}\]
+		\[\begin{bmatrix}
+		w_x \\
+		w_y \\
+		w_z \\
+		w_w \\
+		\end{bmatrix}=
+		\begin{bmatrix}
+		m_{ 0} & m_{ 4} & m_{ 8} &m_{12} \\
+		m_{ 1} & m_{ 5} & m_{ 9} &m_{13} \\
+		m_{ 2} & m_{ 6} & m_{10} &m_{14} \\
+		m_{ 3} & m_{ 7} & m_{11} &m_{15} \\
+		\end{bmatrix}\,
+		\begin{bmatrix}
+		v_x \\
+		v_y \\
+		v_z \\
+		v_w \\
+		\end{bmatrix}\]
 
-	\[\begin{array}{ccccccccc}
-	w_x &=& v_x\cdot m_{ 0} &+& v_y\cdot m_{ 4} &+& v_z\cdot m_{ 8} &+& v_w\cdot m_{12} \\
-	w_y &=& v_x\cdot m_{ 1} &+& v_y\cdot m_{ 5} &+& v_z\cdot m_{ 9} &+& v_w\cdot m_{13} \\
-	w_z &=& v_x\cdot m_{ 2} &+& v_y\cdot m_{ 6} &+& v_z\cdot m_{10} &+& v_w\cdot m_{14} \\
-	w_w &=& v_x\cdot m_{ 3} &+& v_y\cdot m_{ 7} &+& v_z\cdot m_{11} &+& v_w\cdot m_{15} \\
-	\end{array}\]
+		\[\begin{array}{ccccccccc}
+		w_x &=& v_x\cdot m_{ 0} &+& v_y\cdot m_{ 4} &+& v_z\cdot m_{ 8} &+& v_w\cdot m_{12} \\
+		w_y &=& v_x\cdot m_{ 1} &+& v_y\cdot m_{ 5} &+& v_z\cdot m_{ 9} &+& v_w\cdot m_{13} \\
+		w_z &=& v_x\cdot m_{ 2} &+& v_y\cdot m_{ 6} &+& v_z\cdot m_{10} &+& v_w\cdot m_{14} \\
+		w_w &=& v_x\cdot m_{ 3} &+& v_y\cdot m_{ 7} &+& v_z\cdot m_{11} &+& v_w\cdot m_{15} \\
+		\end{array}\]
+	</section>
 	<nav>
 		<a id="prev" href="transformation-matrix.html"></a>
 		<a id="home" href="../index.html"></a>

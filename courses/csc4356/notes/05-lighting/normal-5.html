@@ -7,30 +7,31 @@
 	<script type="text/javascript" src="../script.js"></script>
 </head>
 <body>
-	<h1>The Normal Vector</h1>
+	<section>
+		<h1>The Normal Vector</h1>
 
-	<p>Compute the normal of a <em>vertex</em> by averaging the normals of all <em>triangles</em> adjacent to that vertex.</p>
+		<p>Compute the normal of a <em>vertex</em> by averaging the normals of all <em>triangles</em> adjacent to that vertex.</p>
 
-	<table class="center">
-		<tr>
-			<td><img style="width:15em" src="../img/normal-computation-5.svg"></td>
-			<td>
-		    \[\V{n}_v = \frac{\V{n}_a+\V{n}_b+\V{n}_c}{\|\V{n}_a+\V{n}_b+\V{n}_c\|}\]
-			</td>
-		</tr>
-	</table>
+		<table class="center">
+			<tr>
+				<td><img style="width:15em" src="../img/normal-computation-5.svg"></td>
+				<td>
+					\[\V{n}_v = \frac{\V{n}_a+\V{n}_b+\V{n}_c}{\|\V{n}_a+\V{n}_b+\V{n}_c\|}\]
+				</td>
+			</tr>
+		</table>
 
-	<p class="note">One final normalization of the sum of all normals merely ensures that the result has unit length.</p>
+		<p class="note">One final normalization of the sum of all normals merely ensures that the result has unit length.</p>
 
-	<p>With one normal for each vertex, the model looks smooth.</p>
+		<p>With one normal for each vertex, the model looks smooth.</p>
 
-	<table class="center" width="100%">
-		<tr>
-			<td style="width:50%"><img width="100%" src="../img/teapot-flat.png"></td>
-			<td style="width:50%"><img width="100%" src="../img/teapot-smooth.png"></td>
-		</tr>
-	</table>
-
+		<table class="center" width="100%">
+			<tr>
+				<td style="width:50%"><img width="100%" src="../img/teapot-flat.png"></td>
+				<td style="width:50%"><img width="100%" src="../img/teapot-smooth.png"></td>
+			</tr>
+		</table>
+	</section>
 	<nav>
 		<a id="prev" href="normal-4.html"></a>
 		<a id="home" href="../index.html"></a>

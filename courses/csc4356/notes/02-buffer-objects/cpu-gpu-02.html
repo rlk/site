@@ -7,16 +7,17 @@
 	<script type="text/javascript" src="../script.js"></script>
 </head>
 <body>
-	<h1>The CPU and the GPU</h1>
+	<section>
+		<h1>The CPU and the GPU</h1>
 
-	<img class="center" src="../img/cpu-gpu-2.svg">
+		<img class="center" src="../img/cpu-gpu-2.svg">
 
-	<p>Next we configure the renderer. Vertex and fragment shader source strings are compiled, linked, and loaded onto the GPU for execution.</p>
+		<p>Next we configure the renderer. Vertex and fragment shader source strings are compiled, linked, and loaded onto the GPU for execution.</p>
 
-	<code>var program = initShaders(gl, vert_src, frag_src)</code>
+		<code>var program = initShaders(gl, vert_src, frag_src)</code>
 
-	<p>In return, we receive a <em>handle</em> to the program on the GPU. During this configuration process, the GPU's notion of the <em>current</em> program is set.</p>
-
+		<p>In return, we receive a <em>handle</em> to the program on the GPU. During this configuration process, the GPU's notion of the <em>current</em> program is set.</p>
+	</section>
 	<nav>
 		<a id="prev" href="cpu-gpu-01.html"></a>
 		<a id="home" href="../index.html"></a>

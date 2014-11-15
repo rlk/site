@@ -7,31 +7,33 @@
 	<script type="text/javascript" src="../script.js"></script>
 </head>
 <body>
-	<h1>Screen Transformation</h1>
+	<section>
+		<h1>Screen Transformation</h1>
 
-	<p>One final transformation maps the 3D scene onto the pixels of the screen.</p>
+		<p>One final transformation maps the 3D scene onto the pixels of the screen.</p>
 
-	<table class="center">
-		<tr>
-			<td>
-				\[S=\begin{bmatrix}
-				w/2 &   0 &     0 & w / 2 \\
-				0 & h/2 &     0 & h / 2 \\
-				0 &   0 & d / 2 & d / 2 \\
-				0 &   0 &     0 &     1 \\
-				\end{bmatrix}\]
-			</td>
-			<td>&emsp;</td>
-			<td>
-				For example:
-				\[\begin{array}{lcr}
-				w &=& 1920 \\
-				h &=& 1080 \\
-				h &=& 65536 \\
-				\end{array}\]
-			</td>
-		</tr>
-	</table>
+		<table class="center">
+			<tr>
+				<td>
+					\[S=\begin{bmatrix}
+					w/2 &   0 &     0 & w / 2 \\
+					0 & h/2 &     0 & h / 2 \\
+					0 &   0 & d / 2 & d / 2 \\
+					0 &   0 &     0 &     1 \\
+					\end{bmatrix}\]
+				</td>
+				<td>&emsp;</td>
+				<td>
+					For example:
+					\[\begin{array}{lcr}
+					w &=& 1920 \\
+					h &=& 1080 \\
+					h &=& 65536 \\
+					\end{array}\]
+				</td>
+			</tr>
+		</table>
+	</section>
 	<nav>
 		<a id="prev" href="transformation-mvp.html"></a>
 		<a id="home" href="../index.html"></a>

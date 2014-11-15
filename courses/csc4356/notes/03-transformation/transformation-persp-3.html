@@ -11,26 +11,28 @@
 	<script type="text/javascript" src="../js/demo-perspective.js"></script>
 </head>
 <body onload="demo = new DemoPerspective(); demo.update()">
-	<h1>Perspective Transformation</h1>
+	<section>
+		<h1>Perspective Transformation</h1>
 
-	<table class="center">
-		<tr>
-			<td>
-				\[\M{P}=\begin{bmatrix}
-				\frac{1}{r \tan\alpha/2} & 0 & 0 & 0 \\
-				0 & \frac{1}{\tan\alpha/2} & 0 & 0 \\
-				\phantom{\frac{}{}}0 & 0 & \frac{n+f}{n-f} & \frac{2\,n\,f}{n-f} \\
-				\phantom{\frac{}{}}0 & 0 & -1 & 0 \\
-				\end{bmatrix}\]
-			</td>
-		</tr>
-	</table>
-	<ul>
-		<li>$\alpha$ is the field of view</li>
-		<li>$r$ is the aspect ratio</li>
-		<li>$n$ is the near distance</li>
-		<li>$f$ is the far distance</li>
-	</ul>
+		<table class="center">
+			<tr>
+				<td>
+					\[\M{P}=\begin{bmatrix}
+					\frac{1}{r \tan\alpha/2} & 0 & 0 & 0 \\
+					0 & \frac{1}{\tan\alpha/2} & 0 & 0 \\
+					\phantom{\frac{}{}}0 & 0 & \frac{n+f}{n-f} & \frac{2\,n\,f}{n-f} \\
+					\phantom{\frac{}{}}0 & 0 & -1 & 0 \\
+					\end{bmatrix}\]
+				</td>
+			</tr>
+		</table>
+		<ul>
+			<li>$\alpha$ is the field of view</li>
+			<li>$r$ is the aspect ratio</li>
+			<li>$n$ is the near distance</li>
+			<li>$f$ is the far distance</li>
+		</ul>
+	</section>
 	<nav>
 		<a id="prev" href="transformation-persp-2.html"></a>
 		<a id="home" href="../index.html"></a>

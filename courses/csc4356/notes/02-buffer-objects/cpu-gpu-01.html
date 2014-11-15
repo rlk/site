@@ -7,17 +7,19 @@
 	<script type="text/javascript" src="../script.js"></script>
 </head>
 <body>
-	<h1>The CPU and the GPU</h1>
+	<section>
+		<h1>The CPU and the GPU</h1>
 
-	<img class="center" src="../img/cpu-gpu-1.svg">
+		<img class="center" src="../img/cpu-gpu-1.svg">
 
-	<p>Our JavaScript program is one of many that run on the CPU.</p>
+		<p>Our JavaScript program is one of many that run on the CPU.</p>
 
-	<p>The first thing it must do is initialize a GL <em>context</em> which maintains the state of the GPU and its memory.</p>
+		<p>The first thing it must do is initialize a GL <em>context</em> which maintains the state of the GPU and its memory.</p>
 
-	<code>var gl = document.getElementById(id).getContext('webgl');</code>
+		<code>var gl = document.getElementById(id).getContext('webgl');</code>
 
-	<p>We can manipulate that context, but we can't directly touch the state and memory that it manages.</p>
+		<p>We can manipulate that context, but we can't directly touch the state and memory that it manages.</p>
+	</section>
 	<nav>
 		<a id="prev" href="cpu-gpu-00.html"></a>
 		<a id="home" href="../index.html"></a>

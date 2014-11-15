@@ -7,52 +7,53 @@
 	<script type="text/javascript" src="../script.js"></script>
 </head>
 <body>
-	<h1>Vertex Processing</h1>
+	<section>
+		<h1>Vertex Processing</h1>
 
-	<p><a href="../01-geometry/geometry-06.html">As we've seen</a>, each vertex of a mesh may have several attributes:</p>
+		<p><a href="../01-geometry/geometry-06.html">As we've seen</a>, each vertex of a mesh may have several attributes:</p>
 
-	<ul>
-		<li>3D position</li>
-		<li>Material color</li>
-		<li>Normal vector</li>
-		<li><em>etc.</em></li>
-	</ul>
+		<ul>
+			<li>3D position</li>
+			<li>Material color</li>
+			<li>Normal vector</li>
+			<li><em>etc.</em></li>
+		</ul>
 
-	<p>The Vertex Processing stage converts these attributes into <em>varyings</em>.</p>
+		<p>The Vertex Processing stage converts these attributes into <em>varyings</em>.</p>
 
-	<img class="center" width="75%" src="../img/pipeline.svg">
+		<img class="center" width="75%" src="../img/pipeline.svg">
 
-	<p>A varying is a value, defined at the vertices, that <em>varies</em> over the area of a triangle by linear interpolation.</p>
+		<p>A varying is a value, defined at the vertices, that <em>varies</em> over the area of a triangle by linear interpolation.</p>
 
-	<img class="center" width="33%" src="../img/rasterization-2.png">
+		<img class="center" width="33%" src="../img/rasterization-2.png">
 
-	<p>The most important varying is the <a href="../03-transformation/transformation-composition-full.html">screen coordinate</a> of each vertex. The linear interpolation of these coordinates is what generates the surface of the triangle.</p>
+		<p>The most important varying is the <a href="../03-transformation/transformation-composition-full.html">screen coordinate</a> of each vertex. The linear interpolation of these coordinates is what generates the surface of the triangle.</p>
 
-	<img class="center" width="33%" src="../img/rasterization-1.png">
+		<img class="center" width="33%" src="../img/rasterization-1.png">
 
-	<p>This simple example vertex shader takes position and color <em>attributes</em> as input.</p>
+		<p>This simple example vertex shader takes position and color <em>attributes</em> as input.</p>
 
-	<figure class="code">
-		uniform&nbsp;&nbsp; mat4 Projection;<br>
-		uniform&nbsp;&nbsp; mat4 Model;<br>
-		<br>
-		attribute vec4 vPosition;<br>
-		attribute vec4 vColor;<br>
-		<br>
-		varying&nbsp;&nbsp; vec4 fColor;<br>
-		<br>
-		void main() {<br>
-		&nbsp;&nbsp;&nbsp;&nbsp;gl_Position = Projection * Model * vPosition;<br>
-		&nbsp;&nbsp;&nbsp;&nbsp;fColor = vColor;<br>
-		}<br>
-	</figure>
+		<figure class="code">
+			uniform&nbsp;&nbsp; mat4 Projection;<br>
+			uniform&nbsp;&nbsp; mat4 Model;<br>
+			<br>
+			attribute vec4 vPosition;<br>
+			attribute vec4 vColor;<br>
+			<br>
+			varying&nbsp;&nbsp; vec4 fColor;<br>
+			<br>
+			void main() {<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;gl_Position = Projection * Model * vPosition;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;fColor = vColor;<br>
+			}<br>
+		</figure>
 
-	<p>Its applies model and projection transforms, giving position and color <em>varyings</em> as output.</p>
+		<p>Its applies model and projection transforms, giving position and color <em>varyings</em> as output.</p>
 
-	<p>Note, the position varying <code>gl_Position</code> is so important that it is pre-declared and its use is mandatory.</p>
+		<p>Note, the position varying <code>gl_Position</code> is so important that it is pre-declared and its use is mandatory.</p>
 
-	<p>The Vertex Processing stage usually does more than this. It often <em>computes</em> the output color based on lighting parameters. We'll see examples of this soon.</p>
-
+		<p>The Vertex Processing stage usually does more than this. It often <em>computes</em> the output color based on lighting parameters. We'll see examples of this soon.</p>
+	</section>
 	<nav>
 		<a id="prev" href="pipeline.html"></a>
 		<a id="home" href="../index.html"></a>

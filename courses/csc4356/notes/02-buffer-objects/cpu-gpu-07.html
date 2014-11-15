@@ -7,32 +7,34 @@
 	<script type="text/javascript" src="../script.js"></script>
 </head>
 <body>
-	<h1>The CPU and the GPU</h1>
+	<section>
+		<h1>The CPU and the GPU</h1>
 
-	<img class="center" src="../img/cpu-gpu-7.svg">
+		<img class="center" src="../img/cpu-gpu-7.svg">
 
-	<p>Now the data is in GPU memory, but the GPU doesn't know where to use it or how to interpret it.</p>
+		<p>Now the data is in GPU memory, but the GPU doesn't know where to use it or how to interpret it.</p>
 
-	<p>We'll want to bind the data to the vertex shader's <code>Position</code> attribute, so we ask the program where that attribute lies.</p>
+		<p>We'll want to bind the data to the vertex shader's <code>Position</code> attribute, so we ask the program where that attribute lies.</p>
 
-	<code>var Location = gl.getAttribLocation(program, 'Position');</code>
+		<code>var Location = gl.getAttribLocation(program, 'Position');</code>
 
-	<p>We attach the current buffer to that location, indicating the type and layout of the data to be found there.</p>
+		<p>We attach the current buffer to that location, indicating the type and layout of the data to be found there.</p>
 
-	<code>gl.vertexAttribPointer(Location, 3, gl.FLOAT, false, 0, 0);</code>
+		<code>gl.vertexAttribPointer(Location, 3, gl.FLOAT, false, 0, 0);</code>
 
-	<p>The arguments are as follows:</p>
+		<p>The arguments are as follows:</p>
 
-	<table class="center">
-		<tr><td><code>Location&emsp;</code></td><td>We're binding to the <code>Position</code> attribute.</td></tr>
-		<tr><td><code>3       &emsp;</code></td><td>There are three values in each row of the table.</td></tr>
-		<tr><td><code>gl.FLOAT&emsp;</code></td><td>These are floating point values.</td></tr>
-		<tr><td><code>false   &emsp;</code></td><td>They do not require normalization.</td></tr>
-		<tr><td><code>0       &emsp;</code></td><td>There are no gaps in the data.</td></tr>
-		<tr><td><code>0       &emsp;</code></td><td>The first value lies at the beginning of the buffer.</td></tr>
-	</table>
+		<table class="center">
+			<tr><td><code>Location&emsp;</code></td><td>We're binding to the <code>Position</code> attribute.</td></tr>
+			<tr><td><code>3       &emsp;</code></td><td>There are three values in each row of the table.</td></tr>
+			<tr><td><code>gl.FLOAT&emsp;</code></td><td>These are floating point values.</td></tr>
+			<tr><td><code>false   &emsp;</code></td><td>They do not require normalization.</td></tr>
+			<tr><td><code>0       &emsp;</code></td><td>There are no gaps in the data.</td></tr>
+			<tr><td><code>0       &emsp;</code></td><td>The first value lies at the beginning of the buffer.</td></tr>
+		</table>
 
-	<p></p>
+		<p></p>
+	</section>
 	<nav>
 		<a id="prev" href="cpu-gpu-06.html"></a>
 		<a id="home" href="../index.html"></a>

@@ -7,21 +7,22 @@
 	<script type="text/javascript" src="../script.js"></script>
 </head>
 <body>
-	<h1>Blending</h1>
+	<section>
+		<h1>Blending</h1>
 
-	<p>Disabling depth buffer writes resolves this issue in <em>some</em> cases.</p>
+		<p>Disabling depth buffer writes resolves this issue in <em>some</em> cases.</p>
 
-	<table width="75%" class="center">
-		<tr>
-			<td style="width:50%"><img width="100%" src="../img/alpha-yellow-red-nodepth.png"></td>
-			<td style="width:50%"><img width="100%" src="../img/alpha-red-yellow-nodepth.png"></td>
-		</tr>
-	</table>
+		<table width="75%" class="center">
+			<tr>
+				<td style="width:50%"><img width="100%" src="../img/alpha-yellow-red-nodepth.png"></td>
+				<td style="width:50%"><img width="100%" src="../img/alpha-red-yellow-nodepth.png"></td>
+			</tr>
+		</table>
 
-	<p>This allows all transparent geometry to remain visible, but can undermine front-back relationships.</p>
+		<p>This allows all transparent geometry to remain visible, but can undermine front-back relationships.</p>
 
-	<p><em>Depth writes should be disabled when rendering transparent objects.</em></p>
-
+		<p><em>Depth writes should be disabled when rendering transparent objects.</em></p>
+	</section>
 	<nav>
 		<a id="prev" href="blending-2.html"></a>
 		<a id="home" href="../index.html"></a>
