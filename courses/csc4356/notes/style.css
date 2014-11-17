@@ -125,6 +125,20 @@ table.tiny th, table.tiny td {
 	padding-right: 0.5em;
 }
 
+div.tab {
+	display: table;
+	margin: 0 auto;
+}
+
+div.row {
+	display: table-row;
+}
+
+div.col {
+	display: table-cell;
+	vertical-align: top;
+}
+
 /* Demo canvas */
 
 canvas.clip {

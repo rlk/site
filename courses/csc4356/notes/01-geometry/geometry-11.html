@@ -12,9 +12,9 @@
 
 		<p>When a vertex has multiple attributes, we use multiple arrays. Here are the tables for the colored house.</p>
 
-		<table class="center" style="font-size:80%">
-			<tr>
-				<td>
+		<div class="tab" style="font-size:70%;line-height:110%">
+			<div class="row">
+				<div class="col">
 					<figure class="code">
 						var vertices = [<br>
 						&nbsp;&nbsp;&nbsp;&nbsp;[ &nbsp;0.0, &nbsp;1.0, &nbsp;0.5 ],<br>
@@ -35,8 +35,8 @@
 						&nbsp;&nbsp;&nbsp;&nbsp;[ &nbsp;0.5, &nbsp;0.5, -0.5 ]<br>
 						];
 					</figure>
-				</td>
-				<td>
+				</div>
+				<div class="col">
 					<figure class="code">
 						var colors = [<br>
 						&nbsp;&nbsp;&nbsp;&nbsp;[ 1.0, 1.0, 0.9 ],<br>
@@ -57,8 +57,8 @@
 						&nbsp;&nbsp;&nbsp;&nbsp;[ 0.8, 0.0, 0.0 ]<br>
 						];
 					</figure>
-				</td>
-				<td>
+				</div>
+				<div class="col">
 					<figure class="code">
 						var triangles = [<br>
 						&nbsp;&nbsp;&nbsp;&nbsp;[ &nbsp;0, &nbsp;1, &nbsp;4 ],<br>
@@ -79,9 +79,9 @@
 						&nbsp;&nbsp;&nbsp;&nbsp;[ &nbsp;7, &nbsp;9, &nbsp;8 ]<br>
 						];
 					</figure>
-				</td>
-			</tr>
-		</table>
+				</div>
+			</div>
+		</div>
 
 		<p>In truth, this array-of-arrays representation is used because it makes <em>geometry processing</em> more straightforward, which we'll see later on. To use these tables for rendering, we must flatten each to a single linear array. This JavaScript function does so, returning its input in a new, flat array.</p>
 
