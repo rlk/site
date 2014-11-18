@@ -34,12 +34,6 @@ body {
 	font-size: 50%;
 }
 
-.variable {
-	font-family: "Consolas", "Inconsolata", monospace;
-	font-size: 80%;
-	width:     3em;
-}
-
 img {
 	display: block;
 }
@@ -153,6 +147,12 @@ input[type='range'] {
 	width: 200px;
 	height: 8px;
 	vertical-align: middle;
+}
+
+span.value {
+	display: inline-block;
+	text-align: right;
+	width: 2em;
 }
 
 /* Navigation styles. */

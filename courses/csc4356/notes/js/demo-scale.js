@@ -47,9 +47,10 @@ function DemoScale() {
     document.getElementById("demoScaleXIn").oninput = update;
     document.getElementById("demoScaleYIn").oninput = update;
     document.getElementById("demoScaleZIn").oninput = update;
+
+    update();
 }
 
 DemoScale.prototype = Object.create(DemoTransform.prototype);
 DemoScale.prototype.constructor = DemoScale;
 
-demoScale = new DemoScale();
