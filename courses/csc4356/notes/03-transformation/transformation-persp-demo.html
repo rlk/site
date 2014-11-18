@@ -16,21 +16,20 @@
 
 		<p><em>Perspective projection</em> makes distant objects appear smaller. More importantly, it <em>projects</em> the 3D scene onto the 2D plane.</p>
 
-		<table class="center">
-			<tr>
-				<td>
+		<div class="tab">
+			<div class="row">
+				<div class="col">
 					<table>
 						<tr><td>$z$ =</td><td class="variable" id="zout">0</td><td><input id="zin" type="range" min="-5" max="5" value="0" step="0.1" oninput="demo.update()"/></td></tr>
 					</table>
-				</td>
-				<td>&emsp;</td>
-				<td>
+				</div>
+				<div class="col">
 					<canvas class="persp" width="300px" height="300px" id="DemoPerspective">
 						This content requires <a href="http://get.webgl.org/">WebGL</a>.
 					</canvas>
-				</td>
-			</tr>
-		</table>
+				</div>
+			</div>
+		</div>
 	</section>
 	<nav>
 		<a id="prev" href="transformation-rotate-math.html"></a>
