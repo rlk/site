@@ -11,7 +11,7 @@
 	<p>The purpose of Project 6 is to practice per-fragment shading and texturing.</p>
 
 	<h2>Specifics</h2>
-	<img style="float:right; margin: 0em 0em 1em 2em" src="data/Viewer.jpg">
+	<img style="float:right; margin: 0em 0em 1em 2em" src="data/Chest.jpg">
 
 	<ul>
 		<li><p>Create a new remote repository called "project6" on <b>classes.csc.lsu.edu</b>, and clone it to your local computer.</p></li>
@@ -28,15 +28,17 @@
 			</ul>
 		</li>
 
-		<li><p>This application will take tables of vertices, normals, texture coordinates, and triangles in JSON format. Render this data using per-fragment lighting and texturing, following the template of &ldquo;<a href="notes/07-fragment/fragment-overview.html">Per-fragment Illumination</a>&rdquo; in the notes. Allow the user to tumble the shaded model using the mouse.</p>
-		</li>
+		<li><p>This application will take tables of vertices, normals, texture coordinates, and triangles in JSON format. Render this data using per-fragment illumination with texturing and a point light source, following the template of &ldquo;<a href="notes/07-fragment/fragment-overview.html">Per-fragment Illumination</a>&rdquo; in the notes.</p></li>
 
-		<li><p>The tables of data are given here:</p>
+		<li><p>Allow the user to tumble the shaded model using the mouse. Add range input sliders to the HTML source allowing the position of the light source to be given in the range &minus;5 to +5 along the X, Y, and Z axes.</p></li>
+
+		<li><p>The data and texture are given here:</p>
 			<ul>
 				<li><code><a href="data/chest.js">chest.js</a></code></li>
+				<li><code><a href="data/chest.png">chest.png</a></code></li>
 			</ul>
 
-			<p>The output should look something like the image at the right</p>
+			<p>The output should look something like the image at the upper-right.</p>
 		</li>
 
 		<li><p>Format carefully and eliminate any dead code. Push your work from your local repository to your remote repository on <b>classes.csc.lsu.edu</b> before the deadline.</p></li>
