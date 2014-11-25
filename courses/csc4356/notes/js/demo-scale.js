@@ -44,9 +44,9 @@ function DemoScale() {
         that.draw();
     }
 
-    document.getElementById("demoScaleXIn").oninput = update;
-    document.getElementById("demoScaleYIn").oninput = update;
-    document.getElementById("demoScaleZIn").oninput = update;
+    demoScaleXIn.oninput = update;
+    demoScaleYIn.oninput = update;
+    demoScaleZIn.oninput = update;
 
     update();
 }
