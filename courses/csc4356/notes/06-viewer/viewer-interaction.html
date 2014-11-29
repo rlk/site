@@ -48,8 +48,11 @@
 		<figure class="pseudocode">
 			&emsp;&emsp;<b>function</b> onmousemove(<var>event</var>)<br>
 			&emsp;&emsp;&emsp;&emsp;<b>if</b> <var>dragging</var><br>
-			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<var>modelRotationY</var> &larr; <var>modelRotationY</var> + <var>event.clientX</var> &minus; <var>lastClientX</var><br>
-			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<var>modelRotationX</var> &larr; <var>modelRotationX</var> + <var>event.clientY</var> &minus; <var>lastClientY</var><br>
+			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<var>dX</var> &larr; <var>event.clientX</var> &minus; <var>lastClientX</var><br>
+			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<var>dY</var> &larr; <var>event.clientY</var> &minus; <var>lastClientY</var><br>
+			<br>
+			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<var>modelRotationY</var> &larr; <var>modelRotationY</var> + <var>dX</var><br>
+			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<var>modelRotationX</var> &larr; <var>modelRotationX</var> + <var>dY</var><br>
 			<br>
 			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>if</b> <var>modelRotationX</var> &gt; 90.0<br>
 			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<var>modelRotationX</var> &larr; 90.0<br>
