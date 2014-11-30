@@ -12,12 +12,10 @@
 
 		<p>The yellow torus is transparent. Suddenly, rendering order matters again.</p>
 
-		<table width="75%" class="center">
-			<tr>
-				<td style="width:50%"><img width="100%" src="../img/alpha-yellow-red-opaque.png"></td>
-				<td style="width:50%"><img width="100%" src="../img/alpha-red-yellow-opaque.png"></td>
-			</tr>
-		</table>
+		<div class="tab">
+			<div class="col"><img style="width:40vw" src="../img/alpha-yellow-red-opaque.png"></div
+			<div class="col"><img style="width:40vw" src="../img/alpha-red-yellow-opaque.png"></div
+		</div>
 
 		<p>On the left, the yellow torus is rendered first. It is written into the depth buffer, so the sphere is not visible where it should be.</p>
 
