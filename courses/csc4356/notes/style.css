@@ -2,8 +2,8 @@
 /* Text formatting */
 
 body {
-	/*font-family: "Times", "Times New Roman", serif;*/
-	font-family: "Helvetica Neue", sans-serif;
+	font-family: "Times", "Times New Roman", serif;
+	/*font-family: "Helvetica Neue", sans-serif;*/
 	font-size:   32px;
 	line-height: 48px;
  	color:       #444;
@@ -63,6 +63,7 @@ figure.code {
 	font-family: "Consolas", "Inconsolata", monospace;
 	font-size:   88%;
 	margin-left: 2em;
+	white-space: nowrap;
 	color:       #888;
 }
 

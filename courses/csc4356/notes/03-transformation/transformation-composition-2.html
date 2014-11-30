@@ -7,10 +7,8 @@
 	<script type="text/javascript" src="../script.js"></script>
 	<script type="text/javascript" src="../js/gl-matrix.js"></script>
 	<script type="text/javascript" src="../js/gl-shader.js"></script>
-	<script type="text/javascript" src="../js/demo-transform.js"></script>
-	<script type="text/javascript" src="../js/demo-rotate-translate.js"></script>
 </head>
-<body onload="demo1 = new DemoRotateTranslate(); demo2 = new DemoTranslateRotate(); demo1.update(); demo2.update()">
+<body>
 	<section>
 		<h1>Composition of Rotation and Translation</h1>
 
@@ -19,12 +17,12 @@
 		<div class="tab">
 			<div class="row">
 				<div class="col">
-					<canvas class="persp" width="300px" height="300px" id="demoRotateTranslateCanvas">
+					<canvas class="persp" style="margin:1em" width="300px" height="300px" id="demoRotateTranslateCanvas">
 						This content requires <a href="http://get.webgl.org/">WebGL</a>.
 					</canvas>
 				</div>
 				<div class="col">
-					<canvas class="persp" width="300px" height="300px" id="demoTranslateRotateCanvas">
+					<canvas class="persp" style="margin:1em" width="300px" height="300px" id="demoTranslateRotateCanvas">
 						This content requires <a href="http://get.webgl.org/">WebGL</a>.
 					</canvas>
 				</div>
@@ -41,10 +39,30 @@
 
 		<p>Note the difference in behavior.</p>
 
-		<table class="center">
-			<tr><td class="right">Translation along $x$</td><td>&nbsp;=&nbsp;</td><td class="variable" id="xout">0</td><td><input id="xin" type="range" min="-2"   max="2"   value="0" step="0.1" oninput="demo1.update(); demo2.update();"/></td></tr>
-			<tr><td class="right">Rotation about $y$   </td><td>&nbsp;=&nbsp;</td><td class="variable" id="yout">0</td><td><input id="yin" type="range" min="-180" max="180" value="0" step="10"  oninput="demo1.update(); demo2.update();"/></td></tr>
-		</table>
+		<div class="tab">
+			<form style="text-align:right">
+				<label>Translation along $x$ =</label>
+				<span class="value" style="margin-right:1em" id="demoRotateTranslateXOut">0</span>
+				<input id="demoRotateTranslateXIn" oninput="update()" type="range" min="-2" max="2" value="0" step="0.1"/>
+				<br>
+
+				<label>Rotation about $y$ =</label>
+				<span class="value" style="margin-right:1em" id="demoRotateTranslateYOut">0</span>
+				<input id="demoRotateTranslateYIn" oninput="update()" type="range" min="-180" max="180" value="0" step="10"/>
+				<br>
+			</form>
+		</div>
+
+		<script type="text/javascript" src="../js/demo-transform.js"></script>
+		<script type="text/javascript" src="../js/demo-rotate-translate.js"></script>
+		<script>
+			demoRotateTranslate = new DemoRotateTranslate();
+			demoTranslateRotate = new DemoTranslateRotate();
+			function update() {
+					demoRotateTranslate.update();
+					demoTranslateRotate.update();
+			}
+		</script>
 	</section>
 	<nav>
 		<a id="prev" href="transformation-composition-1.html"></a>

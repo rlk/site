@@ -15,19 +15,17 @@
 		<p>To <em>translate</em> means to move in a straight line.</p>
 
 		<div class="tab">
-			<div class="row">
-				<div class="col">
-					<form style="margin-right:2em">
-						<input id="demoTranslateXIn" type="range" min="-2" max="2" value="0" step="0.1"/> <label><var>x</var> =</label> <span class="value" id="demoTranslateXOut">1</span><br>
-						<input id="demoTranslateYIn" type="range" min="-2" max="2" value="0" step="0.1"/> <label><var>y</var> =</label> <span class="value" id="demoTranslateYOut">1</span><br>
-						<input id="demoTranslateZIn" type="range" min="-2" max="2" value="0" step="0.1"/> <label><var>z</var> =</label> <span class="value" id="demoTranslateZOut">1</span><br>
-					</form>
-				</div>
-				<div class="col">
-					<canvas class="clip" width="300px" height="300px" id="demoTranslateCanvas">
-						This content requires <a href="http://get.webgl.org/">WebGL</a>.
-					</canvas>
-				</div>
+			<div class="col middle">
+				<form style="margin-right:2em">
+					<input id="demoTranslateXIn" type="range" min="-2" max="2" value="0" step="0.1"/> <label><var>x</var> =</label> <span class="value" id="demoTranslateXOut">1</span><br>
+					<input id="demoTranslateYIn" type="range" min="-2" max="2" value="0" step="0.1"/> <label><var>y</var> =</label> <span class="value" id="demoTranslateYOut">1</span><br>
+					<input id="demoTranslateZIn" type="range" min="-2" max="2" value="0" step="0.1"/> <label><var>z</var> =</label> <span class="value" id="demoTranslateZOut">1</span><br>
+				</form>
+			</div>
+			<div class="col">
+				<canvas class="clip" width="300px" height="300px" id="demoTranslateCanvas">
+					This content requires <a href="http://get.webgl.org/">WebGL</a>.
+				</canvas>
 			</div>
 		</div>
 		<script type="text/javascript" src="../js/demo-transform.js"></script>

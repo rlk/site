@@ -7,17 +7,24 @@
 function DemoRotateTranslate() {
     DemoTransform.call(this, "demoRotateTranslateCanvas");
 
-    function update() {
+    var demoRotateTranslateXIn  = document.getElementById("demoRotateTranslateXIn");
+    var demoRotateTranslateYIn  = document.getElementById("demoRotateTranslateYIn");
+    var demoRotateTranslateXOut = document.getElementById("demoRotateTranslateXOut");
+    var demoRotateTranslateYOut = document.getElementById("demoRotateTranslateYOut");
+
+    var that = this;
+
+    this.update = function() {
 
         // Get the current slider values.
 
-        var x = parseFloat(document.getElementById("xin").value);
-        var y = parseInt  (document.getElementById("yin").value);
+        var x = parseFloat(demoRotateTranslateXIn.value);
+        var y = parseInt  (demoRotateTranslateYIn.value);
 
         // Set the current numerical display.
 
-        document.getElementById("xout").innerHTML = x;
-        document.getElementById("yout").innerHTML = y;
+        demoRotateTranslateXOut.innerHTML = x;
+        demoRotateTranslateYOut.innerHTML = y + '&deg;';
 
         // Create a transformation matrix and set its uniform.
 
@@ -30,13 +37,15 @@ function DemoRotateTranslate() {
         mat4.rotateY(M, M, glMatrix.toRadian(y));
         mat4.translate(M, M, vec3.fromValues(x, 0, 0));
 
-        this.gl.uniformMatrix4fv(this.ModelLocation, false, M);
+        that.gl.uniformMatrix4fv(that.ModelLocation, false, M);
 
         // Draw the updated frame.
 
-        this.gl.clear(this.gl.COLOR_BUFFER_BIT);
-        this.draw();
+        that.gl.clear(that.gl.COLOR_BUFFER_BIT);
+        that.draw();
     }
+
+    this.update();
 }
 
 DemoRotateTranslate.prototype = Object.create(DemoTransform.prototype);
@@ -45,19 +54,26 @@ DemoRotateTranslate.prototype.constructor = DemoRotateTranslate;
 //------------------------------------------------------------------------------
 
 function DemoTranslateRotate() {
-    DemoTransform.call(this, "DemoTranslateRotate");
+    DemoTransform.call(this, "demoTranslateRotateCanvas");
 
-    function update() {
+    var demoTranslateRotateXIn  = document.getElementById("demoRotateTranslateXIn");
+    var demoTranslateRotateYIn  = document.getElementById("demoRotateTranslateYIn");
+    var demoTranslateRotateXOut = document.getElementById("demoRotateTranslateXOut");
+    var demoTranslateRotateYOut = document.getElementById("demoRotateTranslateYOut");
+
+    var that = this;
+
+    this.update = function() {
 
         // Get the current slider values.
 
-        var x = parseFloat(document.getElementById("xin").value);
-        var y = parseInt  (document.getElementById("yin").value);
+        var x = parseFloat(demoTranslateRotateXIn.value);
+        var y = parseInt  (demoTranslateRotateYIn.value);
 
         // Set the current numerical display.
 
-        document.getElementById("xout").innerHTML = x.toFixed(1);
-        document.getElementById("yout").innerHTML = y + '&deg;';
+        demoTranslateRotateXOut.innerHTML = x.toFixed(1);
+        demoTranslateRotateYOut.innerHTML = y + '&deg;';
 
         // Create a transformation matrix and set its uniform.
 
@@ -70,13 +86,15 @@ function DemoTranslateRotate() {
         mat4.translate(M, M, vec3.fromValues(x, 0, 0));
         mat4.rotateY(M, M, glMatrix.toRadian(y));
 
-        this.gl.uniformMatrix4fv(this.ModelLocation, false, M);
+        that.gl.uniformMatrix4fv(that.ModelLocation, false, M);
 
         // Draw the updated frame.
 
-        this.gl.clear(this.gl.COLOR_BUFFER_BIT);
-        this.draw();
+        that.gl.clear(that.gl.COLOR_BUFFER_BIT);
+        that.draw();
     }
+
+    this.update();
 }
 
 DemoTranslateRotate.prototype = Object.create(DemoTransform.prototype);
