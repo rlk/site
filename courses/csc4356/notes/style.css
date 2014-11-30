@@ -2,7 +2,8 @@
 /* Text formatting */
 
 body {
-	font-family: "Times", "Times New Roman", serif;
+	/*font-family: "Times", "Times New Roman", serif;*/
+	font-family: "Helvetica Neue", sans-serif;
 	font-size:   32px;
 	line-height: 48px;
  	color:       #444;
@@ -69,6 +70,7 @@ figure.code {
 
 figure.pseudocode {
 	margin-left: 2em;
+	white-space: nowrap;
 }
 
 figure.pseudocode span {
@@ -131,6 +133,10 @@ div.row {
 div.col {
 	display: table-cell;
 	vertical-align: top;
+}
+
+div.middle {
+	vertical-align: middle;
 }
 
 /* Demo canvas */
