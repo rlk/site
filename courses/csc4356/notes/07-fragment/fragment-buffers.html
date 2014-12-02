@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Interactive Computer Graphics</title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://csc.lsu.edu/~kooima/MathJax.js"></script>
+	<script type="text/javascript" src="../script.js"></script>
+</head>
+<body>
+	<section>
+		<h1>Buffer Objects</h1>
+
+		<p>Buffer object handling is <a href="../06-viewer/viewer-buffers.html">as before</a>. However, we have one additional vertex attribute, used to represent texture coordinates.</p>
+
+		<figure class="pseudocode" id="initialization">
+			&#x3008;Buffer Initialization&#x3009; +&equiv;<br>
+		</figure>
+		<figure class="pseudocode">
+			&emsp;&emsp;<var>vertexTexCoordLocation</var> &larr; <code class="small">gl.getAttribLocation</code>(<code class="small">gl.program</code>, &ldquo;vertexTexCoord&rdquo;)</code><br>
+		</figure>
+
+		<p>The attribute locations must be enabled.</p>
+
+		<figure class="pseudocode">
+			&emsp;&emsp;<code class="small">gl.enableVertexAttribArray</code>(<var>vertexTexCoordLocation</var>)</code><br>
+		</figure>
+
+		<p>The texture coordinate must converted to a flat <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays">typed array</a>.</p>
+
+		<figure class="pseudocode">
+			&emsp;&emsp;<span style="width:6em"><var>texCoordArray</var></span> &larr; <code>new Float32Array</code>(<a href="../01-geometry/geometry-11.html#flatten"><code>flatten</code></a>(<var>texCoords</var>))<br>
+		</figure>
+
+		<p>And the texture coordinates go into an array buffer.</p>
+
+		<figure class="pseudocode">
+			&emsp;&emsp;<var>texCoordBuffer</var> &larr; <code>gl.createBuffer()</code><br>
+			&emsp;&emsp;<code class="small">gl.bindBuffer</code>(<code class="small">gl.ARRAY_BUFFER</code>, <var>texCoordBuffer</var>)<br>
+			&emsp;&emsp;<code class="small">gl.bufferData</code>(<code class="small">gl.ARRAY_BUFFER</code>, <var>texCoordArray</var>, <code class="small">gl.STATIC_DRAW</code>)<br>
+		</figure>
+	</section>
+	<nav>
+		<a id="prev" href="viewer-shaders.html"></a>
+		<a id="home" href="../index.html"></a>
+		<a id="next" href="viewer-rendering.html"></a>
+	</nav>
+</body>
+</html>

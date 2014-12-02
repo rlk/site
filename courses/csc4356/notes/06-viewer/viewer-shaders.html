@@ -20,7 +20,7 @@
 			&emsp;&emsp;<code>uniform</code> <code>mat4</code> <var>modelMatrix</var><br>
 			&emsp;&emsp;<code>uniform</code> <code>vec3</code> <var>lightDirection</var><br>
 			&emsp;&emsp;<code>uniform</code> <code>vec3</code> <var>lightColor</var><br>
-			&emsp;&emsp;<code>uniform</code> <code>vec3</code> <var>objectColor</var><br>
+			&emsp;&emsp;<code>uniform</code> <code>vec3</code> <var>modelColor</var><br>
 			<br>
 			&emsp;&emsp;<code>attribute</code> <code>vec4</code> <var>vertexPosition</var><br>
 			&emsp;&emsp;<code>attribute</code> <code>vec3</code> <var>vertexNormal</var><br>
@@ -42,7 +42,7 @@
 			&emsp;&emsp;&emsp;&emsp;<span style="width:1em"><var>d</var></span> &larr; <code>max</code>(<b>n</b> &middot; <b>l</b>, 0)<br>
 			&emsp;&emsp;&emsp;&emsp;<span style="width:1em"><var>s</var></span> &larr; <code>max</code>(<b>n</b> &middot; <b>h</b>, 0)<sup>100</sup><br>
 			<br>
-			&emsp;&emsp;&emsp;&emsp;<span style="width:6em"><var>fragmentColor</var></span> &larr; <var>lightColor</var> &middot; (<var>objectColor</var> &middot; <var>d</var> + <var>s</var>)<br>
+			&emsp;&emsp;&emsp;&emsp;<span style="width:6em"><var>fragmentColor</var></span> &larr; <var>lightColor</var> &middot; (<var>modelColor</var> &middot; <var>d</var> + <var>s</var>)<br>
 			&emsp;&emsp;&emsp;&emsp;<span style="width:6em"><code>gl_Position</code></span> &larr; <var>projectionMatrix</var> &middot; <var>modelMatrix</var> &middot; <var>vertexPosition</var><br>
 		</figure>
 
@@ -75,7 +75,7 @@
 			&emsp;&emsp;<span style="width:10.5em"><var>modelMatrixLocation</var></span>      &larr;&nbsp;<code class="small">gl.getUniformLocation</code>(<code class="small">gl.program</code>,&nbsp;&ldquo;modelMatrix&rdquo;);</code><br>
 			&emsp;&emsp;<span style="width:10.5em"><var>lightDirectionLocation</var></span>   &larr;&nbsp;<code class="small">gl.getUniformLocation</code>(<code class="small">gl.program</code>,&nbsp;&ldquo;lightDirection&rdquo;);</code><br>
 			&emsp;&emsp;<span style="width:10.5em"><var>lightColorLocation</var></span>       &larr;&nbsp;<code class="small">gl.getUniformLocation</code>(<code class="small">gl.program</code>,&nbsp;&ldquo;lightColor&rdquo;);</code><br>
-			&emsp;&emsp;<span style="width:10.5em"><var>objectColorLocation</var></span>      &larr;&nbsp;<code class="small">gl.getUniformLocation</code>(<code class="small">gl.program</code>,&nbsp;&ldquo;objectColor&rdquo;);</code><br>
+			&emsp;&emsp;<span style="width:10.5em"><var>modelColorLocation</var></span>      &larr;&nbsp;<code class="small">gl.getUniformLocation</code>(<code class="small">gl.program</code>,&nbsp;&ldquo;modelColor&rdquo;);</code><br>
 		</figure>
 	</section>
 	<nav>

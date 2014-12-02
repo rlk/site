@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Interactive Computer Graphics</title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://csc.lsu.edu/~kooima/MathJax.js"></script>
+	<script type="text/javascript" src="../script.js"></script>
+</head>
+<body>
+	<section>
+		<h1>Shading</h1>
+
+		<p>The <a href="../06-viewer/viewer-shader.html">previous chapter</a> implemented the <a href="../05-lighting/lighting-5.html">lighting equation</a> at each vertex. Now, we'll evaluate the same equation at each fragment.</p>
+
+		<figure class="pseudocode" id="vertex_shader">
+			&#x3008;Vertex Shader&#x3009; &equiv;<br>
+			&emsp;&emsp;<code>precision mediump float</code><br>
+			<br>
+			&emsp;&emsp;<code>uniform</code> <code>mat4</code> <var>projectionMatrix</var><br>
+			&emsp;&emsp;<code>uniform</code> <code>mat4</code> <var>modelMatrix</var><br>
+			&emsp;&emsp;<code>uniform</code> <code>vec4</code> <var>lightPosition</var><br>
+			<br>
+			&emsp;&emsp;<code>attribute</code> <code>vec4</code> <var>vertexPosition</var><br>
+			&emsp;&emsp;<code>attribute</code> <code>vec3</code> <var>vertexNormal</var><br>
+			&emsp;&emsp;<code>attribute</code> <code>vec2</code> <var>vertexTexCoord</var><br>
+			<br>
+			&emsp;&emsp;<code>varying</code> <code>vec3</code> <var>fragmentNormal</var><br>
+			&emsp;&emsp;<code>varying</code> <code>vec3</code> <var>fragmentLight</var><br>
+			&emsp;&emsp;<code>varying</code> <code>vec3</code> <var>fragmentView</var><br>
+			&emsp;&emsp;<code>varying</code> <code>vec2</code> <var>fragmentTexCoord</var><br>
+		</figure>
+
+		<p>The varying value is no longer the <em>output</em> of the lighting calculation, the varyings are now the <em>input</em> to the lighting calculation: $\V{n}$, $\V{l}$, and $\V{v}$.</p>
+
+		<figure class="pseudocode">
+			&emsp;&emsp;<b>function</b> main()<br>
+			&emsp;&emsp;&emsp;&emsp;<span style="width:1em"><b>p</b></span> &larr; <var>modelMatrix</var> &middot; <var>vertexPosition</var><br>
+			&emsp;&emsp;&emsp;&emsp;<span style="width:1em"><b>q</b></span> &larr; <var>modelMatrix</var> &middot; <var>lightPosition</var><br>
+			<br>
+			&emsp;&emsp;&emsp;&emsp;<span style="width:8em"><var>fragmentNormal</var></span> &larr; <code>normalize</code>(<code>mat3</code>(<var>modelMatrix</var>) &middot; <var>vertexNormal</var>)<br>
+			&emsp;&emsp;&emsp;&emsp;<span style="width:8em"><var>fragmentLight</var></span> &larr; <code>normalize</code>(<code>vec3</code>(<b>p</b> &minus; <b>q</b>))<br>
+			&emsp;&emsp;&emsp;&emsp;<span style="width:8em"><var>fragmentView</var></span> &larr; <code>normalize</code>(<code>vec3</code>(&minus;<b>p</b>))<br>
+			&emsp;&emsp;&emsp;&emsp;<span style="width:8em"><var>fragmentTexCoord</var></span> &larr; <var>vertexTexCoord</var><br>
+			<br>
+			&emsp;&emsp;&emsp;&emsp;<span style="width:6em"><code>gl_Position</code></span> &larr; <var>projectionMatrix</var> &middot; <var>modelMatrix</var> &middot; <var>vertexPosition</var><br>
+		</figure>
+
+		<p>The lighting calculation itself is performed by the fragment shader.</p>
+
+		<figure class="pseudocode" id="fragment_shader">
+			&#x3008;Fragment Shader&#x3009; &equiv;<br>
+			&emsp;&emsp;<code>varying</code> <code>vec3</code> <var>fragmentNormal</var><br>
+			&emsp;&emsp;<code>varying</code> <code>vec3</code> <var>fragmentLight</var><br>
+			&emsp;&emsp;<code>varying</code> <code>vec3</code> <var>fragmentView</var><br>
+			&emsp;&emsp;<code>varying</code> <code>vec2</code> <var>fragmentTexCoord</var><br>
+			<br>
+			&emsp;&emsp;<code>uniform</code> <code>vec3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code> <var>lightColor</var><br>
+			&emsp;&emsp;<code>uniform</code> <code>sampler2D</code> <var>modelTexture</var><br>
+			<br>
+			&emsp;&emsp;<b>function</b> main()<br>
+      &emsp;&emsp;&emsp;&emsp;<span style="width:1em"><b>n</b></span> &larr; <code>normalize</code>(<var>fragmentNormal</var>)<br>
+      &emsp;&emsp;&emsp;&emsp;<span style="width:1em"><b>l</b></span> &larr; <code>normalize</code>(<var>fragmentLight</var>)<br>
+      &emsp;&emsp;&emsp;&emsp;<span style="width:1em"><b>v</b></span> &larr; <code>normalize</code>(<var>fragmentView</var>)<br>
+      &emsp;&emsp;&emsp;&emsp;<span style="width:1em"><b>r</b></span> &larr; <code>reflect</code>(-<b>l</b>, <b>n</b>)<br>
+      <br>
+			&emsp;&emsp;&emsp;&emsp;<span style="width:1em"><var>d</var></span> &larr; <code>max</code>(<b>l</b> &middot; <b>n</b>, 0)<br>
+			&emsp;&emsp;&emsp;&emsp;<span style="width:1em"><var>s</var></span> &larr; <code>max</code>(<b>r</b> &middot; <b>v</b>, 0)<sup>10</sup><br>
+			<br>
+			&emsp;&emsp;&emsp;&emsp;<span style="width:6em"><var>modelColor</var></span> &larr; <code>texture2D</code>(<var>modelTexture</var>, <var>fragmentTexCoord</var>)<br>
+			&emsp;&emsp;&emsp;&emsp;<span style="width:6em"><var>fragmentColor</var></span> &larr; <var>lightColor</var> &middot; (<var>modelColor</var> &middot; <var>d</var> + <var>s<var>)<br>
+			<br>
+			&emsp;&emsp;&emsp;&emsp;<code>gl_FragColor</code> &larr; <code>vec4</code>(<var>fragmentColor</var>, 1.0);<br>
+		</figure>
+
+		<h2>Shader Initialization</h2>
+
+		<p>On the application side, we set up to render using this shader <a href="../06-viewer/viewer-shaders.html#initialization">as before</a>.</p>
+
+		<figure class="pseudocode" id="initialization">
+			&#x3008;Shader Initialization&#x3009; &equiv;<br>
+			&emsp;&emsp;<code>initShaders</code>(<code>gl</code>,<br>
+			&emsp;&emsp;&emsp;&emsp;<code>document.getElementById</code>(&ldquo;vertexShader&rdquo;).<code>text</code>,<br>
+			&emsp;&emsp;&emsp;&emsp;<code>document.getElementById</code>(&ldquo;fragmentShader&rdquo;).<code>text</code>);<br>
+		</figure>
+
+		<p>Again, the uniform locations should be stored globally.</p>
+
+		<figure class="pseudocode">
+			&emsp;&emsp;<span style="width:10.5em"><var>projectionMatrixLocation</var></span> &larr;&nbsp;<code class="small">gl.getUniformLocation</code>(<code class="small">gl.program</code>,&nbsp;&ldquo;projectionMatrix&rdquo;);</code><br>
+			&emsp;&emsp;<span style="width:10.5em"><var>modelMatrixLocation</var></span>      &larr;&nbsp;<code class="small">gl.getUniformLocation</code>(<code class="small">gl.program</code>,&nbsp;&ldquo;modelMatrix&rdquo;);</code><br>
+			&emsp;&emsp;<span style="width:10.5em"><var>lightPositionLocation</var></span>    &larr;&nbsp;<code class="small">gl.getUniformLocation</code>(<code class="small">gl.program</code>,&nbsp;&ldquo;lightPosition&rdquo;);</code><br>
+			&emsp;&emsp;<span style="width:10.5em"><var>lightColorLocation</var></span>       &larr;&nbsp;<code class="small">gl.getUniformLocation</code>(<code class="small">gl.program</code>,&nbsp;&ldquo;lightColor&rdquo;);</code><br>
+		</figure>
+	</section>
+	<nav>
+		<a id="prev" href="viewer-normal.html"></a>
+		<a id="home" href="../index.html"></a>
+		<a id="next" href="viewer-buffers.html"></a>
+	</nav>
+</body>
+</html>
