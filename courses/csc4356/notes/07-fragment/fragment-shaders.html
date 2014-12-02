@@ -42,7 +42,7 @@
 			&emsp;&emsp;&emsp;&emsp;<span style="width:8em"><var>fragmentView</var></span> &larr; <code>normalize</code>(<code>vec3</code>(&minus;<b>p</b>))<br>
 			&emsp;&emsp;&emsp;&emsp;<span style="width:8em"><var>fragmentTexCoord</var></span> &larr; <var>vertexTexCoord</var><br>
 			<br>
-			&emsp;&emsp;&emsp;&emsp;<span style="width:6em"><code>gl_Position</code></span> &larr; <var>projectionMatrix</var> &middot; <var>modelMatrix</var> &middot; <var>vertexPosition</var><br>
+			&emsp;&emsp;&emsp;&emsp;<code>gl_Position</code> &larr; <var>projectionMatrix</var> &middot; <var>modelMatrix</var> &middot; <var>vertexPosition</var><br>
 		</figure>
 
 		<p>The lighting calculation itself is performed by the fragment shader.</p>
@@ -56,7 +56,11 @@
 			<br>
 			&emsp;&emsp;<code>uniform</code> <code>vec3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code> <var>lightColor</var><br>
 			&emsp;&emsp;<code>uniform</code> <code>sampler2D</code> <var>modelTexture</var><br>
-			<br>
+		</figure>
+
+		<p>Note here the addition of <var>modelTexture</var>, the uniform <em>sampler</em> representing a texture image.</p>
+
+		<figure class="pseudocode" id="fragment_shader">
 			&emsp;&emsp;<b>function</b> main()<br>
       &emsp;&emsp;&emsp;&emsp;<span style="width:1em"><b>n</b></span> &larr; <code>normalize</code>(<var>fragmentNormal</var>)<br>
       &emsp;&emsp;&emsp;&emsp;<span style="width:1em"><b>l</b></span> &larr; <code>normalize</code>(<var>fragmentLight</var>)<br>
@@ -66,7 +70,7 @@
 			&emsp;&emsp;&emsp;&emsp;<span style="width:1em"><var>d</var></span> &larr; <code>max</code>(<b>l</b> &middot; <b>n</b>, 0)<br>
 			&emsp;&emsp;&emsp;&emsp;<span style="width:1em"><var>s</var></span> &larr; <code>max</code>(<b>r</b> &middot; <b>v</b>, 0)<sup>10</sup><br>
 			<br>
-			&emsp;&emsp;&emsp;&emsp;<span style="width:6em"><var>modelColor</var></span> &larr; <code>texture2D</code>(<var>modelTexture</var>, <var>fragmentTexCoord</var>)<br>
+			&emsp;&emsp;&emsp;&emsp;<span style="width:6em"><var>modelColor</var></span> &larr; <code>vec3</code>(<code>texture2D</code>(<var>modelTexture</var>, <var>fragmentTexCoord</var>))<br>
 			&emsp;&emsp;&emsp;&emsp;<span style="width:6em"><var>fragmentColor</var></span> &larr; <var>lightColor</var> &middot; (<var>modelColor</var> &middot; <var>d</var> + <var>s<var>)<br>
 			<br>
 			&emsp;&emsp;&emsp;&emsp;<code>gl_FragColor</code> &larr; <code>vec4</code>(<var>fragmentColor</var>, 1.0);<br>
@@ -93,9 +97,9 @@
 		</figure>
 	</section>
 	<nav>
-		<a id="prev" href="viewer-normal.html"></a>
+		<a id="prev" href="fragment-buffers.html"></a>
 		<a id="home" href="../index.html"></a>
-		<a id="next" href="viewer-buffers.html"></a>
+		<a id="next" href="fragment-texture.html"></a>
 	</nav>
 </body>
 </html>

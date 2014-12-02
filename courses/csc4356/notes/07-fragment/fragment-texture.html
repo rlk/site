@@ -10,39 +10,51 @@
 	<section>
 		<h1>Texture Objects</h1>
 
-		<p>Buffer object handling is <a href="../06-viewer/viewer-buffers.html">as before</a>. However, we have one additional vertex attribute, used to represent texture coordinates.</p>
+		<p>Texture images are represented using <em>objects</em> in a fashion very similar to buffer objects. We can create an arbitrary number of them, but only one of them is <em>bound</em> at any moment.</p>
+
+		<p>First, a utility function. Given a Javascript <code>Image</code> object <var>image</var> and a GL texture object <var>texture</var>, we initialize the texture object with the image data as follows:</p>
 
 		<figure class="pseudocode" id="initialization">
-			&#x3008;Buffer Initialization&#x3009; +&equiv;<br>
-		</figure>
-		<figure class="pseudocode">
-			&emsp;&emsp;<var>vertexTexCoordLocation</var> &larr; <code class="small">gl.getAttribLocation</code>(<code class="small">gl.program</code>, &ldquo;vertexTexCoord&rdquo;)</code><br>
-		</figure>
-
-		<p>The attribute locations must be enabled.</p>
-
-		<figure class="pseudocode">
-			&emsp;&emsp;<code class="small">gl.enableVertexAttribArray</code>(<var>vertexTexCoordLocation</var>)</code><br>
+		&emsp;&emsp;<b>function</b> <var>loadTexture</var>(<var>image</var>, <var>texture</var>)<br>
+		&emsp;&emsp;&emsp;&emsp;<code class="small">gl.bindTexture  </code>(<code class="small">gl.TEXTURE_2D</code>, <var>texture</var>)<br>
+		&emsp;&emsp;&emsp;&emsp;<code class="small">gl.texImage2D   </code>(<code class="small">gl.TEXTURE_2D</code>, 0, <code class="small">gl.RGBA</code>, <code class="small">gl.RGBA</code>, <code class="small">gl.UNSIGNED_BYTE</code>, <var>image</var>)<br>
+		&emsp;&emsp;&emsp;&emsp;<code class="small">gl.texParameteri</code>(<code class="small">gl.TEXTURE_2D</code>, <code class="small">gl.TEXTURE_MIN_FILTER</code>, <code class="small">gl.LINEAR</code>)<br>
+		&emsp;&emsp;&emsp;&emsp;<code class="small">gl.texParameteri</code>(<code class="small">gl.TEXTURE_2D</code>, <code class="small">gl.TEXTURE_MAG_FILTER</code>, <code class="small">gl.LINEAR</code>)<br>
+		&emsp;&emsp;&emsp;&emsp;Request a frame of animation<br>
 		</figure>
 
-		<p>The texture coordinate must converted to a flat <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays">typed array</a>.</p>
 
-		<figure class="pseudocode">
-			&emsp;&emsp;<span style="width:6em"><var>texCoordArray</var></span> &larr; <code>new Float32Array</code>(<a href="../01-geometry/geometry-11.html#flatten"><code>flatten</code></a>(<var>texCoords</var>))<br>
+		<p>The actual use of textures begins with a bit of ceremony. An image origin is at the upper-left, but a texture origin is at the lower-left. To account for this, configure the GL to flip all image inputs along the Y axis.</p>
+
+		<figure class="pseudocode" id="initialization">
+			&#x3008;Texture Initialization&#x3009; &equiv;<br>
+	    &emsp;&emsp;&emsp;&emsp;<code>gl.pixelStorei</code>(<code>gl.UNPACK_FLIP_Y_WEBGL</code>, <code>true</code>)<br>
 		</figure>
 
-		<p>And the texture coordinates go into an array buffer.</p>
+		<p>Creating a texture object is familiar.</p>
 
-		<figure class="pseudocode">
-			&emsp;&emsp;<var>texCoordBuffer</var> &larr; <code>gl.createBuffer()</code><br>
-			&emsp;&emsp;<code class="small">gl.bindBuffer</code>(<code class="small">gl.ARRAY_BUFFER</code>, <var>texCoordBuffer</var>)<br>
-			&emsp;&emsp;<code class="small">gl.bufferData</code>(<code class="small">gl.ARRAY_BUFFER</code>, <var>texCoordArray</var>, <code class="small">gl.STATIC_DRAW</code>)<br>
+		<figure class="pseudocode" id="initialization">
+			&emsp;&emsp;&emsp;&emsp;<var>modelTexture</var> &larr; <code>gl.createTexture()</code><br>
 		</figure>
+
+		<p>But supplying its data is not. A Javascript <code>Image</code> is requested via the network. We must await its arrival and fill the texture object with data only after it arrives.
+
+		<figure class="pseudocode" id="initialization">
+    	&emsp;&emsp;&emsp;&emsp;<var>modelImage</var> = <code>new Image()</code><br>
+    	&emsp;&emsp;&emsp;&emsp;<var>modelImage</var>.<code>onload</code> = <code>function() {</code><br>
+    	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<var>loadTexture</var>(<var>modelImage</var>, <var>modelTexture</var>)<br>
+    	&emsp;&emsp;&emsp;&emsp;<code>}</code><br>
+    	&emsp;&emsp;&emsp;&emsp;<var>modelImage</var>.<code>crossOrigin</code> = &ldquo;anonymous&rdquo;<br>
+    	&emsp;&emsp;&emsp;&emsp;<var>modelImage</var>.<code>src</code> = &ldquo;<code>chest.png</code>&rdquo;<br>
+		</figure>
+
+		<p>Setting the <code>src</code> triggers the request.</p>
+
 	</section>
 	<nav>
-		<a id="prev" href="viewer-shaders.html"></a>
+		<a id="prev" href="fragment-shaders.html"></a>
 		<a id="home" href="../index.html"></a>
-		<a id="next" href="viewer-rendering.html"></a>
+		<a id="next" href="fragment-rendering.html"></a>
 	</nav>
 </body>
 </html>
