@@ -38,7 +38,7 @@
 			&emsp;&emsp;&emsp;&emsp;<span style="width:1em"><b>q</b></span> &larr; <var>modelMatrix</var> &middot; <var>lightPosition</var><br>
 			<br>
 			&emsp;&emsp;&emsp;&emsp;<span style="width:8em"><var>fragmentNormal</var></span> &larr; <code>normalize</code>(<code>mat3</code>(<var>modelMatrix</var>) &middot; <var>vertexNormal</var>)<br>
-			&emsp;&emsp;&emsp;&emsp;<span style="width:8em"><var>fragmentLight</var></span> &larr; <code>normalize</code>(<code>vec3</code>(<b>p</b> &minus; <b>q</b>))<br>
+			&emsp;&emsp;&emsp;&emsp;<span style="width:8em"><var>fragmentLight</var></span> &larr; <code>normalize</code>(<code>vec3</code>(<b>q</b> &minus; <b>p</b>))<br>
 			&emsp;&emsp;&emsp;&emsp;<span style="width:8em"><var>fragmentView</var></span> &larr; <code>normalize</code>(<code>vec3</code>(&minus;<b>p</b>))<br>
 			&emsp;&emsp;&emsp;&emsp;<span style="width:8em"><var>fragmentTexCoord</var></span> &larr; <var>vertexTexCoord</var><br>
 			<br>
