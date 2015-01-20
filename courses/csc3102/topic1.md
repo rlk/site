@@ -61,18 +61,3 @@ Given a collection containing N elements, how many steps are required (in the wo
 - If we know the elements appear in some sorted order, how does each of the basic operations change?
 
 - If you're enumerating a sequence container and you decide to delete an element, what care must be taken to ensure that you can continue scanning?
-
-## Data for examples: Busiest U.S. Airports
-
-| Rank | Airport | City        |
-| ---- | ------- | ----------- |
-| 1    | ATL     | Atlanta     |
-| 2    | ORD     | Chicago     |
-| 3    | LAX     | Los Angeles |
-| 4    | DFW     | Dallas      |
-| 5    | DEN     | Denver      |
-| 6    | JFK     | New York    |
-| 7    | MIA     | Miami       |
-| 8    | PHX     | Phoenix     |
-| 9    | LAS     | Las Vegas   |
-| 10   | IAH     | Houston     |
