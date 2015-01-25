@@ -6,12 +6,16 @@ a:active  { color:#FF0000; text-decoration: underline; }
 body {
   margin-left:   3em;
   margin-right:  3em;
-  margin-top:    0em;
+  margin-top:    3em;
   margin-bottom: 3em;
   font-family: "Calibri", "Arial", sans-serif;
   font-size:   18px;
   line-height: 26px;
   color: #444;
+}
+
+body.flushtop {
+  margin-top:    0em;
 }
 
 code {
@@ -32,18 +36,6 @@ img {
 
 table {
   font: inherit
-}
-
-h1 {
-  clear: both;
-  margin-top:    1em;
-  margin-bottom: 4px;
-  margin-left:   0px;
-  margin-right:  0px;
-  padding:     0.5em;
-  background:         radial-gradient(center top, circle, #EEE, #DDD);
-  background: -webkit-radial-gradient(center top, circle, #EEE, #DDD);
-  text-shadow: 1px 1px 0px #FFF
 }
 
 h1.header {

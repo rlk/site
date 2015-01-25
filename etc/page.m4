@@ -8,7 +8,7 @@ changecom
 </style>
 <title>Robert Kooima</title>
 </head>
-<body>
+<body class="flushtop">
 <div class="all">
 <h1 class="header"><a href="index.html">Robert Kooima</a></h1>
 
