@@ -14,6 +14,7 @@ An algorithm is always measured by the number of steps that it takes to execute 
 
 	"Logarithmic" where it turns out the base does not matter, though it is often taken to be 2. Useful logarithmic identities:
 
+	- \\(y=\log_b x \iff x=b^y\\)
 	- \\(\log_b a c = \log_b a + \log_b c\\)
 	- \\(\log_b \frac{a}{c} = \log_b a - \log_b c\\)
 	- \\(\log_b a^c = c \log_b a\\)
@@ -50,10 +51,3 @@ An algorithm is always measured by the number of steps that it takes to execute 
 	- \\(b^\frac{a}{c}=\sqrt[c]{b^a}\\)
 
 One of the universal truisms of computer science is that polynomials are "good" and exponentials are "bad."
-
-## Analysis of Algorithms
-
-- Experimental execution
-- Counting primitives
-- Asymptotic analysis
-
