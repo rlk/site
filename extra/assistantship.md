@@ -13,9 +13,12 @@ Inquiring graduate students and prospective research assistants should understan
 
 3. Make certain that your work is in alignment with mine.
 
-	A research mentor will only select an assistant who comes equipped with the background and experience necessary to begin work immediately. Taking a semester or more to be brought up-to-date with the field is a waste of time. In my case, candidates must have a thorough knowledge of computer graphics, C++, and Linux.
+	A research mentor will only select an assistant who comes equipped with the background and experience necessary to begin work immediately. Taking a semester or more to be brought up-to-date with the field is a waste of time. In my case, candidates must have a working knowledge of computer graphics, C++, and Linux.
 
 4. Don't pander.
 
-	Many prospective graduate assistants are advised to **embolden** all of their **key words**. This is one of the **hallmarks of a broadcast inquiry** and it reads like **celebrity gossip**. It suggests that I **don't know how to read**. Don't do this. It's disrespectful. Whoever is advising you to do so is wrong.
+	Many prospective graduate assistants are advised to **embolden all of their key phrases**. This is one of the **hallmarks of a broadcast inquiry** and it reads like **celebrity gossip**. It suggests that I **don't know how to read**. Don't do this. It's disrespectful. Whoever is advising you to do it is wrong.
 
+Sadly, following this advice doesn't guarantee a positive response. A researcher can only hire an assistant when funding is available. Much of the time, available funding is already spoken-for and even an excellent candidate must be passed over due to commitments made to another. It's an unfortunate reality.
+
+If you're externally funded, then by all means contact your first choice of mentor and tell them so. You'll get their attention. But if you're in need of a paycheck or tuition remission, please understand that many research mentors would love to hire you, but simply cannot.
