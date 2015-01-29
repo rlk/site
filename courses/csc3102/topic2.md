@@ -51,3 +51,39 @@ An algorithm is always measured by the number of steps that it takes to execute 
 	- \\(b^\frac{a}{c}=\sqrt[c]{b^a}\\)
 
 One of the universal truisms of computer science is that polynomials are "good" and exponentials are "bad."
+
+## The "Big-O" Notation
+
+The significance of growth, Table 4.3:
+
+|            | Maximum Problem Size   |||
+| Run Time   | 1 sec | 1 min  | 1 hour  |
+| ---------- | ----- | ------ | ------- |
+| \\(400n\\) | 2500  | 150000 | 9000000 |
+| \\(2n^2\\) | 707   | 5477   | 42426   |
+| \\(2^n\\)  | 19    | 25     | 31      |
+
+The significance of growth, Table 4.4:
+
+| Run Time   | Maximum Size with \\(256\times\\) faster CPU |
+| ---------- | -------------------------------------------- |
+| \\(400n\\) | \\(256m\\)
+| \\(2n^2\\) | \\(16m\\)
+| \\(2^n\\)  | \\(m+8\\)
+
+Asymptotic notation
+
+- \\(f(n)\\) is \\(O(g(n))\\) if there is a real value \\(c\\) and an integer \\(n_0\\) such that \\(f(n)\le c g(n)\\) for \\(n\ge n_0\\).
+
+- \\(f(n)\\) is \\(\Omega(g(n))\\) if there is a real value \\(c\\) and an integer \\(n_0\\) such that \\(f(n)\ge c g(n)\\) for \\(n\ge n_0\\).
+
+- \\(f(n)\\) is \\(\Theta(g(n))\\) if there are real values \\(c'\\) and \\(c''\\) and an integer \\(n_0\\) such that \\(c' g(n)\le f(n)\le c'' g(n)\\) for \\(n\ge n_0\\).
+
+We can justify that the function \\(8n − 2\\) is \\(O(n)\\) by finding \\(c\\) and \\(n_0\\) such that the definition of \\(O(n)\\) holds.
+
+Note that \\(5n^4 + 3n^3 + 2n^2 + 4^n + 1\\) is \\(O(n^4)\\) because
+\\[5n^4 + 3n^3 + 2n^2 + 4n + 1 \le (5 + 3 + 2 + 4 + 1) n^4 =c n^4\\]
+for \\(c=15\\), when \\(n\ge n_0 = 1\\). This correctly indicates that the degree of the polynomial gives the growth of the function, and that we can ignore terms of lesser degree.
+
+\\(3\log n + 2\\) is \\(O(\log n)\\) because \\(3\log n + 2 \le 5\log n\\) for \\(n \ge 2\\).
+
