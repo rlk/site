@@ -56,3 +56,8 @@ All homework will be submitted in class on the due date. All programming project
 | 25% ... | Final exam             |
 
 Grades are recorded on the course [Moodle](http://moodle2.lsu.edu/course/view.php?id=27660).
+
+| Assignment                   | Due date                 |
+| ---------------------------- | ------------------------ |
+| [Homework 1](homework1.html) | Thursday 5 February 2015 |
+
