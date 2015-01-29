@@ -79,11 +79,13 @@ Asymptotic notation
 
 - \\(f(n)\\) is \\(\Theta(g(n))\\) if there are real values \\(c'\\) and \\(c''\\) and an integer \\(n_0\\) such that \\(c' g(n)\le f(n)\le c'' g(n)\\) for \\(n\ge n_0\\).
 
-We can justify that the function \\(8n − 2\\) is \\(O(n)\\) by finding \\(c\\) and \\(n_0\\) such that the definition of \\(O(n)\\) holds.
+Examples:
 
-Note that \\(5n^4 + 3n^3 + 2n^2 + 4^n + 1\\) is \\(O(n^4)\\) because
+1. We can justify that the function \\(8n − 2\\) is \\(O(n)\\) by finding \\(c\\) and \\(n_0\\) such that the definition of \\(O(n)\\) holds.
+
+1. Note that \\(5n^4 + 3n^3 + 2n^2 + 4^n + 1\\) is \\(O(n^4)\\) because
 \\[5n^4 + 3n^3 + 2n^2 + 4n + 1 \le (5 + 3 + 2 + 4 + 1) n^4 =c n^4\\]
 for \\(c=15\\), when \\(n\ge n_0 = 1\\). This correctly indicates that the degree of the polynomial gives the growth of the function, and that we can ignore terms of lesser degree.
 
-\\(3\log n + 2\\) is \\(O(\log n)\\) because \\(3\log n + 2 \le 5\log n\\) for \\(n \ge 2\\).
+1. \\(3\log n + 2\\) is \\(O(\log n)\\) because \\(3\log n + 2 \le 5\log n\\) for \\(n \ge 2\\).
 
