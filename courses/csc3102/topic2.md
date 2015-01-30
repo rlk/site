@@ -83,7 +83,7 @@ Examples:
 
 1. We can justify that the function \\(8n − 2\\) is \\(O(n)\\) by finding \\(c\\) and \\(n_0\\) such that the definition of \\(O(n)\\) holds.
 
-1. Note that \\(5n^4 + 3n^3 + 2n^2 + 4^n + 1\\) is \\(O(n^4)\\) because
+1. Note that \\(5n^4 + 3n^3 + 2n^2 + 4n + 1\\) is \\(O(n^4)\\) because
 \\[5n^4 + 3n^3 + 2n^2 + 4n + 1 \le (5 + 3 + 2 + 4 + 1) n^4 =c n^4\\]
 for \\(c=15\\), when \\(n\ge n_0 = 1\\). This correctly indicates that the degree of the polynomial gives the growth of the function, and that we can ignore terms of lesser degree.
 
