@@ -28,7 +28,7 @@ html : $(HTML)
 
 # Convert a stand-alone Markdown file to HTML using an m4 template.
 
-%.html : %.md style.css
+%.html : %.md
 	echo $^
 	m4 -DSRC=$< -DDIR=$(dir $<) etc/html.m4 > $@
 

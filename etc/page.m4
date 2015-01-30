@@ -24,8 +24,8 @@ changecom
 </tr>
 </table>
 syscmd(find PAGE -maxdepth 1 -name '*.html' -print | sort -r | xargs cat)
-<hr>
+<div style="clear:both"></div>
 </div>
-<p style="text-align:right"><i>kooima&#64;csc&#46;lsu&#46;edu</i></p>
+<p class="signature"><i>kooima&#64;csc&#46;lsu&#46;edu</i></p>
 </body>
 </html>

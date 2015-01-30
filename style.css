@@ -52,10 +52,11 @@ h1.header {
   background-position: top center;
 }
 
-hr {
-  clear: both;
-  border-style: none;
+p.signature {
+  text-align: right;
 }
+
+/* Lists of items each with a picture and text */
 
 div.all {
   background-color: #EEE;
@@ -64,8 +65,6 @@ div.all {
   padding-right:    8px;
   padding-bottom:   8px;
 }
-
-/* Lists of items each with a picture and text */
 
 div.item {
   clear: both;
@@ -112,21 +111,6 @@ div.txt h2 {
   margin:  0px;
   padding: 0.5em;
   text-shadow: 1px 1px 0px #FFF
-}
-
-/* Gridded table */
-
-table.grid {
-  border-collapse: collapse;
-  table-layout: fixed;
-}
-
-table.grid td {
-  border-color: #CCC;
-  border-style: solid;
-  border-width: 1px;
-  text-align: center;
-  padding: 4px;
 }
 
 /* Calender table */
