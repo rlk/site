@@ -48,12 +48,12 @@ Office Hours: 12:00pm Wednesday, 164 [Coates Hall](https://maps.google.com/?ll=3
 
 All homework will be submitted in class on the due date. All programming projects will be submitted via your account on `classes.csc.lsu.edu`.
 
-| Value   | Assignment             |
-| ------- | ---------------------- |
-| 25% ... | 3 Homeworks            |
-| 25% ... | 3 Programming Projects |
-| 25% ... | Midterm exam           |
-| 25% ... | Final exam             |
+| Value  | Assignment             |
+| ------ | ---------------------- |
+| 25%    | 3 Homeworks            |
+| 25%    | 3 Programming Projects |
+| 25%    | Midterm exam           |
+| 25%    | Final exam             |
 
 Grades are recorded on the course [Moodle](http://moodle2.lsu.edu/course/view.php?id=27660).
 
