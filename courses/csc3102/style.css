@@ -1,9 +1,25 @@
-body {
-  margin-left:   10%;
-  margin-right:  10%;
-  margin-top:    10%;
-  margin-bottom: 10%;
-  font-family: "Times", "Times New Roman", serif;
+
+@media screen {
+	body {
+		font-family: "Times", "Times New Roman", serif;
+		margin-left:   10%;
+		margin-right:  10%;
+		margin-top:    10%;
+		margin-bottom: 10%;
+	}
+}
+
+@media print {
+	body {
+		font-family: "Times", "Times New Roman", serif;
+		font-size:   10pt;
+		line-height: 14pt;
+		color:       black;
+	}
+	code {
+		font-size: 10px;
+		color:     gray;
+	}
 }
 
 h1, h2, h3, h4, h5 {
@@ -11,13 +27,13 @@ h1, h2, h3, h4, h5 {
 }
 
 table {
-  border-collapse: collapse;
+	border-collapse: collapse;
 }
 
 th, td {
-  border-color: #CCC;
-  border-style: solid;
-  border-width: 1px;
-  padding: 0.5em;
-  font-size: 100%;
+	border-color: #CCC;
+	border-style: solid;
+	border-width: 1pt;
+	padding: 0.5em;
+	font-size: 100%;
 }
