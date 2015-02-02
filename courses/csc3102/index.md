@@ -42,7 +42,7 @@ Office Hours: 10:00am--12:00pm Monday, 2016 [Digital Media Center](https://maps.
 
 Doug Lafield  
 <wlafie2@lsu.edu>  
-Office Hours: 4:00pm--5:00pm Tuesday & Wednesday, 164 [Coates Hall](https://maps.google.com/?ll=30.4131945,-91.1792523)
+Office Hours: 3:00pm--4:00pm Tuesday, 12:00pm-1:00pm Wednesday, 164 [Coates Hall](https://maps.google.com/?ll=30.4131945,-91.1792523)
 
 ## Grading
 
