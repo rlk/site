@@ -81,11 +81,48 @@ Asymptotic notation
 
 Examples:
 
-1. We can justify that the function \\(8n − 2\\) is \\(O(n)\\) by finding \\(c\\) and \\(n_0\\) such that the definition of \\(O(n)\\) holds.
+1. We can justify that the function \\(8n - 2\\) is \\(O(n)\\) by finding \\(c\\) and \\(n_0\\) such that the definition of \\(O(n)\\) holds.
 
 1. Note that \\(5n^4 + 3n^3 + 2n^2 + 4n + 1\\) is \\(O(n^4)\\) because
 \\[5n^4 + 3n^3 + 2n^2 + 4n + 1 \le (5 + 3 + 2 + 4 + 1) n^4 =c n^4\\]
 for \\(c=15\\), when \\(n\ge n_0 = 1\\). This correctly indicates that the degree of the polynomial gives the growth of the function, and that we can ignore terms of lesser degree.
 
 1. \\(3\log n + 2\\) is \\(O(\log n)\\) because \\(3\log n + 2 \le 5\log n\\) for \\(n \ge 2\\).
+
+1. \\(\frac{n^2}{1000} = \Omega(n)\\)
+
+Note, if \\(d(n)\\) is \\(O(e(n))\\) and \\(f(n)\\) is \\(O(g(n))\\) then
+
+- \\(d(n)+f(n)\\) is \\(O(e(n)+g(n))\\)
+- \\(d(n)\,f(n)\\) is \\(O(e(n)\,g(n))\\)
+
+Algorithm analysis
+
+- This example calculates \\(y=x^n\\)
+
+	&emsp; \\(y\gets 1\\)  
+	&emsp; for (\\(i\gets 0\\); \\(i < n\\); \\(i\gets i + 1\\))  
+	&emsp;&emsp; \\(y\gets y * x\\)
+
+- So does this one:
+
+	\\[p(x,n) = \begin{cases} 1 & \text{if}\ n = 0 \\ x\cdot p(x, n-1) & \text{otherwise}\end{cases}\\]
+
+- And this one:
+
+	\\[p(x,n) = \begin{cases} 1 & \text{if}\ n = 0 \\ p(x, n/2)^2 & \text{if}\ n > 0\ \text{is even} \\ x\cdot p(x, (n-1)/2)^2 & \text{if}\ n > 0\ \text{is odd} \\ \end{cases}\\]
+
+- Here's a tougher \\(n\log n\\) example:
+
+	&emsp; \\(k\gets 1\\)  
+	&emsp; for (\\(i\gets 0\\); \\(i < n\\); \\(i\gets i + 1\\))  
+	&emsp;&emsp; for (\\(j\gets 0\\); \\(j < n\\); \\(j\gets j + k\\))  
+	&emsp;&emsp;&emsp; print \\(A[j]\\)  
+	&emsp;&emsp; \\(k\gets 2\,k\\)
+
+- And here's an even tougher one:
+
+	&emsp; for (\\(i\gets 0\\); \\(i\le n\\); \\(i\gets i + 1\\))  
+	&emsp;&emsp; for (\\(j\gets 0\\); \\(j < n\\); \\(j\gets j + i\\))  
+	&emsp;&emsp;&emsp; print \\(A[j]\\)  
 

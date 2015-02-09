@@ -34,7 +34,7 @@ Due: In Class, Thursday 5 February 2015
 
 1. (5 points) Show that \\(n^2\\) is \\(\Omega(n\log n)\\).
 
-1. (20 points) Order the following functions by their big-O relationships.
+1. (20 points) Order the following functions by their big-\\(O\\) relationships.
 
 	- \\(n^2\\)
 	- \\(2^{\log n}\\)
