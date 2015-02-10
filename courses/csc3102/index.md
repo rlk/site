@@ -6,7 +6,7 @@ Description and utilization of formal ADT representations, especially those on l
 
 - [Arrays and Linked Lists](topic1.html)
 - [Analysis Tools](topic2.html)
-- Stacks, Queues, and Deques
+- [Stacks, Queues, and Deques](topic3.html)
 - Trees
 - Heaps and Priority Queues
 - Hash Tables, Maps, and Skip Lists
