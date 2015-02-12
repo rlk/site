@@ -41,7 +41,7 @@ First-in-first-out.
 		T front()
 		int size()
 
-	`top` and `dequeue` might throw.
+	`front` and `dequeue` might throw.
 
 - Implementation
 
@@ -55,10 +55,15 @@ First-in-first-out.
 
 	`enqueue` might throw.
 
-## Traversal
+## Abstraction
 
-- Using a stack
-- Using a queue
+It's easy to implement each of these in terms of a simpler existing, more general data structure, such as a doubly-linked list:
+
+		node *firstNode()
+		node *lastNode()
+		void remove(node *n)
+		void insertAfter(node *n, T e)
+		void insertBefore(node *n, T e)
 
 ## Deque
 
@@ -71,4 +76,16 @@ First-in-first-out.
 		T front()
 		T back()
 		int size()
+
+- Implementation
+
+	Easily implemented atop a doubly-linked list data structure.
+
+	But commonly implemented as a doubly-linked list of arrays, to great effect.
+
+## Traversal
+
+Stacks and queues present fundamentally the same API. As such, they are drop-in replacements for one another. The resulting difference in behavior is one of the fundamental distinctions in all of Computer Science: depth versus breadth.
+
+
 
