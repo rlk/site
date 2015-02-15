@@ -7,7 +7,6 @@ My [curriculum vitae][cv] includes my published and co-authored papers.
 <table>
 <tr>
 <td style="width:25%; vertical-align:top;"><b>CCT Office</b><br>2016 Digital Media Center<br>(225) 578-7150</td>
-<td style="width:25%; vertical-align:top;"><b>CS Office</b><br>3124D Patrick Taylor Hall<br>(225) 578-9483</td>
 <td style="width:25%; vertical-align:top;"><b>Mailing Address</b><br>CCT<br>340 East Parker St.<br>Baton Rouge, LA<br>70803</td>
 <td style="width:25%; vertical-align:top;"><b>Pronunciation</b><br><em>Kooima</em> is pronounced with a long <em>o</em> and two syllables, like &ldquo;coy ma.&rdquo;</td>
 </tr>
