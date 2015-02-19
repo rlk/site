@@ -7,7 +7,7 @@ Description and utilization of formal ADT representations, especially those on l
 - [Arrays and Linked Lists](topic1.html)
 - [Analysis Tools](topic2.html)
 - [Stacks, Queues, and Deques](topic3.html)
-- Trees
+- [Trees](topic4.html)
 - Heaps and Priority Queues
 - Hash Tables, Maps, and Skip Lists
 - Search Trees
@@ -57,7 +57,8 @@ All homework will be submitted in class on the due date. All programming project
 
 Grades are recorded on the course [Moodle](http://moodle2.lsu.edu/course/view.php?id=27660).
 
-| Assignment                   | Due date                 |
-| ---------------------------- | ------------------------ |
-| [Homework 1](homework1.html) | Thursday 5 February 2015 |
+| Assignment                   | Due date                  |
+| ---------------------------- | ------------------------- |
+| [Homework 1](homework1.html) | Thursday  5 February 2015 |
+| [Homework 2](homework2.html) | Thursday 26 February 2015 |
 
