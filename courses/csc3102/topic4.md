@@ -31,9 +31,7 @@ A general linked tree structure defines each node with a value, a reference to a
 		bool isExternal(node *v)
 
 		node *parent(node *v)
-
-		node *firstChild(node *v)
-		node *nextChild(node *v)
+		sequence& children(node *v)
 
 Trees are naturally recursive. We can easily define recursive algorithms to give the depth and height of a node.
 
@@ -41,20 +39,23 @@ We can also recursively *traverse* a tree, visiting each node in either *pre-ord
 
 ## Binary Trees
 
-Example: arithmetic expressions \\(((((3+1)\times 3)\,/\,((9−5)+2))−((3\times (7−4))+6))\\)
+A binary tree is simplified because it does away with the child sequence.
 
-A binary tree has a nicer API:
-
-		node *parent(node *v)
-		node *left(node *v)
-		node *right(node *v)
+		struct node
+		{
+			T value;
+			node *left;
+			node *right;
+		}
 
 It's trivially easy to define
 
 		bool isRoot(node *v)
 		bool isExternal(node *v)
 
-The following properties must hold:
+Example: arithmetic expressions \\(((((3+1)\times 3)\,/\,((9-5)+2))-((3\times (7-4))+6))\\)
+
+The following properties must hold for node count \\(n\\), height \\(h\\), external count \\(n_E\\), and internal count \\(n_I\\).
 
 - \\(h + 1 \le n \le 2^{h+1} - 1\\)
 - \\(1 \le n_E \le 2^h\\)
@@ -72,6 +73,8 @@ If a tree is *proper* then:
 The maximum number of nodes at level \\(l\\) is \\(2^l\\).
 
 Example: traversal of a binary tree to evaluate an arithmetic expression.
+
+It's straightforward to define a general tree in terms of a binary tree.
 
 ## Binary Search Trees
 
