@@ -23,17 +23,17 @@ A tree is a set of *nodes* in a *parent-child* relationship.
 - The *height* of a tree is the depth of its deepest external node.
 - The *level* \\(d\\) is the set of all nodes at depth \\(d\\).
 
-## Basic Tree Algorithms
+## General Tree Representation
 
 A general linked tree structure defines each node with a value, a reference to a parent, and a sequence of references to children.
-
-		bool isRoot(node *v)
-		bool isExternal(node *v)
 
 		node *parent(node *v)
 		sequence& children(node *v)
 
-Trees are naturally recursive. We can easily define recursive algorithms to give the depth and height of a node.
+		bool isRoot(node *v)
+		bool isExternal(node *v)
+
+Trees are naturally recursive. 
 
 We can also recursively *traverse* a tree, visiting each node in either *pre-order* or *post-order*. We can also traverse in *depth-first* order using a stack, or *breadth-first* order using a queue.
 
@@ -53,7 +53,22 @@ It's trivially easy to define
 		bool isRoot(node *v)
 		bool isExternal(node *v)
 
-Example: arithmetic expressions \\(((((3+1)\times 3)\,/\,((9-5)+2))-((3\times (7-4))+6))\\)
+A note about the textbook's definition of tree structures: it is very specific in its use of iterators. For example, Code Fragment 7.24 in the C++ book (similar to C.F. 7.22 in the Java)
+
+&emsp; function binaryPreorder(T, p)  
+&emsp;&emsp; Visit node \\(p\\)  
+&emsp;&emsp; if \\(p\\) is an internal node  
+&emsp;&emsp;&emsp; binaryPreorder(T, p.left())  
+&emsp;&emsp;&emsp; binaryPreorder(T, p.right())  
+
+This obsession with iterators is not necessary. A more pure implementation would look more like this:
+
+&emsp; function binaryPreorder(T)  
+&emsp;&emsp; Visit node T  
+&emsp;&emsp; if T.left exists  
+&emsp;&emsp;&emsp; binaryPreorder(T.left())  
+&emsp;&emsp; if T.right exists  
+&emsp;&emsp;&emsp; binaryPreorder(T.right())  
 
 The following properties must hold for node count \\(n\\), height \\(h\\), external count \\(n_E\\), and internal count \\(n_I\\).
 
@@ -72,9 +87,11 @@ If a tree is *proper* then:
 
 The maximum number of nodes at level \\(l\\) is \\(2^l\\).
 
-Example: traversal of a binary tree to evaluate an arithmetic expression.
+Example: We can easily define recursive algorithms to give the depth and height of a node.
 
-It's straightforward to define a general tree in terms of a binary tree.
+Example: We can represent an arithmetic expression as a binary tree and traverse that tree to evaluate the expression \\[((((3+1)\times 3)\,/\,((9-5)+2))-((3\times (7-4))+6))\\]
+
+Finally, it's straightforward to define a general tree in terms of a binary tree.
 
 ## Binary Search Trees
 
