@@ -55,20 +55,20 @@ It's trivially easy to define
 
 A note about the textbook's definition of tree structures: it is very specific in its use of iterators. For example, Code Fragment 7.24 in the C++ book (similar to C.F. 7.22 in the Java)
 
-&emsp; function binaryPreorder(T, p)  
+&emsp; function binaryPreorder(t, p)  
 &emsp;&emsp; Visit node \\(p\\)  
 &emsp;&emsp; if \\(p\\) is an internal node  
-&emsp;&emsp;&emsp; binaryPreorder(T, p.left())  
-&emsp;&emsp;&emsp; binaryPreorder(T, p.right())  
+&emsp;&emsp;&emsp; binaryPreorder(t, p.left())  
+&emsp;&emsp;&emsp; binaryPreorder(t, p.right())  
 
 This obsession with iterators is not necessary. A more pure implementation would look more like this:
 
-&emsp; function binaryPreorder(T)  
-&emsp;&emsp; Visit node T  
-&emsp;&emsp; if T.left exists  
-&emsp;&emsp;&emsp; binaryPreorder(T.left())  
-&emsp;&emsp; if T.right exists  
-&emsp;&emsp;&emsp; binaryPreorder(T.right())  
+&emsp; function binaryPreorder(v)  
+&emsp;&emsp; Visit node v  
+&emsp;&emsp; if v.left exists  
+&emsp;&emsp;&emsp; binaryPreorder(v.left())  
+&emsp;&emsp; if v.right exists  
+&emsp;&emsp;&emsp; binaryPreorder(v.right())  
 
 The following properties must hold for node count \\(n\\), height \\(h\\), external count \\(n_E\\), and internal count \\(n_I\\).
 
