@@ -56,8 +56,8 @@ It's trivially easy to define
 A note about the textbook's definition of tree structures: it is very specific in its use of iterators. For example, Code Fragment 7.24 in the C++ book (similar to C.F. 7.22 in the Java)
 
 &emsp; function binaryPreorder(t, p)  
-&emsp;&emsp; Visit node \\(p\\)  
-&emsp;&emsp; if \\(p\\) is an internal node  
+&emsp;&emsp; Visit node p  
+&emsp;&emsp; if p is an internal node  
 &emsp;&emsp;&emsp; binaryPreorder(t, p.left())  
 &emsp;&emsp;&emsp; binaryPreorder(t, p.right())  
 
@@ -69,6 +69,26 @@ This obsession with iterators is not necessary. A more pure implementation would
 &emsp;&emsp;&emsp; binaryPreorder(v.left())  
 &emsp;&emsp; if v.right exists  
 &emsp;&emsp;&emsp; binaryPreorder(v.right())  
+
+We can easily define recursive algorithms to give the depth and height of a node. The height of a proper binary tree:
+
+&emsp; function computeHeight(tree v)  
+&emsp;&emsp; if v.isExternal()  
+&emsp;&emsp;&emsp; return 0  
+&emsp;&emsp; else  
+&emsp;&emsp;&emsp; return max(computeHeight(v.left()), computeHeight(v.right())  
+
+The height of an improper binary tree:
+
+&emsp; function computeHeight(tree v)  
+&emsp;&emsp; if v.left() and v.right()  
+&emsp;&emsp;&emsp; return max(computeHeight(v.left()), computeHeight(v.right())  
+&emsp;&emsp; else if v.left()  
+&emsp;&emsp;&emsp; return computeHeight(v.left())  
+&emsp;&emsp; else if v.right()  
+&emsp;&emsp;&emsp; return computeHeight(v.right())  
+&emsp;&emsp; else  
+&emsp;&emsp;&emsp; return 0  
 
 The following properties must hold for node count \\(n\\), height \\(h\\), external count \\(n_E\\), and internal count \\(n_I\\).
 
@@ -87,9 +107,7 @@ If a tree is *proper* then:
 
 The maximum number of nodes at level \\(l\\) is \\(2^l\\).
 
-Example: We can easily define recursive algorithms to give the depth and height of a node.
-
-Example: We can represent an arithmetic expression as a binary tree and traverse that tree to evaluate the expression \\[((((3+1)\times 3)\,/\,((9-5)+2))-((3\times (7-4))+6))\\]
+Example: We can represent an arithmetic expression as a proper binary tree and traverse that tree to evaluate the expression \\[(3\times 2)+((8-1)\times 5)\\] \\[(((3+1)\times 3)\,/\,((9-5)+2))-((3\times (7-4))+6)\\]
 
 Finally, it's straightforward to define a general tree in terms of a binary tree.
 
