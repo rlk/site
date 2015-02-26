@@ -2,7 +2,7 @@
 
 Reading: Chapter 5 of Goodman et al.
 
-All of the operations on stacks, queues, and deques are \\(O(1)\\). 
+All of the operations on stacks, queues, and deques are $O(1)$. 
 
 ## Stack
 
