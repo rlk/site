@@ -47,7 +47,7 @@ An algorithm is always measured by the number of steps that it takes to execute 
 
 	- $(b^a)^c = b^{ac}$
 	- $b^a b^c = b^{a+c}$
-	- $\frac{b^a}{b^c} = b^{a−c}$
+	- $\frac{b^a}{b^c} = b^{a-c}$
 	- $b^\frac{a}{c}=\sqrt[c]{b^a}$
 
 One of the universal truisms of computer science is that polynomials are "good" and exponentials are "bad."
