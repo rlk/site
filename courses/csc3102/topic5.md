@@ -42,6 +42,6 @@ A heap:
 		- If $u$ is the right child of $v$ then $f(u)=2\,f(v)+1$.
 		- If $p$ is the parent of $v$ then $f(p)=\lfloor f(v)\,/2\,\rfloor$.
 
-Applying the priority queue sorting scheme to a heap results in an $O(n\log n)$ sort!
+Applying the priority queue sorting scheme to a heap results in an $O(n\log n)$ sort.
 
-- An "in place" heap-sort accomplishes this task most efficiently.
+The vector representation of the heap also gives rise to an extremely efficient in-place sorting algorithm.
