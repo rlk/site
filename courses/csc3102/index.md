@@ -57,9 +57,9 @@ All homework will be submitted in class on the due date. All programming project
 
 Grades are recorded on the course [Moodle](http://moodle2.lsu.edu/course/view.php?id=27660).
 
-| Assignment                             | Due date                 |
-| -------------------------------------- | ------------------------ |
-| [Homework 1](homework1.html)           | Thursday 5 February 2015 |
-| [Homework 2](homework2.html)           | Tuesday 3 March 2015     |
-| [Programming Project 1](project1.html) | Thursday 26 March 2015   |
+| Assignment                             | Deadline                         |
+| -------------------------------------- | -------------------------------- |
+| [Homework 1](homework1.html)           | 10:30am Thursday 5 February 2015 |
+| [Homework 2](homework2.html)           | 10:30am Tuesday 3 March 2015     |
+| [Programming Project 1](project1.html) | 10:30am Thursday 26 March 2015   |
 

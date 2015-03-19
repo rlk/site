@@ -21,4 +21,4 @@ Implement a heap sort in either C++ or Java. Specifically:
 
 - (10 points) Code format matters! Consistent indentation, spacing, and brace placement are critical details that communicate structure. Points will be deducted for inconsistent formatting.
 
-Code submission should be done using your account on `classes.csc.lsu.edu`.
+Code submission should be done via your account on `classes.csc.lsu.edu` in a directory calleg `prog0`. The instructor's account name is `cs3102_koo`.
