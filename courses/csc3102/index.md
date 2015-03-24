@@ -10,7 +10,7 @@ Description and utilization of formal ADT representations, especially those on l
 - [Trees](topic4.html)
 - [Heaps and Priority Queues](topic5.html)
 - Hash Tables, Maps, and Skip Lists
-- Search Trees
+- [Search Trees](topic6.html)
 - Sorting, Sets, and Selection
 - Strings and Dynamic Programming
 - Graph Algorithms
