@@ -21,4 +21,9 @@ Implement a heap sort in either C++ or Java. Specifically:
 
 - (10 points) Code format matters! Consistent indentation, spacing, and brace placement are critical details that communicate structure. Points will be deducted for inconsistent formatting.
 
-Implement all of this in a source file called `prog1.cpp` or `prog1.java`. [Code submission should be done via your account on `classes.csc.lsu.edu`](classes.html) in a directory calleg `prog1`. The instructor's account name is `cs3102_koo`.
+Implement this using as many classes and source files that you need, but:
+
+- Java implementations should have a main class called `Prog1` in a file `Prog1.java1.
+- C++ implementations should have place the main function in a file `Prog1.cpp`
+
+[Code submission should be done via your account on `classes.csc.lsu.edu`](classes.html) in a directory calleg `prog1`. The instructor's account name is `cs3102_koo`.

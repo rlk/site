@@ -61,5 +61,5 @@ Grades are recorded on the course [Moodle](http://moodle2.lsu.edu/course/view.ph
 | -------------------------------------- | -------------------------------- |
 | [Homework 1](homework1.html)           | 10:30am Thursday 5 February 2015 |
 | [Homework 2](homework2.html)           | 10:30am Tuesday 3 March 2015     |
-| [Programming Project 1](project1.html) | 10:30am Thursday 26 March 2015   |
+| [Programming Project 1](project1.html) | 5:00pm Friday 27 March 2015      |
 
