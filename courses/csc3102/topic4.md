@@ -1,6 +1,6 @@
 # Trees
 
-Reading: Chapter 7 of Goodman et al.
+Reading: Chapter 7 of Goodrich et al.
 
 A tree is a set of *nodes* in a *parent-child* relationship.
 

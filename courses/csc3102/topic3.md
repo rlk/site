@@ -1,6 +1,6 @@
 # Stacks, Queues, and Deques
 
-Reading: Chapter 5 of Goodman et al.
+Reading: Chapter 5 of Goodrich et al.
 
 All of the operations on stacks, queues, and deques are $O(1)$. 
 

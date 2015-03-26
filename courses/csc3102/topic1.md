@@ -1,8 +1,8 @@
 # Arrays and Linked Lists
 
-Review: Chapters 1 and 2 of Goodman et al represent a review of CSC 1253 / 1350 Introduction to Computer Science I and CSC 1254 / 1351 Introduction to Computer Science II. They are there for reference, as needed.
+Review: Chapters 1 and 2 of Goodrich et al represent a review of CSC 1253 / 1350 Introduction to Computer Science I and CSC 1254 / 1351 Introduction to Computer Science II. They are there for reference, as needed.
 
-Reading: Chapter 3 of Goodman et al.
+Reading: Chapter 3 of Goodrich et al.
 
 ## Sequence Containers
 

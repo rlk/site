@@ -1,6 +1,6 @@
 # Analysis Tools
 
-Reading: Chapter 4 of Goodman et al.
+Reading: Chapter 4 of Goodrich et al.
 
 ## The "Seven" Functions
 

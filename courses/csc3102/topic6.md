@@ -1,12 +1,12 @@
 # Search Trees
 
-Reading: Chapter 10 of Goodman et al.
+Reading: Chapter 10 of Goodrich et al.
 
 # Binary Search Trees
 
 Each internal node $v$ contains a key $k$ such that
 
-- Keys stored in the left subtree of $v$ are less than $k$.
+- Keys stored in the left subtree of $v$ are less than or equal to $k$.
 - Keys stored in the right subtree of $v$ are greater than or equal to $k$.
 
 By the convention of the book, only internal nodes contain keys. This ensures that every binary search tree is *proper* and simplifies some operations (arguably).

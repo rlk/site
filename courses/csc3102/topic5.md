@@ -1,6 +1,6 @@
 # Heaps and Priority Queues
 
-Reading: Chapter 8 of Goodman et al.
+Reading: Chapter 8 of Goodrich et al.
 
 # Priority Queues
 
