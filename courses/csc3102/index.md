@@ -62,4 +62,12 @@ Grades are recorded on the course [Moodle](http://moodle2.lsu.edu/course/view.ph
 | [Homework 1](homework1.html)           | 10:30am Thursday 5 February 2015 |
 | [Homework 2](homework2.html)           | 10:30am Tuesday 3 March 2015     |
 | [Programming Project 1](project1.html) | 5:00pm Friday 27 March 2015      |
+| Homework 3                             | 10:30am Tuesday 7 April 2015     |
+| Programming Project 2                  | 10:30am Friday 23 April 2015     |
 
+Exams are given in the usual classroom.
+
+| Exam    | Time                                   |
+| ------- | -------------------------------------- |
+| Midterm | 10:30am--11:50am Thursday 5 March 2015 |
+| Final   | 3:00pm--5:00pm 6 May 2015              |
