@@ -6,7 +6,7 @@
 
 1. (5 points) Write pseudocode that uses an AVL tree to produce a sorted list of $n$ values in $O(n\log n)$ time in the worst case.
 
-1. (15 points) Assume a binary tree data as defined in Chapter 10 of the textbook. Beginning with an empty tree, draw the tree after each of the following operations.
+1. (15 points) Assume a binary tree as defined in Chapter 10 of the textbook. Beginning with an empty tree, draw the tree after each of the following operations.
 
 	- Insert 9
 	- Insert 12
@@ -22,7 +22,7 @@
 	- Remove 6
 	- Remove 12
 
-1. (15 points) Redefine the tree operations as follows. Beginning again with an empty tree, draw the tree after each of the above operations.
+1. (15 points) Redefine the binary tree operations as follows. Beginning again with an empty tree, draw the tree after each of the above operations.
 
 	&emsp; insert($v$, $k$)  
 	&emsp;&emsp; $w\gets$ search($v$, $k$)  
@@ -47,7 +47,7 @@
 	&emsp;&emsp; else  
 	&emsp;&emsp;&emsp; replace($w$, $w$.right)  
 
-1. (15 points) Assume an AVL tree data as defined in Chapter 10 of the textbook. Beginning again with an empty tree, draw the tree after each of the above operations.
+1. (15 points) Assume an AVL tree as defined in Chapter 10 of the textbook. Beginning again with an empty tree, draw the tree after each of the above operations.
 
 1. (5 points) Give a series of insertions that produces each of the following binary trees.
 
