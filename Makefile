@@ -7,7 +7,7 @@
 
 # Find all Markdown files and generate the HTML target name for each.
 
-MD   = $(shell find . -name '*.md')
+MD   = $(shell find -L . -name '*.md')
 HTML = $(MD:.md=.html)
 
 # Process all catalog pages followed by all stand-alone pages.
