@@ -31,3 +31,5 @@ s(i)&=n-(2^i-1)
 This can only proceed until $2^i-1=n$ or $i=\log_2(n+1)$. Each level does $O(n)$ steps, so the total is $O(n\log n)$.
 
 The quick-sort has a straightforward in-place implementation that makes it especially useful in practice.
+
+The quick-sort also has a straightforward adaptation to the selection problem (find the $k$-th smallest element in a sequence) that is $O(n)$ in the expected case. This is known as quick-select.
