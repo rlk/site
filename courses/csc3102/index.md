@@ -13,7 +13,7 @@ Description and utilization of formal ADT representations, especially those on l
 - [Search Trees](topic6.html)
 - [Sorting, Sets, and Selection](topic7.html)
 - Strings and Dynamic Programming
-- Graph Algorithms
+- [Graph Algorithms](topic8.html)
 
 ## Prerequisites
 
