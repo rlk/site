@@ -66,6 +66,10 @@ Operations on edges
 
 ## Traversal
 
-## Shortest Past
+### Depth-first
+
+### Breadth-first
+
+## Shortest Path
 
 ## Minimum Spanning Tree
