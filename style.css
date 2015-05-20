@@ -81,6 +81,12 @@ div.all hr {
   clear: both;
 }
 
+/* Let the glamour shot grow a little larger */
+
+img#kooima {
+  max-height: 30ex;
+}
+
 /* Navigation table */
 
 #nav {
