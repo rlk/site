@@ -25,6 +25,7 @@ pre {
 img {
   display: block;
   margin: 0 auto;
+  max-width: 100%;
 }
 
 table {
@@ -58,9 +59,10 @@ div.all {
 
 div.item img {
   float: right;
-  height: 20ex;
+  max-height: 20ex;
   margin-left: 16px;
   margin-bottom: 16px;
+  max-width: 50%;
 }
 
 div.item h2 {
