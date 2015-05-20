@@ -1,4 +1,4 @@
-## [A Multi-viewer Tiled Autostereoscopic Virtual Reality Display][vrst2010]
+## [A Multi-viewer Tiled Auto<wbr>stereo<wbr>scopic Virtual Reality Display][vrst2010]
 
 *2010*
 
