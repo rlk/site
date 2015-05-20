@@ -3,6 +3,7 @@ changecom
 <html>
 <head>
 <link rel=stylesheet type="text/css" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=0.66" />
 <style type="text/css">
 #PAGE { background: #EEE; }
 </style>
