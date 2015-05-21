@@ -42,6 +42,8 @@ h1.header {
   padding: 0.5em;
   padding-top: 1em;
   background-color: #EEE;
+  /*background-image: url(images/texture.jpg);*/
+  background-attachment: fixed;
 }
 
 p.signature {
@@ -95,6 +97,9 @@ img#kooima {
   border: 0;
   margin: 0;
   margin-bottom: 16px;
+  background-color: #EEE;
+  /*background-image: url(images/texture.jpg);*/
+  background-attachment: fixed;
 }
 
 #nav li {
@@ -105,11 +110,11 @@ img#kooima {
 }
 
 #nav li:not(:first-child) {
-  border-left: 1px solid #EEE;
+  border-left: 2px solid #FFF;
 }
 
 #nav li:not(:last-child) {
-  border-right: 1px solid #EEE;
+  border-right: 2px solid #FFF;
 }
 
 #nav h3 {

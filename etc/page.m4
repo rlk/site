@@ -5,7 +5,7 @@ changecom
 <link rel=stylesheet type="text/css" href="style.css">
 <meta name="viewport" content="width=device-width, initial-scale=0.75" />
 <style type="text/css">
-#PAGE { background: #EEE; }
+#PAGE { background: #FFF; }
 </style>
 <title>Robert Kooima</title>
 </head>
