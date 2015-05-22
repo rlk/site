@@ -5,7 +5,7 @@ changecom
 <link rel=stylesheet type="text/css" href="style.css">
 <meta name="viewport" content="width=device-width, initial-scale=0.75" />
 <style type="text/css">
-#PAGE { background: #FFF; }
+#PAGE { background: #FFF; a: inherit; }
 </style>
 <title>Robert Kooima</title>
 </head>
@@ -16,7 +16,7 @@ changecom
 
 <div class="all">
 syscmd(find PAGE -maxdepth 1 -name '*.html' -print | sort -r | xargs cat)
-<p class="signature"><i>kooima&#64;csc&#46;lsu&#46;edu</i></p>
+<p class="signature">kooima&#64;csc&#46;lsu&#46;edu</p>
 </div>
 </body>
 </html>

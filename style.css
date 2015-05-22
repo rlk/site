@@ -37,26 +37,15 @@ svg {
   vertical-align: top;
 }
 
-h1.header {
-  margin: 0;
-  padding: 0.5em;
-  padding-top: 1em;
-  background-color: #EEE;
-  /*background-image: url(images/texture.jpg);*/
-  background-attachment: fixed;
-}
-
 p.signature {
   text-align: right;
+  font-style: italic;
 }
 
 /* Lists of items each with a picture and text */
 
 div.all {
-  margin-left: 3em;
-  margin-right: 3em;
-  margin-top: 3em;
-  margin-bottom: 3em;
+  margin: 3em;
 }
 
 div.item img {
@@ -76,10 +65,10 @@ div.item h2 {
 div.all hr {
   display: block;
   height: 1px; 
-  border: 0;
+  border: 0px;
   border-top: 1px solid #EEE;
   margin: 16px auto;
-  padding: 0;
+  padding: 0px;
   clear: both;
 }
 
@@ -89,7 +78,14 @@ img#kooima {
   max-height: 30ex;
 }
 
-/* Navigation table */
+/* Page header and navigation list */
+
+h1.header {
+  margin: 0;
+  padding: 0.5em;
+  background: radial-gradient(ellipse, #EEF 50%, #AAC);
+  background-attachment: fixed;
+}
 
 #nav {
   text-align: center;
@@ -97,8 +93,7 @@ img#kooima {
   border: 0;
   margin: 0;
   margin-bottom: 16px;
-  background-color: #EEE;
-  /*background-image: url(images/texture.jpg);*/
+  background: radial-gradient(ellipse, #EEF 50%, #AAC);
   background-attachment: fixed;
 }
 
