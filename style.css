@@ -8,7 +8,11 @@ body {
   font-size: 18px;
   line-height: 26px;
   color: #444;
-  margin: 0;
+  margin: 3em;
+}
+
+body.full {
+  margin: 0px;
 }
 
 code {
