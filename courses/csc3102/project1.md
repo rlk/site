@@ -4,7 +4,7 @@
 
 Implement a heap sort in either C++ or Java. Specifically:
 
-- (5 points) Input will consist of a file containing a sequence of integers, one on each line. Read them into a list container. Here is an [example input](unsorted.txt).
+- (5 points) Input will consist of a file containing a sequence of integers, one on each line. Read them into a list container. Here is an [example input](etc/unsorted.txt).
 
 - (30 points) Implement a heap-based priority queue class (Sec 8.1.3) using the vector representation (Sec 7.3.5). You may assume that the heap will contain no more than 1023 elements.
 
@@ -17,7 +17,7 @@ Implement a heap sort in either C++ or Java. Specifically:
 	&emsp;&emsp; L.insertBack(P.min())  
 	&emsp;&emsp; P.removeMin();  
 
-- (5 points) The sorted list should be printed to the standard output with one number on each line. Here is an [example output](sorted.txt).
+- (5 points) The sorted list should be printed to the standard output with one number on each line. Here is an [example output](etc/sorted.txt).
 
 - (10 points) Code format matters! Consistent indentation, spacing, and brace placement are critical details that communicate structure. Points will be deducted for inconsistent formatting.
 
