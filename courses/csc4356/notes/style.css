@@ -12,7 +12,7 @@ body {
 
 @media screen {
 	body {
-	 	background: radial-gradient(circle, #FFF 70%, #DDD);
+		background: radial-gradient(circle, #FFF 70%, #DDD);
 	 	background-attachment: fixed;
 	}
 }

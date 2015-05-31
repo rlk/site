@@ -1,4 +1,4 @@
-## [Panoview][] Installations
+## [Panoview][] VR Installations
 
 *2011*
 
