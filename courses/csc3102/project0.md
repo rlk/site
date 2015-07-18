@@ -12,7 +12,9 @@ Different instructors use *classes.csc* in different ways. Our usage is document
 
 - A project must be submitted using `p_copy`, as described below. It does not suffice merely to upload code to *classes.csc*.
 
-- A project must include your name and LSU email address.
+- Project code must include your name at it appears on your LSU ID plus your LSU email address.
+
+- Late project submissions are absolutely not accepted.
 
 ### Install the Tools
 
