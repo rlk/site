@@ -1,26 +1,40 @@
 
 /* Text formatting */
 
-body {
-	font-family: "Times", "Times New Roman", serif;
-	/*font-family: "Helvetica Neue", sans-serif;*/
-	font-size:   32px;
-	line-height: 48px;
- 	color:       #444;
-	margin:      2em;
-}
-
 @media screen {
 	body {
+		font-family: "Times", "Times New Roman", serif;
+		font-size:   32px;
+		line-height: 48px;
+	 	color:       #444;
+		margin:      2em;
 		background: radial-gradient(circle, #FFF 70%, #DDD);
 	 	background-attachment: fixed;
+	}
+}
+
+@media print {
+	body {
+		font-family: "Times", "Times New Roman", serif;
+		font-size:   16pt;
+		line-height: 24pt;
+	 	color:       #000;
+		margin:      0em;
+	}
+	section {
+		page-break-after: always;
 	}
 }
 
 /* General-use classes */
 
 .center {
+	font-size: inherit;
 	margin: 0 auto;
+}
+
+.middle {
+	vertical-align: middle;
 }
 
 .right {
@@ -35,14 +49,67 @@ body {
 	font-size: 50%;
 }
 
+.third {
+	width: 33%;
+}
+
+.half {
+	width: 50%;
+}
+
 img {
 	display: block;
+	max-width: 100%;
 }
 
 figcaption {
 	text-align: center;
 	font-size: 70%;
 	color: #888;
+}
+
+/* Displayed content. */
+
+div.displayed {
+	text-align: center;
+}
+
+div.displayed table {
+	display: inline-table;
+	vertical-align: top;
+	margin-top:    0;
+	margin-bottom: 0;
+}
+
+div.displayed img {
+	display: inline-block;
+	vertical-align: top;
+	margin-top:    0;
+	margin-bottom: 0;
+}
+
+div.displayed figure {
+	display: inline-block;
+	vertical-align: top;
+	text-align: left;
+	margin-top:    0;
+	margin-bottom: 0;
+}
+
+div.displayed canvas {
+	display: inline-block;
+	vertical-align: middle;
+	margin-top:    0;
+	margin-bottom: 0;
+}
+
+div.displayed form {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+figure p:first-child {
+	margin-top: 0;
 }
 
 /* Header styles */
@@ -63,6 +130,7 @@ figure.code {
 	font-family: "Consolas", "Inconsolata", monospace;
 	font-size:   88%;
 	margin-left: 2em;
+	text-align:  left;
 	white-space: nowrap;
 	color:       #888;
 }
@@ -120,24 +188,6 @@ table.small th, table.small td {
 table.tiny th, table.tiny td {
 	padding-left:  0.5em;
 	padding-right: 0.5em;
-}
-
-div.tab {
-	display: table;
-	margin: 0 auto;
-}
-
-div.row {
-	display: table-row;
-}
-
-div.col {
-	display: table-cell;
-	vertical-align: top;
-}
-
-div.middle {
-	vertical-align: middle;
 }
 
 /* Demo canvas */

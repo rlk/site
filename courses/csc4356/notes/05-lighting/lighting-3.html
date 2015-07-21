@@ -12,13 +12,11 @@
 
 		<p><em>Diffuse</em> lighting models matte surfaces.</p>
 
-		<div class="tab">
-			<div class="col">
-				<img style="width:10em;margin-right:2em" src="../img/lit-sphere-diffuse.png">
-			</div>
-			<div class="col middle">
+		<div class="displayed">
+			<img class="third" src="../img/lit-sphere-diffuse.png">
+			<figure>
 				\[\V{c}_d=\V{c}_o\,\V{c}_l\,\max(\V{n}\cdot\V{l}, 0)\]
-			</div>
+			</figure>
 		</div>
 
 		<p>The color of the object $\V{c}_o$ is modulated by the color of the light $\V{c}_l$, and this product is scaled by the dot product of the normal $\V{n}$ and light $\V{l}$ vectors. Care is taken to ensure this dot product is not negative.</p>

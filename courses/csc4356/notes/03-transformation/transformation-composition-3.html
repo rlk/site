@@ -14,32 +14,24 @@
 
 		<p>These demonstrations combine scaling and translation both ways.</p>
 
-		<div class="tab">
-			<div class="row">
-				<div class="col">
-					<canvas class="persp" style="margin:1em" width="300px" height="300px" id="demoScaleTranslateCanvas">
-						This content requires <a href="http://get.webgl.org/">WebGL</a>.
-					</canvas>
-				</div>
-				<div class="col">
-					<canvas class="persp" style="margin:1em" width="300px" height="300px" id="demoTranslateScaleCanvas">
-						This content requires <a href="http://get.webgl.org/">WebGL</a>.
-					</canvas>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col" style="text-align:center">
-					$\M{M}=\M{S}\cdot\M{T}$
-				</div>
-				<div class="col" style="text-align:center">
-					$\M{M}=\M{T}\cdot\M{S}$
-				</div>
-			</div>
+		<div class="displayed">
+			<figure>
+				<canvas class="persp" style="margin:1em" width="300px" height="300px" id="demoScaleTranslateCanvas">
+					This content requires <a href="http://get.webgl.org/">WebGL</a>.
+				</canvas>
+				<figcaption>$\M{M}=\M{S}\cdot\M{T}$</figcaption>
+			</figure>
+			<figure>
+				<canvas class="persp" style="margin:1em" width="300px" height="300px" id="demoTranslateScaleCanvas">
+					This content requires <a href="http://get.webgl.org/">WebGL</a>.
+				</canvas>
+				<figcaption>$\M{M}=\M{T}\cdot\M{S}$</figcaption>
+			</figure>
 		</div>
 
 		<p>Note the difference in behavior.</p>
 
-		<div class="tab">
+		<div class="displayed">
 			<form style="text-align:right">
 				<label>Translation along $x$ =</label>
 				<span class="value" style="margin-right:1em" id="demoScaleTranslateXOut">0</span>
@@ -59,8 +51,8 @@
 			demoScaleTranslate = new DemoScaleTranslate();
 			demoTranslateScale = new DemoTranslateScale();
 			function update() {
-					demoScaleTranslate.update();
-					demoTranslateScale.update();
+				demoScaleTranslate.update();
+				demoTranslateScale.update();
 			}
 		</script>
 
