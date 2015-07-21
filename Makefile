@@ -17,6 +17,7 @@ all : pages html
 pages :
 	make -fetc/Makefile PAGE=index
 	make -fetc/Makefile PAGE=courses
+	make -fetc/Makefile PAGE=students
 	make -fetc/Makefile PAGE=research
 	make -fetc/Makefile PAGE=applications
 	make -fetc/Makefile PAGE=articles
@@ -35,4 +36,4 @@ html : $(HTML)
 # Remove all generated files.
 
 clean :
-	rm -f $(HTML) index.html courses.html research.html applications.html articles.html code.html events.html misc.html
+	rm -f $(HTML) index.html courses.html students.html research.html applications.html articles.html code.html events.html misc.html
