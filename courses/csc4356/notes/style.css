@@ -194,10 +194,16 @@ table.tiny th, table.tiny td {
 
 canvas.clip {
 	background: url(img/clip-grid.svg);
+	background-size: cover;
+	width:  8em;
+	height: 8em;
 }
 
 canvas.persp {
 	background: url(img/persp-grid.svg);
+	background-size: cover;
+	width:  8em;
+	height: 8em;
 }
 
 input[type='range'] {
