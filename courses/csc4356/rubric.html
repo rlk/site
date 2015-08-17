@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CSC 4356 / ME 4573 - Interactive Computer Graphics</title>
+	<link rel="stylesheet" type="text/css" href="../../style.css" />
+	<style>
+		table {
+			border-collapse: collapse;
+			font-size: 75%;
+		}
+		th, td {
+			border: 1px solid #CCC;
+			padding: 0.5em 0.5em 0.5em 0.5em;
+			vertical-align: top;
+		}
+		td ul {
+			padding: 0.0em 0.0em 0.0em 1.0em;
+			margin:  0.0em 0.0em 0.0em 0.0em;
+		}
+	</style>
+</head>
+<body>
+	<h1 style="text-align:center">CSC 4356 / ME 4573 &mdash; Interactive Computer Graphics</h1>
+
+	<h2>Programming Project Scoring Rubric</h2>
+
+	<table>
+		<tr>
+			<th>Criteria</th>
+			<th>Inadequate</th>
+			<th>Needs Improvement</th>
+			<th>Meets Expectations</th>
+			<th>Exceeds Expectations</th>
+		</tr>
+		<tr>
+			<td>Syntax</td>
+			<td>
+				<ul>
+					<li>Indentation distance is inconsistent.</li>
+					<li>Lengthy regions of blank lines.</li>
+					<li>No explanatory comments.</li>
+				</ul>
+			</td>
+			<td>
+				<ul>
+					<li>Indentation has a mixture of tabs and spaces.</li>
+					<li>No explanatory comments except author's name.</li>
+				</ul>
+			</td>
+			<td>
+				<ul>
+					<li>Indentation distance is consistent.</li>
+					<li>Indentation is either <em>all</em> tabs or <em>all</em> spaces.</li>
+					<li>Each function or object is documented as to its purpose.</li>
+				</ul>
+			</td>
+			<td>
+				<ul>
+					<li>In-line commentary elucidates complex code.</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>Structure</td>
+			<td>
+				<ul>
+					<li>Significant quantities of dead or useless code.</li>
+					<li>Redundant code.</li>
+					<li>Heavy use of global variables.</li>
+					<li>Use of member variables in lieu of argument passing.</li>
+				</ul>
+			</td>
+			<td>
+				<ul>
+					<li>Significant quantities of commented-out code.</li>
+					<li>Lengthy functions that do many tasks.</li>
+				</ul>
+			</td>
+			<td>
+				<ul>
+					<li>Each function performs one well-defined task.</li>
+				</ul>
+			</td>
+			<td>
+				<ul>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>Resource Management</td>
+			<td>
+				<ul>
+					<li>Tasks performed in the wrong place (such as initialization tasks performed in the render loop) resulting in <em>resource leaks</em>.</li>
+					<li>Repeated resource acquisition without release.</li>
+				</ul>
+			</td>
+			<td>
+				<ul>
+					<li>Tasks performed in the wrong place (such as initialization tasks performed in the render loop) resulting in <em>inefficiency</em>.</li>
+					<li>Unnecessary repetition of resource acquisition and release.</li>
+				</ul>
+			</td>
+			<td>
+				<ul>
+					<li>Application is maximally efficient and allows resources to release upon exit.</li>
+				</ul>
+			</td>
+			<td>
+				<ul>
+					<li>All acquired resources released prior to exit.</li>
+				</ul>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>
