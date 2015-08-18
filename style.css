@@ -68,7 +68,7 @@ div.item h2 {
 
 div.all hr {
   display: block;
-  height: 1px; 
+  height: 1px;
   border: 0px;
   border-top: 1px solid #EEE;
   margin: 16px auto;
@@ -129,8 +129,8 @@ table.calendar {
 }
 
 td.lec {
-  width: 8em;
-  height: 8em;
+  width: 7em;
+  height: 7em;
   border-color: white;
   border-width: 2px;
   border-style: solid;
@@ -139,8 +139,8 @@ td.lec {
 }
 
 td.fin {
-  width: 8em;
-  height: 8em;
+  width: 7em;
+  height: 7em;
   border-color: white;
   border-width: 2px;
   border-style: solid;
@@ -149,8 +149,8 @@ td.fin {
 }
 
 td.hol {
-  width: 8em;
-  height: 8em;
+  width: 7em;
+  height: 7em;
   border-color: white;
   border-width: 2px;
   border-style: solid;
@@ -160,8 +160,8 @@ td.hol {
 }
 
 td.off {
-  width: 8em;
-  height: 8em;
+  width: 7em;
+  height: 7em;
   border-color: white;
   border-width: 2px;
   border-style: solid;
