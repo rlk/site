@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>CSC 4356 / ME 4573 - Interactive Computer Graphics</title>
+	<title>CSC 4356 - Interactive Computer Graphics</title>
 	<link rel="stylesheet" type="text/css" href="../../style.css" />
 	<style>
+		h2 {
+			text-align: center;
+		}
 		table {
 			border-collapse: collapse;
 			font-size: 75%;
@@ -12,6 +15,10 @@
 			border: 1px solid #CCC;
 			padding: 0.5em 0.5em 0.5em 0.5em;
 			vertical-align: top;
+			width: 20%;
+		}
+		th, td.head {
+			background: #eee;
 		}
 		td ul {
 			padding: 0.0em 0.0em 0.0em 1.0em;
@@ -20,7 +27,7 @@
 	</style>
 </head>
 <body>
-	<h1 style="text-align:center">CSC 4356 / ME 4573 &mdash; Interactive Computer Graphics</h1>
+	<h1 style="text-align:center">CSC 4356 &mdash; Interactive Computer Graphics</h1>
 
 	<h2>Programming Project Scoring Rubric</h2>
 
@@ -33,25 +40,43 @@
 			<th>Exceeds Expectations</th>
 		</tr>
 		<tr>
-			<td>Syntax</td>
+			<td class="head"><b>Protocol</b><br>10%<br>Was the project submitted for grading correctly and on time?</td>
 			<td>
 				<ul>
-					<li>Indentation distance is inconsistent.</li>
-					<li>Lengthy regions of blank lines.</li>
+					<li>Program is submitted incorrectly or late.</li>
+				</ul>
+			</td>
+			<td>
+			</td>
+			<td>
+				<ul>
+					<li>Program is submitted correctly and on-time.</li>
+				</ul>
+			</td>
+			<td>
+			</td>
+		</tr>
+		<tr>
+			<td class="head"><b>Syntax</b><br>10%<br>Is the code formatted in a way that best communicates its function?</td>
+			<td>
+				<ul>
+					<li>Code does not compile or cannot be interpreted.</li>
+					<li>Indentation is inconsistent or does not convey block structure.</li>
 					<li>No explanatory comments.</li>
 				</ul>
 			</td>
 			<td>
 				<ul>
-					<li>Indentation has a mixture of tabs and spaces.</li>
+					<li>Indentation is consistent but has a mixture of tabs and spaces.</li>
+					<li>Lengthy regions of blank lines.</li>
 					<li>No explanatory comments except author's name.</li>
 				</ul>
 			</td>
 			<td>
 				<ul>
-					<li>Indentation distance is consistent.</li>
-					<li>Indentation is either <em>all</em> tabs or <em>all</em> spaces.</li>
-					<li>Each function or object is documented as to its purpose.</li>
+					<li>Indentation consistently conveys block structure.</li>
+					<li>Indentation is uses <em>all</em> tabs or <em>all</em> spaces.</li>
+					<li>Each function or object is documented with a comment as to its purpose.</li>
 				</ul>
 			</td>
 			<td>
@@ -61,55 +86,90 @@
 			</td>
 		</tr>
 		<tr>
-			<td>Structure</td>
+			<td class="head"><b>Structure</b><br>20%<br>Is the code structured efficiently and effectively? Is it <em>good programming</em>?</td>
 			<td>
 				<ul>
 					<li>Significant quantities of dead or useless code.</li>
 					<li>Redundant code.</li>
 					<li>Heavy use of global variables.</li>
-					<li>Use of member variables in lieu of argument passing.</li>
+					<li>Improper use of member variables in lieu of argument passing.</li>
 				</ul>
 			</td>
 			<td>
 				<ul>
 					<li>Significant quantities of commented-out code.</li>
-					<li>Lengthy functions that do many tasks.</li>
+					<li>Unnecessary code.</li>
+					<li>Lengthy functions that perform many tasks.</li>
 				</ul>
 			</td>
 			<td>
 				<ul>
 					<li>Each function performs one well-defined task.</li>
+					<li>Each line of code performs a necessary operation.</li>
 				</ul>
 			</td>
 			<td>
 				<ul>
+					<li>Code structure represents a well-formed, well-reasoned style unique to the student and does not parrot examples given in class.</li>
 				</ul>
 			</td>
 		</tr>
 		<tr>
-			<td>Resource Management</td>
+			<td class="head"><b>Resource Management</b><br>20%<br>Does the code utilize resources optimally?</td>
 			<td>
 				<ul>
-					<li>Tasks performed in the wrong place (such as initialization tasks performed in the render loop) resulting in <em>resource leaks</em>.</li>
-					<li>Repeated resource acquisition without release.</li>
+					<li>Resources are acquired and lost without release (leaked). This is especially egregious in loop bodies such as the render loop.</li>
 				</ul>
 			</td>
 			<td>
 				<ul>
-					<li>Tasks performed in the wrong place (such as initialization tasks performed in the render loop) resulting in <em>inefficiency</em>.</li>
-					<li>Unnecessary repetition of resource acquisition and release.</li>
+					<li>Tasks are performed in the wrong place, such as initialization tasks performed in the render loop.</li>
+					<li>Unnecessary repetition of resource acquisition with release (unleaked).</li>
 				</ul>
 			</td>
 			<td>
 				<ul>
-					<li>Application is maximally efficient and allows resources to release upon exit.</li>
+					<li>Program is efficient and allows resources to release upon exit.</li>
 				</ul>
 			</td>
 			<td>
 				<ul>
-					<li>All acquired resources released prior to exit.</li>
+					<li>All acquired resources are released prior to exit.</li>
 				</ul>
 			</td>
+		</tr>
+		<tr>
+			<td class="head"><b>Project Objectives</b><br>40%<br>Does the code correctly utilize the concepts that the project is intended to exercise?</td>
+			<td>
+				<ul>
+					<li>Program does not run.</li>
+					<li>Code demonstrates lack of understanding of lecture content.</li>
+				</ul>
+			</td>
+			<td>
+				<ul>
+					<li>Code demonstrates misunderstanding or incomplete understanding of key concepts.</li>
+					<li>Program executes and produces <em>some</em> correct output.</li>
+				</ul>
+			</td>
+			<td>
+				<ul>
+					<li>Code correctly exercises all key concepts.</li>
+					<li>Program executes and produces <em>all</em> correct output.</li>
+				</ul>
+			</td>
+			<td>
+				<ul>
+					<li>Program generalizes the required objective effectively or explores additional related functionality in a fruitful manner.</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td class="head"><b>Score Multiplier</b></td>
+			<td>0% of criterion score</td>
+			<td>50% of criterion score</td>
+			<td>100% of criterion score</td>
+			<td>105% of criterion score with total score not to exceed 100%</td>
 		</tr>
 	</table>
 </body>
