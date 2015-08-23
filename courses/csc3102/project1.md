@@ -26,4 +26,4 @@ Implement this using as many classes and source files that you need, but:
 - Java implementations should have a main class called `Prog1` in a file `Prog1.java`.
 - C++ implementations should have place the main function in a file `Prog1.cpp`
 
-[Code submission should be done via your account on `classes.csc.lsu.edu`](classes.html) in a directory calleg `prog1`. The instructor's account name is `cs3102_koo`.
+[Code submission should be done via your account on `classes.csc.lsu.edu`](classes.html) in a directory called `prog1`. The instructor's account name is `cs3102_koo`.
