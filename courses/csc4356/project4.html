@@ -1,70 +1,49 @@
+<!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
 	<title>CSC 4356 / ME 4573 - Project 4</title>
 	<link rel="stylesheet" type="text/css" href="../../style.css" />
 </head>
 <body>
-	<h1>Project 4 &mdash; Better Function Grapher</h1>
+	<h1>Project 4 &mdash; Textured Model Rendering</h1>
 
 	<h2>Overview</h2>
 
-	<p>The purpose of Project 4 is to exercise the use of transformation for viewing. You will modify your implementation of Project 3 to improve the appearance of the renderered function and to allow the user to interactively view it from any angle and distance.</p>
+	<p>The purpose of Project 4 is to practice per-fragment shading and texturing.</p>
 
 	<h2>Specifics</h2>
+	<img style="float:right; margin: 0em 0em 1em 2em" src="data/prog4.jpg">
 
 	<ul>
-		<li><p>Create a new remote repository called "project4" on <b>classes.csc.lsu.edu</b>, and clone it to your local computer.</p></li>
-
-		<li><p>Copy the five files from your project3 directory into your project4 directory.</p>
+		<li><p>Add the four WebGL utility libraries and copy your HTML and JavaScript sources from Project 3, renaming them for Project 4.</p>
 
 			<ul>
-				<li><code>Grapher.html</code></li>
-				<li><code>Grapher.js</code></li>
 				<li><code><a href="https://www.khronos.org/registry/webgl/sdk/demos/common/webgl-utils.js">webgl-utils.js</a></code></li>
 				<li><code><a href="https://www.khronos.org/registry/webgl/sdk/debug/webgl-debug.js">webgl-debug.js</a></code></li>
 				<li><code><a href="http://www.magic.ubc.ca/webgl-pg/uploads/examples/lib/cuon-utils.js">cuon-utils.js</a></code></li>
-			</ul>
-
-			<p>You'll also need the textbook's matrix library.</p>
-
-			<ul>
 				<li><code><a href="http://www.magic.ubc.ca/webgl-pg/uploads/examples/lib/cuon-matrix.js">cuon-matrix.js</a></code></li>
-			</ul>
-
-			<p>As always, format your code consistently and remove any dead code.</p>
-		</li>
-
-		<li><p>Display the 1-x<sup>2</sup>-z<sup>2</sup> mesh as follows:</p>
-
-			<ul>
-				<li>Render the surface of the mesh with colored triangles, as before.</li>
-				<li>Also render a <a href="notes/01-geometry/geometry-17.html">grid of black lines</a> <i>on top</i> of the triangle mesh.
-					<blockquote>(This will probably involve the introduction of a <b>uniform</b> variable to disable the appearance of color, like the <em>Light</em> uniform used by <a href="notes/js/demo-transform.js">this code</a> for <a href="notes/03-transformation/transformation-scale-demo.html">this demo</a>.)</blockquote>
-				</li>
+				<li><code>prog4.js</code></li>
+				<li><code>prog4.html</code></li>
 			</ul>
 		</li>
 
-		<li><p>Break the code into separate initialization and draw functions, and allow interaction as follows:</p>
+		<li><p>This application will take tables of vertices, normals, texture coordinates, and triangles in JSON format. Render this data using per-fragment illumination with texturing and a point light source. Follow the template of &ldquo;<a href="notes/07-fragment/fragment-overview.html">Per-fragment Illumination</a>&rdquo; in the notes.</p></li>
 
+		<li><p>Allow the user to tumble the shaded model by dragging in the canvas. Add range input sliders to the HTML source allowing the position of the point light source to be given in the range &minus;5 to +5 along the X, Y, and Z axes.</p></li>
+
+		<li><p>The data and texture are given here:</p>
 			<ul>
-				<li><p>Click and drag in the canvas to rotate the mesh <em>relatively</em>.</p>
-					<ul>
-						<li>Click and drag vertically to rotate the mesh about the X axis.</li>
-						<li>Click and drag horizontally to rotate the mesh about the Y axis.</li>
-					</ul>
-				</li>
-				<li><p>Provide an HTML range slider to move the mesh forward and back along the Z axis.</p></li>
+				<li><code><a href="data/chest.js">chest.js</a></code></li>
+				<li><code><a href="data/chest.png">chest.png</a></code></li>
 			</ul>
+
+			<p>The output should look something like the image at the upper-right.</p>
+
+			<p>You might need to use <a href="http://i.imgur.com/7thU1gD.jpg">this URL for the texture</a>, as your browser will probably forbid a <a href="https://en.wikipedia.org/wiki/Same-origin_policy">cross-origin request</a> for an image on your hard drive.
 		</li>
 
-		<li><p>Use <b>transformation matrices</b> where needed:</p>
-			<ul>
-				<li>Use a perspective projection matrix to produce the 3D effect.</li>
- 				<li>Use model rotation and translation matrices to produce the interaction.</li>
- 			</ul>
- 		</li>
-
-		<li><p>Add the files you've created to the project's working copy and commit them to the local repository. Push these changes from your local repository to your remote repository on <b>classes.csc.lsu.edu</b> before the deadline.</p></li>
+		<li><p>Since you copied your source forward from your previous project, there will certainly be dead code. Eliminate it. And again, format carefully. Upload all of your project files to your <code>prog4</code> directory on <b>classes.csc.lsu.edu</b> and <code>p_copy</code> them before the deadline.</p></li>
 	</ul>
 </body>
 </html>

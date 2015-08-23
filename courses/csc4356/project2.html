@@ -1,57 +1,73 @@
+<!DOCTYPE html>
 <html>
 <head>
-	<title>CSC 4356 / ME 4573 - Project 2</title>
+  <meta charset="utf-8">
+	<title>CSC 4356 / ME 4573 - Project 4</title>
 	<link rel="stylesheet" type="text/css" href="../../style.css" />
 </head>
 <body>
-	<h1>Project 2 &mdash; Triforce</h1>
+	<h1>Project 2 &mdash; Interaction</h1>
 
 	<h2>Overview</h2>
 
-	<p>The purpose of Project 2 is to provide a first experience with using WebGL to display geometry. This  entails defining a simple geometric figure, conveying that definition to the GPU, and triggering the rendering of the figure by the GPU.</p>
-
-	<p>This is accomplished with code very similar to an example given in Chapter 3. However, that example must be expanded upon slightly. This expansion requires an understanding of some WebGL basics.</p>
+	<p>The purpose of Project 2 is to exercise the use of transformation for interactive viewing. As in project 1, we render some geometry, However, the geometry data is provided this time, it's 3D instead of 2D, and you'll be able to click with the mouse to spin it around and view it from all sides.</p>
 
 	<h2>Specifics</h2>
 
 	<ul>
-		<li><p>Continue reading the WebGL Programming Guide, into Chapter 3, at least to page 91. This chapter lays out the procedures for WebGL geometry specification in detail.</p></li>
+		<li>
+			<p>Once again, include the WebGL utility libraries in your project.</p>
+			<ul>
+				<li><code><a href="data/webgl-utils.js">webgl-utils.js</a></code></li>
+				<li><code><a href="data/webgl-debug.js">webgl-debug.js</a></code></li>
+				<li><code><a href="data/cuon-utils.js">cuon-utils.js</a></code></li>
+				<li><code><a href="data/cuon-matrix.js">cuon-matrix.js</a></code></li>
+			</ul>
+		</li>
 
-		<li><p>Following the instructions given in <a href="git.html">Using Git with <b>classes.csc.lsu.edu</b></a>, create a new remote repository called "project2", and clone it to your local computer.</p></li>
+		<li>
+			<p>Include the geometry data, a simple cube, by adding this file to your project:</p>
+			<ul>
+				<li><code><a href="data/cube.js">cube.js</a></code></li>
+			</ul>
+		</li>
 
-		<li><p>As before, you'll need to include these files in your project:</p></li>
+		<li>
+			<p>Create the following JavaScript and HTML files, following the template of &ldquo;<a href="notes/06-viewer/viewer-overview.html">A complete model viewer application</a>&rdquo; in the notes.</p>
+			<ul>
+				<li><code>prog2.js</code></li>
+				<li><code>prog2.html</code></li>
+			</ul>
+		</li>
 
-		<ul>
-			<li><code><a href="https://www.khronos.org/registry/webgl/sdk/demos/common/webgl-utils.js">webgl-utils.js</a></code></li>
-			<li><code><a href="https://www.khronos.org/registry/webgl/sdk/debug/webgl-debug.js">webgl-debug.js</a></code></li>
-			<li><code><a href="http://www.magic.ubc.ca/webgl-pg/uploads/examples/lib/cuon-utils.js">cuon-utils.js</a></code></li>
-		</ul>
+		<li>
+			<p>Break the code into separate initialization and draw functions, and allow interaction as follows:</p>
+			<ul>
+				<li>
+					<p>Click and drag in the canvas to rotate the mesh <em>relatively</em>.</p>
+					<ul>
+						<li>Click and drag vertically to rotate the mesh about the X axis.</li>
+						<li>Click and drag horizontally to rotate the mesh about the Y axis.</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
 
-		<li><p>Type in the HelloTriangle example of Listing 3.3. This example, as printed, is incomplete. You'll need to fill in the gaps in that code using the understanding gained from Project 1 and the reading of Chapters 2 and 3. You'll have an HTML file and a JavaScript file. Name them:</p></li>
+		<li>
+			<p>Use <b>transformation matrices</b> where needed:</p>
+			<ul>
+				<li>Use a perspective projection matrix to produce the 3D effect.</li>
+ 				<li>Use model rotation and translation matrices to produce the interaction.</li>
+ 			</ul>
+ 		</li>
 
-		<ul>
-			<li><code>HelloTriangle.html</code></li>
-			<li><code>HelloTriangle.js</code></li>
-		</ul>
+ 		<li>
+			<p>As always, format your code consistently and remove any dead code.</p>
+		</li>
 
-		<p><b>Format your code consistently</b>, especially when it comes to indentation and brace placement. This is a critical part of good programming. When in doubt, follow <a href="http://javascript.crockford.com/code.html">Crockford's conventions</a>. Your text editor probably formats code automatically, so there's no excuse for bad formatting. We're going to deduct points for bad format.</p>
-
-		<li><p>Modify the code so that the output resembles the following figure:</p></li>
-
-		<svg version="1.1" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"x="0px" y="0px" width="256px" height="256px" viewBox="0 0 256 256" overflow="inherit" xml:space="preserve">
-			<rect fill="#008000" width="256" height="256"/>
-			<g>
-				<polygon fill="#FFFF00" points="72.574,128 128,32 183.426,128"/>
-				<polygon fill="#FFFF00" points="17.574,224 73,128 128.426,224"/>
-				<polygon fill="#FFFF00" points="127.574,224 183,128 238.426,224"/>
-			</g>
-		</svg>
-
-		<p>That's three yellow triangles on a green background.</p>
-
-		<li><p>Referring again to our <a href="git.html">Git instructions</a>, add the five files you've created to the project's working copy and commit them to the local repository.</p></li>
-
-		<li><p>Push these changes from your local repository to your remote repository on <b>classes.csc.lsu.edu</b> before the deadline.</p></li>
+		<li>
+			<p>Add the files you've created to the project's working copy and commit them to the local repository. Push these changes from your local repository to your remote repository on <b>classes.csc.lsu.edu</b> before the deadline.</p>
+		</li>
 	</ul>
 </body>
 </html>

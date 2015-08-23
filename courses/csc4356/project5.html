@@ -1,56 +1,25 @@
+<!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
 	<title>CSC 4356 / ME 4573 - Project 5</title>
 	<link rel="stylesheet" type="text/css" href="../../style.css" />
 </head>
 <body>
-	<h1>Project 5 &mdash; Shaded Model Viewer</h1>
-
-	<h2>Overview</h2>
-
-	<p>The purpose of Project 5 is to practice basic geometry processing and shaded rendering.</p>
-
-	<h2>Specifics</h2>
-
-	<ul>
-		<li><p>Create a new remote repository called "project5" on <b>classes.csc.lsu.edu</b>, and clone it to your local computer.</p></li>
-
-		<li><p>Add the four WebGL utility libraries.</p>
-
-			<ul>
-				<li><code><a href="https://www.khronos.org/registry/webgl/sdk/demos/common/webgl-utils.js">webgl-utils.js</a></code></li>
-				<li><code><a href="https://www.khronos.org/registry/webgl/sdk/debug/webgl-debug.js">webgl-debug.js</a></code></li>
-				<li><code><a href="http://www.magic.ubc.ca/webgl-pg/uploads/examples/lib/cuon-utils.js">cuon-utils.js</a></code></li>
-				<li><code><a href="http://www.magic.ubc.ca/webgl-pg/uploads/examples/lib/cuon-matrix.js">cuon-matrix.js</a></code></li>
-			</ul>
-		</li>
-
-		<li><p>Create and add the following JavaScript and HTML files, following the template of &ldquo;<a href="notes/06-viewer/viewer-overview.html">A complete model viewer application</a>&rdquo; in the notes.</p>
-
-			<ul>
-				<li><code>Viewer.js</code></li>
-				<li><code>Viewer.html</code></li>
-			</ul>
-
-			<p>This application will take a table of vertices and a table of triangles in JSON format, calculate a smoothed normal for each vertex, render the resulting data using basic lighting, and allow the user to tumble the shaded model using the mouse.</p>
-		</li>
-
-		<li><p>The tables of vertices and triangles are given here:</p>
-			<img style="float:right; margin: 0em 0em 1em 2em" src="data/Viewer.jpg">
-			<ul>
-				<li><code><a href="data/bunny.js">bunny.js</a></code></li>
-			</ul>
-
-			<p>The output should look something like the image at the right. Depending on the browser, <code>bunny.js</code> may take some time to process. During development, you may test using one of these reduced copies of the same model:</p>
-			<ul>
-				<li><code><a href="data/bunny2.js">bunny2.js</a></code></li>
-				<li><code><a href="data/bunny3.js">bunny3.js</a></code></li>
-			</ul>
-
-			<p>Do be advised: the bunny model is imperfect. As a triangulation of a scanned point cloud, it has holes (particularly in the bottom) and degenerate triangles. These flaws become especially apparent in the reduced copies. However, the head and body should look correct.</p>
-		</li>
-
-		<li><p>Format carefully and eliminate any dead code. Push your work from your local repository to your remote repository on <b>classes.csc.lsu.edu</b> before the deadline.</p></li>
-	</ul>
+<h1>Project 5 &mdash; Scene Management</h1>
+<p>Yet again we extend our previous project. We remain focused on loading and rendering 3D mesh data, but this time we'll be dealing with multiple meshes simultaneously. All of our previous projects have assumed there is only one mesh, which simplifies everything. With this project, we'll do familiar things, but we'll need to be more careful about how we do them.</p>
+<p>Here is a <a href="dat.zip">ZIP file containing several textured meshes</a>. There are 5 different palm trees, 3 different plants, and 1 desert background. Our objective is to place all 9 of these together in a scene, rendering with per-fragment lighting, as before. A number of new requirements arise from this:</p>
+<ul>
+<li>We'll need an independent vertex buffer, element buffer, and texture object for each mesh. This must be implemented using a <strong>structure</strong> or<strong> object</strong> to encapsulate and separate mesh data. <em>Do not simply copy and paste</em> the mesh loading and drawing code 9 times.</li>
+<li>Each of our previous projects placed the object at the center of the world. However, if all of our plants and trees are placed at the center, then they will all appear on top of one another. Instead, use the ModelView matrix to <strong>translate</strong> them to different positions.</li>
+<li>Our old tumble interaction is useful for examining simple objects, but it's not appropriate for wandering around a desert oasis. Replace the tumble interaction with a <strong>look interaction</strong>, allowing the user to look around with the mouse while walking in any direction with the keyboard.</li>
+<li>These plants and trees have <strong>semi-transparent textures</strong>. Transparency interferes with depth testing, so the fragment shader must account for this.</li>
+</ul>
+<p><img src="screenshot7.png" width="800" height="534" alt="Screenshot 7" /></p>
+<p>The mesh data format is the same as before, with one addition. Because each DAT mesh file may have a different TGA texture image, the DAT must indicate which TGA it requires. Previously, the TGA file name was hardcoded, but now the DAT file gives the name of the TGA image file on the first line, following the number of vertices and triangles. For example, here is the first line of <tt>fern.dat</tt>:</p>
+<p><pre>2460 3520 fern_diffuse.tga</pre></p>
+<p>Submit your source code in a file named project7.cpp. Submit your shaders as vshader7.glsl and fshader7.glsl. Submit a screenshot depicting a representative view of the scene in a file name screenshot7.png. As usual, be careful about formatting, and please remove any dead code from your project source.</p>
+<p>If your computer completely chokes trying to render all 9 meshes, then include at least 3, one of which is the desert background.</p>
+<p>(You may note there are several extra TGA files in the ZIP. The use of these is not required, but it's interesting to think about what one might do with them.)</p>
 </body>
 </html>

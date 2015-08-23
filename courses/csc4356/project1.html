@@ -1,52 +1,61 @@
+<!DOCTYPE html>
 <html>
 <head>
-	<title>CSC 4356 / ME 4573 - Project 1</title>
+  <meta charset="utf-8">
+	<title>CSC 4356 / ME 4573 - Project 2</title>
 	<link rel="stylesheet" type="text/css" href="../../style.css" />
 </head>
 <body>
-	<h1>Project 1 &mdash; Getting Started</h1>
+	<h1>Project 1 &mdash; Basic Geometry</h1>
 
 	<h2>Overview</h2>
 
-	<p>The purpose of Project 1 is to ensure that you can organize HTML and JavaScript code into a working WebGL project and commit that working project to a Git repository.</p>
+	<p>The purpose of Project 1 is to provide a first experience with using WebGL to display geometry. This entails defining a simple geometric figure, conveying that definition to the GPU, and triggering the rendering of the figure by the GPU.</p>
 
-	<p>The code in question will come right out of Chapter 2. At this time, we'll have only a light understanding of how this code truly works. We'll come to understand it more deeply over the next couple of weeks.</p>
+	<p>This is accomplished with code very similar to the <code>HelloTriangle</code> example given in Chapter 3 of the WebGL Programming Guide. However, that example must be expanded upon slightly, and this expansion requires an understanding of some WebGL basics.</p>
 
 	<h2>Specifics</h2>
 
 	<ul>
-		<li><p>Read chapter 2 of the WebGL Programming Guide, at least through page 40. This chapter gives a high level overview of almost every aspect of 3D programming for the web, including the necessary HTML, a bit of JavaScript with WebGL, and an early taste of the GPU programming language. It includes a very simple example that draws a single WebGL point to an HTML canvas.</p></li>
+		<li><p>In any WebGL application, a significant amount of configuration must be performed before any rendering at all can occur. The textbook attempts to explain all of this configuration in detail before showing us how to use it. For this reason, there is an alarming amount of reading dedicated to this simple, introductory task. All of Chapter 2 and Chapter 3 through page 91 pass by before <code>HelloTriangle</code> is fully described. The course notes distill all of this reading down to the necessary elements.</li>
 
-		<li><p>Following the instructions given in <a href="git.html">Using Git with <b>classes.csc.lsu.edu</b></a>, create a new remote repository called "project1", and clone it to your local computer.</p></li>
+		<li>
+			<p>The following Javascript libraries will be useful to every WebGL program you write. You'll want to include these files in your project:</p>
+			<ul>
+				<li><code><a href="data/webgl-utils.js">webgl-utils.js</a></code></li>
+				<li><code><a href="data/webgl-debug.js">webgl-debug.js</a></code></li>
+				<li><code><a href="data/cuon-utils.js">cuon-utils.js</a></code></li>
+				<li><code><a href="data/cuon-matrix.js">cuon-matrix.js</a></code></li>
+			</ul>
+		</li>
 
-		<li><p>Download the following JavaScript libraries and add them to your project's working directory:</p></li>
+		<li>
+			<p>Type in the <code>HelloTriangle</code> example of Listing 3.3. This example, as printed, is incomplete. You'll need to fill in the gaps in that code using the understanding gained from Project 1 and the reading of Chapters 2 and 3. You'll have an HTML file and a JavaScript file. Name them:</p>
+			<ul>
+				<li><code>prog1.html</code></li>
+				<li><code>prog1.js</code></li>
+			</ul>
+			<p><b>Format your code consistently</b>, especially when it comes to indentation and brace placement. This is a critical part of good programming. When in doubt, follow <a href="http://javascript.crockford.com/code.html">Crockford's conventions</a>. Your text editor probably formats code automatically, so there's no excuse for bad formatting. We're going to deduct points for bad format.</p>
+		</li>
 
-		<ul>
-			<li><code><a href="https://www.khronos.org/registry/webgl/sdk/demos/common/webgl-utils.js">webgl-utils.js</a></code></li>
-			<li><code><a href="https://www.khronos.org/registry/webgl/sdk/debug/webgl-debug.js">webgl-debug.js</a></code></li>
-			<li><code><a href="http://www.magic.ubc.ca/webgl-pg/uploads/examples/lib/cuon-utils.js">cuon-utils.js</a></code></li>
-		</ul>
+		<li>
+			<p>Modify the code so that the output resembles the following figure:</p>
 
-		<li><p>Type in the HelloPoint1 example. This will include the files:</p></li>
+			<svg version="1.1" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"x="0px" y="0px" width="256px" height="256px" viewBox="0 0 256 256" overflow="inherit" xml:space="preserve">
+				<rect fill="#008000" width="256" height="256"/>
+				<g>
+					<polygon fill="#FFFF00" points="72.574,128 128,32 183.426,128"/>
+					<polygon fill="#FFFF00" points="17.574,224 73,128 128.426,224"/>
+					<polygon fill="#FFFF00" points="127.574,224 183,128 238.426,224"/>
+				</g>
+			</svg>
 
-		<ul>
-			<li><code>HelloPoint1.html</code> from Listing 2.4.</li>
-			<li><code>HelloPoint1.js</code> from Listing 2.5.</li>
-		</ul>
+			<p>That's three yellow triangles on a green background.</p>
+		</li>
 
-		<li><p>There are two corrections to be made to this code:</p></li>
-
-		<ol>
-			<li><p>You'll note that the <code>&lt;script&gt;</code> source paths in <code>HelloPoint1.html</code> point to a different directory. These paths are incorrect for your project, as the JavaScript files that they mention are directly in your project's working directory. Remove the "<code>../libs/</code>" portion of each path to correct them.</p></li>
-
-			<li><p>The background is black and the point is red. This being LSU, everything must be purple and gold. Change the background to purple and the point to gold. See Chapter 2 to determine how.</p></li>
-		</ol>
-
-		<li><p>Confirm that the code works by loading the HTML file in Chrome. It should look something like Figure 2.9.</p></li>
-
-		<li><p>Referring again to our <a href="git.html">Git instructions</a>, add the five files you've created to the project's working copy and commit them to the local repository.</p></li>
-
-		<li><p>Push these changes from your local repository to your remote repository on <b>classes.csc.lsu.edu</b> before the deadline.</p></li>
+		<li>
+			<p>Upload all six of your project files to your <code>prog1</code> directory on <b>classes.csc.lsu.edu</b> and <code>p_copy</code> them before the deadline.</p>
+		</li>
 	</ul>
 </body>
 </html>
