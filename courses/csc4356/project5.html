@@ -6,20 +6,44 @@
 	<link rel="stylesheet" type="text/css" href="../../style.css" />
 </head>
 <body>
-<h1>Project 5 &mdash; Scene Management</h1>
-<p>Yet again we extend our previous project. We remain focused on loading and rendering 3D mesh data, but this time we'll be dealing with multiple meshes simultaneously. All of our previous projects have assumed there is only one mesh, which simplifies everything. With this project, we'll do familiar things, but we'll need to be more careful about how we do them.</p>
-<p>Here is a <a href="dat.zip">ZIP file containing several textured meshes</a>. There are 5 different palm trees, 3 different plants, and 1 desert background. Our objective is to place all 9 of these together in a scene, rendering with per-fragment lighting, as before. A number of new requirements arise from this:</p>
-<ul>
-<li>We'll need an independent vertex buffer, element buffer, and texture object for each mesh. This must be implemented using a <strong>structure</strong> or<strong> object</strong> to encapsulate and separate mesh data. <em>Do not simply copy and paste</em> the mesh loading and drawing code 9 times.</li>
-<li>Each of our previous projects placed the object at the center of the world. However, if all of our plants and trees are placed at the center, then they will all appear on top of one another. Instead, use the ModelView matrix to <strong>translate</strong> them to different positions.</li>
-<li>Our old tumble interaction is useful for examining simple objects, but it's not appropriate for wandering around a desert oasis. Replace the tumble interaction with a <strong>look interaction</strong>, allowing the user to look around with the mouse while walking in any direction with the keyboard.</li>
-<li>These plants and trees have <strong>semi-transparent textures</strong>. Transparency interferes with depth testing, so the fragment shader must account for this.</li>
-</ul>
-<p><img src="screenshot7.png" width="800" height="534" alt="Screenshot 7" /></p>
-<p>The mesh data format is the same as before, with one addition. Because each DAT mesh file may have a different TGA texture image, the DAT must indicate which TGA it requires. Previously, the TGA file name was hardcoded, but now the DAT file gives the name of the TGA image file on the first line, following the number of vertices and triangles. For example, here is the first line of <tt>fern.dat</tt>:</p>
-<p><pre>2460 3520 fern_diffuse.tga</pre></p>
-<p>Submit your source code in a file named project7.cpp. Submit your shaders as vshader7.glsl and fshader7.glsl. Submit a screenshot depicting a representative view of the scene in a file name screenshot7.png. As usual, be careful about formatting, and please remove any dead code from your project source.</p>
-<p>If your computer completely chokes trying to render all 9 meshes, then include at least 3, one of which is the desert background.</p>
-<p>(You may note there are several extra TGA files in the ZIP. The use of these is not required, but it's interesting to think about what one might do with them.)</p>
+	<h1>Project 5 &mdash; Scene Management</h1>
+
+	<h2>Overview</h2>
+
+	<p>Project 5 does not develop any new WebGL usage. Instead, it is a programming exercise that entails a generalization of the previous project. This time, we'll have multiple objects and multiple shaders. You'll have to create abstractions to keep all of their WebGL state separate.
+
+	<h2>Specifics</h2>
+
+	<ul>
+		<li>
+			<p>As always, copy forward the four WebGL utility libraries and your implementation of the previous project, renaming them for project 5.</p>
+			<ul>
+				<li><code>prog4.js</code></li>
+				<li><code>prog4.html</code></li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Structure your code with an <code>initShader</code> function capable of handling a variety of different shader programs. Again, store all program object and location state in a shader object.</p>
+		</li>
+
+		<li>
+			<p>We have three objects to deal with. Each includes vertex positions and normals along with triangle indices. Unlike the previous project, the normals are calculated for you, and you should <em>not</em> recalculate them yourself.</p>
+			<ul>
+				<li><code>teapot.js</code></li>
+				<li><code>plane.js</code></li>
+				<li><code>cow.js</code></li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Structure your code with <code>initModel</code> and <code>drawModel</code> functions capable of handling any or all of the three models given. This will entail the creation and usage of a set of vertex buffer objects for each. Keep each model's VBO state separate by storing the VBOs <em>in the model object</em>.</p>
+
+			<p>With these functions in hand, your application initialization should consist of three calls to <code>initModel</code> and three calls to
+		</li>
+
+		<li>Each of our previous projects placed the object at the center of the world. However, if all of our plants and trees are placed at the center, then they will all appear on top of one another. Instead, use the <code>modelView</code> matrix to <strong>translate</strong> them to different positions.</li>
+	</ul>
+
 </body>
 </html>

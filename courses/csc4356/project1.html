@@ -12,12 +12,12 @@
 
 	<p>The purpose of Project 1 is to provide a first experience with using WebGL to display geometry. This entails defining a simple geometric figure, conveying that definition to the GPU, and triggering the rendering of the figure by the GPU.</p>
 
-	<p>This is accomplished with code very similar to the <code>HelloTriangle</code> example given in Chapter 3 of the WebGL Programming Guide. However, that example must be expanded upon slightly, and this expansion requires an understanding of some WebGL basics.</p>
+	<p>This is accomplished with code very similar to the <code>HelloTriangle</code> example (Listing 3.3) given in Chapter 3 of the WebGL Programming Guide. However, that example must be expanded upon slightly, and this expansion requires an understanding of some WebGL basics.</p>
 
 	<h2>Specifics</h2>
 
 	<ul>
-		<li><p>In any WebGL application, a significant amount of configuration must be performed before any rendering at all can occur. The textbook attempts to explain all of this configuration in detail before showing us how to use it. For this reason, there is an alarming amount of reading dedicated to this simple, introductory task. All of Chapter 2 and Chapter 3 through page 91 pass by before <code>HelloTriangle</code> is fully described. The course notes distill all of this reading down to the necessary elements.</li>
+		<li><p>In any WebGL application, a significant amount of configuration must be performed before any rendering can occur. The textbook attempts to explain all of this configuration in detail before showing us how to use it. For this reason, there is an alarming amount of reading dedicated to this simple introductory task. The <code>HelloTriangle</code> example only makes sense after all of Chapter 2 and half of Chapter 3. The course notes distill all of this reading down to the necessary elements.</li>
 
 		<li>
 			<p>The following Javascript libraries will be useful to every WebGL program you write. You'll want to include these files in your project:</p>
@@ -30,16 +30,18 @@
 		</li>
 
 		<li>
-			<p>Type in the <code>HelloTriangle</code> example of Listing 3.3. This example, as printed, is incomplete. You'll need to fill in the gaps in that code using the understanding gained from Project 1 and the reading of Chapters 2 and 3. You'll have an HTML file and a JavaScript file. Name them:</p>
+			<p>Translate the <a href="notes/03-application/01-application-overview.html">essential application template</a> from the course notes. Chapters 2 and 3 (through page 91) and the <code>HelloTriangle</code> example of Listing 3.3 might help.You'll have an HTML file and a JavaScript file. Name them:</p>
+
 			<ul>
 				<li><code>prog1.html</code></li>
 				<li><code>prog1.js</code></li>
 			</ul>
+
 			<p><b>Format your code consistently</b>, especially when it comes to indentation and brace placement. This is a critical part of good programming. When in doubt, follow <a href="http://javascript.crockford.com/code.html">Crockford's conventions</a>. Your text editor probably formats code automatically, so there's no excuse for bad formatting. We're going to deduct points for bad format.</p>
 		</li>
 
 		<li>
-			<p>Modify the code so that the output resembles the following figure:</p>
+			<p>Define geometry data so that the output resembles the following figure:</p>
 
 			<svg version="1.1" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"x="0px" y="0px" width="256px" height="256px" viewBox="0 0 256 256" overflow="inherit" xml:space="preserve">
 				<rect fill="#008000" width="256" height="256"/>
