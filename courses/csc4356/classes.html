@@ -1,0 +1,44 @@
+<html>
+<head>
+	<title>CSC 4356 / ME 4573 - How to submit a Programming Project</title>
+	<link rel=stylesheet type="text/css" href="../../style.css">
+</head>
+<body>
+	<h1>CSC 4356 / ME 4573 &mdash; How to submit a Programming Project</h1>
+
+	<p>Windows users, install <a href="https://git-scm.com/">Git</a>. We won't be using Git this semester, but the Windows Git installer includes a complete Bash environment identical to that provided by default under OS X and Linux. This way, everyone will have the same <a href="http://www.ks.uiuc.edu/Training/Tutorials/Reference/unixprimer.html">Bash prompt</a>. These instructions use that interface.</p>
+
+	<ol>
+		<li><p>Create and test your project on your computer in a directory called <code>progN</code>, where <code>N</code> is the project number.</p>
+
+		<li><p>When complete, navigate your Bash prompt to the directory that contains <code>progN</code> and copy it to <code>classes</code> with the following command.</p>
+
+		<pre><code>scp -r progN cs4356xxx@classes.csc.lsu.edu:progN</code></pre>
+
+		<p>Where <code>xxx</code> is your account number.</p></li>
+
+		<li><p>Log on to <code>classes.csc.lsu.edu</code>.</p>
+
+		<pre><code>ssh cs4356xxx@classes.csc.lsu.edu</code></pre></li>
+
+		<p>After entering your login and password, you are given a Bash prompt</a> running remotely on <code>classes</code>. It looks and behaves identical to the Bash prompt running on your computer, but remember: it's running on a machine in the computer science department.</p></li>
+
+		<li><p>Your code was copied here by the <code>scp</code> command in step 2. You may examine it and even modify if you wish. To submit your finished code, use the command:</p>
+
+		<pre><code>~cs4356_koo/bin/p_copy N</code></pre>
+
+		<p>Here, <code>~cs4356_koo</code> is your instructor's grading account name.</p>
+
+		<p>You can use <code>p_copy</code> again later if you need to make corrections. It will overwrite the original homework submission including the time stamp. Note that this could cause your work to be considered late if you resubmit after the assignment&#8217;s deadline.</p></li>
+
+		<li><p>Use the command</p>
+
+		<pre><code>~cs4356_koo/bin/verify N</code></pre>
+
+		<p>to view the list of files you have submitted and their timestamps. This verifies that your homework was properly submitted for grading.</p></li>
+
+		<li><p>Type <code>exit</code> to close the Bash prompt.</p></li>
+	</ol>
+
+	</body>
+</html>
