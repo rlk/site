@@ -18,15 +18,17 @@ Different instructors use *classes.csc* in different ways. Our usage is document
 
 ### Install the Tools
 
-In addition to your IDE, you'll need two pieces of software to access *classes.csc*.
+In addition to your IDE, you'll need additional software to access *classes.csc*: `scp` and `ssh`. OS X and Linux users will find that the necessary software is already installed and available from the Bash prompt.
 
-1. You'll need an SCP client to copy your code to *classes.csc*. [WinSCP](http://winscp.net) works well under Windows. The `scp` command line tool is built into Linux and OS X.
+I *highly* recommend that Windows users install [Git](https://www.git-scm.com/). We won't be using Git in this class, but the Git installer includes a complete Bash environment identical to that found under OS X and Linux. This way, we'll all use the same interface to *classes.csc*.
 
-2. You'll need an SSH client to issue commands on *classes.csc*. [PuTTY](http://www.putty.org/) is the preferred Windows utility. The `ssh` command line tool is built into Linux and OS X.
+[Here is an in-depth introduction to the Bash prompt](http://ryanstutorials.net/linuxtutorial/) if needed.
 
 ### Write the Code
 
-The Project 0 code is trivial: it computes the average of a list of numbers. The programming work is done for you. If you are a Java user, type the following Java code into to a file named `Prog0.java`.
+The Project 0 code is trivial: it computes the average of a list of numbers. Create a directory called `prog0` to store the project files. The programming work is done for you.
+
+If you are a Java user, type the following Java code into to a file named `Prog0.java` in the `prog0` directory.
 
     // Programming Project 0
     // Mike Tiger IV <mtiger6@lsu.edu>
@@ -50,7 +52,7 @@ The Project 0 code is trivial: it computes the average of a list of numbers. The
         }
     }
 
-If you are a C++ user, type the following C++ code into a file named `Prog0.cpp`.
+If you are a C++ user, type the following C++ code into a file named `Prog0.cpp` in the `prog0` directory.
 
     // Programming Project 0
     // Mike Tiger IV <mtiger6@lsu.edu>
@@ -74,17 +76,25 @@ If you are a C++ user, type the following C++ code into a file named `Prog0.cpp`
         std::cout << float(total) / count << std::endl;
     }
 
-If you use an IDE on your computer to create that file, test it there to make sure it works. Then, upload it to a directory named `prog0` in your *classes.csc* account.
+If you use an IDE on your computer to create that file, test it there to make sure it works.
+
+Upload the `prog0` to your *classes.csc* account by navigating the Bash prompt to the directory that contains `prog0` and executing this command:
+
+    scp -r prog0 cs3102xx@classes.csc.lsu.edu:prog0
+
+Here, `xx` is the unique part of your account name.
 
 Alternatively, you can write your code directly on *classes.csc* using one of the Unix text editors, `nano`, `vim`, `emacs`, etc. With this approach, you can make fixes and improvements to your submission without the need to re-upload it with each change.
 
 ### Test the Code
 
-The Prog0 example is representative of the form taken by all CSC 3102 programming projects: input is given by a file that is named in the argument list, and output is given on the standard output. To test your project, you'll need an input file. Create a file named `input.txt` with the following contents and place it in your `Prog0` directory on *classes.csc*.
+The Prog0 example is representative of the form taken by all CSC 3102 programming projects: input is given by a file that is named in the argument list, and output is given on the standard output. To test your project, you'll need an input file. Create a file named `input.txt` with the following contents and place it in your `prog0` directory on *classes.csc*.
 
     10 11 12 13 14 15
 
-Log in to *classes.csc* using your SSH client. This will give you a Unix shell, which is [really, really worth learning](http://ryanstutorials.net/linuxtutorial/).
+Log in to *classes.csc* using your SSH client. This will give you a Bash shell on *classes*. [Here's another link to the Bash tutorial](http://ryanstutorials.net/linuxtutorial/).
+
+        ssh cs3102xx@classes.csc.lsu.edu
 
 - Your shell begins in your home directory. Change the directory to `prog0`.
 

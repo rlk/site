@@ -1,6 +1,6 @@
 # CSC 3102 --- Advanced Data Structures & Algorithm Analysis
 
-Description and utilization of formal ADT representations, especially those on lists, sets and graphs; time and space analysis of recursive and nonrecursive algorithms, including graph and sorting algorithms; algorithm design techniques.
+Description and utilization of formal ADT representations, especially those on lists, sets and graphs; time and space analysis of recursive and non-recursive algorithms, including graph and sorting algorithms; algorithm design techniques.
 
 ## Topics
 
@@ -48,20 +48,21 @@ Office Hours: 3:00pm--4:00pm Tuesday, 12:00pm-1:00pm Wednesday, 164 [Coates Hall
 
 All homework will be submitted in class on the due date. All programming projects will be submitted via your account on `classes.csc.lsu.edu`. Grades are recorded on the course [Moodle](http://moodle2.lsu.edu/course/view.php?id=27660).
 
-| Assignment                             | Deadline                         |
-| -------------------------------------- | -------------------------------- |
-| [Homework 1](homework1.html)           | 10:30am Thursday 5 February 2015 |
-| [Homework 2](homework2.html)           | 10:30am Tuesday 3 March 2015     |
-| [Programming Project 1](project1.html) | 5:00pm Friday 27 March 2015      |
-| [Homework 3](homework3.html)           | 10:30am Tuesday 14 April 2015    |
-| [Programming Project 2](project2.html) | 10:30am Tuesday 28 April 2015    |
+| Assignment                             | Deadline                           |
+| -------------------------------------- | ---------------------------------- |
+| [Programming Project 0](project0.html) | 5:00pm Thursday 3 September 2015   |
+| Homework 1                             | 10:30am Thursday 17 September 2015 |
+| Programming Project 1                  | 5:00pm Thursday 1 October 2015     |
+| Homework 2                             | 10:30am Tuesday 27 October 2015    |
+| Programming Project 2                  | 5:00pm Tuesday 10 November 2015    |
+| Homework 3                             | 10:30am Tuesday 24 November 2015   |
 
 Exams are given in the usual classroom.
 
-| Exam    | Time                                   |
-| ------- | -------------------------------------- |
-| Midterm | 10:30am--11:50am Thursday 5 March 2015 |
-| Final   | 3:00pm--5:00pm 6 May 2015              |
+| Exam    | Time                                      |
+| ------- | ----------------------------------------- |
+| Midterm | 10:30am--11:50am Thursday 15 October 2015 |
+| Final   | 10:00am--noon Monday 7 December 2015      |
 
 ## Grading
 
