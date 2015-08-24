@@ -2,48 +2,49 @@
 <html>
 <head>
   <meta charset="utf-8">
-	<title>CSC 4356 / ME 4573 - Project 5</title>
+	<title>CSC 4356 / ME 4573 - Project 4</title>
 	<link rel="stylesheet" type="text/css" href="../../style.css" />
 </head>
 <body>
-	<h1>Project 5 &mdash; Scene Management</h1>
+	<h1>Project 4 &mdash; Textured Model Rendering</h1>
 
 	<h2>Overview</h2>
 
-	<p>Project 5 does not develop any new WebGL usage. Instead, it is a programming exercise that entails a generalization of the previous project. This time, we'll have multiple objects and multiple shaders. You'll have to create abstractions to keep all of their WebGL state separate.
+	<p>The purpose of Project 4 is to practice per-fragment shading and texturing.</p>
 
 	<h2>Specifics</h2>
+	<img style="float:right; margin: 0em 0em 1em 2em" src="data/prog4.jpg">
 
 	<ul>
 		<li>
-			<p>As always, copy forward the four WebGL utility libraries and your implementation of the previous project, renaming them for project 5.</p>
+			<p>Add the four WebGL utility libraries and copy your HTML and JavaScript sources from Project 3, renaming them for Project 4.</p>
+
 			<ul>
+				<li><code><a href="data/webgl-utils.js">webgl-utils.js</a></code></li>
+				<li><code><a href="data/webgl-debug.js">webgl-debug.js</a></code></li>
+				<li><code><a href="data/cuon-utils.js">cuon-utils.js</a></code></li>
+				<li><code><a href="data/cuon-matrix.js">cuon-matrix.js</a></code></li>
 				<li><code>prog4.js</code></li>
 				<li><code>prog4.html</code></li>
 			</ul>
 		</li>
 
-		<li>
-			<p>Structure your code with an <code>initShader</code> function capable of handling a variety of different shader programs. Again, store all program object and location state in a shader object.</p>
-		</li>
+		<li><p>This application will take tables of vertices, normals, texture coordinates, and triangles in JSON format. Render this data using per-fragment illumination with texturing and a point light source. Follow the template of &ldquo;<a href="notes/07-fragment/fragment-overview.html">Per-fragment Illumination</a>&rdquo; in the notes.</p></li>
 
-		<li>
-			<p>We have three objects to deal with. Each includes vertex positions and normals along with triangle indices. Unlike the previous project, the normals are calculated for you, and you should <em>not</em> recalculate them yourself.</p>
+		<li><p>Allow the user to tumble the shaded model by dragging in the canvas. Add range input sliders to the HTML source allowing the position of the point light source to be given in the range &minus;5 to +5 along the X, Y, and Z axes.</p></li>
+
+		<li><p>The data and texture are given here:</p>
 			<ul>
-				<li><code>teapot.js</code></li>
-				<li><code>plane.js</code></li>
-				<li><code>cow.js</code></li>
+				<li><code><a href="data/chest.js">chest.js</a></code></li>
+				<li><code><a href="data/chest.png">chest.png</a></code></li>
 			</ul>
+
+			<p>The output should look something like the image at the upper-right.</p>
+
+			<p>You might need to use <a href="http://i.imgur.com/7thU1gD.jpg">this URL for the texture</a>, as your browser will probably forbid a <a href="https://en.wikipedia.org/wiki/Same-origin_policy">cross-origin request</a> for an image on your hard drive.
 		</li>
 
-		<li>
-			<p>Structure your code with <code>initModel</code> and <code>drawModel</code> functions capable of handling any or all of the three models given. This will entail the creation and usage of a set of vertex buffer objects for each. Keep each model's VBO state separate by storing the VBOs <em>in the model object</em>.</p>
-
-			<p>With these functions in hand, your application initialization should consist of three calls to <code>initModel</code> and three calls to
-		</li>
-
-		<li>Each of our previous projects placed the object at the center of the world. However, if all of our plants and trees are placed at the center, then they will all appear on top of one another. Instead, use the <code>modelView</code> matrix to <strong>translate</strong> them to different positions.</li>
+		<li><p>Since you copied your source forward from Project 3, there will certainly be dead code. Eliminate it. And again, format carefully. Upload all of your project files to your <code>prog4</code> directory on <b>classes.csc.lsu.edu</b> and <code>p_copy</code> them before the deadline.</p></li>
 	</ul>
-
 </body>
 </html>
