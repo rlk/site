@@ -2,34 +2,34 @@
 <html>
 <head>
   <meta charset="utf-8">
-	<title>CSC 4356 / ME 4573 - Project 4</title>
+	<title>CSC 4356 / ME 4573 - Project 5</title>
 	<link rel="stylesheet" type="text/css" href="../../style.css" />
 </head>
 <body>
-	<h1>Project 4 &mdash; Textured Model Rendering</h1>
+	<h1>Project 5 &mdash; Textured Model Rendering</h1>
 
 	<h2>Overview</h2>
 
-	<p>The purpose of Project 4 is to practice per-fragment shading and texturing.</p>
+	<p>The purpose of Project 5 is to practice texturing.</p>
 
 	<h2>Specifics</h2>
 	<img style="float:right; margin: 0em 0em 1em 2em" src="data/prog4.jpg">
 
 	<ul>
 		<li>
-			<p>Add the four WebGL utility libraries and copy your HTML and JavaScript sources from Project 3, renaming them for Project 4.</p>
+			<p>Add the four WebGL utility libraries and copy your HTML and JavaScript sources from Project 4, renaming them for Project 5.</p>
 
 			<ul>
 				<li><code><a href="data/webgl-utils.js">webgl-utils.js</a></code></li>
 				<li><code><a href="data/webgl-debug.js">webgl-debug.js</a></code></li>
 				<li><code><a href="data/cuon-utils.js">cuon-utils.js</a></code></li>
 				<li><code><a href="data/cuon-matrix.js">cuon-matrix.js</a></code></li>
-				<li><code>prog4.js</code></li>
-				<li><code>prog4.html</code></li>
+				<li><code>prog3.js</code></li>
+				<li><code>prog3.html</code></li>
 			</ul>
 		</li>
 
-		<li><p>This application will take tables of vertices, normals, texture coordinates, and triangles in JSON format. Render this data using per-fragment illumination with texturing and a point light source. Follow the template of &ldquo;<a href="notes/07-fragment/fragment-overview.html">Per-fragment Illumination</a>&rdquo; in the notes.</p></li>
+		<li><p>This application will take tables of vertex positions, vertex normals, and triangle indices, as before, with the new addition of vertex <em>texture coordinates</em>. Render this data using per-fragment illumination with texturing and a point light source. Follow the template of &ldquo;<a href="notes/07-fragment/fragment-overview.html">Per-fragment Illumination</a>&rdquo; in the notes.</p></li>
 
 		<li><p>Allow the user to tumble the shaded model by dragging in the canvas. Add range input sliders to the HTML source allowing the position of the point light source to be given in the range &minus;5 to +5 along the X, Y, and Z axes.</p></li>
 

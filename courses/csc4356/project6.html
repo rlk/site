@@ -8,13 +8,27 @@
 
 	<h2>Overview</h2>
 
-	<p>The purpose of Project 6 is to exercise off-screen rendering and the implementation of simple image processing tasks in the fragment shader. This will require the use of multiple shaders and multiple object, as exercised in Project 5.</p>
+	<p>The purpose of Project 6 is to exercise off-screen rendering and the implementation of simple image processing tasks in the fragment shader. This will take advantage of interaction, multiple shaders, multiple models, textures &mdash; essentially everything we've done thus far.</p>
 
 	<h2>Specifics</h2>
 
 	<ul>
 		<li>
-			<p>Create project 6 as usual.</p>
+			<p>Create Project 6 as usual. It doesn't really matter what scene we render, but it's most interesting if the geometry is textured. For this reason, just reuse the treasure chest from Project 5.</p>
+		</li>
+
+		<li>
+			<p>At initialization, create a framebuffer object with color and depth texture attachments.</p>
+		</li>
+
+		<li>
+			<p>At draw time, bind this framebuffer object and render the treasure chest scene to it. Then, bind the <code>null</code> framebuffer object to re-enable on-screen rendering, and bind the color texture attachment as the model texture.</p>
+
+			<p>Render <a href="data/square.js">this square</a>. With a proper shader, the sequare will fill the screen and provide texture coordinates that map the framebuffer object's color texture back onto the screen pixel-for-pixel.</p>
+		</li>
+
+		<li>
+			<p>Implement three image processing shaders: threshold, blur, and edge detect. Add an HTML radio button group to allow the user to select which shader is used.</p>
 		</li>
 	</ul>
 </body>
