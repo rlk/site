@@ -33,7 +33,8 @@ img {
 }
 
 table {
-  font: inherit
+  font: inherit;
+  page-break-inside: avoid;
 }
 
 svg {
@@ -124,48 +125,53 @@ h1.header {
 /* Calender table */
 
 table.calendar {
-  margin-left: auto;
+  margin-left:  auto;
   margin-right: auto;
+  page-break-inside: auto;
 }
 
-td.lec {
-  width: 7em;
-  height: 7em;
+table.calendar tr {
+  page-break-inside: avoid;
+  page-break-after: auto;
+}
+
+table.calendar td {
   border-color: white;
   border-width: 2px;
   border-style: solid;
   vertical-align: top;
+}
+
+@media screen {
+  table.calendar td {
+    width:  7em;
+    height: 7em;
+  }
+}
+
+@media print {
+  table.calendar td {
+    width:       84pt;
+    height:      84pt;
+    font-size:   12pt;
+    line-height: 14pt;
+  }
+}
+
+td.lec {
   background: #CFC;
 }
 
 td.fin {
-  width: 7em;
-  height: 7em;
-  border-color: white;
-  border-width: 2px;
-  border-style: solid;
-  vertical-align: top;
   background: #FFC;
 }
 
 td.hol {
-  width: 7em;
-  height: 7em;
-  border-color: white;
-  border-width: 2px;
-  border-style: solid;
-  vertical-align: top;
-  color: #FFF;
+  color:      #FFF;
   background: #FCC;
 }
 
 td.off {
-  width: 7em;
-  height: 7em;
-  border-color: white;
-  border-width: 2px;
-  border-style: solid;
-  vertical-align: top;
-  color: #FFF;
+  color:      #FFF;
   background: #DDD;
 }
