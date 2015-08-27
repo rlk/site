@@ -36,13 +36,13 @@ One of the following:
 
 Dr. Robert Kooima  
 <kooima@csc.lsu.edu>  
-Office Hours: 10:00am--12:00pm Monday, 2016 [Digital Media Center](https://maps.google.com/?ll=30.407446,-91.172608)  
+Office Hours: 1:00pm--3:00pm Tuesday, 2016 [Digital Media Center](https://maps.google.com/?ll=30.407446,-91.172608)  
 
 ## Grader
 
 Doug Lafield  
 <wlafie2@lsu.edu>  
-Office Hours: 3:00pm--4:00pm Tuesday, 12:00pm-1:00pm Wednesday, 164 [Coates Hall](https://maps.google.com/?ll=30.4131945,-91.1792523)  
+Office Hours: 12:00pm--1:00pm Tuesdays 164 [Coates Hall](https://maps.google.com/?ll=30.4131945,-91.1792523)  
 
 ## Assignments
 
