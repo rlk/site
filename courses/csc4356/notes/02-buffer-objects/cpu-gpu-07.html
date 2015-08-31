@@ -10,22 +10,26 @@
 	<section>
 		<h1>The CPU and the GPU</h1>
 
-		<img class="center" src="../img/cpu-gpu-7.svg">
+		<img class="center" src="../img/cpu-gpu-7i.svg">
 
 		<p>Now the data is in GPU memory, but the GPU doesn't know where to use it or how to interpret it.</p>
 
-		<p>We'll want to bind the data to the vertex shader's <code>Position</code> attribute, so we ask the program where that attribute lies.</p>
+		<p>We'll want to bind the data to the vertex shader's <code>vertexPosition</code> attribute, so we ask the program where that attribute lies.</p>
 
-		<code>var Location = gl.getAttribLocation(program, 'Position');</code>
+		<figure class="code">
+		var vertexPositionLocation = gl.getAttribLocation(program, 'vertexPosition');
+		</figure>
 
 		<p>We attach the current buffer to that location, indicating the type and layout of the data to be found there.</p>
 
-		<code>gl.vertexAttribPointer(Location, 3, gl.FLOAT, false, 0, 0);</code>
+		<figure class="code">
+		gl.vertexAttribPointer(vertexPositionLocation, 3, gl.FLOAT, false, 0, 0);
+		</figure>
 
 		<p>The arguments are as follows:</p>
 
 		<table class="center">
-			<tr><td><code>Location&emsp;</code></td><td>We're binding to the <code>Position</code> attribute.</td></tr>
+			<tr><td><code>vertexPositionLocation&emsp;</code></td><td>We're binding to the <code>vertexPosition</code> attribute.</td></tr>
 			<tr><td><code>3       &emsp;</code></td><td>There are three values in each row of the table.</td></tr>
 			<tr><td><code>gl.FLOAT&emsp;</code></td><td>These are floating point values.</td></tr>
 			<tr><td><code>false   &emsp;</code></td><td>They do not require normalization.</td></tr>

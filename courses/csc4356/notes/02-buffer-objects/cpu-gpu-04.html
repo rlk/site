@@ -10,13 +10,16 @@
 	<section>
 		<h1>The CPU and the GPU</h1>
 
-		<img class="center" src="../img/cpu-gpu-4.svg">
+		<img class="center" src="../img/cpu-gpu-4i.svg">
 
-		<p>We'll want to copy that data to the GPU for rendering. First we must create a place to store it, called a <em>vertex buffer object</em>.</p>
+		<p>We'll want to copy that data to the GPU for rendering. First we must create places to store it, called <em>vertex buffer objects</em>.</p>
 
-		<code>var vertexBuffer = gl.createBuffer();</code>
+		<figure class="code">
+		var positionBuffer = gl.createBuffer();<br>
+		var triangleBuffer = gl.createBuffer();
+		</figure>
 
-		<p>Again, that buffer is in GPU memory, so we receive only a <em>handle</em> to it.</p>
+		<p>Like the program, those buffers are in GPU memory, so we receive only <em>handles</em> to them.</p>
 	</section>
 	<nav>
 		<a id="prev" href="cpu-gpu-03.html"></a>

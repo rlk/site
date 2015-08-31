@@ -10,13 +10,26 @@
 	<section>
 		<h1>The CPU and the GPU</h1>
 
-		<img class="center" src="../img/cpu-gpu-2.svg">
+		<img class="center" src="../img/cpu-gpu-2i.svg">
 
-		<p>Next we configure the renderer. Vertex and fragment shader source strings are compiled, linked, and loaded onto the GPU for execution.</p>
+		<p>Next we configure the renderer. Vertex and fragment shader source strings are acquired&hellip;</p>
 
-		<code>var program = initShaders(gl, vert_src, frag_src)</code>
+		<figure class="code">
+		var vertexSource&nbsp;&nbsp; = document.getElementById('vertexShader').text;<br>
+    var fragmentSource = document.getElementById('fragmentShader').text;<br>
+		</figure>
 
-		<p>In return, we receive a <em>handle</em> to the program on the GPU. During this configuration process, the GPU's notion of the <em>current</em> program is set.</p>
+		<p>&hellip; compiled, linked, and loaded onto the GPU for execution.</p>
+
+		<figure class="code">
+		var program = createProgram(gl, vertexSource, fragmentSource);
+		</figure>
+
+		<p>In return, we receive a <em>handle</em> to the program on the GPU. To use this program, we make it <em>current</em>.</p>
+
+		<figure class="code">
+    gl.useProgram(program);
+    </figure>
 	</section>
 	<nav>
 		<a id="prev" href="cpu-gpu-01.html"></a>

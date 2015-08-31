@@ -10,11 +10,19 @@
 	<section>
 		<h1>The CPU and the GPU</h1>
 
-		<img class="center" src="../img/cpu-gpu-5.svg">
+		<img class="center" src="../img/cpu-gpu-5i.svg">
 
-		<p>In preparation to copy our data to this buffer, we tell the GPU to mark it as the <em>current</em> vertex buffer.</p>
+		<p>In preparation use one of these buffers, we tell the GPU to <em>bind</em> it as the <em>current</em> buffer. There are two current buffers: one for vertex data and the other for triangle data. We're copying vertex data, so we use the <code>ARRAY_BUFFER</code> binding point.</p>
 
-		<code>gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer);</code>
+		<figure class="code">
+    var positionArray = new Float32Array(flatten(positions));<br>
+    <br>
+		gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);<br>
+		gl.bufferData(gl.ARRAY_BUFFER, positionArray, gl.STATIC_DRAW);
+		</figure>
+
+		<p>Once bound, we can copy the data from the array in CPU memory to the buffer in GPU memory. Note that because we're delivering raw data to a device, JavaScript values must be converted to binary floating point values.</p>
+
 	</section>
 	<nav>
 		<a id="prev" href="cpu-gpu-04.html"></a>

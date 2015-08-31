@@ -10,13 +10,16 @@
 	<section>
 		<h1>The CPU and the GPU</h1>
 
-		<img class="center" src="../img/cpu-gpu-1.svg">
+		<img class="center" src="../img/cpu-gpu-1i.svg">
 
 		<p>Our JavaScript program is one of many that run on the CPU.</p>
 
 		<p>The first thing it must do is initialize a GL <em>context</em> which maintains the state of the GPU and its memory.</p>
 
-		<code>var gl = document.getElementById(id).getContext('webgl');</code>
+		<figure class="code">
+		canvas = document.getElementById('webgl');<br>
+    gl = getWebGLContext(canvas, false);
+   	</figure>
 
 		<p>We can manipulate that context, but we can't directly touch the state and memory that it manages.</p>
 	</section>

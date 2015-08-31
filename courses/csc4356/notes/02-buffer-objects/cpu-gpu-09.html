@@ -10,13 +10,17 @@
 	<section>
 		<h1>The CPU and the GPU</h1>
 
-		<img class="center" src="../img/cpu-gpu-9.svg">
+		<img class="center" src="../img/cpu-gpu-9i.svg">
 
-		<p>When rendering, we may choose what data is used and how it is displayed. In this case, we'll start with the first vertex, and display the next 9 vertices as points.</p>
+		<p>When rendering, we may choose what data is used and how it is displayed. In this case, we'll start with vertex <code>0</code>, the first one, and display all of the elements in the array as <code>TRIANGLES</code>.</p>
 
-		<code>gl.drawArrays(gl.POINTS, 0, 9);</code>
+		<figure class="code">
+		gl.drawElements(gl.TRIANGLES, triangleArray.length, gl.UNSIGNED_SHORT, 0);
+		</figure>
 
-		<p>Because the GPU knows the type and layout of the data, it can step down the rows, processing each in turn.</p>
+		<p>The number of elements is given by the length of the array, and the <em>type</em> of each element is <code>UNSIGNED_SHORT</code> because we converted the JavaScript array to a <code>Uint16Array</code>.
+
+		<p>Now, because the GPU knows the type and layout of the data, it can step down the rows, processing each in turn.</p>
 	</section>
 	<nav>
 		<a id="prev" href="cpu-gpu-08.html"></a>
