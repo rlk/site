@@ -15,7 +15,7 @@
 		<p>In preparation use one of these buffers, we tell the GPU to <em>bind</em> it as the <em>current</em> buffer. There are two current buffers: one for vertex data and the other for triangle data. We're copying vertex data, so we use the <code>ARRAY_BUFFER</code> binding point.</p>
 
 		<figure class="code">
-    var positionArray = new Float32Array(flatten(positions));<br>
+    positionArray = new Float32Array(flatten(positions));<br>
     <br>
 		gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);<br>
 		gl.bufferData(gl.ARRAY_BUFFER, positionArray, gl.STATIC_DRAW);

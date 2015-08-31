@@ -15,7 +15,7 @@
 		<p>In the same manner, we copy the triangle data from the array in CPU memory to the buffer in GPU memory. This time, we use the <code>ELEMENT_ARRAY_BUFFER</code> binding point.</p>
 
 		<figure class="code">
-    var triangleArray = new Uint16Array(flatten(triangles));<br>
+    triangleArray = new Uint16Array(flatten(triangles));<br>
     <br>
     gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, triangleBuffer);<br>
     gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, triangleArray, gl.STATIC_DRAW);
