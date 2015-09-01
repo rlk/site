@@ -12,6 +12,8 @@
 
 		<p>Rendering happens frequently. This function is invoked by the browser soon after an animation frame is requested. It may be called as often as 60 times per second (or more).</p>
 
+		<p>For this reason, it should be as efficient as possible. It should not do anything unnecessary. Anything that <em>can</em> be done in the <a href="application-initialization.html">initialization</a> function <em>should</em> be done there.</p>
+
 		<figure class="pseudocode" id="vertex_shader">
 			&#x3008;Rendering&#x3009; &equiv;<br>
 			&emsp;&emsp;<b>function</b> draw()<br>
