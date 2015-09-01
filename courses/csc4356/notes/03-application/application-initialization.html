@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Interactive Computer Graphics</title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://csc.lsu.edu/~kooima/MathJax.js"></script>
+	<script type="text/javascript" src="../script.js"></script>
+</head>
+<body>
+	<section>
+		<h1>Initializiation</h1>
+
+		<p>Initialization happens just once when the HTML finishes loading. This function is invoked by the <code>onload</code> event on the <code>&lt;body&gt;</code> element.</p>
+
+		<figure class="pseudocode" id="vertex_shader">
+			&#x3008;Initialization&#x3009; &equiv;<br>
+			&emsp;&emsp;<code>var canvas</code><br>
+			&emsp;&emsp;<code>var gl</code><br>
+			<br>
+			&emsp;&emsp;<b>function</b> init()<br>
+			&emsp;&emsp;&emsp;&emsp;&#x3008;<a href="../02-buffer-objects/cpu-gpu-01.html">Initialize the GL context</a>&#x3009;<br>
+			&emsp;&emsp;&emsp;&emsp;&#x3008;<a href="../02-buffer-objects/cpu-gpu-02.html">Initialize the program object</a>&#x3009;<br>
+			&emsp;&emsp;&emsp;&emsp;&#x3008;<a href="../02-buffer-objects/cpu-gpu-04.html">Initialize the buffer objects</a>&#x3009;<br>
+			&emsp;&emsp;&emsp;&emsp;&#x3008;<a href="../02-buffer-objects/cpu-gpu-05.html">Copy vertex data to the GPU</a>&#x3009;<br>
+			&emsp;&emsp;&emsp;&emsp;&#x3008;<a href="../02-buffer-objects/cpu-gpu-06.html">Copy triangle data to the GPU</a>&#x3009;<br>
+			&emsp;&emsp;&emsp;&emsp;Request the first animation frame.<br>
+		</figure>
+
+		<p>These are all that tasks that should be performed <em>exactly once</em>.</p>
+	</section>
+	<nav>
+		<a id="prev" href="viewer-normal.html"></a>
+		<a id="home" href="../index.html"></a>
+		<a id="next" href="viewer-buffers.html"></a>
+	</nav>
+</body>
+</html>

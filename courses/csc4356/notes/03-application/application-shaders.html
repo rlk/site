@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Interactive Computer Graphics</title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://csc.lsu.edu/~kooima/MathJax.js"></script>
+	<script type="text/javascript" src="../script.js"></script>
+</head>
+<body>
+	<section>
+		<h1>Shader</h1>
+
+		<p>The GPU can not draw anything until programmed to do so. We'll look at GPU programming in depth later. For now, we'll use an extremely simple pair of shaders without fully understanding how or why they do what they do.</p>
+
+		<figure class="pseudocode" id="vertex_shader">
+			&#x3008;Vertex Shader&#x3009; &equiv;<br>
+			&emsp;&emsp;<code>precision mediump float;</code><br>
+			&emsp;&emsp;<code>attribute vec4 vertexPosition;</code><br>
+			&emsp;&emsp;<code>void main() {</code><br>
+			&emsp;&emsp;&emsp;&emsp;<code>gl_Position = vertexPosition;</code><br>
+			&emsp;&emsp;<code>}</code>
+		</figure>
+
+		<p>The vertex shader provides an opportunity for the GPU to process the attributes of each vertex that is drawn. For the minimal application, the vertex shader simply copies the vertex position attribute to its output.</p>
+
+		<figure class="pseudocode" id="fragment_shader">
+			&#x3008;Fragment Shader&#x3009; &equiv;<br>
+			&emsp;&emsp;<code>void main() {</code><br>
+			&emsp;&emsp;&emsp;&emsp;<code>gl_FragColor = vec4(1.0, 1.0, 0.0, 1.0);</code><br>
+			&emsp;&emsp;<code>}</code>
+		</figure>
+
+		<p>The fragment shader provides an opportunity for the GPU to process each fragment, a.k.a pixel, that is draw. For the minimal application, the fragment shader simply writes the color yellow to its output.</p>
+	</section>
+	<nav>
+		<a id="prev" href="viewer-normal.html"></a>
+		<a id="home" href="../index.html"></a>
+		<a id="next" href="viewer-buffers.html"></a>
+	</nav>
+</body>
+</html>

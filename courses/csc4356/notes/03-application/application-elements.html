@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Interactive Computer Graphics</title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://csc.lsu.edu/~kooima/MathJax.js"></script>
+	<script type="text/javascript" src="../script.js"></script>
+</head>
+<body>
+	<section>
+		<h1>HTML Elements</h1>
+
+		<p>The only HTML element that is absolutely required is the <code>canvas</code>. This is where the rendering appears.</p>
+
+		<p>It's generally smart to add a helpful message to the text of the canvas element. If all goes well, the user will never see this. But if the browser lacks WebGL support the user will be informed.</p>
+
+		<figure class="pseudocode">
+			&#x3008;Elements&#x3009; &equiv;<br>
+			&emsp;&emsp;<code>&lt;canvas id="webgl" width="500px" height="500px"&gt;</code><br>
+			&emsp;&emsp;<code>&nbsp;&nbsp;This content requires &lt;a href="http://get.webgl.org/"&gt;WebGL&lt;/a&gt;.</code><br>
+			&emsp;&emsp;<code>&lt;/canvas&gt;</code><br>
+		</figure>
+
+		<p>Note, the <code>id</code> of the canvas must match the identifier requested during <a href="viewer-initialization.html">Initialization</a>.</p>
+	</section>
+	<nav>
+		<a id="prev" href="viewer-rendering.html"></a>
+		<a id="home" href="../index.html"></a>
+		<a id="next" href="viewer-headers.html"></a>
+	</nav>
+</body>
+</html>

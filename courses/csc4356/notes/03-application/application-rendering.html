@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Interactive Computer Graphics</title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://csc.lsu.edu/~kooima/MathJax.js"></script>
+	<script type="text/javascript" src="../script.js"></script>
+</head>
+<body>
+	<section>
+		<h1>Rendering</h1>
+
+		<p>Rendering happens frequently. This function is invoked by the browser soon after an animation frame is requested. It may be called as often as 60 times per second (or more).</p>
+
+		<figure class="pseudocode" id="vertex_shader">
+			&#x3008;Rendering&#x3009; &equiv;<br>
+			&emsp;&emsp;<b>function</b> draw()<br>
+	    &emsp;&emsp;&emsp;&emsp;<code>gl.clearColor(0.0, 0.8, 0.0, 1.0);</code><br>
+	    &emsp;&emsp;&emsp;&emsp;<code>gl.clear(gl.COLOR_BUFFER_BIT);</code><br>
+	    <br>
+			&emsp;&emsp;&emsp;&emsp;&#x3008;<a href="../02-buffer-objects/cpu-gpu-07.html">Configure the vertex attributes</a>&#x3009;<br>
+			&emsp;&emsp;&emsp;&emsp;&#x3008;<a href="../02-buffer-objects/cpu-gpu-08.html">Enable the vertex attributes</a>&#x3009;<br>
+			&emsp;&emsp;&emsp;&emsp;&#x3008;<a href="../02-buffer-objects/cpu-gpu-09.html">Draw the triangle elements</a>&#x3009;<br>
+		</figure>
+	</section>
+	<nav>
+		<a id="prev" href="viewer-normal.html"></a>
+		<a id="home" href="../index.html"></a>
+		<a id="next" href="viewer-buffers.html"></a>
+	</nav>
+</body>
+</html>
