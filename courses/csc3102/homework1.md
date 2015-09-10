@@ -2,50 +2,31 @@
 
 ## Homework 1
 
-Due: In Class, Thursday 5 February 2015
+Due: In Class, Thursday 17 September 2015
 
-1. (5 points) The number of operations executed by algorithms A and B is $8 n \log n$ and $2 n^2$, respectively. Determine $n_0$ such that A is better than B for $n \ge n_0$.
+1. Arrange the following functions in order of non-decreasing growth rate; i.e., $f_i$ may precede $f_j$ only if $f_i=O(f_j)$
 
-1. (5 points) The number of operations executed by algorithms A and B is $40 n^2$ and $2 n^3$, respectively. Determine $n_0$ such that A is better than B for $n \ge n_0$.
+	- $f_1(n)=n^{2}$
+	- $f_2(n)=\sqrt{2n}$
+	- $f_3(n)=n+10$
+	- $f_4(n)=2^n$
+	- $f_5(n)=100^n$
+	- $f_6(n)=8n\log n$ 
+	- $f_7(n)=n^{\log\log n}$ 
+	- $f_8(n)=\log\log n$
+	- $f_9(n)=2^{\log n}$
+	- $f_{10}(n)=2^{10}$
 
-1. (5 points) What is the sum of all the even numbers from $0$ to $2n$, for any positive integer $n$?
+2. For each of the following, prove if you think it is true or give a counterexample if you think it is false.
 
-1. (10 points) Both of the following two programs do the same thing: take an array A storing $n\ge 1$ integers, and give the sum of the prefix sums in A. Give a big-$O$ characterization, in terms of $n$, of the running time of each.
+	- $2^{n+1}=O(2^n)$ 
+	- $2^{2n}=O(2^n)$ 
 
-	First:
+3. Suppose functions $f(n)>0$ and $g(n)>0$ satisfy $f(n) = O(g(n))$. For each of the following, prove if you think it is true or give a counterexample if you think it is false.
 
-	&emsp; $s \gets 0$  
-	&emsp; for $i  \gets  0$ to $n - 1$  
-	&emsp;&emsp; $s \gets  s + A[0]$  
-	&emsp;&emsp; for $j \gets 1$ to $i$  
-	&emsp;&emsp;&emsp; $s \gets  s + A[j]$  
-	&emsp; return $s$
+	- $(f(n))^2=O((g(n))^2)$
+	- $2^{f(n)}=O(2^{g(n)})$
+ 
+4. Show that for any real constant $a$, $(n+a)^5=\Theta(n^5)$.
 
-	Second:
-
-	&emsp; $s \gets A[0]$  
-	&emsp; $t \gets s$  
-	&emsp; for $i \gets 1$ to $n - 1$  
-	&emsp;&emsp; $s \gets s + A[i]$  
-	&emsp;&emsp; $t \gets t + s$  
-	&emsp; return $t$
-
-1. (5 points) Show that $(n + 1)^5$ is $O(n^5)$.
-
-1. (5 points) Show that $n^2$ is $\Omega(n\log n)$.
-
-1. (20 points) Order the following functions by their big-$O$ relationships.
-
-	- $n^2$
-	- $2^{\log n}$
-	- $e^n$
-	- $2^{10}$
-	- $6 n \log n$
-	- $\log \log n$
-	- $(\log n)^{\log n}$
-	- $4 n \log n + 2 n$
-	- $2^n$
-	- $\log^2 n$
-	- $n^{\log \log n}$
-
-1. (20 points) Assuming it is possible to sort $n$ numbers in $O(n\log n)$ time, show that it is possible to solve the three-way set disjointness problem in $O(n\log n)$ time (see Section 4.2.7).
+5. Given an array $A$ storing $n$ integers and another integer $s$, find whether or not there exist two elements $x$ and $y$ in the array such that $x+y=s$. Assuming it is possible to sort $n$ numbers in $O(n\log n)$ time, describe an $O(n \log n)$ time algorithm to solve the problem.
