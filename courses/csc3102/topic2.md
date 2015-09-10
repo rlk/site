@@ -54,23 +54,6 @@ One of the universal truisms of computer science is that polynomials are "good" 
 
 ## The "Big-O" Notation
 
-The significance of growth, Table 4.3:
-
-|            | Maximum Problem Size   |||
-| Run Time   | 1 sec | 1 min  | 1 hour  |
-| ---------- | ----- | ------ | ------- |
-| $400n$ | 2500  | 150000 | 9000000 |
-| $2n^2$ | 707   | 5477   | 42426   |
-| $2^n$  | 19    | 25     | 31      |
-
-The significance of growth, Table 4.4:
-
-| Run Time   | Maximum Size with $256\times$ faster CPU |
-| ---------- | -------------------------------------------- |
-| $400n$ | $256m$
-| $2n^2$ | $16m$
-| $2^n$  | $m+8$
-
 Asymptotic notation
 
 - $f(n)$ is $O(g(n))$ if there is a real value $c$ and an integer $n_0$ such that $f(n)\le c g(n)$ for $n\ge n_0$.
@@ -98,6 +81,26 @@ Note, if $d(n)$ is $O(e(n))$ and $f(n)$ is $O(g(n))$ then
 
 Algorithm analysis
 
+- A simple loop $i$ from $1$ to $n$.
+
+- A simple nested loop $i$ from $1$ to $n$ within $j$ from $1$ to $n$.
+
+- A nested loop $i$ from $1$ to $n$ within $j$ from $1$ to $i$.
+
+- Here's an $O(n\log n)$ example:
+
+	&emsp; $s\gets 1$  
+	&emsp; for ($i\gets 0$; $i < n$; $i\gets i + 1$)  
+	&emsp;&emsp; for ($j\gets 0$; $j < n$; $j\gets j + s$)  
+	&emsp;&emsp;&emsp; print $A[j]$  
+	&emsp;&emsp; $s\gets 2\,s$
+
+- And here's a slightly tougher $O(n\log n)$ example:
+
+	&emsp; for ($i\gets 0$; $i\le n$; $i\gets i + 1$)  
+	&emsp;&emsp; for ($j\gets 0$; $j < n$; $j\gets j + i$)  
+	&emsp;&emsp;&emsp; print $A[j]$  
+
 - This example calculates $y=x^n$
 
 	&emsp; $y\gets 1$  
@@ -112,17 +115,5 @@ Algorithm analysis
 
 	$$p(x,n) = \begin{cases} 1 & \text{if}\ n = 0 \\ p(x, n/2)^2 & \text{if}\ n > 0\ \text{is even} \\ x\cdot p(x, (n-1)/2)^2 & \text{if}\ n > 0\ \text{is odd} \\ \end{cases}$$
 
-- Here's a tougher $n\log n$ example:
-
-	&emsp; $k\gets 1$  
-	&emsp; for ($i\gets 0$; $i < n$; $i\gets i + 1$)  
-	&emsp;&emsp; for ($j\gets 0$; $j < n$; $j\gets j + k$)  
-	&emsp;&emsp;&emsp; print $A[j]$  
-	&emsp;&emsp; $k\gets 2\,k$
-
-- And here's an even tougher one:
-
-	&emsp; for ($i\gets 0$; $i\le n$; $i\gets i + 1$)  
-	&emsp;&emsp; for ($j\gets 0$; $j < n$; $j\gets j + i$)  
-	&emsp;&emsp;&emsp; print $A[j]$  
+- On toward merge sort and quick sort...
 
