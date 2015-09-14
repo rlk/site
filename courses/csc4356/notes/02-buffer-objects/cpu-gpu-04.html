@@ -15,8 +15,8 @@
 		<p>We'll want to copy that data to the GPU for rendering. First we must create places to store it, called <em>vertex buffer objects</em>.</p>
 
 		<figure class="code">
-		var positionBuffer = gl.createBuffer();<br>
-		var triangleBuffer = gl.createBuffer();
+		positionBuffer = gl.createBuffer();<br>
+		triangleBuffer = gl.createBuffer();
 		</figure>
 
 		<p>Like the program, those buffers are in GPU memory, so we receive only <em>handles</em> to them.</p>
