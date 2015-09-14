@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Interactive Computer Graphics</title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://csc.lsu.edu/~kooima/MathJax.js"></script>
+	<script type="text/javascript" src="../script.js"></script>
+</head>
+<body>
+	<section>
+		<h1>Shading</h1>
+
+		<p>To render geometry interactively, we require a shader that performs <a href="../03-transformation/transformation-mvp.html">transformation</a>.</p>
+
+		<p>To render colorful geometry, we require it to receive <a href="../01-geometry/geometry-11.html">vertex color data </a> via a <var>vertexColor</var> attribute. This attribute is <a href="../02-buffer-objects/cpu-gpu-05.html">initialized</a> and <a href="../02-buffer-objects/cpu-gpu-07.html">rendered</a> exactly like the <var>vertexPosition</var> attribute that it accompanies.</a>
+
+		<figure class="pseudocode" id="vertex_shader">
+			&#x3008;Vertex Shader&#x3009; &equiv;<br>
+			&emsp;&emsp;<code>uniform</code> <code>mat4</code> <var>projectionMatrix</var><br>
+			&emsp;&emsp;<code>uniform</code> <code>mat4</code> <var>modelMatrix</var><br>
+			<br>
+			&emsp;&emsp;<code>attribute</code> <code>vec4</code> <var>vertexPosition</var><br>
+			&emsp;&emsp;<code>attribute</code> <code>vec4</code> <var>vertexColor</var><br>
+			<br>
+			&emsp;&emsp;<code>varying mediump</code> <code>vec3</code> <var>fragmentColor</var><br>
+		</figure>
+
+		<p>Here is the pseudocode of a vertex shader that copies the vertex color to the fragment and transforms the vertex position using matrix multiplication.</p>
+
+		<figure class="pseudocode">
+			&emsp;&emsp;<b>function</b> main()<br>
+			&emsp;&emsp;&emsp;&emsp;<span style="width:6em"><var>fragmentColor</var></span> &larr; <var>vertexColor</var><br>
+			&emsp;&emsp;&emsp;&emsp;<span style="width:6em"><code>gl_Position</code></span> &larr; <var>projectionMatrix</var> &middot; <var>modelMatrix</var> &middot; <var>vertexPosition</var><br>
+		</figure>
+
+		<p>Here is the pseudocode of a fragment shader compatible with this vertex shader. It receives the color value given to it by the vertex shader and writes it to the frame buffer with an opaque alpha value.</p>
+
+		<figure class="pseudocode" id="fragment_shader">
+			&#x3008;Fragment Shader&#x3009; &equiv;<br>
+			&emsp;&emsp;<code>varying mediump vec3</code> <var>fragmentColor</var><br>
+			&emsp;&emsp;<b>function</b> main()<br>
+			&emsp;&emsp;&emsp;&emsp;<code>gl_FragColor</code> &larr; <code>vec4</code>(<var>fragmentColor</var>, 1.0);<br>
+		</figure>
+
+		<p>On the application side, we set up for rendering with this shader as follows.</p>
+
+		<p>We'll need to know the <em>locations</em> of the shader uniforms to give them values, Since we'll want to be able to set uniform values from anywhere in the code, such as in the draw function, their locations should be stored globally.</p>
+
+		<figure class="pseudocode" id="uniform_objects">
+			&#x3008;Initialize the uniform objects&#x3009; &equiv;<br>
+			&emsp;&emsp;<span style="width:10.5em"><var>projectionMatrixLocation</var></span> &larr;&nbsp;<code class="small">gl.getUniformLocation</code>(<code class="small">program</code>,&nbsp;&ldquo;projectionMatrix&rdquo;);</code><br>
+			&emsp;&emsp;<span style="width:10.5em"><var>modelMatrixLocation</var></span>      &larr;&nbsp;<code class="small">gl.getUniformLocation</code>(<code class="small">program</code>,&nbsp;&ldquo;modelMatrix&rdquo;);</code><br>
+		</figure>
+	</section>
+	<nav>
+		<a id="prev" href="interaction-initialization.html"></a>
+		<a id="home" href="../index.html"></a>
+		<a id="next" href="interaction-rendering.html"></a>
+	</nav>
+</body>
+</html>

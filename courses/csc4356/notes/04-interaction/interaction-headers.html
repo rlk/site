@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Interactive Computer Graphics</title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://csc.lsu.edu/~kooima/MathJax.js"></script>
+	<script type="text/javascript" src="../script.js"></script>
+	<style>
+		a[href ^= "http"]:link::after { content: ''; }
+	</style>
+</head>
+<body>
+	<section>
+		<h1>HTML Headers</h1>
+
+		<p>The HTML headers list the JavaScript source files needed to run the application. They are generally the <a href="../03-application/application-headers.html">same as before</a>, but with one addition&hellip;</p>
+
+		<p>The <var>vertices</var>, <var>colors</var>, and <var>triangles</var> arrays giving the input data must come from somewhere. We have them in JSON format, so we simply include them.</p>
+
+		<figure class="code">
+			&emsp;&emsp;&emsp;&emsp;&lt;script type="text/javascript" src="<a href="../../data/cube.js">cube.js</a>"&gt;&lt;/script&gt;<br>
+		</figure>
+	</section>
+	<nav>
+		<a id="prev" href="interaction-rendering.html"></a>
+		<a id="home" href="../index.html"></a>
+	</nav>
+</body>
+</html>

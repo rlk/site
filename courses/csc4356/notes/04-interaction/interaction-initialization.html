@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Interactive Computer Graphics</title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://csc.lsu.edu/~kooima/MathJax.js"></script>
+	<script type="text/javascript" src="../script.js"></script>
+</head>
+<body>
+	<section>
+		<h1>Initializiation</h1>
+
+		<p>Once again, initialization happens just once when the HTML finishes loading. It is invoked by the <code>onload</code> event on the <code>&lt;body&gt;</code> element.</p>
+
+		<p>The initialization of the interactive renderer is largely identical to the minimal application, though with two additional steps&hellip;</p>
+
+		<figure class="pseudocode" id="vertex_shader">
+			&#x3008;Initialization&#x3009; &equiv;<br>
+			&emsp;&emsp;<code>var canvas</code><br>
+			&emsp;&emsp;<code>var gl</code><br>
+			<br>
+			&emsp;&emsp;<b>function</b> init()<br>
+			&emsp;&emsp;&emsp;&emsp;&#x3008;<a href="../02-buffer-objects/cpu-gpu-01.html">Initialize the GL context</a>&#x3009;<br>
+			&emsp;&emsp;&emsp;&emsp;&#x3008;<a href="../02-buffer-objects/cpu-gpu-02.html">Initialize the program object</a>&#x3009;<br>
+			&emsp;&emsp;&emsp;&emsp;&#x3008;<a href="interaction-shaders.html#uniform_objects">Initialize the uniform objects</a>&#x3009;<br>
+			&emsp;&emsp;&emsp;&emsp;&#x3008;<a href="../02-buffer-objects/cpu-gpu-04.html">Initialize the buffer objects</a>&#x3009;<br>
+			<br>
+			&emsp;&emsp;&emsp;&emsp;&#x3008;<a href="../02-buffer-objects/cpu-gpu-05.html">Copy vertex data to the GPU</a>&#x3009;<br>
+			&emsp;&emsp;&emsp;&emsp;&#x3008;<a href="../02-buffer-objects/cpu-gpu-06.html">Copy triangle data to the GPU</a>&#x3009;<br>
+			<br>
+			&emsp;&emsp;&emsp;&emsp;<code>canvas.onmousedown = onmousedown</code><br>
+			&emsp;&emsp;&emsp;&emsp;<code>canvas.onmouseup   = onmouseup</code><br>
+			&emsp;&emsp;&emsp;&emsp;<code>canvas.onmousemove = onmousemove</code><br>
+			<br>
+			&emsp;&emsp;&emsp;&emsp;Request the first animation frame.<br>
+		</figure>
+
+		<ol>
+			<li>We must connect the interaction event handlers to the canvas.</li>
+			<li>We must initialize a set of <em>uniform objects</em>. This stems from the use of a more capable pair of shaders&hellip;</li>
+		</ol>
+	</section>
+	<nav>
+		<a id="prev" href="interaction-events.html"></a>
+		<a id="home" href="../index.html"></a>
+		<a id="next" href="interaction-shaders.html"></a>
+	</nav>
+</body>
+</html>

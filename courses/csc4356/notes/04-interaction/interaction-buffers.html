@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Interactive Computer Graphics</title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://csc.lsu.edu/~kooima/MathJax.js"></script>
+	<script type="text/javascript" src="../script.js"></script>
+</head>
+<body>
+	<section>
+		<h1>Buffer Objects</h1>
+
+		<p>Just as we needed to know the locations of the shader uniforms to give them values, we need to know the locations of the shader varyings in order to bind them to vertex buffers.</p>
+
+		<figure class="pseudocode" id="initialization">
+			&#x3008;Buffer Initialization&#x3009; &equiv;<br>
+		</figure>
+		<figure class="pseudocode">
+			&emsp;&emsp;<var>vertexPositionLocation</var> &larr; <code class="small">gl.getAttribLocation</code>(<code class="small">gl.program</code>, &ldquo;vertexPosition&rdquo;)</code><br>
+			&emsp;&emsp;<var>vertexNormalLocation</var>   &larr; <code class="small">gl.getAttribLocation</code>(<code class="small">gl.program</code>, &ldquo;vertexNormal&rdquo;)</code><br>
+		</figure>
+
+		<p>To be useful, these attribute locations must be <em>enabled</em>.</p>
+
+		<figure class="pseudocode">
+			&emsp;&emsp;<code class="small">gl.enableVertexAttribArray</code>(<var>vertexPositionLocation</var>)</code><br>
+			&emsp;&emsp;<code class="small">gl.enableVertexAttribArray</code>(<var>vertexNormalLocation</var>)</code><br>
+		</figure>
+
+		<p>We have our data in three arrays, <var>vertices</var>, <var>normals</var>, and <var>triangles</var>, but GL doesn't accept data in this form. These must converted to flat <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays">typed arrays</a>.</p>
+
+		<figure class="pseudocode">
+			&emsp;&emsp;<span style="width:6em"><var>positionArray</var></span> &larr; <code>new Float32Array</code>(<a href="../01-geometry/geometry-11.html#flatten"><code>flatten</code></a>(<var>vertices</var>))<br>
+			&emsp;&emsp;<span style="width:6em"><var>normalArray</var></span>   &larr; <code>new Float32Array</code>(<a href="../01-geometry/geometry-11.html#flatten"><code>flatten</code></a>(<var>normals</var>))<br>
+			&emsp;&emsp;<span style="width:6em"><var>triangleArray</var></span> &larr; <code>new Uint16Array </code>(<a href="../01-geometry/geometry-11.html#flatten"><code>flatten</code></a>(<var>triangles</var>))<br>
+		</figure>
+
+		<p>Then, each of these typed arrays is copied to a newly-created buffer object. The vertex positions and normals go into array buffers.</p>
+
+		<figure class="pseudocode">
+			&emsp;&emsp;<var>positionBuffer</var> &larr; <code>gl.createBuffer()</code><br>
+			&emsp;&emsp;<code class="small">gl.bindBuffer</code>(<code class="small">gl.ARRAY_BUFFER</code>, <var>positionBuffer</var>)<br>
+			&emsp;&emsp;<code class="small">gl.bufferData</code>(<code class="small">gl.ARRAY_BUFFER</code>, <var>positionArray</var>, <code class="small">gl.STATIC_DRAW</code>)<br>
+		</figure>
+
+		<figure class="pseudocode">
+			&emsp;&emsp;<var>normalBuffer</var> &larr; <code>gl.createBuffer()</code><br>
+			&emsp;&emsp;<code class="small">gl.bindBuffer</code>(<code class="small">gl.ARRAY_BUFFER</code>, <var>normalBuffer</var>)<br>
+			&emsp;&emsp;<code class="small">gl.bufferData</code>(<code class="small">gl.ARRAY_BUFFER</code>, <var>normalArray</var>, <code class="small">gl.STATIC_DRAW</code>)<br>
+		</figure>
+
+		<p>The triangles go into an element array buffer.</p>
+
+		<figure class="pseudocode">
+			&emsp;&emsp;<var>triangleBuffer</var> &larr; <code>gl.createBuffer()</code><br>
+			&emsp;&emsp;<code class="small">gl.bindBuffer</code>(<code class="small">gl.ELEMENT_ARRAY_BUFFER</code>, <var>triangleBuffer</var>)<br>
+			&emsp;&emsp;<code class="small">gl.bufferData</code>(<code class="small">gl.ELEMENT_ARRAY_BUFFER</code>, <var>triangleArray</var>, <code class="small">gl.STATIC_DRAW</code>)<br>
+		</figure>
+
+		<p>These buffer objects will need to be accessible from the draw function, so they must be scoped accordingly.</p>
+	</section>
+	<nav>
+		<a id="prev" href="viewer-shaders.html"></a>
+		<a id="home" href="../index.html"></a>
+		<a id="next" href="viewer-rendering.html"></a>
+	</nav>
+</body>
+</html>

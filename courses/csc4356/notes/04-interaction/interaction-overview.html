@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Interactive Computer Graphics</title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://csc.lsu.edu/~kooima/MathJax.js"></script>
+	<script type="text/javascript" src="../script.js"></script>
+</head>
+<body>
+	<section>
+		<h1>Interaction</h1>
+
+		<p>These pages weave interaction into the <a href="../03-application/application-overview.html">minimal application framework</a> enabling the viewing of a 3D model. In the interest of producing a rendering worth interacting with, it expands the minimal framework to enable <a href="../01-geometry/geometry-11.html">colorful objects</a>.</p>
+
+		<p>This framework is given as pseudocode to be translated into JavaScript and, and this case, the <a href="https://www.khronos.org/registry/gles/specs/2.0/GLSL_ES_Specification_1.0.17.pdf">OpenGL Shading Language</a>. Many of the elements in this section link back to the application framework.</p>
+
+		<figure class="pseudocode">
+			<code>Viewer.js</code> &equiv;<br>
+			&emsp;&emsp;&#x3008;<a href="interaction-functions.html">Interaction&#x3009;</a><br>
+			&emsp;&emsp;&#x3008;<a href="interaction-initialization.html">Initialization&#x3009;</a><br>
+			&emsp;&emsp;&#x3008;<a href="interaction-rendering.html">Rendering&#x3009;</a><br>
+		</figure>
+
+		<figure class="pseudocode">
+			<code>Viewer.html</code> &equiv;<br>
+			&emsp;<code>&lt;html&gt;</code><br>
+			&emsp;&emsp;<code>&lt;head&gt;</code><br>
+			&emsp;&emsp;&emsp;&#x3008;<a href="interaction-headers.html">Headers&#x3009;</a><br>
+			&emsp;&emsp;<code>&lt;/head&gt;</code><br>
+			&emsp;&emsp;<code>&lt;body onload="init()"&gt;</code><br>
+			&emsp;&emsp;&emsp;&emsp;<code>&lt;script id="vertexShader" type="x-shader/x-vertex"&gt;</code><br>
+			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#x3008;<a href="interaction-shaders.html#vertex_shader">Vertex Shader&#x3009;</a><br>
+			&emsp;&emsp;&emsp;&emsp;<code>&lt;/script&gt;</code><br>
+			&emsp;&emsp;&emsp;&emsp;<code>&lt;script id="fragmentShader" type="x-shader/x-fragment"&gt;</code><br>
+			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#x3008;<a href="interaction-shaders.html#fragment_shader">Fragment Shader&#x3009;</a><br>
+			&emsp;&emsp;&emsp;&emsp;<code>&lt;/script&gt;</code><br>
+			&emsp;&emsp;&emsp;&#x3008;<a href="../03-application/application-elements.html">Elements&#x3009;</a><br>
+			&emsp;&emsp;<code>&lt;/body&gt;</code><br>
+			&emsp;<code>&lt;/html&gt;</code><br>
+		</figure>
+	</section>
+	<nav>
+		<a id="home" href="../index.html"></a>
+		<a id="next" href="interaction-events.html"></a>
+	</nav>
+</body>
+</html>
