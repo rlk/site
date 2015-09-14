@@ -87,19 +87,19 @@ Algorithm analysis
 
 - A nested loop $i$ from $1$ to $n$ within $j$ from $1$ to $i$.
 
-- Here's an $O(n\log n)$ example:
+- Here's a simple $O(n\log n)$ example:
+
+	&emsp; for ($i\gets 1$; $i\leq n$; $i\gets i + 1$)  
+	&emsp;&emsp; for ($j\gets 1$; $j\leq n$; $j\gets 2\ j$)  
+	&emsp;&emsp;&emsp; print $A[j]$  
+
+- Here's a deceiving example:
 
 	&emsp; $s\gets 1$  
-	&emsp; for ($i\gets 0$; $i < n$; $i\gets i + 1$)  
-	&emsp;&emsp; for ($j\gets 0$; $j < n$; $j\gets j + s$)  
+	&emsp; for ($i\gets 1$; $i\leq n$; $i\gets i + 1$)  
+	&emsp;&emsp; for ($j\gets 1$; $j\leq n$; $j\gets j + s$)  
 	&emsp;&emsp;&emsp; print $A[j]$  
 	&emsp;&emsp; $s\gets 2\,s$
-
-- And here's a slightly tougher $O(n\log n)$ example:
-
-	&emsp; for ($i\gets 0$; $i\le n$; $i\gets i + 1$)  
-	&emsp;&emsp; for ($j\gets 0$; $j < n$; $j\gets j + i$)  
-	&emsp;&emsp;&emsp; print $A[j]$  
 
 - This example calculates $y=x^n$
 
@@ -115,5 +115,28 @@ Algorithm analysis
 
 	$$p(x,n) = \begin{cases} 1 & \text{if}\ n = 0 \\ p(x, n/2)^2 & \text{if}\ n > 0\ \text{is even} \\ x\cdot p(x, (n-1)/2)^2 & \text{if}\ n > 0\ \text{is odd} \\ \end{cases}$$
 
-- On toward merge sort and quick sort...
+Now we make a leap forward in the textbook to analyze a pair of algorithms familiar from intro:
 
+## Merge-sort
+
+To merge-sort a sequence of items: cut the unsorted sequence in half, recursively sort each half, and merge the two sorted halves into a sorted sequence. The base case is a sequence of zero or one items, which is by definition sorted.
+
+Analyze the running order of merge-sort by expanding the recurrence relation:
+
+$$t(n)=\begin{cases} b & n\le 1 \\ 2\,t(n\,/\,2)+c\,n & \text{otherwise}\end{cases}$$
+
+## Quick-sort
+
+To quick-sort a sequence of items: pick an item $x$ from the unsorted sequence. Copy all items less than $x$ to a sequence $L$, all items equal to $x$ to a sequence $E$, and all items greater than $x$ to a sequence $G$. Recursively sort $L$ and $G$, then concatenate the sorted $L$, $E$, and $G$, giving a sorted sequence. The base case is a sequence of zero or one items.
+
+Analyze the best-case running order quick-sort by noting the steps required at each level of recursion:
+
+$$\begin{align}
+s(0)&=n\\
+s(1)&=n-1\\
+s(2)&=n-1-2\\
+s(3)&=n-1-2-4\\
+s(i)&=n-(2^i-1)
+\end{align}$$
+
+This can only proceed until $2^i-1=n$ or $i=\log_2(n+1)$. Each level does $O(n)$ steps, so the total is $O(n\log n)$.
