@@ -16,13 +16,15 @@
 
 		<figure class="pseudocode" id="vertex_shader">
 			&#x3008;Vertex Shader&#x3009; &equiv;<br>
+			&emsp;&emsp;<code>precision mediump float</code><br>
+			<br>
 			&emsp;&emsp;<code>uniform</code> <code>mat4</code> <var>projectionMatrix</var><br>
 			&emsp;&emsp;<code>uniform</code> <code>mat4</code> <var>modelMatrix</var><br>
 			<br>
 			&emsp;&emsp;<code>attribute</code> <code>vec4</code> <var>vertexPosition</var><br>
 			&emsp;&emsp;<code>attribute</code> <code>vec4</code> <var>vertexColor</var><br>
 			<br>
-			&emsp;&emsp;<code>varying mediump</code> <code>vec3</code> <var>fragmentColor</var><br>
+			&emsp;&emsp;<code>varying</code> <code>vec3</code> <var>fragmentColor</var><br>
 		</figure>
 
 		<p>Here is the pseudocode of a vertex shader that copies the vertex color to the fragment and transforms the vertex position using matrix multiplication.</p>
@@ -30,14 +32,15 @@
 		<figure class="pseudocode">
 			&emsp;&emsp;<b>function</b> main()<br>
 			&emsp;&emsp;&emsp;&emsp;<span style="width:6em"><var>fragmentColor</var></span> &larr; <var>vertexColor</var><br>
-			&emsp;&emsp;&emsp;&emsp;<span style="width:6em"><code>gl_Position</code></span> &larr; <var>projectionMatrix</var> &middot; <var>modelMatrix</var> &middot; <var>vertexPosition</var><br>
+			&emsp;&emsp;&emsp;&emsp;<span style="width:6em"><code>gl_Position</code></span> &larr; <var>projectionMatrix</var> <code>*</code> <var>modelMatrix</var> <code>*</code> <var>vertexPosition</var><br>
 		</figure>
 
 		<p>Here is the pseudocode of a fragment shader compatible with this vertex shader. It receives the color value given to it by the vertex shader and writes it to the frame buffer with an opaque alpha value.</p>
 
 		<figure class="pseudocode" id="fragment_shader">
 			&#x3008;Fragment Shader&#x3009; &equiv;<br>
-			&emsp;&emsp;<code>varying mediump vec3</code> <var>fragmentColor</var><br>
+			&emsp;&emsp;<code>precision mediump float</code><br>
+			&emsp;&emsp;<code>varying vec3</code> <var>fragmentColor</var><br>
 			&emsp;&emsp;<b>function</b> main()<br>
 			&emsp;&emsp;&emsp;&emsp;<code>gl_FragColor</code> &larr; <code>vec4</code>(<var>fragmentColor</var>, 1.0);<br>
 		</figure>
