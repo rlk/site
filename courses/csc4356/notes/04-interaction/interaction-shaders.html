@@ -19,6 +19,7 @@
 			&emsp;&emsp;<code>precision mediump float</code><br>
 			<br>
 			&emsp;&emsp;<code>uniform</code> <code>mat4</code> <var>projectionMatrix</var><br>
+			&emsp;&emsp;<code>uniform</code> <code>mat4</code> <var>viewMatrix</var><br>
 			&emsp;&emsp;<code>uniform</code> <code>mat4</code> <var>modelMatrix</var><br>
 			<br>
 			&emsp;&emsp;<code>attribute</code> <code>vec4</code> <var>vertexPosition</var><br>
@@ -32,7 +33,7 @@
 		<figure class="pseudocode">
 			&emsp;&emsp;<b>function</b> main()<br>
 			&emsp;&emsp;&emsp;&emsp;<span style="width:6em"><var>fragmentColor</var></span> &larr; <var>vertexColor</var><br>
-			&emsp;&emsp;&emsp;&emsp;<span style="width:6em"><code>gl_Position</code></span> &larr; <var>projectionMatrix</var> <code>*</code> <var>modelMatrix</var> <code>*</code> <var>vertexPosition</var><br>
+			&emsp;&emsp;&emsp;&emsp;<span style="width:6em"><code>gl_Position</code></span> &larr; <var>projectionMatrix</var> <code>*</code> <var>viewMatrix</var> <code>*</code> <var>modelMatrix</var> <code>*</code> <var>vertexPosition</var><br>
 		</figure>
 
 		<p>Here is the pseudocode of a fragment shader compatible with this vertex shader. It receives the color value given to it by the vertex shader and writes it to the frame buffer with an opaque alpha value.</p>
@@ -52,7 +53,8 @@
 		<figure class="pseudocode" id="uniform_objects">
 			&#x3008;Initialize the uniform objects&#x3009; &equiv;<br>
 			&emsp;&emsp;<span style="width:10.5em"><var>projectionMatrixLocation</var></span> &larr;&nbsp;<code class="small">gl.getUniformLocation</code>(<code class="small">program</code>,&nbsp;&ldquo;projectionMatrix&rdquo;);</code><br>
-			&emsp;&emsp;<span style="width:10.5em"><var>modelMatrixLocation</var></span>      &larr;&nbsp;<code class="small">gl.getUniformLocation</code>(<code class="small">program</code>,&nbsp;&ldquo;modelMatrix&rdquo;);</code><br>
+			&emsp;&emsp;<span style="width:10.5em"><var>viewMatrixLocation</var></span> &larr;&nbsp;<code class="small">gl.getUniformLocation</code>(<code class="small">program</code>,&nbsp;&ldquo;viewMatrix&rdquo;);</code><br>
+			&emsp;&emsp;<span style="width:10.5em"><var>modelMatrixLocation</var></span> &larr;&nbsp;<code class="small">gl.getUniformLocation</code>(<code class="small">program</code>,&nbsp;&ldquo;modelMatrix&rdquo;);</code><br>
 		</figure>
 	</section>
 	<nav>
