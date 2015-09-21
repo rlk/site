@@ -34,17 +34,18 @@
 		<p>This simple example vertex shader takes position and color <em>attributes</em> as input.</p>
 
 		<figure class="code">
-			uniform&nbsp;&nbsp; mat4 Projection;<br>
-			uniform&nbsp;&nbsp; mat4 Model;<br>
+			uniform&nbsp;&nbsp; mat4 projectionMatrix;<br>
+			uniform&nbsp;&nbsp; mat4 viewMatrix;<br>
+			uniform&nbsp;&nbsp; mat4 modelMatrix;<br>
 			<br>
-			attribute vec4 vPosition;<br>
-			attribute vec4 vColor;<br>
+			attribute vec4 vertexPosition;<br>
+			attribute vec4 vertexColor;<br>
 			<br>
-			varying&nbsp;&nbsp; vec4 fColor;<br>
+			varying&nbsp;&nbsp; vec4 fragmentColor;<br>
 			<br>
 			void main() {<br>
-			&nbsp;&nbsp;&nbsp;&nbsp;gl_Position = Projection * Model * vPosition;<br>
-			&nbsp;&nbsp;&nbsp;&nbsp;fColor = vColor;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;gl_Position = projectionMatrix * viewMatrix * modelMatrix * vertexPosition;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;fragmentColor = vertexColor;<br>
 			}<br>
 		</figure>
 
