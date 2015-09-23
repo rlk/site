@@ -2,16 +2,14 @@
 
 ## Homework 2
 
-1. (5 points) Describe the state of a stack after each of the following stack operations: push(5), push(6), pop(), push(1), push(9), pop(), pop(), push(3), push(2), pop(), push(0), pop(), pop(), push(4), push(7), pop(), pop(), push(8), pop(), pop(), pop().
-
-1. (10 points) Give a recursive function for removing all the elements in a stack.
-
-1. (5 points) Suppose you have a deque $D$ containing the numbers $(1, 2, 3, 4, 5, 6, 7, 8)$, in this order. Suppose further that you have an initially empty queue $Q$. Give a pseudo-code description of a function that uses only $D$ and $Q$ (and no other variables or objects) and results in $D$ storing the elements $(1, 2, 3, 5, 4, 6, 7, 8)$, in this order.
-
-1. (10 points) Describe an algorithm for counting the number of left external nodes in a binary tree. Straightforwardly then, describe a similar algorithm for counting the number of right external nodes in a binary tree. 
-
-1. (15 points) Describe an algorithm to determine whether a given binary tree is proper.
-
-1. (15 points) Give an $O(n)$-time algorithm for computing the depth of all the nodes of a tree $T$, where $n$ is the number of nodes of $T$. Specifically, let each node contain an element $\mathit{depth}$ and traverse the tree assigning a correct value to each $\mathit{depth}$.
-
-1. (10 points extra credit) Explain how you can implement all the functions of the deque ADT using two stacks.
+1. (15 points) Describe the state of a stack and the output after each of the following stack operations, starting with an empty stack: push(2), push(4), pop(), push(5), top(), pop(), isempty(), pop().
+ 
+2. (15 points) Describe the state of a queue and the output after each of the following queue operations, starting with an empty queue: enqueue(5), enqueue(2), dequeue(), enqueue(1), dequeue(), dequeue(), size().
+ 
+3. (15 points) Suppose you have a queue $Q$ containing the number $(1,2,3,4,5)$, in this order. Suppose you also have an empty stack $S$. Give a sequence of operations that uses only the stack $S$ and the queue $Q$ (and no other variables or objects) and results in the queue $Q$ storing the number $(4,5,3,2,1)$.
+ 
+4. (20 points) Describe a recursive algorithm for reversing a linked list. Please provide pseudocode.
+ 
+5. (20 points) Explain how you can implement all functions of the stack ADT using two queues. Specifically, given two queues $Q_1$ and $Q_2$ with the standard operations (enqueue, dequeue, isempty, size), describe how you can implement the standard operations (pop, push, top, isempty, size) of a stack $S$. What is the time complexity for pop and push respectively?
+ 
+6. (15 points) Describe a recursive algorithm for counting the depth of a binary tree. The depth is the maximum length of a path from the root to a leaf. For example, the depth of a tree with a single root node $A$ is 1. If the root node $A$ has a left branch "$A$ to $B$ to $C$" and a right branch "$A$ to $D$", then the depth of the tree is 3. 
