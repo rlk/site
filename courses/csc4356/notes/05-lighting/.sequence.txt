@@ -8,3 +8,6 @@ normal-2.html
 normal-3.html
 normal-4.html
 normal-5.html
+normal-vector.html
+normal-calculation.html
+normal-shaders.html

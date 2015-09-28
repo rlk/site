@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Interactive Computer Graphics</title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://csc.lsu.edu/~kooima/MathJax.js"></script>
+	<script type="text/javascript" src="../script.js"></script>
+</head>
+<body>
+	<section>
+		<h1>Shading</h1>
+
+		<p>To render our geometry and take advantage of our normals, we require a shader that implements the <a href="../05-lighting/lighting-5.html">lighting equation</a>.</p>
+
+		<p>The <em>uniforms</em> configure the transformation matrices and the lighting parameters. The <em>attributes</em> configure the vertices. The <em>varyings</em> define the values to be interpolated by the rasterizer. <em>Pay close attention to their types</em>.</p>
+
+		<figure class="pseudocode" id="vertex_shader">
+			&#x3008;Vertex Shader&#x3009; &equiv;<br>
+			&emsp;&emsp;<code>precision mediump float</code><br>
+			<br>
+			&emsp;&emsp;<code>uniform</code> <code>mat4</code> <var>projectionMatrix</var><br>
+			&emsp;&emsp;<code>uniform</code> <code>mat4</code> <var>viewMatrix</var><br>
+			&emsp;&emsp;<code>uniform</code> <code>mat4</code> <var>modelMatrix</var><br>
+			&emsp;&emsp;<code>uniform</code> <code>vec4</code> <var>lightPosition</var><br>
+			<br>
+			&emsp;&emsp;<code>attribute</code> <code>vec4</code> <var>vertexPosition</var><br>
+			&emsp;&emsp;<code>attribute</code> <code>vec3</code> <var>vertexNormal</var><br>
+			<br>
+			&emsp;&emsp;<code>varying</code> <code>vec3</code> <var>fragmentNormal</var><br>
+			&emsp;&emsp;<code>varying</code> <code>vec3</code> <var>fragmentLight</var><br>
+			&emsp;&emsp;<code>varying</code> <code>vec3</code> <var>fragmentView</var><br>
+		</figure>
+
+		<p>The vertex shader uses the scene parameters defined by the attributes and uniforms to calculate $n$, $l$, and $v$, the <a href="../05-lighting/lighting-2.html">inputs to the lighting model</a>.</p>
+
+		<figure class="pseudocode">
+			&emsp;&emsp;<b>function</b> main()<br>
+			&emsp;&emsp;&emsp;&emsp;<var>modelViewMatrix</var> &larr; <var>viewMatrix</var> &middot; <var>modelMatrix</var><br>
+			<br>
+			&emsp;&emsp;&emsp;&emsp;<span style="width:1em"><b>p</b></span> &larr; <var>modelViewMatrix</var> &middot; <var>vertexPosition</var><br>
+			&emsp;&emsp;&emsp;&emsp;<span style="width:1em"><b>q</b></span> &larr; <var>viewMatrix</var> &middot; <var>lightPosition</var><br>
+			<br>
+			&emsp;&emsp;&emsp;&emsp;<span style="width:7em"><var>fragmentNormal</var></span> &larr; <code>normalize</code>(<code>mat3</code>(<var>modelViewMatrix</var>) &middot; <var>vertexNormal</var>)<br>
+			&emsp;&emsp;&emsp;&emsp;<span style="width:7em"><var>fragmentLight</var></span> &larr; <code>normalize</code>(<code>vec3</code>(<b>q</b> &minus; <b>p</b>))<br>
+			&emsp;&emsp;&emsp;&emsp;<span style="width:7em"><var>fragmentView</var></span> &larr; <code>normalize</code>(<code>vec3</code>(&minus;<b>p</b>))<br>
+			<br>
+			&emsp;&emsp;&emsp;&emsp;<code>gl_Position</code> &larr; <var>projectionMatrix</var> &middot; <var>modelViewMatrix</var> &middot; <var>vertexPosition</var><br>
+		</figure>
+
+		<p>The lighting equation itself is implemented in the fragment shader. Here are the inputs.</p>
+
+		<figure class="pseudocode" id="fragment_shader">
+			&#x3008;Fragment Shader&#x3009; &equiv;<br>
+			&emsp;&emsp;<code>precision mediump float</code><br>
+			<br>
+			&emsp;&emsp;<code>varying</code> <code>vec3</code> <var>fragmentNormal</var><br>
+			&emsp;&emsp;<code>varying</code> <code>vec3</code> <var>fragmentLight</var><br>
+			&emsp;&emsp;<code>varying</code> <code>vec3</code> <var>fragmentView</var><br>
+			<br>
+			&emsp;&emsp;<code>uniform</code> <code>vec3</code> <var>modelColor</var><br>
+			&emsp;&emsp;<code>uniform</code> <code>vec3</code> <var>lightColor</var><br>
+		</figure>
+
+		<p>And here is the calculation. We arbitrarily choose a constant specular exponent of 10, but this could easily be another uniform.</p>
+
+		<figure class="pseudocode" id="fragment_shader">
+			&emsp;&emsp;<b>function</b> main()<br>
+      &emsp;&emsp;&emsp;&emsp;<span style="width:1em"><b>n</b></span> &larr; <code>normalize</code>(<var>fragmentNormal</var>)<br>
+      &emsp;&emsp;&emsp;&emsp;<span style="width:1em"><b>l</b></span> &larr; <code>normalize</code>(<var>fragmentLight</var>)<br>
+      &emsp;&emsp;&emsp;&emsp;<span style="width:1em"><b>v</b></span> &larr; <code>normalize</code>(<var>fragmentView</var>)<br>
+      &emsp;&emsp;&emsp;&emsp;<span style="width:1em"><b>h</b></span> &larr; <code>normalize</code>(<b>l</b> + <b>n</b>)<br>
+      <br>
+			&emsp;&emsp;&emsp;&emsp;<span style="width:1em"><var>d</var></span> &larr; <code>max</code>(<b>l</b> &middot; <b>n</b>, 0)<br>
+			&emsp;&emsp;&emsp;&emsp;<span style="width:1em"><var>s</var></span> &larr; <code>max</code>(<b>h</b> &middot; <b>v</b>, 0)<sup>10</sup><br>
+			<br>
+			&emsp;&emsp;&emsp;&emsp;<span style="width:6em"><var>fragmentColor</var></span> &larr; <var>modelColor</var> &middot; <var>lightColor</var> &middot; <var>d</var> + <var>lightColor</var> &middot; <var>s<var><br>
+			<br>
+			&emsp;&emsp;&emsp;&emsp;<code>gl_FragColor</code> &larr; <code>vec4</code>(<var>fragmentColor</var>, 1.0)<br>
+		</figure>
+
+		<p>As usual, don't forget to use <code>gl.getUniformLocation</code>, <code>gl.uniformMatrix4f</code>, and <code>gl.uniform3f</code> in the application code to query the locations of each of these uniforms and give them a value.</code></code>
+
+	</section>
+	<nav>
+		<a id="prev" href="normal-calculation.html"></a>
+		<a id="home" href="../index.html"></a>
+	</nav>
+</body>
+</html>

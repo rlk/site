@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Interactive Computer Graphics</title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://csc.lsu.edu/~kooima/MathJax.js"></script>
+	<script type="text/javascript" src="../script.js"></script>
+</head>
+<body>
+	<section>
+		<h1>Vector handling in JavaScript</h1>
+
+		<p>To make this happen in code, we'll need to perform 3D vector mathematics.</p>
+
+		<p>High-quality JavaScript vector libraries <a href="http://glmatrix.net">do exist</a>. However, the textbook does not use one. To minimize dependencies, all necessary vector-handling is defined as simply as possible here.</p>
+
+		<p>Represent a 3D vector as a 3-element JavaScript array. This approach matches the use of nested arrays for <a href="../01-geometry/geometry-10.html">geometry representation</a>. For example:</p>
+
+		<figure class="pseudocode">
+			<code>var a = [1, 0, 0];</code><br>
+			<code>var b = [0, 1, 0];</code><br>
+		</figure>
+
+		<p>Subscripts translate into JavaScript array references.</p>
+
+		<figure class="pseudocode">
+			$a_x$ &equiv; <code>a[0]</code><br>
+			$a_y$ &equiv; <code>a[1]</code><br>
+			$a_z$ &equiv; <code>a[2]</code><br>
+		</figure>
+
+		<p>Vector addition is then an array of array element additions:</p>
+
+		<figure class="pseudocode">
+			$\V{a}+\V{b}$ &equiv; <code>[a[0] + b[0], a[1] + b[1], a[2] + b[2]]</code>
+		</figure>
+
+		<p>Vector subtraction:</p>
+
+		<figure class="pseudocode">
+			$\V{a}-\V{b}$ &equiv; <code>[a[0] &minus; b[0], a[1] &minus; b[1], a[2] &minus; b[2]]</code>
+		</figure>
+
+		<p>The dot product is a scalar value:</p>
+
+		<figure class="pseudocode">
+			$\V{a}\cdot\V{b}$ &equiv; <code>a[0] * b[0] + a[1] * b[1] + a[2] * b[2]</code>
+		</figure>
+
+		<p>The cross product:</p>
+
+		<figure class="pseudocode">
+			$\V{a}\times\V{b}$ &equiv; <code>[</code><br>
+			&emsp;&emsp;<code>a[1] * b[2] &minus; a[2] * b[1],</code><br>
+			&emsp;&emsp;<code>a[2] * b[0] &minus; a[0] * b[2],</code><br>
+			&emsp;&emsp;<code>a[0] * b[1] &minus; a[1] * b[0]</code><br>
+			<code>]</code>
+		</figure>
+
+		<p>To write each of these operations out in full with each use would lead to lengthy and error-prone programs. It's best to translate each of these into a separate JavaScript function.</p>
+
+		<figure class="pseudocode" id="vector_operations">
+			&#x3008;Vector Operations&#x3009; &equiv;<br>
+		</figure>
+
+		<figure class="pseudocode">
+			&emsp;&emsp;<code>function add(a, b) {</code><br>
+			&emsp;&emsp;&emsp;&emsp;<code>return [</code><br>
+			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>a[0] + b[0],</code><br>
+			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>a[1] + b[1],</code><br>
+			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>a[2] + b[2]</code><br>
+			&emsp;&emsp;&emsp;&emsp;<code>];</code><br>
+			&emsp;&emsp;<code>}</code>
+		</figure>
+
+		<p>Implementations of vector subtraction, dot product, and cross product will be similar.</p>
+
+		<p>Additionally, vector normalization is extremely common. Given a JavaScript function for the dot product, a normalize function might look like this:</p>
+
+		<figure class="pseudocode">
+			&emsp;&emsp;<code>function normalize(a) {</code><br>
+			&emsp;&emsp;&emsp;&emsp;<code>var len = Math.sqrt(dot(a, a));</code><br>
+			&emsp;&emsp;&emsp;&emsp;<code>return [</code><br>
+			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>a[0] / len,</code><br>
+			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>a[1] / len,</code><br>
+			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>a[2] / len</code><br>
+			&emsp;&emsp;&emsp;&emsp;<code>];</code><br>
+			&emsp;&emsp;<code>}</code>
+		</figure>
+	</section>
+	<nav>
+		<a id="prev" href="normal-5.html"></a>
+		<a id="home" href="../index.html"></a>
+		<a id="next" href="normal-calculation.html"></a>
+	</nav>
+</body>
+</html>
