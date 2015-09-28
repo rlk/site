@@ -73,12 +73,12 @@
 			&emsp;&emsp;&emsp;&emsp;<span style="width:1em"><var>d</var></span> &larr; <code>max</code>(<b>l</b> &middot; <b>n</b>, 0)<br>
 			&emsp;&emsp;&emsp;&emsp;<span style="width:1em"><var>s</var></span> &larr; <code>max</code>(<b>h</b> &middot; <b>v</b>, 0)<sup>10</sup><br>
 			<br>
-			&emsp;&emsp;&emsp;&emsp;<span style="width:6em"><var>fragmentColor</var></span> &larr; <var>modelColor</var> &middot; <var>lightColor</var> &middot; <var>d</var> + <var>lightColor</var> &middot; <var>s<var><br>
+			&emsp;&emsp;&emsp;&emsp;<span style="width:6em"><var>fragmentColor</var></span> &larr; <var>modelColor</var> &middot; <var>lightColor</var> &middot; <var>d</var> + <var>lightColor</var> &middot; <var>s</var><br>
 			<br>
 			&emsp;&emsp;&emsp;&emsp;<code>gl_FragColor</code> &larr; <code>vec4</code>(<var>fragmentColor</var>, 1.0)<br>
 		</figure>
 
-		<p>As usual, don't forget to use <code>gl.getUniformLocation</code>, <code>gl.uniformMatrix4f</code>, and <code>gl.uniform3f</code> in the application code to query the locations of each of these uniforms and give them a value.</code></code>
+		<p>As usual, don't forget to use <code>gl.getUniformLocation</code>, <code>gl.uniformMatrix4f</code>, <code>gl.uniform3f</code>, and <code>gl.uniform4f</code> in the application code to query the locations of each of these uniforms and give them a value.</code></code>
 
 	</section>
 	<nav>
