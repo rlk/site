@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Interactive Computer Graphics</title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://csc.lsu.edu/~kooima/MathJax.js"></script>
+	<script type="text/javascript" src="../script.js"></script>
+</head>
+<body>
+	<section>
+		<h1>The CPU and the GPU</h1>
+
+		<p>In summary, here are all of the steps needed to configure the GPU to render a 3D model.</p>
+
+		<p>These are initialization tasks. Once done, they should not be repeated.</p>
+
+		<ol start="1">
+			<li><a href="../02-buffer-objects/cpu-gpu-01.html">Initialize the GL context</a></li>
+			<li><a href="../02-buffer-objects/cpu-gpu-02.html">Initialize the program object</a></li>
+			<li><a href="../02-buffer-objects/cpu-gpu-04.html">Initialize the buffer objects</a></li>
+			<li><a href="../02-buffer-objects/cpu-gpu-05.html">Copy vertex data to the GPU</a></li>
+			<li><a href="../02-buffer-objects/cpu-gpu-06.html">Copy triangle data to the GPU</a></li>
+		</ol>
+
+		<p>These are the attribute setup tasks. If the application is trivial and renders only a single model, then it suffices to perform these tasks only once during initialization. However, if multiple models are drawn then these steps must be repeated for each model each frame.</p>
+
+		<ol start="6">
+			<li>Bind the buffer objects</li>
+			<li><a href="../02-buffer-objects/cpu-gpu-07.html">Set the vertex attribute pointers</a></li>
+			<li><a href="../02-buffer-objects/cpu-gpu-08.html">Enable the vertex attributes</a></li>
+		</ol>
+
+		<p>This, finally, is the rendering task. It must be done for each frame.</p>
+
+		<ol start="9">
+			<li><a href="../02-buffer-objects/cpu-gpu-09.html">Draw the triangles</a></li>
+		</ol>
+
+	</section>
+	<nav>
+		<a id="prev" href="cpu-gpu-09.html"></a>
+		<a id="home" href="../index.html"></a>
+	</nav>
+</body>
+</html>

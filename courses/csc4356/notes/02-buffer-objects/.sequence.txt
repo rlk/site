@@ -8,3 +8,4 @@ cpu-gpu-06.html
 cpu-gpu-07.html
 cpu-gpu-08.html
 cpu-gpu-09.html
+cpu-gpu-10.html
