@@ -39,9 +39,9 @@
 			uniform&nbsp;&nbsp; mat4 modelMatrix;<br>
 			<br>
 			attribute vec4 vertexPosition;<br>
-			attribute vec4 vertexColor;<br>
+			attribute vec3 vertexColor;<br>
 			<br>
-			varying&nbsp;&nbsp; vec4 fragmentColor;<br>
+			varying&nbsp;&nbsp; vec3 fragmentColor;<br>
 			<br>
 			void main() {<br>
 			&nbsp;&nbsp;&nbsp;&nbsp;gl_Position = projectionMatrix * viewMatrix * modelMatrix * vertexPosition;<br>

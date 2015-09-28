@@ -14,13 +14,13 @@
 
 		<img class="center" style="height:7em" src="../img/pipeline.svg">
 
-		<p>This trivial fragment shader simply copies the varying color onto the screen.</p>
+		<p>This trivial fragment shader simply copies the varying color onto the screen, converting the RGB value to RGBA by giving it an opaque alpha value.</p>
 
 		<figure class="code">
-			varying vec4 fragmentColor;<br>
+			varying vec3 fragmentColor;<br>
 			<br>
 			void main() {<br>
-			&nbsp;&nbsp;&nbsp;&nbsp;gl_FragColor = fragmentColor;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;gl_FragColor = vec4(fragmentColor, 1.0);<br>
 			}<br>
 		</figure>
 
