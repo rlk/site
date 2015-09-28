@@ -1,5 +1,5 @@
 cube = {
-    vertices : [
+    positions : [
 
         // +X
         [  1.0,  1.0,  1.0 ],
