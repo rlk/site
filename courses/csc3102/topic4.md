@@ -60,17 +60,17 @@ A note about the textbook's definition of tree structures: it is very specific i
 &emsp; function binaryPreorder(t, p)  
 &emsp;&emsp; Visit node p  
 &emsp;&emsp; if p is an internal node  
-&emsp;&emsp;&emsp; binaryPreorder(t, p.left())  
-&emsp;&emsp;&emsp; binaryPreorder(t, p.right())  
+&emsp;&emsp;&emsp; binaryPreorder(t, p.left)  
+&emsp;&emsp;&emsp; binaryPreorder(t, p.right)  
 
 This obsession with iterators is not necessary. A more pure implementation would look more like this:
 
 &emsp; function binaryPreorder(v)  
 &emsp;&emsp; Visit node v  
 &emsp;&emsp; if v.left exists  
-&emsp;&emsp;&emsp; binaryPreorder(v.left())  
+&emsp;&emsp;&emsp; binaryPreorder(v.left)  
 &emsp;&emsp; if v.right exists  
-&emsp;&emsp;&emsp; binaryPreorder(v.right())  
+&emsp;&emsp;&emsp; binaryPreorder(v.right)  
 
 Here's an alternative formulation of a traversal, showing the stack usage explicitly.
 
@@ -79,8 +79,10 @@ Here's an alternative formulation of a traversal, showing the stack usage explic
 &emsp;&emsp; v = S.top()  
 &emsp;&emsp; Visit node v  
 &emsp;&emsp; S.pop()  
-&emsp;&emsp; S.push(v.right())  
-&emsp;&emsp; S.push(v.left())  
+&emsp;&emsp; if v.right exists  
+&emsp;&emsp;&emsp;&emsp; S.push(v.right)  
+&emsp;&emsp; if v.left exists  
+&emsp;&emsp;&emsp;&emsp; S.push(v.left)  
 
 Here's the same traversal, but with a queue instead of a stack. Note that breadth-first traversal emerges naturally.
 
@@ -89,8 +91,10 @@ Here's the same traversal, but with a queue instead of a stack. Note that breadt
 &emsp;&emsp; v = Q.front()  
 &emsp;&emsp; Visit node v  
 &emsp;&emsp; Q.dequeue()  
-&emsp;&emsp; Q.enqueue(v.right())  
-&emsp;&emsp; Q.enqueue(v.left())  
+&emsp;&emsp; if v.right exists  
+&emsp;&emsp;&emsp;&emsp; Q.enqueue(v.right)  
+&emsp;&emsp; if v.left exists  
+&emsp;&emsp;&emsp;&emsp; Q.enqueue(v.left)  
 
 We can easily define recursive algorithms to give the depth and height of a node. The height of a proper binary tree:
 
@@ -98,17 +102,17 @@ We can easily define recursive algorithms to give the depth and height of a node
 &emsp;&emsp; if v.isExternal()  
 &emsp;&emsp;&emsp; return 0  
 &emsp;&emsp; else  
-&emsp;&emsp;&emsp; return 1 + max(computeHeight(v.left()), computeHeight(v.right())  
+&emsp;&emsp;&emsp; return 1 + max(computeHeight(v.left), computeHeight(v.right)  
 
 The height of an improper binary tree:
 
 &emsp; function computeHeight(tree v)  
-&emsp;&emsp; if v.left() and v.right()  
-&emsp;&emsp;&emsp; return 1 + max(computeHeight(v.left()), computeHeight(v.right())  
-&emsp;&emsp; else if v.left()  
-&emsp;&emsp;&emsp; return 1 + computeHeight(v.left())  
-&emsp;&emsp; else if v.right()  
-&emsp;&emsp;&emsp; return 1 + computeHeight(v.right())  
+&emsp;&emsp; if v.left and v.right  
+&emsp;&emsp;&emsp; return 1 + max(computeHeight(v.left), computeHeight(v.right)  
+&emsp;&emsp; else if v.left  
+&emsp;&emsp;&emsp; return 1 + computeHeight(v.left)  
+&emsp;&emsp; else if v.right  
+&emsp;&emsp;&emsp; return 1 + computeHeight(v.right)  
 &emsp;&emsp; else  
 &emsp;&emsp;&emsp; return 0  
 
