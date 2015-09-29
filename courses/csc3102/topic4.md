@@ -22,6 +22,8 @@ A tree is a set of *nodes* in a *parent-child* relationship.
 - The *height* of $v$ is the distance from $v$ to its deepest descendant.
 - The *height* of a tree is the depth of its deepest external node.
 - The *level* $d$ is the set of all nodes at depth $d$.
+- In a *binary* tree, each node has at most two children.
+- A binary tree is *proper* if each node has zero or two children.
 
 ## General Tree Representation
 
@@ -70,6 +72,26 @@ This obsession with iterators is not necessary. A more pure implementation would
 &emsp;&emsp; if v.right exists  
 &emsp;&emsp;&emsp; binaryPreorder(v.right())  
 
+Here's an alternative formulation of a traversal, showing the stack usage explicitly.
+
+&emsp; S.push(v)  
+&emsp; while S is not empty  
+&emsp;&emsp; v = S.top()  
+&emsp;&emsp; Visit node v  
+&emsp;&emsp; S.pop()  
+&emsp;&emsp; S.push(v.right())  
+&emsp;&emsp; S.push(v.left())  
+
+Here's the same traversal, but with a queue instead of a stack. Note that breadth-first traversal emerges naturally.
+
+&emsp; Q.enqueue(v)  
+&emsp; while Q is not empty  
+&emsp;&emsp; v = Q.front()  
+&emsp;&emsp; Visit node v  
+&emsp;&emsp; Q.dequeue()  
+&emsp;&emsp; Q.enqueue(v.right())  
+&emsp;&emsp; Q.enqueue(v.left())  
+
 We can easily define recursive algorithms to give the depth and height of a node. The height of a proper binary tree:
 
 &emsp; function computeHeight(tree v)  
@@ -107,13 +129,7 @@ If a tree is *proper* then:
 
 The maximum number of nodes at level $l$ is $2^l$.
 
-Example: We can represent an arithmetic expression as a proper binary tree and traverse that tree to evaluate the expression
-
-$$(3\times 2)+((8-1)\times 5)$$
-
-$$(((3+1)\times 3)\,/\,((9-5)+2))-((3\times (7-4))+6)$$
-
-Finally, it's straightforward to define a general tree in terms of a binary tree.
+Note, it's straightforward to define a general tree in terms of a binary tree.
 
 ## Binary Search Trees
 
