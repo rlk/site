@@ -31,7 +31,7 @@
 			&emsp;&emsp;<code>varying</code> <code>vec3</code> <var>fragmentView</var><br>
 		</figure>
 
-		<p>The vertex shader uses the scene parameters defined by the attributes and uniforms to calculate $n$, $l$, and $v$, the <a href="../05-lighting/lighting-2.html">inputs to the lighting model</a>.</p>
+		<p>The vertex shader uses the scene parameters defined by the attributes and uniforms to calculate $n$, $l$, and $v$, the <a href="../05-lighting/lighting-2.html">inputs to the lighting model</a>. Note, lighting calculations are done in <a href="../03-transformation/transformation-composition-full.html">eye space</a> because this allows us to infer that the viewer sits at the origin.</p>
 
 		<figure class="pseudocode">
 			&emsp;&emsp;<b>function</b> main()<br>
