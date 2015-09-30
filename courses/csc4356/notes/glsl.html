@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Interactive Computer Graphics</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://csc.lsu.edu/~kooima/MathJax.js"></script>
+	<style>
+		ul { list-style-type: square }
+		dd { margin-bottom: 0.5em }
+	</style>
+</head>
+<body>
+	<section>
+		<h1>OpenGL Shading Language Summary</h1>
+
+		<p>WebGL 1.0 is compatible with OpenGL ES 2.0, and permits GPU programming in GLSL ES, the <a href="https://www.khronos.org/registry/gles/specs/2.0/GLSL_ES_Specification_1.0.17.pdf">OpenGL Shading Language for Embedded Systems</a>. This document summarizes the use of that language.</p>
+
+		<p>GLSL resembles C++. It's statically typed and statically scoped with curly brace block structure and semicolon statement endings.</p>
+
+		<ul>
+			<li>
+				<h2>Program Structure</h2>
+
+				<p>Every GLSL program includes two shaders, the <em>vertex</em> shader and the <em>fragment</em> shader. Both of these functions have the following signature.</p>
+
+				<figure class="code">
+				void main() {<br>
+					&nbsp;&nbsp;&hellip;<br>
+				}
+				</figure>
+
+				<p>Every vertex shader should write to <code>gl_Position</code> and every fragment shader should write to <code>gl_FragColor</code>.</p>
+			</li>
+			<li>
+				<h2>Data Types and Operations</h2>
+
+				<p>In addition to the C++ types <code>void</code>, <code>bool</code>, <code>int</code>, <code>float</code>, GLSL provides vector types <code>vec2</code>, <code>vec3</code>, <code>vec4</code>, and matrix types <code>mat2</code>, <code>mat3</code>, <code>mat4</code>, useful for geometric calculation.</p>
+
+				<blockquote>
+					<table class="short">
+						<tr><td><code>mat4 M, A, B;                     </code>&emsp;</td><td>Declaration</td></tr>
+	    			<tr><td><code>vec4 v;                           </code>&emsp;</td><td>Declaration</td></tr>
+	    			<tr><td><code>vec4 u = vec4(0.0, 0.1, 0.2, 0.4);</code>&emsp;</td><td>Initialization</td></tr>
+	    			<tr><td>&emsp;</td></tr>
+	    			<tr><td><code>u.x&nbsp;&nbsp; = 2.0;            </code>&emsp;</td><td>Vector element access</td></tr>
+	    			<tr><td><code>u&nbsp;&nbsp;&nbsp;&nbsp; = u + v;</code>&emsp;</td><td>Arithmetic</td></tr>
+	    			<tr><td><code>u.xyz = v.zyx                     </code>&emsp;</td><td>Swizzling</td></tr>
+	    			<tr><td>&emsp;</td></tr>
+						<tr><td><code>M[3][3] = 1.0;                    </code>&emsp;</td><td>Matrix element access</td></tr>
+						<tr><td><code>M = A * B;                        </code>&emsp;</td><td>Matrix multiplication</td></tr>
+						<tr><td><code>u = M * v;                        </code>&emsp;</td><td>Vector transformation</td></tr>
+					</table>
+				</blockquote>
+			</li>
+			<li>
+				<h2>Storage Qualifiers</h2>
+				<p>Storage qualifiers indicate where how values are used and where they come from. Here are some examples.</p>
+
+				<ul>
+					<li><p><code>const float pi = 3.141592;</code></p><p><code>const</code> declares a variable with a constant value.</p></li>
+					<li><p><code>uniform mat4 modelMatrix;</code></p><p><code>uniform</code> declares a variable whose value is set by the application using <code>gl.uniform</code> or <code>gl.uniformMatrix</code>. It cannot be modified by the shader.</p></li>
+					<li><p><code>attribute vec4 vertexPosition;</code></p><p><code>attribute</code> declares a vertex shader variable whose value is provided by a vertex buffer object. It cannot be modified by the shader.</p></li>
+					<li><p><code>varying vec3 fragmentColor;</code></p><p><code>varying</code> declares a variable that acts an <em>output</em> from the vertex shader and an <em>input</em> to the fragment shader. It must be set by the vertex shader, and cannot be modified by the fragment shader.</p></li>
+				</ul>
+			</li>
+			<li>
+				<h2>Flow Control</h2>
+
+				<p>Flow control constructs are identical to C++. Looping:</p>
+
+				<figure class="code">
+					for (int i = 0; i &lt; 8; i++) {<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&hellip;<br>
+					}
+				</figure>
+
+				<p>Conditional:</p>
+
+				<figure class="code">
+					if (a &lt; b) {<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&hellip;<br>
+					} else {<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&hellip;<br>
+					}
+				</figure>
+
+				<p>Function definition:</p>
+
+				<figure class="code">
+					vec3 midpoint(vec3 a, vec3 b) {<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;return (a + b) / 2.0;<br>
+					}
+				</figure>
+			</li>
+			<li>
+				<h2>Function Library</h2>
+
+				<p>GLSL includes a large library of useful functions. Here are just a few.</p>
+
+				<blockquote>
+					<table>
+						<tr><td><code>dot(u, v)</code>&emsp;</td><td>Compute the dot product of two vectors.</td></tr>
+						<tr><td><code>cross(u, v)</code>&emsp;</td><td>Compute the cross product of two vectors.</td></tr>
+						<tr><td><code>normalize(v)</code>&emsp;</td><td>Return the normalization of a vector.</td></tr>
+						<tr><td><code>length(v)</code>&emsp;</td><td>Return the length of a vector.</td></tr>
+						<tr><td><code>pow(x, y)</code>&emsp;</td><td>Raise $x$ to the power $y$.</td></tr>
+						<tr><td><code>sqrt(x)</code>&emsp;</td><td>Compute the square root.</td></tr>
+						<tr><td><code>abs(x)</code>&emsp;</td><td>Return the absolute value.</td></tr>
+						<tr><td><code>floor(x)</code>&emsp;</td><td>Return largest integer less than or equal.</td></tr>
+						<tr><td><code>ceil(x)</code>&emsp;</td><td>Return smallest integer greater than or equal.</td></tr>
+						<tr><td><code>max(x, y)</code>&emsp;</td><td>Return the larger of two values.</td></tr>
+						<tr><td><code>min(x, y)</code>&emsp;</td><td>Return the smaller of two values.</td></tr>
+						<tr><td><code>mix(x, y, a)</code>&emsp;</td><td>Compute the linear interpolation of two values.</td></tr>
+						<tr><td><code>step(x, y)</code>&emsp;</td><td>Return 1 if $x\geq y$ or 0 otherwise.</td></tr>
+						<tr><td><code>radians(a)</code>&emsp;</td><td>Convert degrees to radians.</td></tr>
+						<tr><td><code>degrees(a)</code>&emsp;</td><td>Convert radians to degrees.</td></tr>
+						<tr><td><code>sin(a)</code>&emsp;</td><td>Compute the sine of an angle in radians.</td></tr>
+						<tr><td><code>cos(a)</code>&emsp;</td><td>Compute the cosine of an angle in radians.</td></tr>
+						<tr><td><code>asin(x)</code>&emsp;</td><td>Compute the inverse sine of an angle in radians.</td></tr>
+						<tr><td><code>acos(x)</code>&emsp;</td><td>Compute the inverse cosine of an angle in radians.</td></tr>
+					</table>
+				</blockquote>
+
+				<p>All scalar functions operate element-wise on vector arguments.</p>
+			</li>
+		</ul>
+
+	</section>
+	<nav>
+		<a id="home" href="../index.html"></a>
+	</nav>
+</body>
+</html>
