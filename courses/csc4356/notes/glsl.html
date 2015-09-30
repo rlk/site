@@ -13,7 +13,7 @@
 	<section>
 		<h1>OpenGL Shading Language Summary</h1>
 
-		<p>WebGL 1.0 is compatible with OpenGL ES 2.0, and permits GPU programming in GLSL ES, the <a href="https://www.khronos.org/registry/gles/specs/2.0/GLSL_ES_Specification_1.0.17.pdf">OpenGL Shading Language for Embedded Systems</a>. This document summarizes the use of that language.</p>
+		<p>WebGL 1.0 is compatible with OpenGL ES 2.0, and permits GPU programming in GLSL ES, the <a href="https://www.khronos.org/registry/gles/specs/2.0/GLSL_ES_Specification_1.0.17.pdf">OpenGL Shading Language for Embedded Systems</a>.</p>
 
 		<p>GLSL resembles C++. It's statically typed and statically scoped with curly brace block structure and semicolon statement endings.</p>
 
@@ -21,7 +21,15 @@
 			<li>
 				<h2>Program Structure</h2>
 
-				<p>Every GLSL program includes two shaders, the <em>vertex</em> shader and the <em>fragment</em> shader. Both of these functions have the following signature.</p>
+				<p>Every GLSL program includes two shaders, the <em>vertex</em> shader and the <em>fragment</em> shader.</p>
+
+				<p>Every shader should configure its precision by including the following line near the top.</p>
+
+				<figure class="code">
+				precision mediump float;
+				</figure>
+
+				Both the vertex and fragment shaders begin executing in their <code>main</code> function.</p>
 
 				<figure class="code">
 				void main() {<br>
@@ -29,7 +37,8 @@
 				}
 				</figure>
 
-				<p>Every vertex shader should write to <code>gl_Position</code> and every fragment shader should write to <code>gl_FragColor</code>.</p>
+				<p>Every vertex shader should write a 4-vector to <code>gl_Position</code> and every fragment shader should write a 4-vector to <code>gl_FragColor</code>.</p>
+
 			</li>
 			<li>
 				<h2>Data Types and Operations</h2>
@@ -54,7 +63,7 @@
 			</li>
 			<li>
 				<h2>Storage Qualifiers</h2>
-				<p>Storage qualifiers indicate where how values are used and where they come from. Here are some examples.</p>
+				<p>Storage qualifiers indicate how variables are used and where their values come from. A declaration with no qualifier is an ordinary variable. Here are some qualified examples.</p>
 
 				<ul>
 					<li><p><code>const float pi = 3.141592;</code></p><p><code>const</code> declares a variable with a constant value.</p></li>
@@ -95,7 +104,7 @@
 			<li>
 				<h2>Function Library</h2>
 
-				<p>GLSL includes a large library of useful functions. Here are just a few.</p>
+				<p>GLSL includes a large library of useful functions. Here are some of the more heavily-used ones.</p>
 
 				<blockquote>
 					<table>
