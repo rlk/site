@@ -10,7 +10,7 @@
 	<section>
 		<h1>Shading</h1>
 
-		<p>To render our geometry and take advantage of our normals, we require a shader that implements the <a href="../05-lighting/lighting-5.html">lighting equation</a>.</p>
+		<p>To render our geometry and take advantage of our normals, we require a shader that implements the <a href="../07-lighting/lighting-5.html">lighting equation</a>.</p>
 
 		<p>The <em>uniforms</em> configure the transformation matrices and the lighting parameters. The <em>attributes</em> configure the vertices. The <em>varyings</em> define the values to be interpolated by the rasterizer. <em>Pay close attention to their types</em>.</p>
 
@@ -31,7 +31,7 @@
 			&emsp;&emsp;<code>varying</code> <code>vec3</code> <var>fragmentView</var><br>
 		</figure>
 
-		<p>The vertex shader uses the scene parameters defined by the attributes and uniforms to calculate $n$, $l$, and $v$, the <a href="../05-lighting/lighting-2.html">inputs to the lighting model</a>. Note, lighting calculations are done in <a href="../03-transformation/transformation-composition-full.html">eye space</a> because this allows us to infer that the viewer sits at the origin.</p>
+		<p>The vertex shader uses the scene parameters defined by the attributes and uniforms to calculate $n$, $l$, and $v$, the <a href="../07-lighting/lighting-2.html">inputs to the lighting model</a>. Note, lighting calculations are done in <a href="../04-transformation/transformation-composition-full.html">eye space</a> because this allows us to infer that the viewer sits at the origin.</p>
 
 		<figure class="pseudocode">
 			&emsp;&emsp;<b>function</b> main()<br>
