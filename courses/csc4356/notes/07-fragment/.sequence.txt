@@ -1,6 +1,0 @@
-fragment-overview.html
-fragment-initialization.html
-fragment-buffers.html
-fragment-shaders.html
-fragment-texture.html
-fragment-rendering.html
