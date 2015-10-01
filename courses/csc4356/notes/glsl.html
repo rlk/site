@@ -15,7 +15,7 @@
 
 		<p>WebGL 1.0 is compatible with OpenGL ES 2.0, and permits GPU programming in GLSL ES, the <a href="https://www.khronos.org/registry/gles/specs/2.0/GLSL_ES_Specification_1.0.17.pdf">OpenGL Shading Language for Embedded Systems</a>.</p>
 
-		<p>GLSL resembles C++. It's statically typed and statically scoped with curly brace block structure and semicolon statement endings.</p>
+		<p>GLSL resembles C++. It's statically typed and lexically scoped with curly brace block structure and semicolon statement endings.</p>
 
 		<ul>
 			<li>
@@ -67,9 +67,9 @@
 
 				<ul>
 					<li><p><code>const float pi = 3.141592;</code></p><p><code>const</code> declares a variable with a constant value.</p></li>
-					<li><p><code>uniform mat4 modelMatrix;</code></p><p><code>uniform</code> declares a variable whose value is set by the application using <code>gl.uniform</code> or <code>gl.uniformMatrix</code>. It cannot be modified by the shader.</p></li>
-					<li><p><code>attribute vec4 vertexPosition;</code></p><p><code>attribute</code> declares a vertex shader variable whose value is provided by a vertex buffer object. It cannot be modified by the shader.</p></li>
-					<li><p><code>varying vec3 fragmentColor;</code></p><p><code>varying</code> declares a variable that acts an <em>output</em> from the vertex shader and an <em>input</em> to the fragment shader. It must be set by the vertex shader, and cannot be modified by the fragment shader.</p></li>
+					<li><p><code>uniform mat4 modelMatrix;</code></p><p><code>uniform</code> declares a variable whose value is set by the application using <code>gl.uniform</code> or <code>gl.uniformMatrix</code>. A uniform variable cannot be modified by the shader.</p></li>
+					<li><p><code>attribute vec4 vertexPosition;</code></p><p><code>attribute</code> declares a vertex shader variable whose value is provided by a vertex buffer object. This buffer association is configured by the application using <code>gl.vertexAttribPointer</code>. An attribute variable cannot be modified by the shader.</p></li>
+					<li><p><code>varying vec3 fragmentColor;</code></p><p><code>varying</code> declares a variable that acts an <em>output</em> from the vertex shader and an <em>input</em> to the fragment shader. A varying variable must be set by the vertex shader, and cannot be modified by the fragment shader.</p></li>
 				</ul>
 			</li>
 			<li>
