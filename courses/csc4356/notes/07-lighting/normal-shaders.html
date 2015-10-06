@@ -68,10 +68,10 @@
       &emsp;&emsp;&emsp;&emsp;<span style="width:1em"><b>n</b></span> &larr; <code>normalize</code>(<var>fragmentNormal</var>)<br>
       &emsp;&emsp;&emsp;&emsp;<span style="width:1em"><b>l</b></span> &larr; <code>normalize</code>(<var>fragmentLight</var>)<br>
       &emsp;&emsp;&emsp;&emsp;<span style="width:1em"><b>v</b></span> &larr; <code>normalize</code>(<var>fragmentView</var>)<br>
-      &emsp;&emsp;&emsp;&emsp;<span style="width:1em"><b>h</b></span> &larr; <code>normalize</code>(<b>l</b> + <b>n</b>)<br>
+      &emsp;&emsp;&emsp;&emsp;<span style="width:1em"><b>h</b></span> &larr; <code>normalize</code>(<b>l</b> + <b>v</b>)<br>
       <br>
 			&emsp;&emsp;&emsp;&emsp;<span style="width:1em"><var>d</var></span> &larr; <code>max</code>(<b>l</b> &middot; <b>n</b>, 0)<br>
-			&emsp;&emsp;&emsp;&emsp;<span style="width:1em"><var>s</var></span> &larr; <code>max</code>(<b>h</b> &middot; <b>v</b>, 0)<sup>10</sup><br>
+			&emsp;&emsp;&emsp;&emsp;<span style="width:1em"><var>s</var></span> &larr; <code>max</code>(<b>h</b> &middot; <b>n</b>, 0)<sup>10</sup><br>
 			<br>
 			&emsp;&emsp;&emsp;&emsp;<span style="width:6em"><var>fragmentColor</var></span> &larr; <var>modelColor</var> &middot; <var>lightColor</var> &middot; <var>d</var> + <var>lightColor</var> &middot; <var>s</var><br>
 			<br>
