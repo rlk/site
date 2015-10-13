@@ -25,7 +25,7 @@
 		</li>
 
 		<li>
-			<p>First, we have multiple shader programs. Structure your code with an <code>initShader</code> function capable of handling a variety of different shader programs. It should receive as arguments the IDs of the HTML elements giving the vertex and fragment shader sources. It should return a JavaScript object containing all of the state associated with that program: the program object and its uniform and attribute location state.</p>
+			<p>First, we have multiple shader programs. Structure your code with a <code>Shader</code> object capable of handling a variety of different shader programs. Its constructor should receive as arguments the IDs of the HTML elements giving the vertex and fragment shader sources. It should encapsulate all of the state associated with a program: the program object and its uniform and attribute location state.</p>
 
 			<p>Include the lighting shader from project 3, and also implement a simple rainbow shader and Gooch shader, as shown in class and in the notes.</p>
 		</li>
@@ -38,9 +38,9 @@
 				<li><a href="data/cow.js"><code>cow.js</code></a></li>
 			</ul>
 
-			<p>Structure your code with <code>initModel</code> and <code>drawModel</code> functions capable of handling such a variety of different models. The <code>initModel</code> function should receive the model object as an argument and populate it with the vertex buffer object state associated with that model. The <code>drawModel</code> function should receive the model object along with a shader object as defined above, using the shader to draw the model.</p>
+			<p>Structure your code with a <code>Model</code> object capable of handling such a variety of different models. The constructor should receive the model object as an argument and encapsulate the vertex buffer object state associated with that model. A <code>draw</code> method should receive the model object along with a shader object as defined above, using the shader to draw the model.</p>
 
-			<p>With these functions in hand, your application initialization should consist of three calls to <code>initModel</code> and three calls to <code>initShader</code>. Your application draw should consist of three calls to <code>drawModel</code>.
+			<p>With these functions in hand, your application initialization should consist three <code>Model</code> instantiations and three <code>Shader</code> instantiations. Your application draw should consist of three calls to <code>Model.draw</code>.
 		</li>
 
 		<li>Finally, each of our previous projects placed the object at the center of the world. However, the teapon, plane, and cow are all placed at the center, then they will all appear on top of one another. Instead, introduce a <code>modelMatrix</code> uniform to each shader to <strong>translate</strong> each model to a different position.</li>
