@@ -16,13 +16,13 @@ Implement and use a heap-based priority queue in either C++ or Java. Specificall
 
 	- For example, given the following input:
 
-			G E A ! U ! X T ! ! I G E R ! ! ! ! ! S !
+			GEA!U!XT!!IGER!!!!!S!
 
 		The program will produce this output
 
-			A E G T E G I R U X
+			AEGTEGIRUX
 
-- (10 points) Code quality matters! Consistent indentation, spacing, and brace placement are critical details that communicate structure. An appropriate level of in line comments is necessary to communicate function. Points will be deducted for inconsistently formatted or undocumented code.
+- (10 points) Code quality matters! Consistent indentation, spacing, and brace placement are critical details that communicate structure. An appropriate level of in line comments are necessary to communicate function. Points will be deducted for inconsistently formatted or undocumented code.
 
 - (10 points) Test and submit your code on *classes.csc.lsu.edu* in the `prog1` directory, using the procedure described in [project 0](project0.html). Remember to include your name and your LSU email address.
 
