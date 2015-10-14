@@ -2,28 +2,31 @@
 
 ## Programming Project 1
 
-Implement a heap sort in either C++ or Java. Specifically:
+Implement and use a heap-based priority queue in either C++ or Java. Specifically:
 
-- (5 points) Input will consist of a file containing a sequence of integers, one on each line. Read them into a list container. Here is an [example input](etc/unsorted.txt).
+- (40 points) Implement a heap-based priority queue class using the vector representation, containing characters. You may assume that the heap will contain no more than 255 elements.
 
-- (30 points) Implement a heap-based priority queue class (Sec 8.1.3) using the vector representation (Sec 7.3.5). You may assume that the heap will contain no more than 1023 elements.
+- (40 points) Using your priority queue class, implement a program that transforms its input as follows:
 
-- (10 points) Implement the priority queue sorting scheme (C++ Sec 8.1.5) (Java Sec 8.1.4) using your input list L and a priority queue object P. A translation of the following pseudocode must appear:
+	- Read a sequence of characters one-by-one.
 
-	&emsp; while not L.empty()  
-	&emsp;&emsp; P.insert(L.front())  
-	&emsp;&emsp; L.removeFront()  
-	&emsp; while not P.empty()  
-	&emsp;&emsp; L.insertBack(P.min())  
-	&emsp;&emsp; P.removeMin();  
+	- If the character is a letter, insert it into the queue.
 
-- (5 points) The sorted list should be printed to the standard output with one number on each line. Here is an [example output](etc/sorted.txt).
+	- If the character is an exclamation point, remove the minimum (alphabetically first) character from the queue and print it to the output.
 
-- (10 points) Code format matters! Consistent indentation, spacing, and brace placement are critical details that communicate structure. Points will be deducted for inconsistent formatting.
+	- For example, given the following input:
+
+			G E A ! U ! X T ! ! I G E R ! ! ! ! ! S !
+
+		The program will produce this output
+
+			A E G T E G I R U X
+
+- (10 points) Code quality matters! Consistent indentation, spacing, and brace placement are critical details that communicate structure. An appropriate level of in line comments is necessary to communicate function. Points will be deducted for inconsistently formatted or undocumented code.
+
+- (10 points) Test and submit your code on *classes.csc.lsu.edu* in the `prog1` directory, using the procedure described in [project 0](project0.html). Remember to include your name and your LSU email address.
 
 Implement this using as many classes and source files that you need, but:
 
 - Java implementations should have a main class called `Prog1` in a file `Prog1.java`.
 - C++ implementations should have place the main function in a file `Prog1.cpp`
-
-[Code submission should be done via your account on `classes.csc.lsu.edu`](classes.html) in a directory called `prog1`. The instructor's account name is `cs3102_koo`.
