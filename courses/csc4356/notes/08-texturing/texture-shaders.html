@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Interactive Computer Graphics</title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://csc.lsu.edu/~kooima/MathJax.js"></script>
+	<script type="text/javascript" src="../script.js"></script>
+</head>
+<body>
+	<section>
+		<h1>Texture Shading</h1>
+
+		<p>We've seen shading with a <a href="../07-lighting/normal-shaders.html">constant color for the entire model</a>, and we've seen shading with a <a href="../05-interaction/interaction-shaders.html">different color for each vertex</a>. Texture mapping enables a different color for each fragment.</p>
+
+		<p>This entails the addition of a texture coordinate attribute to the vertex shader, plus a texture coordinate varying to communicate this attribute from the vertex shader to the fragment shader.</p>
+
+		<figure class="pseudocode" id="vertex_shader">
+			&#x3008;Vertex Shader&#x3009; &equiv;<br>
+			&emsp;&emsp;<code>precision mediump float</code><br>
+			<br>
+			&emsp;&emsp;<code>uniform</code> <code>mat4</code> <var>projectionMatrix</var><br>
+			&emsp;&emsp;<code>uniform</code> <code>mat4</code> <var>viewMatrix</var><br>
+			&emsp;&emsp;<code>uniform</code> <code>mat4</code> <var>modelMatrix</var><br>
+			<br>
+			&emsp;&emsp;<code>attribute</code> <code>vec4</code> <var>vertexPosition</var><br>
+			&emsp;&emsp;<code>attribute</code> <code>vec2</code> <var>vertexTexCoord</var><br>
+			<br>
+			&emsp;&emsp;<code>varying</code> <code>vec2</code> <var>fragmentTexCoord</var><br>
+		</figure>
+
+		<figure class="pseudocode">
+			&emsp;&emsp;<b>function</b> main()<br>
+			&emsp;&emsp;&emsp;&emsp;<var>fragmentTexCoord</var> &larr; <var>vertexTexCoord</var><br>
+			&emsp;&emsp;&emsp;&emsp;<code>gl_Position</code> &larr; <var>projectionMatrix</var> &middot; <var>viewMatrix</var> &middot; <var>modelMatrix</var> &middot; <var>vertexPosition</var><br>
+		</figure>
+
+		<p>The image reference is then made per-fragment using a <em>sampler</em> uniform.</p>
+
+		<figure class="pseudocode" id="fragment_shader">
+			&#x3008;Fragment Shader&#x3009; &equiv;<br>
+			&emsp;&emsp;<code>precision mediump float</code><br>
+			<br>
+			&emsp;&emsp;<code>varying</code> <code>vec2</code> <var>fragmentTexCoord</var><br>
+			&emsp;&emsp;<code>uniform</code> <code>sampler2D</code> <var>modelTexture</var><br>
+			<br>
+			&emsp;&emsp;<b>function</b> main()<br>
+			&emsp;&emsp;&emsp;&emsp;<var>modelColor</var> &larr; <code>texture2D</code>(<var>modelTexture</var>, <var>fragmentTexCoord</var>)<br>
+			&emsp;&emsp;&emsp;&emsp;<code>gl_FragColor</code> &larr; <var>modelColor</var><br>
+		</figure>
+	</section>
+	<nav>
+		<a id="prev" href="texture-objects.html"></a>
+		<a id="home" href="../index.html"></a>
+		<a id="next" href="../index.html"></a>
+	</nav>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Interactive Computer Graphics</title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://csc.lsu.edu/~kooima/MathJax.js"></script>
+	<script type="text/javascript" src="../script.js"></script>
+</head>
+<body>
+	<section>
+		<h1>Initialization</h1>
+
+		<p>The initialization section includes everything that must be done exactly once at the beginning of the application's execution, and this includes setting up texture mapping.</p>
+
+		<figure class="pseudocode">
+			&#x3008;Initialization&#x3009; &equiv;<br>
+			&emsp;&emsp;<code>var canvas</code><br>
+			&emsp;&emsp;<code>var gl</code><br>
+			<br>
+			&emsp;&emsp;<b>function</b> init()<br>
+			&emsp;&emsp;&emsp;&emsp;<code>canvas = document.getElementById('webgl')</code><br>
+			&emsp;&emsp;&emsp;&emsp;<code>gl&nbsp;&nbsp;&nbsp;&nbsp; = getWebGLContext(canvas, false)</code><br>
+			&emsp;&emsp;&emsp;&emsp;&#x3008;<a href="texture-shaders.html#initialization">Shader Initialization&#x3009;</a><br>
+			&emsp;&emsp;&emsp;&emsp;&#x3008;<a href="texture-buffer.html">Buffer Initialization&#x3009;</a><br>
+			&emsp;&emsp;&emsp;&emsp;&#x3008;<a href="texture-objects.html">Texture Initialization&#x3009;</a><br>
+			<br>
+			&emsp;&emsp;&emsp;&emsp;Request the first animation frame.<br>
+		</figure>
+	</section>
+	<nav>
+		<a id="prev" href="../index.html"></a>
+		<a id="home" href="../index.html"></a>
+		<a id="next" href="texture-buffer.html"></a>
+	</nav>
+</body>
+</html>
