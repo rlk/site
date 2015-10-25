@@ -20,7 +20,7 @@ Implement and use a heap-based priority queue in either C++ or Java. Specificall
 
 		The program will produce this output
 
-			AEGTEGIRUX
+			AEGTEGIRUS
 
 - (10 points) Code quality matters! Consistent indentation, spacing, and brace placement are critical details that communicate structure. An appropriate level of in line comments are necessary to communicate function. Points will be deducted for inconsistently formatted or undocumented code.
 
