@@ -30,8 +30,8 @@ function makeProgram(gl, program, vertSource, fragSource) {
     gl.attachShader(program, newShader(gl, gl.VERTEX_SHADER,   vertSource));
     gl.attachShader(program, newShader(gl, gl.FRAGMENT_SHADER, fragSource));
 
-    gl.bindAttribLocation(program, 0, "vPosition");
-    gl.bindAttribLocation(program, 1, "vOffset");
+    // gl.bindAttribLocation(program, 0, "vPosition");
+    // gl.bindAttribLocation(program, 1, "vOffset");
     gl.linkProgram(program);
 
     if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {

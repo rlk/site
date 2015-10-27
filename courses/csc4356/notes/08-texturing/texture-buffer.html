@@ -36,11 +36,12 @@
 			&emsp;&emsp;<var>vertexTexCoordLocation</var> &larr; <code>gl.getAttribLocation</code>(<code>program</code>, &ldquo;vertexTexCoord&rdquo;)</code><br>
 		</figure>
 
-		<p>And finally, before rendering, the texture coordinate attribute location must be enabled.</p>
+		<p>And finally, before rendering, the texture coordinate attribute pointer must be set and enabled.</p>
 
 		<figure class="pseudocode">
 			&#x3008;Rendering&#x3009; +&equiv;<br>
-			&emsp;&emsp;<code>gl.enableVertexAttribArray</code>(<var>vertexTexCoordLocation</var>)</code><br>
+      &emsp;&emsp;<code>gl.vertexAttribPointer</code>(<var>vertexTexCoordLocation</var>, 2, <code>gl.FLOAT</code>, <code>false</code>, 0, 0)<br>
+			&emsp;&emsp;<code>gl.enableVertexAttribArray</code>(<var>vertexTexCoordLocation</var>)</code>
 		</figure>
 
 	</section>

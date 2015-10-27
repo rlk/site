@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Interactive Computer Graphics</title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://csc.lsu.edu/~kooima/MathJax.js"></script>
+	<script type="text/javascript" src="../script.js"></script>
+	<script type="text/javascript" src="../js/gl-matrix.js"></script>
+	<script type="text/javascript" src="../js/gl-shader.js"></script>
+	<script type="text/javascript" src="../dat/tinyhouse.js"></script>
+</head>
+<body>
+	<section>
+		<h1>Texture Mapping</h1>
+
+		<p><em>Texture Mapping</em> applies 2D images to the surfaces of 3D models, adding visual detail and increasing the potential for visual fidelity.</p>
+
+		<div class="displayed">
+			<canvas class="outlined" width="600" height="300" id="demoTextureExample">
+				This content requires <a href="http://get.webgl.org/">WebGL</a>.
+			</canvas>
+		</div>
+
+		<p>This is the tiny house model, wrapped in the following image.</p>
+
+		<img class="center" width="40%" src="../dat/tinyhouse.png">
+
+		<script type="text/javascript" src="../js/demo-texture.js" onload="demoTextureExample = new DemoTexture('demoTextureExample', tinyhouse, '../dat/tinyhouse.png')"></script>
+	</section>
+	<nav>
+		<a id="home" href="../index.html"></a>
+		<a id="next" href="texture-initialization.html"></a>
+	</nav>
+</body>
+</html>

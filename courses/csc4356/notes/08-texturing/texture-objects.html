@@ -12,18 +12,6 @@
 
 		<p>Texture images are represented using <em>objects</em> in a fashion very similar to buffer objects. We can create an arbitrary number of them, but only one of them is <em>bound</em> at any moment.</p>
 
-		<p>First, a utility function. Given a Javascript <code>Image</code> object <var>image</var> and a GL texture object <var>texture</var>, we initialize the texture object with the image data as follows:</p>
-
-		<figure class="pseudocode" id="initialization">
-		&emsp;&emsp;<b>function</b> <var>loadTexture</var>(<var>image</var>, <var>texture</var>)<br>
-		&emsp;&emsp;&emsp;&emsp;<code class="small">gl.bindTexture  </code>(<code class="small">gl.TEXTURE_2D</code>, <var>texture</var>)<br>
-		&emsp;&emsp;&emsp;&emsp;<code class="small">gl.texImage2D   </code>(<code class="small">gl.TEXTURE_2D</code>, 0, <code class="small">gl.RGBA</code>, <code class="small">gl.RGBA</code>, <code class="small">gl.UNSIGNED_BYTE</code>, <var>image</var>)<br>
-		&emsp;&emsp;&emsp;&emsp;<code class="small">gl.texParameteri</code>(<code class="small">gl.TEXTURE_2D</code>, <code class="small">gl.TEXTURE_MIN_FILTER</code>, <code class="small">gl.LINEAR</code>)<br>
-		&emsp;&emsp;&emsp;&emsp;<code class="small">gl.texParameteri</code>(<code class="small">gl.TEXTURE_2D</code>, <code class="small">gl.TEXTURE_MAG_FILTER</code>, <code class="small">gl.LINEAR</code>)<br>
-		&emsp;&emsp;&emsp;&emsp;Request a frame of animation<br>
-		</figure>
-
-
 		<p>The actual use of textures begins with a bit of ceremony. An image origin is at the upper-left, but a texture origin is at the lower-left. To account for this, configure the GL to flip all image inputs along the Y axis.</p>
 
 		<figure class="pseudocode" id="initialization">
@@ -49,6 +37,20 @@
 		</figure>
 
 		<p>Setting the <code>src</code> triggers the request.</p>
+
+		<p>When the image arrives, the <code>onload</code> function is invoked. It initialized the texture object using the <code>Image</code> as follows.</p>
+
+		<figure class="pseudocode" id="initialization">
+		&emsp;&emsp;<b>function</b> <var>loadTexture</var>(<var>image</var>, <var>texture</var>)<br>
+		&emsp;&emsp;&emsp;&emsp;<code class="small">gl.bindTexture</code>(<code class="small">gl.TEXTURE_2D</code>, <var>texture</var>)<br>
+		&emsp;&emsp;&emsp;&emsp;<code class="small">gl.texImage2D</code>(<code class="small">gl.TEXTURE_2D</code>, 0, <code class="small">gl.RGBA</code>, <code class="small">gl.RGBA</code>, <code class="small">gl.UNSIGNED_BYTE</code>, <var>image</var>)<br>
+		&emsp;&emsp;&emsp;&emsp;<code class="small">gl.texParameteri</code>(<code class="small">gl.TEXTURE_2D</code>, <code class="small">gl.TEXTURE_MIN_FILTER</code>, <code class="small">gl.LINEAR</code>)<br>
+		&emsp;&emsp;&emsp;&emsp;<code class="small">gl.texParameteri</code>(<code class="small">gl.TEXTURE_2D</code>, <code class="small">gl.TEXTURE_MAG_FILTER</code>, <code class="small">gl.LINEAR</code>)<br>
+		&emsp;&emsp;&emsp;&emsp;Request a frame of animation<br>
+		</figure>
+
+		<p>Those <code>texParameteri</code> functions will be explained <a href="texture-parameters.html">soon</a>.</p>
+
 
 	</section>
 	<nav>

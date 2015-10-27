@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Interactive Computer Graphics</title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://csc.lsu.edu/~kooima/MathJax.js"></script>
+	<script type="text/javascript" src="../script.js"></script>
+	<script type="text/javascript" src="../js/gl-matrix.js"></script>
+	<script type="text/javascript" src="../js/gl-shader.js"></script>
+	<script type="text/javascript" src="../dat/sprite.js"></script>
+	<script type="text/javascript" src="../dat/checkerboard.js"></script>
+</head>
+<body>
+	<section>
+		<h1>Texture Parameters</h1>
+
+		<p>Texture parameters configure the sampling of texture pixels, a.k.a. <em>texels</em>.</p>
+
+		<p>The primary texture parameter is the <em>filter</em> mode. The filter mode determines how texels are <em>magnified</em> (stretched) or <em>minified</em> (compressed) during sampling.</p>
+
+		<p><em>Nearest</em> filtering selects the texel nearest to the texture coordinate. This mode produces a pixelated magnification and a sparkly minification.</p>
+
+		<figure class="pseudocode">
+			<code>gl.texParameteri</code>(<code>gl.TEXTURE_2D</code>, <code>gl.TEXTURE_MAG_FILTER</code>, <code>gl.NEAREST</code>)<br>
+			<code>gl.texParameteri</code>(<code>gl.TEXTURE_2D</code>, <code>gl.TEXTURE_MIN_FILTER</code>, <code>gl.NEAREST</code>)<br>
+		</figure>
+
+		<div class="displayed">
+			<canvas class="outlined" width="600" height="300" id="demoTextureNearestZoom">
+				This content requires <a href="http://get.webgl.org/">WebGL</a>.
+			</canvas>
+		</div>
+
+		<p>Overall, texture coordinates range from 0 to 1. However, the exact coordinate of an individual texel is given by the location of its <em>center</em>. Consider a 4&times;4 image.</p>
+
+		<img class="center" width="80%" src="../dat/sampling.svg">
+
+		<p><em>Linear</em> filtering selects the four texels adjacent to the texture coordinate and linearly interpolates them. This produces a blurry magnification and a slightly less sparkly minification.</p>
+
+		<figure class="pseudocode">
+			<code>gl.texParameteri</code>(<code>gl.TEXTURE_2D</code>, <code>gl.TEXTURE_MAG_FILTER</code>, <code>gl.LINEAR</code>)<br>
+			<code>gl.texParameteri</code>(<code>gl.TEXTURE_2D</code>, <code>gl.TEXTURE_MIN_FILTER</code>, <code>gl.LINEAR</code>)<br>
+		</figure>
+
+		<div class="displayed">
+			<canvas class="outlined" width="600" height="300" id="demoTextureLinearZoom">
+				This content requires <a href="http://get.webgl.org/">WebGL</a>.
+			</canvas>
+		</div>
+
+		<p><em>Mipmap</em> filtering uses a set of two-by-two downsampled texture images.</p>
+
+		<img class="center" width="60%" src="../dat/mipmap.png">
+
+		<p>These downsampled images may be generate automatically.</p>
+
+		<figure class="pseudocode">
+      <code>gl.generateMipmap</code>(<code>gl.TEXTURE_2D</code>)
+    </figure>
+
+		<p>Mipmapping is only functional as a minification filter, and it reduces minification sparkling significantly.</p>
+
+		<figure class="pseudocode">
+			<code>gl.texParameteri</code>(<code>gl.TEXTURE_2D</code>, <code>gl.TEXTURE_MAG_FILTER</code>, <code>gl.LINEAR</code>)<br>
+			<code>gl.texParameteri</code>(<code>gl.TEXTURE_2D</code>, <code>gl.TEXTURE_MIN_FILTER</code>, <code>gl.LINEAR_MIPMAP_LINEAR</code>)<br>
+		</figure>
+
+		<div class="displayed">
+			<canvas class="outlined" width="600" height="300" id="demoTextureMipmapZoom">
+				This content requires <a href="http://get.webgl.org/">WebGL</a>.
+			</canvas>
+		</div>
+
+		<p>Texture parameters also determine how texture coordinates <em>outside</em> the range 0 to 1 behave. The following examples use a checkerboard texture.</p>
+
+		<img class="center" width="25%" src="../dat/checkerboard.png">
+
+		<p>It may be <em>clamped</em>.</p>
+
+		<figure class="pseudocode">
+			<code>gl.texParameteri</code>(<code>gl.TEXTURE_2D</code>, <code>gl.TEXTURE_WRAP_S</code>, <code>gl.CLAMP_TO_EDGE</code>)<br>
+			<code>gl.texParameteri</code>(<code>gl.TEXTURE_2D</code>, <code>gl.TEXTURE_WRAP_T</code>, <code>gl.CLAMP_TO_EDGE</code>)<br>
+		</figure>
+
+		<div class="displayed">
+			<canvas class="outlined" width="600" height="300" id="demoTextureClamp">
+				This content requires <a href="http://get.webgl.org/">WebGL</a>.
+			</canvas>
+		</div>
+
+		<p>Or it may be allowed to <em>repeat</em>. Repeat wrapping uses the <em>fraction</em> of the texture coordinate.</p>
+
+		<figure class="pseudocode">
+			<code>gl.texParameteri</code>(<code>gl.TEXTURE_2D</code>, <code>gl.TEXTURE_WRAP_S</code>, <code>gl.REPEAT</code>)<br>
+			<code>gl.texParameteri</code>(<code>gl.TEXTURE_2D</code>, <code>gl.TEXTURE_WRAP_T</code>, <code>gl.REPEAT</code>)<br>
+		</figure>
+
+		<div class="displayed">
+			<canvas class="outlined" width="600" height="300" id="demoTextureRepeat">
+				This content requires <a href="http://get.webgl.org/">WebGL</a>.
+			</canvas>
+		</div>
+
+		<p>The filtering mode is very evident when a texture is viewed in perspective. Here is a nearest filtering. It is pixelated at all distances.</p>
+
+		<div class="displayed">
+			<canvas class="outlined" width="600" height="300" id="demoTextureNearestNearest">
+				This content requires <a href="http://get.webgl.org/">WebGL</a>.
+			</canvas>
+		</div>
+
+		<p>Here is a linear filtering. Note that the checkerboard is blurry up close and sparkly far away.</p>
+
+		<div class="displayed">
+			<canvas class="outlined" width="600" height="300" id="demoTextureLinearLinear">
+				This content requires <a href="http://get.webgl.org/">WebGL</a>.
+			</canvas>
+		</div>
+
+		<p>Finally, here is a mipmap filtering. Note that the checkerboard averages out to 50% gray in the distance, as would be expected.</p>
+
+		<div class="displayed">
+			<canvas class="outlined" width="600" height="300" id="demoTextureMipmapNearest">
+				This content requires <a href="http://get.webgl.org/">WebGL</a>.
+			</canvas>
+		</div>
+
+		<p>This specific example uses mipmap filtering for minification and nearest filtering for magnification, which preserves the hard edges of the checkboard up close.</p>
+
+		<script type="text/javascript" src="../js/demo-texture.js" onload="demoTextureNearestZoom = new DemoTextureNearestZoom('demoTextureNearestZoom', sprite, '../dat/tiger.png')"></script>
+		<script type="text/javascript" src="../js/demo-texture.js" onload="demoTextureLinearZoom = new DemoTextureLinearZoom('demoTextureLinearZoom', sprite, '../dat/tiger.png')"></script>
+		<script type="text/javascript" src="../js/demo-texture.js" onload="demoTextureMipmapZoom = new DemoTextureMipmapZoom('demoTextureMipmapZoom', sprite, '../dat/tiger.png')"></script>
+		<script type="text/javascript" src="../js/demo-texture.js" onload="demoTextureClamp = new DemoTextureClamp('demoTextureClamp', checkerboard, '../dat/checkerboard.png')"></script>
+		<script type="text/javascript" src="../js/demo-texture.js" onload="demoTextureRepeat = new DemoTextureRepeat('demoTextureRepeat', checkerboard, '../dat/checkerboard.png')"></script>
+		<script type="text/javascript" src="../js/demo-texture.js" onload="demoTextureLinearLinear = new DemoTextureLinearLinear('demoTextureLinearLinear', checkerboard, '../dat/checkerboard.png')"></script>
+		<script type="text/javascript" src="../js/demo-texture.js" onload="demoTextureNearestNearest = new DemoTextureNearestNearest('demoTextureNearestNearest', checkerboard, '../dat/checkerboard.png')"></script>
+		<script type="text/javascript" src="../js/demo-texture.js" onload="demoTextureMipmapNearest = new DemoTextureMipmapNearest('demoTextureMipmapNearest', checkerboard, '../dat/checkerboard.png')"></script>
+	</section>
+	<nav>
+		<a id="prev" href="texture-shaders.html"></a>
+		<a id="home" href="../index.html"></a>
+		<a id="next" href="transformation-persp-1.html"></a>
+	</nav>
+</body>
+</html>

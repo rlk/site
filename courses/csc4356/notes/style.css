@@ -206,6 +206,12 @@ canvas.persp {
 	height: 8em;
 }
 
+canvas.outlined {
+	width:  600px;
+	height: 300px;
+	border: 1px solid black;
+}
+
 input[type='range'] {
 	width: 200px;
 	height: 8px;
