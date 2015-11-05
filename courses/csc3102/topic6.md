@@ -13,6 +13,18 @@ By the convention of the book, nodes include a parent pointer, and only internal
 
 An in-order traversal produces a list of keys in non-decreasing order.
 
+We can confirm that a given binary tree is a binary search tree as follows:
+
+&emsp; isBST($v$, $min$, $max$)  
+&emsp;&emsp; if $v$ is external  
+&emsp;&emsp;&emsp; return true  
+&emsp;&emsp; if $v$.key < $min$ or $v$.key > $max$  
+&emsp;&emsp;&emsp; return false  
+&emsp;&emsp; else  
+&emsp;&emsp;&emsp; return isBST($v$.left, $min$, $v$.key) and isBST($v$.right, $v$.key, $max$)  
+
+Calling this function like so: isBST($v$, $-\infty$, $+\infty$)
+
 This search function returns either the internal node containing the given key $k$ (if found) or the external node where $k$ should have appeared (if not found).
 
 &emsp; search($v$, $k$)  
