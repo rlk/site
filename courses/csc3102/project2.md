@@ -2,38 +2,51 @@
 
 ## Programming Project 2
 
-The objective of this project is to implement the quick-sort algorithm with different pivot strategies and examine its behavior for different sequences of integer values.
+The objective of this project is to implement the insert and delete operators on a simple binary search tree, and to produce a level-by-level traversal of the resulting tree.
 
-See Chapter 11 of Goodrich (C++) or Chapter 12 of Goodrich (Java) for the details of the basic implementation.
+See Chapter 10 of Goodrich (C++) or Chapter 11 of Goodrich (Java) for the details of the basic implementation.
 
-- (5 points) To quantify the performance of the algorithm for a given input, we'll count the number of *comparison* operations performed. Add a counter to your implementation:
+- (40 points) Implement a binary search tree class capable of storing integers.
 
-	&emsp;int numberOfComparisons
+	There are two points of ambiguity: In the case where an inserted value is already present in the tree, insert to the left. In the case where a deleted value has two internal children, seek the minimum value in the right subtree.
 
-	And implement functions to perform integer comparison operations that increase the counter with each call:
+- (40 points) Using your binary search tree class, implement a program that transforms its input as follows:
 
-	&emsp;bool lessThan(int a, int b)  
-	&emsp;&emsp; numberOfComparisons++  
-	&emsp;&emsp; return (a < b)
+	- Read a sequence of lines. Each line will have one of the following forms.
 
-	&emsp;bool greaterThan(int a, int b)  
-	&emsp;&emsp; numberOfComparisons++  
-	&emsp;&emsp; return (a > b)
+			insert N
 
-- (20 points) Implement the quick-sort in terms of these lessThan and greaterThan operations. Try to minimize the number of comparisons made in order to quantify the best possible performance of the algorithm. Use the *first* item pivot selection strategy. Call this program `Prog2A`.
+		or 
 
-- (10 points) Design your program to read input from a file containing a sequence of integers, one on each line. Sort the input, print the sorted list, and finally print the numberOfComparisons counted.
+			delete N
 
-- (10 points) Duplicate your implementation and modify the copy to use the *median-of-three* pivot selection strategy. Call this program `Prog2B`.
+		where N is an integer value. Insert or delete that integer as indicated.
 
-- (10 points) Write two different input files containing sequences of 10 integers. The first input, `A-worse.txt` should cause a larger comparison count to be produced by `Prog2A` than by `Prog2B`. The second input, `B-worse.txt` should produce a larger count using `Prog2B` than `Prog2A`.
+		After reading all input, print the tree to the output level-by-level. That is, print the root on one line, followed by the two nodes at level 1 on the second line, followed by the (up to) four nodes at level 2 on the next line, etc.
 
-- (10 points) Code format matters! Consistent indentation, spacing, and brace placement are critical details that communicate structure. Points will be deducted for inconsistent formatting.
+	- For example, given the following input:
+
+			insert 5
+			insert 20
+			insert 3
+			insert 4
+			insert 9
+			delete 4
+			insert 7
+
+		The program will produce this output
+
+			5
+			3 20
+			7 9
+
+		Hint: the level-by-level output involves a breadth-first traversal of the tree.
+
+- (10 points) Code quality matters! Consistent indentation, spacing, and brace placement are critical details that communicate structure. An appropriate level of in line comments are necessary to communicate function. Points will be deducted for inconsistently formatted or undocumented code.
+
+- (10 points) Test and submit your code on *classes.csc.lsu.edu* in the `prog2` directory, using the procedure described in [project 0](project0.html). Remember to include your name and your LSU email address.
 
 Implement this using as many classes and source files that you need, but:
 
-- Java implementations should have main classes called `Prog2A` and `Prog2B` in files `Prog2A.java` and `Prog2B.java`.
-- C++ implementations should have place the main functions in file `Prog2A.cpp` and `Prog2B.cpp`.
-
-[Code submission should be done via your account on `classes.csc.lsu.edu`](classes.html) in a directory calleg `prog2`. The instructor's account name is `cs3102_koo`.
-Include your both your implementation sources and your `A-worse.txt` and `B-worse.txt` input files.
+- Java implementations should have a main class called `Prog2` in a file `Prog2.java`.
+- C++ implementations should have place the main function in a file `Prog2.cpp`
