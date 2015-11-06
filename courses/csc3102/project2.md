@@ -38,7 +38,8 @@ See Chapter 10 of Goodrich (C++) or Chapter 11 of Goodrich (Java) for the detail
 
 			5
 			3 20
-			7 9
+			7
+			9
 
 		Hint: the level-by-level output involves a breadth-first traversal of the tree.
 
