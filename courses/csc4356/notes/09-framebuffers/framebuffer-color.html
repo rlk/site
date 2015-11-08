@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Interactive Computer Graphics</title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://csc.lsu.edu/~kooima/MathJax.js"></script>
+</head>
+<body>
+	<section>
+		<h1>Framebuffer Color Texture</h1>
+
+		<p>To take control over a framebuffer, we must take responsibility for maintaining the image buffers that receive the fragments rendered to it.</p>
+
+		<p>One of these images will receive the RGBA color of each fragment. It is an ordinary RGBA texture, and it may have arbitrary <var>framebufferWidth</var> and <var>framebufferHeight</var>.<sup>*</sup></p>
+
+		<figure class="pseudocode">
+			<var>colorTexture</var> &larr; <code class="small">gl.createTexture</code>()<br>
+			<code class="small">gl.bindTexture</code>(<code class="small">gl.TEXTURE_2D</code>, <var>colorTexture</var>)<br>
+			<code class="small">gl.texImage2D</code> (<code class="small">gl.TEXTURE_2D</code>, 0, <code class="small">gl.RGBA</code>, <var>framebufferWidth</var>, <var>framebufferHeight</var>, 0, <code class="small">gl.RGBA</code>, <code class="small">gl.UNSIGNED_BYTE</code>, <code class="small">null</code>)
+		</figure>
+
+		<p>By providing a <code>null</code> texture image, we request an empty buffer of the given size. In this circumstance, the <code>gl.UNSIGNED_BYTE</code> external type specification goes unused.</p>
+
+		<p>Like any texture, the framebuffer color texture has <a href="../08-texturing/texture-parameters.html">configurable texture parameters</a>. These parameters do not affect how the buffer <em>receives</em> fragments, but they do affect how those fragments are sampled later. Once set, these settings seldom change, so it makes sense to set them when the texture is created.</p>
+
+		<figure class="pseudocode">
+			<code class="small">gl.texParameteri</code>(<code class="small">gl.TEXTURE_2D</code>, <code class="small">gl.TEXTURE_MIN_FILTER</code>, <code class="small">gl.LINEAR</code>)<br>
+			<code class="small">gl.texParameteri</code>(<code class="small">gl.TEXTURE_2D</code>, <code class="small">gl.TEXTURE_MAG_FILTER</code>, <code class="small">gl.LINEAR</code>)<br>
+		</figure>
+
+		<p>A rendered image of a scene generally does <em>not</em> wrap, so framebuffer color textures are almost always configured to clamp.</p>
+
+		<figure class="pseudocode">
+			<code class="small">gl.texParameteri</code>(<code class="small">gl.TEXTURE_2D</code>, <code class="small">gl.TEXTURE_WRAP_S</code>, <code class="small">gl.CLAMP_TO_EDGE</code>)<br>
+			<code class="small">gl.texParameteri</code>(<code class="small">gl.TEXTURE_2D</code>, <code class="small">gl.TEXTURE_WRAP_T</code>, <code class="small">gl.CLAMP_TO_EDGE</code>)
+		</figure>
+
+		<p class="note">* The maximum size of a render buffer is fairly large, usually 4096 or 8192 pixels square, circa 2015.</p>
+	</section>
+	<nav>
+		<a id="prev" href="framebuffer-overview.html"></a>
+		<a id="home" href="../index.html"></a>
+		<a id="next" href="framebuffer-depth.html"></a>
+	</nav>
+</body>
+</html>

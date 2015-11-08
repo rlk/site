@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Interactive Computer Graphics</title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://csc.lsu.edu/~kooima/MathJax.js"></script>
+</head>
+<body>
+	<section>
+		<h1>Framebuffer Depth Texture</h1>
+
+		<p>If we require the <a href="../06-pipeline/depth-test-5.html">depth test</a> when rendering to a texture, then the framebuffer will require a depth buffer. Like the color buffer, this depth buffer is an ordinary texture. It <em>must</em> have the same width and height as the color buffer, and the format must be <code>DEPTH_COMPONENT</code>.</p>
+
+		<figure class="pseudocode">
+			<var>depthTexture</var> &larr; <code class="small">gl.createTexture</code>()<br>
+			<code class="small">gl.bindTexture</code>(<code class="small">gl.TEXTURE_2D</code>, <var>depthTexture</var>)<br>
+			<code class="small">gl.texImage2D</code> (<code class="small">gl.TEXTURE_2D</code>, 0, <code class="small">gl.DEPTH_COMPONENT</code>, <var>framebufferWidth</var>, <var>framebufferHeight</var>, 0, <code class="small">gl.DEPTH_COMPONENT</code>, <code class="small">gl.UNSIGNED_BYTE</code>, <code class="small">null</code>)
+		</figure>
+
+		<p>The depth texture's parameters need not be identical to the color buffer's, but under most circumstances the reasonable defaults are the same.</p>
+
+		<figure class="pseudocode">
+			<code class="small">gl.texParameteri</code>(<code class="small">gl.TEXTURE_2D</code>, <code class="small">gl.TEXTURE_MIN_FILTER</code>, <code class="small">gl.LINEAR</code>)<br>
+			<code class="small">gl.texParameteri</code>(<code class="small">gl.TEXTURE_2D</code>, <code class="small">gl.TEXTURE_MAG_FILTER</code>, <code class="small">gl.LINEAR</code>)<br>
+			<code class="small">gl.texParameteri</code>(<code class="small">gl.TEXTURE_2D</code>, <code class="small">gl.TEXTURE_WRAP_S</code>, <code class="small">gl.CLAMP_TO_EDGE</code>)<br>
+			<code class="small">gl.texParameteri</code>(<code class="small">gl.TEXTURE_2D</code>, <code class="small">gl.TEXTURE_WRAP_T</code>, <code class="small">gl.CLAMP_TO_EDGE</code>)
+		</figure>
+	</section>
+	<nav>
+		<a id="prev" href="framebuffer-color.html"></a>
+		<a id="home" href="../index.html"></a>
+		<a id="next" href="framebuffer-object.html"></a>
+	</nav>
+</body>
+</html>

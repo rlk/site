@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Interactive Computer Graphics</title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://csc.lsu.edu/~kooima/MathJax.js"></script>
+</head>
+<body>
+	<section>
+		<h1>Framebuffer Objects</h1>
+
+		<p>The framebuffer object itself is a collection of textures, as we have just defined. Framebuffer objects are created and deleted just like texture objects, vertex buffer objects, program objects, etc. And, like these, exactly one framebuffer object is <em>bound</em> for use at any time.</p>
+
+		<figure class="pseudocode">
+			<var>framebufferObject</var> &larr; <code class="small">gl.createFramebuffer</code>()<br>
+			<code class="small">gl.bindFramebuffer</code>(<code class="small">gl.FRAMEBUFFER</code>, <var>framebufferObject</var>)
+		</figure>
+
+		<p>Once created and bound, our color and depth textures are <em>attached</em> to the framebuffer object's <code>COLOR_ATTACHMENT0</code> and <code>DEPTH_ATTACHMENT</code> attributes.</p>
+
+		<figure class="pseudocode">
+			<code class="small">gl.framebufferTexture2D</code>(<code class="small">gl.FRAMEBUFFER</code>, <code class="small">gl.COLOR_ATTACHMENT0</code>, <code class="small">gl.TEXTURE_2D</code>, <var>colorTexture</var>, 0)<br>
+			<code class="small">gl.framebufferTexture2D</code>(<code class="small">gl.FRAMEBUFFER</code>, <code class="small">gl.DEPTH_ATTACHMENT</code>, <code class="small">gl.TEXTURE_2D</code>, <var>depthTexture</var>, 0)
+		</figure>
+
+		<p>The <em>default</em> framebuffer object, <code>null</code>, represents the on-screen framebuffer. It is very important to rebind the default framebuffer object after finishing with any other framebuffer object, to ensure that any subsequent rendering is sent to the screen as expected.</p>
+
+		<figure class="pseudocode">
+			<code class="small">gl.bindFramebuffer</code>(<code class="small">gl.FRAMEBUFFER</code>, <code>null</code>)
+		</figure>
+	</section>
+	<nav>
+		<a id="prev" href="framebuffer-depth.html"></a>
+		<a id="home" href="../index.html"></a>
+		<a id="next" href="framebuffer-binding.html"></a>
+	</nav>
+</body>
+</html>

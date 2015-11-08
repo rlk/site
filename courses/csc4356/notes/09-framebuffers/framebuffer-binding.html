@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Interactive Computer Graphics</title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://csc.lsu.edu/~kooima/MathJax.js"></script>
+</head>
+<body>
+	<section>
+		<h1>Framebuffer Binding</h1>
+
+		<p>Now, when we wish do render to a framebuffer, we bind its object.</p>
+
+		<figure class="pseudocode">
+			<code class="small">gl.bindFramebuffer</code>(<code class="small">gl.FRAMEBUFFER</code>, <var>framebuffer</var>)
+		</figure>
+
+		<p>If the size of the framebuffer's textures do not match the size of the HTML canvas, then the <a href="../04-transformation/transformation-screen.html">screen transform</a> will be incorrect. To update it, we pass the framebuffer's origin and size to <code>gl.viewport</code> .
+
+		<figure class="pseudocode">
+			<code class="small">gl.viewport</code>(0, 0, <var>framebufferWidth</var>, <var>framebufferHeight</var>)
+		</figure>
+
+		<p>Likewise, when binding the default framebuffer for on-screen rendering, return the screen transform to its default state. The GL provides the default size in its context.</p>
+
+		<figure class="pseudocode">
+			<code class="small">gl.bindFramebuffer</code>(<code class="small">gl.FRAMEBUFFER</code>, <code class="small">null</code>)<br>
+			<code class="small">gl.viewport</code>(0, 0, <code class="small">gl.drawingBufferWidth</code>, <code class="small">gl.drawingBufferHeight</code>)
+		</figure>
+
+		<p>Finally, we can freely use the contents of the framebuffer color and depth textures just by binding them as the current texture and sampling them normally.</p>
+
+		<figure class="pseudocode">
+			<code class="small">gl.bindTexture</code>(<code class="small">gl.TEXTURE_2D</code>, <var>colorTexture</var>)<br>
+		</figure>
+
+		<p>After rendering, unbind this texture prior to rebinding any framebuffer that attaches it.
+
+		<figure class="pseudocode">
+			<code class="small">gl.bindTexture</code>(<code class="small">gl.TEXTURE_2D</code>, <code class="small">null</code>)<br>
+		</figure>
+
+		<p class="note">Though it might seem like a cool idea, it's not valid to sample from the same texture that you're rendering to. It might do something. Maybe. It won't explode your GPU.</p>
+
+	</section>
+	<nav>
+		<a id="prev" href="framebuffer-object.html"></a>
+		<a id="home" href="../index.html"></a>
+		<a id="next" href="framebuffer-overview.html"></a>
+	</nav>
+</body>
+</html>

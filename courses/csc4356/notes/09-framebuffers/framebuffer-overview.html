@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Interactive Computer Graphics</title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://csc.lsu.edu/~kooima/MathJax.js"></script>
+</head>
+<body>
+	<section>
+		<h1>Framebuffer Objects</h1>
+
+		<p>The <em>framebuffer</em> is the image to which we render. It has implicitly always been there, with its RGBA color and Z depth buffers, ready to accept the fragments that we draw to the screen.</p>
+
+		<p>A <em>framebuffer object</em> allows us take control of this functionality, to have as many rendering targets as we choose, to determine the size and type of each, and, most-importantly, to <b>render directly to textures</b>.</p>
+
+		<p>This capability has numerous uses:</p>
+
+		<ul>
+			<li>Producing shadows by pre-rendering a scene from the light source's perspective.</li>
+			<li>Producing reflections or refractions by pre-rendering a scene from an object's position.</li>
+			<li>Producing full-screen effects such as depth-of-field, motion blur, or exposure by post-rendering with an image-process shader.</li>
+		</ul>
+	</section>
+	<nav>
+		<a id="prev" href="framebuffer-overview.html"></a>
+		<a id="home" href="../index.html"></a>
+		<a id="next" href="framebuffer-color.html"></a>
+	</nav>
+</body>
+</html>
