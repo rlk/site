@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Interactive Computer Graphics</title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://csc.lsu.edu/~kooima/MathJax.js"></script>
+</head>
+<body>
+	<section>
+		<h2>The Blur Effect</h2>
+
+		<p>The blur effect is another common Photoshop filter. It is a simple example of a <em>convolution</em>. A convolution is an image processing operator that calculates a weighted sum of neighboring pixels.</p>
+
+		<figure class="pseudocode">
+				<b>function</b> main()<br>
+				&emsp;&emsp;<var>d</var> &larr; <code>1.0 / 512.0</code><br>
+				<br>
+				&emsp;&emsp;<var>c<sub>1</sub></var> &larr; <code>texture2D</code>(<var>colorTexture</var>, <var>fragmentTexCoord</var> + <code>vec2</code>(&minus;<var>d</var>, &minus;<var>d</var>)).<code>rgb</code><br>
+				&emsp;&emsp;<var>c<sub>2</sub></var> &larr; <code>texture2D</code>(<var>colorTexture</var>, <var>fragmentTexCoord</var> + <code>vec2</code>(<code>0</code>, &minus;<var>d</var>)).<code>rgb</code><br>
+				&emsp;&emsp;<var>c<sub>3</sub></var> &larr; <code>texture2D</code>(<var>colorTexture</var>, <var>fragmentTexCoord</var> + <code>vec2</code>(+<var>d</var>, &minus;<var>d</var>)).<code>rgb</code><br>
+				&emsp;&emsp;<var>c<sub>4</sub></var> &larr; <code>texture2D</code>(<var>colorTexture</var>, <var>fragmentTexCoord</var> + <code>vec2</code>(&minus;<var>d</var>, <code>0</code>)).<code>rgb</code><br>
+				&emsp;&emsp;<var>c<sub>5</sub></var> &larr; <code>texture2D</code>(<var>colorTexture</var>, <var>fragmentTexCoord</var> + <code>vec2</code>(<code>0</code>, <code>0</code>)).<code>rgb</code><br>
+				&emsp;&emsp;<var>c<sub>6</sub></var> &larr; <code>texture2D</code>(<var>colorTexture</var>, <var>fragmentTexCoord</var> + <code>vec2</code>(+<var>d</var>, <code>0</code>)).<code>rgb</code><br>
+				&emsp;&emsp;<var>c<sub>7</sub></var> &larr; <code>texture2D</code>(<var>colorTexture</var>, <var>fragmentTexCoord</var> + <code>vec2</code>(&minus;<var>d</var>, +<var>d</var>)).<code>rgb</code><br>
+				&emsp;&emsp;<var>c<sub>8</sub></var> &larr; <code>texture2D</code>(<var>colorTexture</var>, <var>fragmentTexCoord</var> + <code>vec2</code>(<code>0</code>, +<var>d</var>)).<code>rgb</code><br>
+				&emsp;&emsp;<var>c<sub>9</sub></var> &larr; <code>texture2D</code>(<var>colorTexture</var>, <var>fragmentTexCoord</var> + <code>vec2</code>(+<var>d</var>, +<var>d</var>)).<code>rgb</code><br>
+				<br>
+				&emsp;&emsp;<var>c</var> &larr;<br>
+				&emsp;&emsp;&emsp;&emsp;<code>1.0</code> * <var>c</var><sub>1</sub> + <code>2.0</code> * <var>c</var><sub>2</sub> + <code>1.0</code> * <var>c</var><sub>3</sub> +<br>
+				&emsp;&emsp;&emsp;&emsp;<code>2.0</code> * <var>c</var><sub>4</sub> + <code>4.0</code> * <var>c</var><sub>5</sub> + <code>2.0</code> * <var>c</var><sub>6</sub> +<br>
+				&emsp;&emsp;&emsp;&emsp;<code>1.0</code> * <var>c</var><sub>7</sub> + <code>2.0</code> * <var>c</var><sub>8</sub> + <code>1.0</code> * <var>c</var><sub>9</sub><br>
+				<br>
+				&emsp;&emsp;<code>gl_FragColor</code> &larr; <code>vec4</code>(<var>c</var> / <code>16.0</code>, <code>1.0</code>)
+		</figure>
+
+		<p>In this case, the center pixel contributes the most to the output. The pixels in the cardinal directions contribute half that, and the corner pixels contribute a quarter. The result is a simulation of an out-of-focus camera.</p>
+
+	</section>
+	<nav>
+		<a id="prev" href="framebuffer-threshold.html"></a>
+		<a id="home" href="../index.html"></a>
+		<a id="next" href="framebuffer-edge-detect.html"></a>
+	</nav>
+</body>

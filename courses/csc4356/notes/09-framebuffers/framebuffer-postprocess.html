@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Interactive Computer Graphics</title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://csc.lsu.edu/~kooima/MathJax.js"></script>
+</head>
+<body>
+	<section>
+		<h1>Framebuffer Effects</h1>
+
+		<p>One of the most straightforward things we can do with a framebuffer object is apply a post-process effect to a scene. This is much like applying a photographic filter to the entire scene. It entails two steps:</p>
+
+		<ol>
+			<li>Render the scene normally (using shaders, textures, etc) but to an off-screen framebuffer.</li>
+			<li>Copy the framebuffer's color buffer to the screen but with a fragment shader manipulating the image in an interesting way.</li>
+		</ol>
+
+		<p>The first step has been covered. The second proceeds as follows.</p>
+
+		<p>A post-process effect is rendered as a rectangle that exactly fits the screen, textured with the framebuffer color buffer. This produces a one-to-one mapping from the input rendering to the output image, while introducing an extra opportunity for fragment shading.</p>
+
+		<h2>Screen-Filling Rectangle</h2>
+
+		<p>To produce a piece of geometry that exactly fits the screen, we need not know the size or shape of the screen. Recall that the <code>gl_Position</code> varying in the vertex shader receives a position in <a href="../04-transformation/transformation-composition-full.html">clip coordinates</a>, the position after the $M$, $V$, and $P$ matrices have been applied. In this coordinate system, the visible portion of the scene is known to extend from $-1$ to $+1$ along the $x$, $y$, and $z$ axes.</p>
+
+		<p>Thus, to produce a full-screen rectangle, define geometry that covers this volume, and <em>do not</em> apply any of the $M$, $V$, or $P$ transforms. Here is that geometry.</p>
+
+		<div class="displayed" style="font-size:90%;line-height:120%">
+			<figure class="code">
+				positions = [<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;[ +1.0, +1.0, 0.0 ],<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;[ -1.0, +1.0, 0.0 ],<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;[ -1.0, -1.0, 0.0 ],<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;[ +1.0, -1.0, 0.0 ],<br>
+				];
+			</figure>
+			<figure class="code">
+				texCoords = [<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;[ 1.0, 1.0 ],<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;[ 0.0, 1.0 ],<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;[ 0.0, 0.0 ],<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;[ 1.0, 0.0 ],<br>
+				];
+			</figure>
+			<figure class="code">
+				triangles = [<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;[ 0, 1, 2 ],<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;[ 0, 2, 3 ],<br>
+				];
+			</figure>
+		</div>
+
+		<p>And here is an appropriate vertex shader. This shader receives no uniforms and does nothing but copy its attributes into varyings.</p>
+
+		<figure class="pseudocode">
+				<code>precision mediump float</code><br>
+				<code>attribute vec4</code> <var>vertexPosition</var><br>
+				<code>attribute vec2</code> <var>vertexTexCoord</var><br>
+				<code>varying vec2</code> <var>fragmentTexCoord</var><br>
+				<br>
+				<b>function</b> main()<br>
+				&emsp;&emsp;<span style="width:8em"><var>fragmentTexCoord</var></span> &larr; <var>vertexTexCoord</var><br>
+				&emsp;&emsp;<span style="width:8em"><code>gl_Position</code></span>    &larr; <var>vertexPosition</var><br>
+		</figure>
+
+		<p>This vertex shader works with a variety of fragment shaders, and the fragment shader is where the post-process effect is implemented.</p>
+
+	</section>
+	<nav>
+		<a id="prev" href="framebuffer-binding.html"></a>
+		<a id="home" href="../index.html"></a>
+		<a id="next" href="framebuffer-identity.html"></a>
+	</nav>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Interactive Computer Graphics</title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://csc.lsu.edu/~kooima/MathJax.js"></script>
+</head>
+<body>
+	<section>
+		<h2>The Black-and-White Effect</h2>
+
+		<p>Black-and-white video displays the <em>luminance</em> of each pixel.</p>
+
+		<figure class="pseudocode">
+				<b>function</b> main()<br>
+				&emsp;&emsp;<var>c</var> &larr; <code>texture2d</code>(<var>colorTexture</var>, <var>fragmentTexCoord</var>).<code>rgb</code><br>
+				&emsp;&emsp;<var>d</var> &larr; <code>dot</code>(<var>c</var>, <code>vec3</code>(<code>0.213</code>, <code>0.715</code>, <code>0.072</code>))<br>
+				&emsp;&emsp;<code>gl_FragColor</code> &larr; <code>vec4</code>(<var>d</var>, <var>d</var>, <var>d</var>, <code>1.0</code>)<br>
+		</figure>
+
+		<p>Luminance models the human eye's response to various wavelengths of light. Green is most prominent, red is less so, and blue is least prominent. The values used here are <a href="https://en.wikipedia.org/wiki/Rec._709">standard for HDTV</a>.</p>
+
+	</section>
+	<nav>
+		<a id="prev" href="framebuffer-identity.html"></a>
+		<a id="home" href="../index.html"></a>
+		<a id="next" href="framebuffer-threshold.html"></a>
+	</nav>
+</body>

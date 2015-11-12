@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Interactive Computer Graphics</title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://csc.lsu.edu/~kooima/MathJax.js"></script>
+</head>
+<body>
+	<section>
+		<h1>The Do-Nothing Effect</h1>
+
+		<p>If the contents of the texture are copied directly to the fragment color, then the output will be indistinguishable from an un-processed rendering.</p>
+
+		<figure class="pseudocode">
+				<code>precision mediump float</code><br>
+				<code>uniform sampler2D</code> <var>colorTexture</var><br>
+				<code>varying vec2</code> <var>fragmentTexCoord</var><br>
+				<br>
+				<b>function</b> main()<br>
+				&emsp;&emsp;<code>gl_FragColor</code> &larr; <code>texture2d</code>(<var>colorTexture</var>, <var>fragmentTexCoord</var>)<br>
+		</figure>
+
+		<p>This shader's sampler uniform and texture coordinate varying are common to all post-process shaders.</p>
+	</section>
+	<nav>
+		<a id="prev" href="framebuffer-postprocess.html"></a>
+		<a id="home" href="../index.html"></a>
+		<a id="next" href="framebuffer-luminance.html"></a>
+	</nav>
+</body>

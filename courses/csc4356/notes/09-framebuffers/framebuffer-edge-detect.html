@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Interactive Computer Graphics</title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://csc.lsu.edu/~kooima/MathJax.js"></script>
+</head>
+<body>
+	<section>
+		<h2>The Edge Detect Effect</h2>
+
+		<p>The edge detect filter is another convolution. The eight neighboring input pixels all contribute to the output.</p>
+
+		<figure class="pseudocode">
+				<b>function</b> main()<br>
+				&emsp;&emsp;<var>d</var> &larr; <code>1.0 / 512.0</code><br>
+				<br>
+				&emsp;&emsp;<var>c<sub>1</sub></var> &larr; <code>texture2D</code>(<var>colorTexture</var>, <var>fragmentTexCoord</var> + <code>vec2</code>(&minus;<var>d</var>, &minus;<var>d</var>)).<code>rgb</code><br>
+				&emsp;&emsp;<var>c<sub>2</sub></var> &larr; <code>texture2D</code>(<var>colorTexture</var>, <var>fragmentTexCoord</var> + <code>vec2</code>(<code>0</code>, &minus;<var>d</var>)).<code>rgb</code><br>
+				&emsp;&emsp;<var>c<sub>3</sub></var> &larr; <code>texture2D</code>(<var>colorTexture</var>, <var>fragmentTexCoord</var> + <code>vec2</code>(+<var>d</var>, &minus;<var>d</var>)).<code>rgb</code><br>
+				&emsp;&emsp;<var>c<sub>4</sub></var> &larr; <code>texture2D</code>(<var>colorTexture</var>, <var>fragmentTexCoord</var> + <code>vec2</code>(&minus;<var>d</var>, <code>0</code>)).<code>rgb</code><br>
+				&emsp;&emsp;<var>c<sub>5</sub></var> &larr; <code>texture2D</code>(<var>colorTexture</var>, <var>fragmentTexCoord</var> + <code>vec2</code>(<code>0</code>, <code>0</code>)).<code>rgb</code><br>
+				&emsp;&emsp;<var>c<sub>6</sub></var> &larr; <code>texture2D</code>(<var>colorTexture</var>, <var>fragmentTexCoord</var> + <code>vec2</code>(+<var>d</var>, <code>0</code>)).<code>rgb</code><br>
+				&emsp;&emsp;<var>c<sub>7</sub></var> &larr; <code>texture2D</code>(<var>colorTexture</var>, <var>fragmentTexCoord</var> + <code>vec2</code>(&minus;<var>d</var>, +<var>d</var>)).<code>rgb</code><br>
+				&emsp;&emsp;<var>c<sub>8</sub></var> &larr; <code>texture2D</code>(<var>colorTexture</var>, <var>fragmentTexCoord</var> + <code>vec2</code>(<code>0</code>, +<var>d</var>)).<code>rgb</code><br>
+				&emsp;&emsp;<var>c<sub>9</sub></var> &larr; <code>texture2D</code>(<var>colorTexture</var>, <var>fragmentTexCoord</var> + <code>vec2</code>(+<var>d</var>, +<var>d</var>)).<code>rgb</code><br>
+				<br>
+				&emsp;&emsp;<var>x</var> &larr; (<var>c<sub>3</sub></var> + <var>c<sub>6</sub></var> + <var>c<sub>6</sub></var> + <var>c<sub>9</sub></var>) &minus; (<var>c<sub>1</sub></var> + <var>c<sub>4</sub></var> + <var>c<sub>4</sub></var> + <var>c<sub>7</sub></var>)<br>
+				&emsp;&emsp;<var>y</var> &larr; (<var>c<sub>1</sub></var> + <var>c<sub>2</sub></var> + <var>c<sub>2</sub></var> + <var>c<sub>2</sub></var>) &minus; (<var>c<sub>7</sub></var> + <var>c<sub>8</sub></var> + <var>c<sub>8</sub></var> + <var>c<sub>9</sub></var>)<br>
+				<br>
+				&emsp;&emsp;<code>gl_FragColor</code> &larr; <code>vec4</code>(<code>sqrt</code>(<var>x</var> * <var>x</var> + <var>y</var> * <var>y</var>), <code>1.0</code>)
+		</figure>
+
+		<p>In the case of edge detection, the pixel values are <em>subtracted</em> instead of added. Thus a simple <em>derivative</em> is calculated along the <var>x</var> and <var>y</var> axes. Thes differences are combined as a gradient, which highlights the changes in the image, and thus detects edges.</p>
+
+	</section>
+	<nav>
+		<a id="prev" href="framebuffer-blur.html"></a>
+		<a id="home" href="../index.html"></a>
+		<a id="next" href="framebuffer-threshold.html"></a>
+	</nav>
+</body>
