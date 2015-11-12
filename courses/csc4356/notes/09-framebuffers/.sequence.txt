@@ -3,3 +3,9 @@ framebuffer-color.html
 framebuffer-depth.html
 framebuffer-object.html
 framebuffer-binding.html
+framebuffer-postprocess.html
+framebuffer-identity.html
+framebuffer-luminance.html
+framebuffer-threshold.html
+framebuffer-blur.html
+framebuffer-edge-detect.html

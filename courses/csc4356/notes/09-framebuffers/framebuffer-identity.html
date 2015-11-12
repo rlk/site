@@ -20,7 +20,14 @@
 				&emsp;&emsp;<code>gl_FragColor</code> &larr; <code>texture2d</code>(<var>colorTexture</var>, <var>fragmentTexCoord</var>)<br>
 		</figure>
 
-		<p>This shader's sampler uniform and texture coordinate varying are common to all post-process shaders.</p>
+		<p>This shader's sampler uniform and texture coordinate varying are common to all following post-process shaders.</p>
+
+		<p>While this shader does the bare minimum, it does enable a circumstance where the off-screen rendering may happen at a different resolution than the on-screen rendering, giving a quality-speed trade-off.</p>
+
+		<ul>
+			<li>If the off-screen buffer has <em>lower</em> resolution, then performance may improve due to a drop in the number of scene pixels, though with a decrease in image quality.</li>
+			<li>If the off-screen buffer has <em>higher</em> resolution, then image quality may improve due to an oversampling of the scene, though with a potential decrease in performance.</li>
+		</ul>
 	</section>
 	<nav>
 		<a id="prev" href="framebuffer-postprocess.html"></a>
