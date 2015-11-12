@@ -113,3 +113,17 @@ Remove 32 as from a simple binary tree:
 Restructure again to satisfy the height-balance property:
 
 <svg width="510" height="150"><style>line, rect, circle { fill: white; stroke: black } text { text-anchor: middle }</style><line x1="345" y1="20" x2="105" y2="50"/><line x1="345" y1="20" x2="405" y2="50"/><circle r="15" cx="345" cy="20"/><text x="345" y="25">62</text><line x1="105" y1="50" x2="45" y2="80"/><line x1="105" y1="50" x2="225" y2="80"/><circle r="15" cx="105" cy="50"/><text x="105" y="55">44</text><line x1="45" y1="80" x2="15" y2="110"/><line x1="45" y1="80" x2="75" y2="110"/><circle r="15" cx="45" cy="80"/><text x="45" y="85">17</text><rect width="16" height="16" x="7" y="102"/><rect width="16" height="16" x="67" y="102"/><line x1="225" y1="80" x2="165" y2="110"/><line x1="225" y1="80" x2="285" y2="110"/><circle r="15" cx="225" cy="80"/><text x="225" y="85">50</text><line x1="165" y1="110" x2="135" y2="140"/><line x1="165" y1="110" x2="195" y2="140"/><circle r="15" cx="165" cy="110"/><text x="165" y="115">48</text><rect width="16" height="16" x="127" y="132"/><rect width="16" height="16" x="187" y="132"/><line x1="285" y1="110" x2="255" y2="140"/><line x1="285" y1="110" x2="315" y2="140"/><circle r="15" cx="285" cy="110"/><text x="285" y="115">54</text><rect width="16" height="16" x="247" y="132"/><rect width="16" height="16" x="307" y="132"/><line x1="405" y1="50" x2="375" y2="80"/><line x1="405" y1="50" x2="465" y2="80"/><circle r="15" cx="405" cy="50"/><text x="405" y="55">78</text><rect width="16" height="16" x="367" y="72"/><line x1="465" y1="80" x2="435" y2="110"/><line x1="465" y1="80" x2="495" y2="110"/><circle r="15" cx="465" cy="80"/><text x="465" y="85">88</text><rect width="16" height="16" x="427" y="102"/><rect width="16" height="16" x="487" y="102"/></svg>
+
+# Splay tree
+
+A splay tree is an ordinary binary search tree with a "splay" operation that rotates a value to the root.
+
+Search for $k$: Search for $k$ normally. If found, splay on the value $k$.
+
+Split at $k$: splay on the value $k$. The resulting tree will have all $x\le k$ in the left subtree and all $x\gt k$ in the right.
+
+Join $S$ and $T$ where $s\le t$ for all $s$ in $S$ and $t$ in $T$. Splay on the maximum value in $S$. The resulting tree will have no right subtree at the root. Place $T$ there.
+
+Insert: Insert $k$ normally, then splay on the value $k$.
+
+Delete: Splay the value $k$. If $k$ is at the root, join the two subtrees.
