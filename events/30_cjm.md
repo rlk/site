@@ -1,0 +1,5 @@
+## [Total Perspective Vortex](applications.html#vortex) at the Contemporary Jewish Museum
+
+*18 June--20 September 2015*
+
+[The Contemporary Jewish Museum](http://www.thecjm.org/) in San Francisco incorporated [Total Perspective Vortex](applications.html#vortex) in an exhibit entitled [Night Begins the Day: Rethinking Space, Time, and Beauty](http://www.thecjm.org/on-view/in-the-past/night-begins-the-day-rethinking-space-time-and-beauty/about), &ldquo;an exhibition featuring the work of twenty-seven artists, scientists, and creative thinkers that, in this current moment of expansion through scientific development, look at three aspects of contemporary art that can be seen as emerging from the historic precedent of the sublime: technological innovation; new understandings of time; and new expressions of awe and fear that have emerged from contemporary irony and cultural critique.&rdquo;
