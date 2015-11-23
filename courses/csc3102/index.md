@@ -55,7 +55,7 @@ All homework will be submitted in class on the due date. All programming project
 | [Homework 2](homework2.html)           | 10:30am Thursday 1 October 2015    |
 | [Programming Project 1](project1.html) | 5:00pm Tuesday 27 October 2015     |
 | [Programming Project 2](project2.html) | 5:00pm Thursday 12 November 2015   |
-| Homework 3                             | 10:30am Tuesday 1 December 2015    |
+| [Homework 3](homework3.html)           | 10:30am Tuesday 1 December 2015    |
 
 Exams are given in the usual classroom.
 
