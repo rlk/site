@@ -84,10 +84,53 @@ Operations on edges
 
 ## Traversal
 
-### Depth-first
+Traversal is $O(n + m)$
 
-### Breadth-first
+&emsp; traverse($s$)  
+&emsp;&emsp; $C$.insert($s$)  
+&emsp;&emsp; while $C$ is not empty  
+&emsp;&emsp;&emsp; $v \gets C$.remove()  
+&emsp;&emsp;&emsp; if $v$ is not visited  
+&emsp;&emsp;&emsp;&emsp; mark $v$ visited  
+&emsp;&emsp;&emsp;&emsp; for each $e$ in incidentEdges($v$)  
+&emsp;&emsp;&emsp;&emsp;&emsp; $w \gets e$.opposite($v$)  
+&emsp;&emsp;&emsp;&emsp;&emsp; $C$.insert($w$)  
 
-## Shortest Path
+- Depth-first
 
-## Minimum Spanning Tree
+	When $C$ is a stack, the traversal will proceed as far as possible before backtracking.
+
+	- Test whether $G$ is connected
+	- Compute a spanning tree of $G$, if $G$ is connected
+	- Compute the connected components of $G$
+	- Compute a path between two given vertices of $G$, if it exists
+	- Compute a cycle in $G$, or reporting that $G$ has no cycles
+
+- Breadth-first
+
+	When $C$ is a queue, the traversal will proceed forward across a broad front.
+
+	- Determine the shortest path from $s$ to all other edges
+
+## Weighted Graphs
+
+Each edge has a *weight*. The *length* of a path is the sum of the edge weights along it. The *distance* from vertices $u$ and $v$ is the length of the shortest path from $u$ to $v$. The shortest path is no longer so simple.
+
+- Shortest Path
+
+	Calculate $D[u]$, the distance from $v$ to $u$ for all $u$.
+
+	&emsp; shortestPath($v$)  
+	&emsp;&emsp; $D[v]\gets 0$  
+	&emsp;&emsp; $D[u]\gets \infty$ for all $u\neq v$  
+	&emsp;&emsp; Let $Q$ be a priority queue containing $(D[u], u)$ for all $u$  
+	&emsp;&emsp; while $Q$ is not empty  
+	&emsp;&emsp;&emsp; $u\gets Q$.removeMin()  
+	&emsp;&emsp;&emsp; for each $e$ in incidentEdges($u$) where $z$ is in $Q$  
+	&emsp;&emsp;&emsp;&emsp; if $z\gets e$.opposite($u$) is in $Q$  
+	&emsp;&emsp;&emsp;&emsp;&emsp; if $D[z]\gt D[u] + w(u, z)$  
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; $D[z]\gets D[u] + w(u, z)$  
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; update $(D[z], z)$ in $Q$
+
+
+- Minimum Spanning Tree
