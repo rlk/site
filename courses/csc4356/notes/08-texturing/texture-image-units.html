@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Interactive Computer Graphics</title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://csc.lsu.edu/~kooima/MathJax.js"></script>
+	<script type="text/javascript" src="../script.js"></script>
+	<script type="text/javascript" src="../js/gl-matrix.js"></script>
+	<script type="text/javascript" src="../js/gl-shader.js"></script>
+	</head>
+<body>
+	<section>
+		<h1>Texture Image Units</h1>
+
+		<p>The basic approach to texture mapping hides a bit of detail. The default state of the GL straightforwardly supports the use of a single texture, but it is often the case that a shader will make use of <em>multiple</em> texture images. To do so, it will have multiple sampler uniforms.</p>
+
+		<p>Consider this rendering of the earth.</p>
+
+		<div class="displayed">
+			<canvas width="512px" height="512px" id="demoMultitexture">
+				This content requires <a href="http://get.webgl.org/">WebGL</a>.
+			</canvas>
+		</div>
+
+		<script type="text/javascript" src="../js/demo-multitexture.js" onload="demoMultitexture = new DemoMultitexture('demoMultitexture')"></script>
+
+		<p>It has a daylight color of green and blue, plus a night-time color of light over darkness. The oceans show the specular reflection of the sun, but the land does not. The clouds occlude the surface both day and night. There are four images at work here: daylight color, night time color, water reflectivity, and cloud coverage.</p>
+
+		<table style="width:80%;margin:auto">
+			<tr>
+				<td style="padding:1ex"><img src="../img/earth-color.jpg"></td>
+				<td style="padding:1ex"><img src="../img/earth-light.jpg"></td>
+			</tr>
+			<tr>
+				<td style="padding:1ex"><img src="../img/earth-water.jpg"></td>
+				<td style="padding:1ex"><img src="../img/earth-cloud.jpg"></td>
+			</tr>
+		</table>
+
+		<p>The GLSL therefore has four texture samplers.</p>
+
+		<figure class="pseudocode">
+			<code>uniform sampler2D</code> <var>colorSampler</var><br>
+			<code>uniform sampler2D</code> <var>lightSampler</var><br>
+			<code>uniform sampler2D</code> <var>waterSampler</var><br>
+			<code>uniform sampler2D</code> <var>cloudSampler</var>
+		</figure>
+
+		<p>And the implementation has four texture objects.</p>
+
+		<figure class="pseudocode">
+			<var>colorTexture</var> &larr; <code>gl.createTexture</code>()<br>
+			<var>lightTexture</var> &larr; <code>gl.createTexture</code>()<br>
+			<var>waterTexture</var> &larr; <code>gl.createTexture</code>()<br>
+			<var>cloudTexture</var> &larr; <code>gl.createTexture</code>()
+		</figure>
+
+		<p>A <i>mapping</i> from each sampler to its associated texture object must be made. Unfortunately, this mapping is slightly indirect. It is made via a <em>texture image unit</em>, or TIU.</p>
+
+		<img style="width:80%;margin:auto" src="../img/tiu.svg">
+
+		<p>A TIU can be viewed as a piece of GPU hardware that performs texture sampling. As such, there is a finite number of them, usually between 8 and 64, depending on the capability of the hardware. They are numbered starting with 0.</p>
+
+		<h2>TIU Binding</h2>
+
+		<p>At any given moment, exactly one TIU is the <em>active</em> one, and only the active TIU can have its texture binding modified. So, to bind all four of the earth textures simultaneously, as shown above, we set the active texture prior to each binding:</p>
+
+		<figure class="pseudocode">
+			<code>gl.activeTexture</code>(<code>gl.TEXTURE0</code>)<br>
+			<code>gl.bindTexture</code>(<code>gl.TEXTURE_2D</code>, <var>colorTexture</var>)<br>
+			<code>gl.activeTexture</code>(<code>gl.TEXTURE1</code>)<br>
+			<code>gl.bindTexture</code>(<code>gl.TEXTURE_2D</code>, <var>lightTexture</var>)<br>
+			<code>gl.activeTexture</code>(<code>gl.TEXTURE2</code>)<br>
+			<code>gl.bindTexture</code>(<code>gl.TEXTURE_2D</code>, <var>waterTexture</var>)<br>
+			<code>gl.activeTexture</code>(<code>gl.TEXTURE3</code>)<br>
+			<code>gl.bindTexture</code>(<code>gl.TEXTURE_2D</code>, <var>cloudTexture</var>)
+		</figure>
+
+		<h2>Sampler Configuration</h2>
+
+		<p>A sampler uniform, then, is configured with the <em>number</em> of the TIU selected to do the sampling. This configuration consists of a single integer, so <code>uniform1f</code> is used.</p>
+
+		<figure class="pseudocode">
+    	<code>gl.uniform1i</code>(<var>colorSamplerLocation</var>, 0)<br>
+    	<code>gl.uniform1i</code>(<var>lightSamplerLocation</var>, 1)<br>
+    	<code>gl.uniform1i</code>(<var>waterSamplerLocation</var>, 2)<br>
+    	<code>gl.uniform1i</code>(<var>cloudSamplerLocation</var>, 3)
+    </figure>
+
+    <p>Note a potential point of confusion here: <code>gl.activeTexture</code> refers to a TIU using a symbol, e.g. <code>gl.TEXTURE0</code>, while <code>gl.uniform</code> refers to a TIU using a number, e.g. 0.</p>
+
+    <h2>Defaults</h2>
+
+    <p>Until now, we've been relying upon the fact that the default active TIU is <code>TEXTURE0</code>, and the default value of a sampler uniform is also 0.</p>
+
+	</section>
+	<nav>
+		<a id="prev" href="texture-parameters.html"></a>
+		<a id="home" href="../index.html"></a>
+	</nav>
+</body>
+</html>

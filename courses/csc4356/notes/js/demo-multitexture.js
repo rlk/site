@@ -104,10 +104,10 @@ var vertexSource = [
 var fragmentSource = [
     'precision mediump float;',
 
-    'uniform sampler2D colorTexture;',
-    'uniform sampler2D waterTexture;',
-    'uniform sampler2D lightTexture;',
-    'uniform sampler2D cloudTexture;',
+    'uniform sampler2D colorSampler;',
+    'uniform sampler2D waterSampler;',
+    'uniform sampler2D lightSampler;',
+    'uniform sampler2D cloudSampler;',
 
     'varying vec3 fragmentView;',
     'varying vec3 fragmentLight;',
@@ -120,18 +120,18 @@ var fragmentSource = [
     '    vec3 V = normalize(fragmentView);',
     '    vec3 R = reflect(-L, N);',
 
-    '    vec3 color = texture2D(colorTexture, fragmentTexCoord).rgb;',
-    '    vec3 water = texture2D(waterTexture, fragmentTexCoord).rgb;',
-    '    vec3 light = texture2D(lightTexture, fragmentTexCoord).rgb;',
-    '    vec3 cloud = texture2D(cloudTexture, fragmentTexCoord).rgb;',
+    '    vec3 color = texture2D(colorSampler, fragmentTexCoord).rgb;',
+    '    vec3 water = texture2D(waterSampler, fragmentTexCoord).rgb;',
+    '    vec3 light = texture2D(lightSampler, fragmentTexCoord).rgb;',
+    '    vec3 cloud = texture2D(cloudSampler, fragmentTexCoord).rgb;',
 
-    '    float kd =     max(dot(N, L), 0.0);',
-    '    float ks = pow(max(dot(R, V), 0.0), 8.0) * 0.5;',
+    '    float kd = pow(max(dot(N, L), 0.0), 0.6);',
+    '    float ks = pow(max(dot(R, V), 0.0), 8.0);',
 
-    '    vec3 k = mix(mix(light,              vec3(0.1, 0.1, 0.3), cloud.r),',
-    '                 mix(color + water * ks, vec3(1.0, 1.0, 1.0), cloud.r), kd);',
+    '    vec3 night = mix(light + water * ks * 0.5, vec3(0.1, 0.1, 0.3), cloud);',
+    '    vec3 day   = mix(color + water * ks * 0.5, vec3(1.0, 1.0, 1.0), cloud);',
 
-    '    gl_FragColor = vec4(k, 1.0);',
+    '    gl_FragColor = vec4(mix(night, day, kd), 1.0);',
     '}\n'
 ].join('\n');
 
@@ -159,10 +159,10 @@ DemoMultitexture.prototype.initShaders = function(gl) {
     this.     modelMatrixLocation = gl.getUniformLocation(this.program,      'modelMatrix');
     this.   lightPositionLocation = gl.getUniformLocation(this.program,    'lightPosition');
 
-    gl.uniform1i(gl.getUniformLocation(this.program, 'colorTexture'), 0);
-    gl.uniform1i(gl.getUniformLocation(this.program, 'waterTexture'), 1);
-    gl.uniform1i(gl.getUniformLocation(this.program, 'lightTexture'), 2);
-    gl.uniform1i(gl.getUniformLocation(this.program, 'cloudTexture'), 3);
+    gl.uniform1i(gl.getUniformLocation(this.program, 'colorSampler'), 0);
+    gl.uniform1i(gl.getUniformLocation(this.program, 'waterSampler'), 1);
+    gl.uniform1i(gl.getUniformLocation(this.program, 'lightSampler'), 2);
+    gl.uniform1i(gl.getUniformLocation(this.program, 'cloudSampler'), 3);
 }
 
 // Initialize vertex and index buffer objects.
