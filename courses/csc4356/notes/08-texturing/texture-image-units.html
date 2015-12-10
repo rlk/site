@@ -12,9 +12,9 @@
 	<section>
 		<h1>Texture Image Units</h1>
 
-		<p>The basic approach to texture mapping hides a bit of detail. The default state of the GL straightforwardly supports the use of a single texture, but it is often the case that a shader will make use of <em>multiple</em> texture images. To do so, it will have multiple sampler uniforms.</p>
+		<p>The basic approach to texture mapping, documented thus far, hides a bit of detail. The default state of the GL straightforwardly supports the use of a <em>single</em> texture, but often a shader will make use of <em>multiple</em> texture images. To do so, it will have multiple sampler uniforms.</p>
 
-		<p>Consider this rendering of the earth.</p>
+		<p>Consider this rendering of the Earth.</p>
 
 		<div class="displayed">
 			<canvas width="512px" height="512px" id="demoMultitexture">
@@ -24,7 +24,7 @@
 
 		<script type="text/javascript" src="../js/demo-multitexture.js" onload="demoMultitexture = new DemoMultitexture('demoMultitexture')"></script>
 
-		<p>It has a daylight color of green and blue, plus a night time color of city lights in darkness. The oceans show the specular reflection of the sun, but the land does not. Clouds occlude the surface in both day and night. There are four images at work here: daylight color, night time color, water reflectivity, and cloud coverage.</p>
+		<p>It has a daylight color of green and blue, plus a night time color of city lights in darkness. The oceans show the specular reflection of the sun, but the land does not. Clouds occlude the surface in both day and night. There are four images at work here: daylight color, night time color, water coverage, and cloud coverage.</p>
 
 		<table style="width:80%;margin:auto">
 			<tr>
@@ -55,17 +55,17 @@
 			<var>cloudTexture</var> &larr; <code>gl.createTexture</code>()
 		</figure>
 
-		<p>A <i>mapping</i> from each sampler to its associated texture object must be made. These mappings are indirect. Each is made by way of a <em>texture image unit</em>, or TIU.</p>
+		<p>A connection from each sampler to its associated texture object must be made. These connections are indirect. Each is made by way of a <em>texture image unit</em>, or TIU.</p>
 
 		<img style="width:80%;margin:auto" src="../img/tiu.svg">
 
 		<p>A TIU can be viewed as a piece of GPU hardware that performs image sampling. As such, there is a finite number of them, usually between 8 and 64, depending on the capability of the hardware. They are numbered starting with 0.</p>
 
-		<p>To form an association between a texture object and a sampler, two connections are needed: bind a texture object to a TIU, and configure a sampler to use that TIU.</p>
+		<p>To form a connection between a texture object and a sampler, two associations are needed: bind a texture object to a TIU, and configure a sampler to use that TIU. These may be done in either order.</p>
 
 		<h2>TIU Binding</h2>
 
-		<p>At any given moment, exactly one TIU is the <em>active</em> one, and only the active TIU can have its texture binding modified. So, to bind all four of the earth textures to differnt TIUs, as shown above, we activate each TIU prior to binding:</p>
+		<p>At any given moment, exactly one TIU is the <em>active</em> one, and only the active TIU can have its texture binding modified. So, to bind all four of the Earth textures to different TIUs, as shown above, we activate each TIU prior to binding:</p>
 
 		<figure class="pseudocode">
 			<code>gl.activeTexture</code>(<code>gl.TEXTURE0</code>)<br>
@@ -83,7 +83,7 @@
 
 		<h2>Sampler Configuration</h2>
 
-		<p>A sampler uniform, then, is configured with the <em>number</em> of the TIU that is bound with the desired texture. This configuration consists of a single integer, so <code>uniform1f</code> is used.</p>
+		<p>A sampler uniform, then, is configured with the <em>number</em> of the TIU that is bound to the desired texture. This configuration consists of a single integer, so <code>uniform1f</code> is used.</p>
 
 		<figure class="pseudocode">
     	<code>gl.uniform1i</code>(<var>colorSamplerLocation</var>, 0)<br>
@@ -92,17 +92,15 @@
     	<code>gl.uniform1i</code>(<var>cloudSamplerLocation</var>, 3)
     </figure>
 
-    <p>Note a potential point of confusion here: <code>gl.activeTexture</code> refers to a TIU using a symbol, e.g. <code>gl.TEXTURE0</code>, while <code>gl.uniform</code> refers to a TIU using a number, e.g. 0.</p>
+    <p>Note a potential point of confusion here: <code>activeTexture</code> refers to a TIU using a symbol, e.g. <code>TEXTURE0</code>, while <code>uniform1i</code> refers to a TIU using a number, e.g. 0.</p>
 
     <h2>Pixels and Parameters</h2>
 
     <p>To be clear, the <a href="texture-objects.html">texture image</a> and the <a href="texture-parameters.html">texture parameters</a> are attributes of a texture object, not a texture image unit.</p>
 
-    <p>Specifically, when an application calls <code>texImage2D</code> to set the image, or calls <code>texParameter</code> to set a filtering or wrapping mode, it is modifying an attribute of the texture object currently bound to the currently active texture image unit.</p>
+    <p>Specifically, when an application calls <code>texImage2D</code> to set the image, or calls <code>texParameter</code> to set a filtering or wrapping mode, it is modifying an attribute of the texture object currently bound to the currently active texture image unit. (Got that?)</p>
 
     <p>So, to configure a texture object, it must be bound to a TIU and that TIU must be the active one.</p>
-
-    <p class="note">That's a subtle point, so read it again.</p>
 
     <h2>Defaults</h2>
 
