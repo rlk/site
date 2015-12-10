@@ -30,8 +30,6 @@ function makeProgram(gl, program, vertSource, fragSource) {
     gl.attachShader(program, newShader(gl, gl.VERTEX_SHADER,   vertSource));
     gl.attachShader(program, newShader(gl, gl.FRAGMENT_SHADER, fragSource));
 
-    // gl.bindAttribLocation(program, 0, "vPosition");
-    // gl.bindAttribLocation(program, 1, "vOffset");
     gl.linkProgram(program);
 
     if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
@@ -56,7 +54,7 @@ function newProgram(gl, vertSource, fragSource) {
 // Delete a program object and any shader objects attached to it.
 
 function deleteProgram(gl, program) {
-    gl.getAttachedShaders(program).map(gl.deleteShader);
+    // gl.getAttachedShaders(program).map(gl.deleteShader);
     gl.deleteProgram(program);
 }
 
