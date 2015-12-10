@@ -168,8 +168,8 @@ DemoMultitexture.prototype.initShaders = function(gl) {
 // Initialize vertex and index buffer objects.
 
 DemoMultitexture.prototype.initBuffers = function(gl) {
-    var n = 64;
-    var m = 128;
+    var n = 32;
+    var m = 64;
 
     var positions = [];
     var texCoords = [];

@@ -4,3 +4,4 @@ texture-buffer.html
 texture-objects.html
 texture-shaders.html
 texture-parameters.html
+texture-image-units.html
