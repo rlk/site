@@ -23,7 +23,7 @@ CSC 1254 or CSC 1351 and credit or concurrent enrollment in CSC 2259 or EE 2740.
 
 10:30am--11:50am  
 Tuesday and Thursday  
-221 Tureaud Hall  
+202 Williams Hall  
 
 ## Textbook
 
@@ -50,19 +50,19 @@ All homework will be submitted in class on the due date. All programming project
 
 | Assignment                             | Deadline                           |
 | -------------------------------------- | ---------------------------------- |
-| [Programming Project 0](project0.html) | 5:00pm Thursday 3 September 2015   |
-| [Homework 1](homework1.html)           | 10:30am Thursday 17 September 2015 |
-| [Homework 2](homework2.html)           | 10:30am Thursday 1 October 2015    |
-| [Programming Project 1](project1.html) | 5:00pm Tuesday 27 October 2015     |
-| [Programming Project 2](project2.html) | 5:00pm Thursday 12 November 2015   |
-| [Homework 3](homework3.html)           | 10:30am Tuesday 1 December 2015    |
+| Programming Project 0                  |  5:00pm Thursday 28 January   2016 |
+| Homework 1                             | 10:30am Thursday 11 February  2016 |
+| Homework 2                             | 10:30am Thursday 25 February  2016 |
+| Programming Project 1                  |  5:00pm Thursday 24 March     2016 |
+| Programming Project 2                  |  5:00pm Thursday  7 April     2016 |
+| Homework 3                             | 10:30am Thursday 21 April     2016 |
 
 Exams are given in the usual classroom.
 
-| Exam    | Time                                      |
-| ------- | ----------------------------------------- |
-| Midterm | 10:30am--11:50am Thursday 15 October 2015 |
-| Final   | 10:00am--noon Monday 7 December 2015      |
+| Exam    | Time                                    |
+| ------- | --------------------------------------- |
+| Midterm | 10:30am--11:50am Thursday 10 March 2016 |
+| Final   | 10:00am--noon    Friday    6 May   2016 |
 
 ## Grading
 
@@ -79,7 +79,7 @@ Here is the course weighting:
 
 | Score       | Grade   |
 |-------------|----------
-| &gt; 100.0% | A+      |
+| &geq; 96.6% | A+      |
 | &geq; 93.3% | A       |
 | &geq; 90.0% | A&minus;|
 | &geq; 86.6% | B+      |
