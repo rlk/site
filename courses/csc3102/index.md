@@ -1,6 +1,6 @@
 # CSC 3102 --- Advanced Data Structures & Algorithm Analysis
 
-Description and utilization of formal ADT representations, especially those on lists, sets and graphs; time and space analysis of recursive and non-recursive algorithms, including graph and sorting algorithms; algorithm design techniques.
+Description and utilization of formal data representations, especially sequences, trees, and graphs. Time and space analysis of recursive and non-recursive algorithms. Sorting algorithms, graph algorithms, and algorithm design techniques.
 
 ## Topics
 
@@ -46,7 +46,7 @@ Office Hours: 12:00pm--1:00pm Tuesdays 175 [Coates Hall](https://maps.google.com
 
 ## Assignments
 
-All homework will be submitted in class on the due date. All programming projects will be submitted via your account on `classes.csc.lsu.edu`. Grades are recorded on the course [Moodle](http://moodle2.lsu.edu/course/view.php?id=27660).
+All homework will be submitted in class on the due date. All programming projects will be submitted via your account on `classes.csc.lsu.edu`. The late penalty is 10% per day. Grades are recorded on the course [Moodle](http://moodle2.lsu.edu/course/view.php?id=37328). Questions about posted grades must be sent to *both* the instructor and the grader. Gradebook entries are finalized one week after an assignment is returned. 
 
 | Assignment                             | Deadline                           |
 | -------------------------------------- | ---------------------------------- |
