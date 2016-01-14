@@ -46,7 +46,7 @@ Office Hours: 12:00pm--1:00pm Tuesdays 175 [Coates Hall](https://maps.google.com
 
 ## Assignments
 
-All homework will be submitted in class on the due date. All programming projects will be submitted via your account on `classes.csc.lsu.edu`. The late penalty is 10% per day. Grades are recorded on the course [Moodle](http://moodle2.lsu.edu/course/view.php?id=37328). Questions about posted grades must be sent to *both* the instructor and the grader. Gradebook entries are finalized one week after an assignment is returned. 
+All homework will be submitted in class on the due date. All programming projects will be submitted via your account on [`classes.csc.lsu.edu`](classes.html). The late penalty is 10% per day. Grades are recorded on the course [Moodle](http://moodle2.lsu.edu/course/view.php?id=37328). Questions about posted grades must be sent to *both* the instructor and the grader. Gradebook entries are finalized one week after an assignment is returned. 
 
 | Assignment                             | Deadline                           |
 | -------------------------------------- | ---------------------------------- |
