@@ -59,5 +59,3 @@ Given a collection containing N elements, how many steps are required (in the wo
 - How would you find the smallest element in a collection of numbers? The largest?
 
 - If we know the elements appear in some sorted order, how does each of the basic operations change?
-
-- If you're enumerating a sequence container and you decide to delete an element, what care must be taken to ensure that you can continue scanning?

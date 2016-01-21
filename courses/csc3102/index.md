@@ -46,16 +46,16 @@ Office Hours: 1:00pm--2:00pm Monday and Wednesday 175 [Coates Hall](https://maps
 
 ## Assignments
 
-All homework will be submitted in class on the due date. All programming projects will be submitted via your account on [`classes.csc.lsu.edu`](classes.html). The late penalty is 10% per day. Grades are recorded on the course [Moodle](http://moodle2.lsu.edu/course/view.php?id=37328). Questions about posted grades must be sent to *both* the instructor and the grader. Gradebook entries are finalized one week after an assignment is returned. 
+All homework will be submitted in class on the due date. All programming projects will be submitted via your account on *classes.csc.lsu.edu*. The late penalty is 10% per day. Grades are recorded on the course [Moodle](http://moodle2.lsu.edu/course/view.php?id=37328). Questions about posted grades must be sent to *both* the instructor and the grader. Gradebook entries are finalized one week after an assignment is returned. 
 
 | Assignment                             | Deadline                           |
 | -------------------------------------- | ---------------------------------- |
-| Programming Project 0                  |  5:00pm Thursday 28 January   2016 |
-| Homework 1                             | 10:30am Thursday 11 February  2016 |
-| Homework 2                             | 10:30am Thursday 25 February  2016 |
-| Programming Project 1                  |  5:00pm Thursday 24 March     2016 |
-| Programming Project 2                  |  5:00pm Thursday  7 April     2016 |
-| Homework 3                             | 10:30am Thursday 21 April     2016 |
+| [Programming Project 0](project0.html) |  5:00pm Thursday 28 January   2016 |
+|  Homework 1                            | 10:30am Thursday 11 February  2016 |
+|  Homework 2                            | 10:30am Thursday 25 February  2016 |
+|  Programming Project 1                 |  5:00pm Thursday 24 March     2016 |
+|  Programming Project 2                 |  5:00pm Thursday  7 April     2016 |
+|  Homework 3                            | 10:30am Thursday 21 April     2016 |
 
 Exams are given in the usual classroom.
 

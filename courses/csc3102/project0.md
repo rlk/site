@@ -14,21 +14,35 @@ Different instructors use *classes.csc* in different ways. Our usage is document
 
 - Project code must include your name at it appears on your LSU ID plus your LSU email address.
 
-- Late project submissions are absolutely not accepted.
-
 ### Install the Tools
 
-In addition to your IDE, you'll need additional software to access *classes.csc*: `scp` and `ssh`. OS X and Linux users will find that the necessary software is already installed and available from the Bash prompt.
+In addition to your IDE, you'll need two additional pieces of software to access *classes.csc*:
 
-I *highly* recommend that Windows users install [Git](https://www.git-scm.com/). We won't be using Git in this class, but the Git installer includes a complete Bash environment identical to that found under OS X and Linux. This way, we'll all use the same interface to *classes.csc*.
 
-[Here is an in-depth introduction to the Bash prompt](http://ryanstutorials.net/linuxtutorial/) if needed.
+- SCP, short for Secure CoPy, allows you to upload files to *classes.csc*.
+- SSH, short for Secure SHell, allows you to log in to *classes.csc*.
+
+OS X and Linux users will find `scp` and `ssh` already installed and available from the Terminal.
+
+Windows users commonly use [WinSCP](https://winscp.net/eng/download.php) as their SCP client and [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) for their SSH client.
+
+### Get Familiar with the Command Line.
+
+[Here is an in-depth introduction to the Bash prompt](http://ryanstutorials.net/linuxtutorial/). If you have no Bash experience, read at least the section on Basic Navigation. Much of the necessary commands are documented below.
 
 ### Write the Code
 
-The Project 0 code is trivial: it computes the average of a list of numbers. Create a directory called `prog0` to store the project files. The programming work is done for you.
+The Project 0 code is a just a review:
 
-If you are a Java user, type the following Java code into to a file named `Prog0.java` in the `prog0` directory.
+- Read a file containing a list of up to 100 integers.
+- Store them in a simple integer array.
+- Print them in ascending order.
+
+You have undoubtedly encountered basic sorting in your Introduction to Programming coursework, so implement one of the algorithms you learned there.
+
+To begin, create a directory called `prog0` to store the project files.
+
+If you are a Java user, add the following Java framework code into to a file named `Prog0.java` in the `prog0` directory.
 
     // Programming Project 0
     // Mike Tiger IV <mtiger6@lsu.edu>
@@ -39,20 +53,16 @@ If you are a Java user, type the following Java code into to a file named `Prog0
     public class Prog0 {
         public static void main(String[] args) throws FileNotFoundException {
             Scanner input = new Scanner(new File(args[0]));
-            int     total = 0;
-            int     count = 0;
 
             while (input.hasNextInt()) {
-                int i = input.nextInt();
-                total += i;
-                count += 1;
+                // etc...
             }
 
-            System.out.println((float) total / count);
+            // etc...
         }
     }
 
-If you are a C++ user, type the following C++ code into a file named `Prog0.cpp` in the `prog0` directory.
+If you are a C++ user, add the following C++ code into a file named `Prog0.cpp` in the `prog0` directory.
 
     // Programming Project 0
     // Mike Tiger IV <mtiger6@lsu.edu>
@@ -63,22 +73,21 @@ If you are a C++ user, type the following C++ code into a file named `Prog0.cpp`
     int main(int argc, char **argv)
     {
         std::ifstream input(argv[1]);
-        int total = 0;
-        int count = 0;
         int i;
 
         while (input >> i)
         {
-            total += i;
-            count += 1;
+            // etc...
         }
 
-        std::cout << float(total) / count << std::endl;
+        // etc...
     }
 
-If you use an IDE on your computer to create that file, test it there to make sure it works.
+That framework code demonstrates how to receive a file name on the command line and scan the named file for integers. Replace the `etc` sections with the logic necessary to perform the sorting task.
 
-Upload the `prog0` to your *classes.csc* account by navigating the Bash prompt to the directory that contains `prog0` and executing this command:
+### Upload the Code
+
+Upload the `prog0` to your *classes.csc* account. If you use the command line `scp` client, navigate the Bash prompt to the directory that contains `prog0` and execute this command:
 
     scp -r prog0 cs3102xx@classes.csc.lsu.edu:prog0
 
@@ -86,11 +95,13 @@ Here, `xx` is the unique part of your account name.
 
 Alternatively, you can write your code directly on *classes.csc* using one of the Unix text editors, `nano`, `vim`, `emacs`, etc. With this approach, you can make fixes and improvements to your submission without the need to re-upload it with each change.
 
+Note, if you need to re-upload your work after making changes, you *might* need to delete the `prog0` directory on classes before `scp`ing a second time.
+
 ### Test the Code
 
 The Prog0 example is representative of the form taken by all CSC 3102 programming projects: input is given by a file that is named in the argument list, and output is given on the standard output. To test your project, you'll need an input file. Create a file named `input.txt` with the following contents and place it in your `prog0` directory on *classes.csc*.
 
-    10 11 12 13 14 15
+    9 1 14 11 5 4 12 7 15 8 18 6 2 19 13 16 20 10 3 17
 
 Log in to *classes.csc* using your SSH client. This will give you a Bash shell on *classes*. [Here's another link to the Bash tutorial](http://ryanstutorials.net/linuxtutorial/).
 
@@ -108,7 +119,9 @@ Log in to *classes.csc* using your SSH client. This will give you a Bash shell o
 
         java Prog0 input.txt
 
-    If it runs correctly, you'll receive the output `12.5`, which is the average of the input values.
+    If it runs correctly, you'll receive the output
+
+        1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
 
 - To test C++ code, compile it.
 
@@ -118,7 +131,11 @@ Log in to *classes.csc* using your SSH client. This will give you a Bash shell o
 
         ./Prog0 input.txt
 
-    If it runs correctly, you'll receive the output `12.5`.
+    If it runs correctly, you'll receive the output
+
+        1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+
+Each programming assignment will include a sample input and output, as above. But be advised that this is *not* the input that the grader will use to test your code. Be sure your code works with a variety of different input files, with different names.
 
 ### Submit the Code
 
