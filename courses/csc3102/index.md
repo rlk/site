@@ -51,7 +51,7 @@ All homework will be submitted in class on the due date. All programming project
 | Assignment                             | Deadline                           |
 | -------------------------------------- | ---------------------------------- |
 | [Programming Project 0](project0.html) |  5:00pm Thursday 28 January   2016 |
-|  Homework 1                            | 10:30am Thursday 11 February  2016 |
+| [Homework 1](homework1.html)           | 10:30am Thursday 11 February  2016 |
 |  Homework 2                            | 10:30am Thursday 25 February  2016 |
 |  Programming Project 1                 |  5:00pm Thursday 24 March     2016 |
 |  Programming Project 2                 |  5:00pm Thursday  7 April     2016 |

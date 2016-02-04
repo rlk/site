@@ -39,7 +39,7 @@ An algorithm is always measured by the number of steps that it takes to execute 
 
 - $f(n)=n^3$
 
-	"Cubic," though this category generally includes all "polynomial" functions of order greater than 2.
+	"Cubic," though this category generally includes all "polynomial" functions $n^d$ of order greater than 2.
 
 - $f(n)=b^n$
 
@@ -56,11 +56,11 @@ One of the universal truisms of computer science is that polynomials are "good" 
 
 Asymptotic notation
 
-- $f(n)$ is $O(g(n))$ if there is a real value $c$ and an integer $n_0$ such that $f(n)\le c g(n)$ for $n\ge n_0$.
+- $f(n)$ is $O(g(n))$ if there is a real value $c>0$ and an integer $n_0\ge 1$ such that $f(n)\le c g(n)$ for $n\ge n_0$.
 
-- $f(n)$ is $\Omega(g(n))$ if there is a real value $c$ and an integer $n_0$ such that $f(n)\ge c g(n)$ for $n\ge n_0$.
+- $f(n)$ is $\Omega(g(n))$ if there is a real value $c>0$ and an integer $n_0\ge 1$ such that $f(n)\ge c g(n)$ for $n\ge n_0$.
 
-- $f(n)$ is $\Theta(g(n))$ if there are real values $c'$ and $c''$ and an integer $n_0$ such that $c' g(n)\le f(n)\le c'' g(n)$ for $n\ge n_0$.
+- $f(n)$ is $\Theta(g(n))$ if there are real values $c_1>0$ and $c_2>0$ and an integer $n_0\ge 1$ such that $c_1 g(n)\le f(n)\le c_2 g(n)$ for $n\ge n_0$.
 
 Examples:
 
@@ -72,7 +72,7 @@ for $c=15$, when $n\ge n_0 = 1$. This correctly indicates that the degree of the
 
 1. $3\log n + 2$ is $O(\log n)$ because $3\log n + 2 \le 5\log n$ for $n \ge 2$.
 
-1. $\frac{n^2}{1000} = \Omega(n)$
+1. This example is fairly sophisticated: $(n + a)^5$ is $\Theta(n^5)$ for any real value $a$.
 
 Note, if $d(n)$ is $O(e(n))$ and $f(n)$ is $O(g(n))$ then
 
@@ -91,20 +91,20 @@ Algorithm analysis
 
 	&emsp; for ($i\gets 1$; $i\leq n$; $i\gets i + 1$)  
 	&emsp;&emsp; for ($j\gets 1$; $j\leq n$; $j\gets 2\ j$)  
-	&emsp;&emsp;&emsp; print $A[j]$  
+	&emsp;&emsp;&emsp; print $j$  
 
 - Here's a deceiving example:
 
 	&emsp; $s\gets 1$  
 	&emsp; for ($i\gets 1$; $i\leq n$; $i\gets i + 1$)  
 	&emsp;&emsp; for ($j\gets 1$; $j\leq n$; $j\gets j + s$)  
-	&emsp;&emsp;&emsp; print $A[j]$  
+	&emsp;&emsp;&emsp; print $j$  
 	&emsp;&emsp; $s\gets 2\,s$
 
 - This example calculates $y=x^n$
 
 	&emsp; $y\gets 1$  
-	&emsp; for ($i\gets 0$; $i < n$; $i\gets i + 1$)  
+	&emsp; for ($i\gets 1$; $i\leq n$; $i\gets i + 1$)  
 	&emsp;&emsp; $y\gets y * x$
 
 - So does this one:
