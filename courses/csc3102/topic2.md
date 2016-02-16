@@ -49,6 +49,7 @@ An algorithm is always measured by the number of steps that it takes to execute 
 	- $b^a b^c = b^{a+c}$
 	- $\frac{b^a}{b^c} = b^{a-c}$
 	- $b^\frac{a}{c}=\sqrt[c]{b^a}$
+	- $\displaystyle{\sum_{i=0}^{n-1} r^i = \frac{1-r^n}{1-r}}$
 
 One of the universal truisms of computer science is that polynomials are "good" and exponentials are "bad."
 
@@ -115,7 +116,17 @@ Algorithm analysis
 
 	$$p(x,n) = \begin{cases} 1 & \text{if}\ n = 0 \\ p(x, n/2)^2 & \text{if}\ n > 0\ \text{is even} \\ x\cdot p(x, (n-1)/2)^2 & \text{if}\ n > 0\ \text{is odd} \\ \end{cases}$$
 
-Now we make a leap forward in the textbook to analyze a pair of algorithms familiar from intro:
+Now we make a leap forward in the textbook to analyze a few algorithms familiar from Intro:
+
+# Selection sort
+
+&emsp; for ($j\gets 1$; $j\leq n - 1$; $j\gets j + 1$)  
+&emsp;&emsp; $m\gets j$  
+&emsp;&emsp; for ($i\gets j + 1$; $i\leq n$; $i\gets i + 1$)  
+&emsp;&emsp;&emsp; if ($A[i] < A[m]$)  
+&emsp;&emsp;&emsp;&emsp; $m\gets i$  
+&emsp;&emsp; if ($m\neq j$)  
+&emsp;&emsp;&emsp; swap($A[j]$, $A[m]$)  
 
 ## Merge-sort
 
@@ -123,7 +134,7 @@ To merge-sort a sequence of items: cut the unsorted sequence in half, recursivel
 
 Analyze the running order of merge-sort by expanding the recurrence relation:
 
-$$t(n)=\begin{cases} b & n\le 1 \\ 2\,t(n\,/\,2)+c\,n & \text{otherwise}\end{cases}$$
+$$f(n)=\begin{cases} b & n\le 1 \\ 2\,f(n\,/\,2)+c\,n & \text{otherwise}\end{cases}$$
 
 ## Quick-sort
 
@@ -139,4 +150,4 @@ s(3)&=n-1-2-4\\
 s(i)&=n-(2^i-1)
 \end{align}$$
 
-This can only proceed until $2^i-1=n$ or $i=\log_2(n+1)$. Each level does $O(n)$ steps, so the total is $O(n\log n)$.
+This can only proceed until $2^i-1=n$ or $i=\log_2(n+1)$, and $$\sum_{i=0}^{\log_2(n+1)} n-2^i+1 \mathrm{\ is\ } O(n\log n)$$.
