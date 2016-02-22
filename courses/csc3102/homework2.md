@@ -32,7 +32,7 @@
 
 	&emsp; search($A$, $f$, $n$, $x$)  
 	&emsp;&emsp; if ($n = 1$)  
-	&emsp;&emsp;&emsp; return $A[n]$  
+	&emsp;&emsp;&emsp; return $A[f]$  
 	&emsp; &emsp; else  
 	&emsp; &emsp; &emsp; $m = n\,/\,2$  
 	&emsp; &emsp; &emsp; if ($x < A[f + m]$)  
