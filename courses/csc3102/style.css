@@ -9,6 +9,7 @@
 	}
 	code {
 		font-family: "Lucida Console", monospace;
+		font-size: 80%;
 		color: inherit;
 	}
 }
@@ -20,7 +21,7 @@
 		line-height: 14pt;
 		color:       black;
 	}
-	code {
+	code, pre {
 		font-family: "Lucida Console", monospace;
 		font-size: 9pt;
 	}

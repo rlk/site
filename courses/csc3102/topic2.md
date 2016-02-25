@@ -1,6 +1,9 @@
 # Analysis Tools
 
-Reading: Chapter 4 of Goodrich et al.
+The two Goodrich et all textbooks diverge here, so the reading differs depending on language.
+
+- C++ Reading: Chapter 4 Analysis Tools.
+- Java Reading: Chapter 4 Algorithm Analysis and Chapter 5 Recursion.
 
 ## The "Seven" Functions
 
