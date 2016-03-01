@@ -1,5 +1,8 @@
 # Trees
 
+- C++ Reading: Chapter 7 Trees
+- Java Reading: Chapter 8 Trees
+
 Reading: Chapter 7 of Goodrich et al.
 
 A tree is a set of *nodes* in a *parent-child* relationship.
@@ -8,7 +11,7 @@ A tree is a set of *nodes* in a *parent-child* relationship.
 
 - Each node has a unique *parent*.
 - Excepting the *root* has no parent.
-- A node $v$ with parent $v$ is a *child* of $v$.
+- A node $v$ with parent $u$ is a *child* of $u$.
 - Two nodes with the same parent are *siblings*.
 - A node is *internal* if it has one or more children.
 - An *external* node is also called a *leaf*.
@@ -29,90 +32,100 @@ A tree is a set of *nodes* in a *parent-child* relationship.
 
 A general linked tree structure defines each node with a value, a reference to a parent, and a sequence of references to children.
 
-		node *parent(node *v)
-		sequence& children(node *v)
+		node parent(node v)
+		sequence& children(node v)
 
-		bool isRoot(node *v)
-		bool isExternal(node *v)
+		bool isRoot(node v)
+		bool isExternal(node v)
 
 Trees are naturally recursive. 
 
-We can also recursively *traverse* a tree, visiting each node in either *pre-order* or *post-order*. We can also traverse in *depth-first* order using a stack, or *breadth-first* order using a queue.
+We can also recursively *traverse* a tree, visiting each node in either *pre-order*, *in-order*, or *post-order*. We can also traverse in *depth-first* order using a stack, or *breadth-first* order using a queue.
 
 ## Binary Trees
 
 A binary tree is simplified because it does away with the child sequence.
 
-		struct node
+		class node
 		{
-			T value;
-			node *left;
-			node *right;
+			T value
+			node left
+			node right
 		}
 
 It's trivially easy to define
 
-		bool isRoot(node *v)
-		bool isExternal(node *v)
+		bool isRoot(node v)
+		bool isExternal(node v)
 
-A note about the textbook's definition of tree structures: it is very specific in its use of iterators. For example, Code Fragment 7.24 in the C++ book (similar to C.F. 7.22 in the Java)
-
-&emsp; function binaryPreorder(t, p)  
-&emsp;&emsp; Visit node p  
-&emsp;&emsp; if p is an internal node  
-&emsp;&emsp;&emsp; binaryPreorder(t, p.left)  
-&emsp;&emsp;&emsp; binaryPreorder(t, p.right)  
-
-This obsession with iterators is not necessary. A more pure implementation would look more like this:
+A note about the textbook's definition of tree structures: it is very specific in its use of iterators. For example, Code Fragment 7.24 in the C++ book (similar to C.F. 8.22 in the Java). This obsession with iterators is not necessary. A more pure implementation of a pre-order traversal would look more like this:
 
 &emsp; function binaryPreorder(v)  
-&emsp;&emsp; Visit node v  
+&emsp;&emsp; visit(v)  
 &emsp;&emsp; if v.left exists  
 &emsp;&emsp;&emsp; binaryPreorder(v.left)  
 &emsp;&emsp; if v.right exists  
 &emsp;&emsp;&emsp; binaryPreorder(v.right)  
 
-Here's an alternative formulation of a traversal, showing the stack usage explicitly.
+An in-order:
 
-&emsp; S.push(v)  
-&emsp; while S is not empty  
-&emsp;&emsp; v = S.top()  
-&emsp;&emsp; Visit node v  
-&emsp;&emsp; S.pop()  
-&emsp;&emsp; if v.right exists  
-&emsp;&emsp;&emsp;&emsp; S.push(v.right)  
+&emsp; function binaryInorder(v)  
 &emsp;&emsp; if v.left exists  
-&emsp;&emsp;&emsp;&emsp; S.push(v.left)  
-
-Here's the same traversal, but with a queue instead of a stack. Note that breadth-first traversal emerges naturally.
-
-&emsp; Q.enqueue(v)  
-&emsp; while Q is not empty  
-&emsp;&emsp; v = Q.front()  
-&emsp;&emsp; Visit node v  
-&emsp;&emsp; Q.dequeue()  
+&emsp;&emsp;&emsp; binaryInorder(v.left)  
+&emsp;&emsp; visit(v)  
 &emsp;&emsp; if v.right exists  
-&emsp;&emsp;&emsp;&emsp; Q.enqueue(v.right)  
+&emsp;&emsp;&emsp; binaryInorder(v.right)  
+
+A post-order:
+
+&emsp; function binaryPostorder(v)  
 &emsp;&emsp; if v.left exists  
-&emsp;&emsp;&emsp;&emsp; Q.enqueue(v.left)  
+&emsp;&emsp;&emsp; binaryPostorder(v.left)  
+&emsp;&emsp; if v.right exists  
+&emsp;&emsp;&emsp; binaryPostorder(v.right)  
+&emsp;&emsp; visit(v)  
+
+Here's an alternative formulation of a pre-order traversal, showing the stack usage explicitly.
+
+&emsp; $S$.push($v$)  
+&emsp; while $S$ is not empty  
+&emsp;&emsp; $v$ = $S$.top()  
+&emsp;&emsp; visit($v$)  
+&emsp;&emsp; $S$.pop()  
+&emsp;&emsp; if $v$.right exists  
+&emsp;&emsp;&emsp;&emsp; $S$.push($v$.right)  
+&emsp;&emsp; if $v$.left exists  
+&emsp;&emsp;&emsp;&emsp; $S$.push($v$.left)  
+
+Here's the same pre-order traversal, but with a queue instead of a stack. Note that breadth-first traversal emerges naturally.
+
+&emsp; $Q$.enqueue($v$)  
+&emsp; while $Q$ is not empty  
+&emsp;&emsp; $v$ = $Q$.front()  
+&emsp;&emsp; visit($v$)  
+&emsp;&emsp; $Q$.dequeue()  
+&emsp;&emsp; if $v$.right exists  
+&emsp;&emsp;&emsp;&emsp; $Q$.enqueue($v$.right)  
+&emsp;&emsp; if $v$.left exists  
+&emsp;&emsp;&emsp;&emsp; $Q$.enqueue($v$.left)  
 
 We can easily define recursive algorithms to give the depth and height of a node. The height of a proper binary tree:
 
-&emsp; function computeHeight(tree v)  
-&emsp;&emsp; if v.isExternal()  
+&emsp; function computeHeight(node $v$)  
+&emsp;&emsp; if $v$.isExternal()  
 &emsp;&emsp;&emsp; return 0  
 &emsp;&emsp; else  
-&emsp;&emsp;&emsp; return 1 + max(computeHeight(v.left), computeHeight(v.right)  
+&emsp;&emsp;&emsp; return 1 + max(computeHeight($v$.left), computeHeight($v$.right)  
 
 The height of an improper binary tree:
 
-&emsp; function computeHeight(tree v)  
-&emsp;&emsp; if v.left and v.right  
-&emsp;&emsp;&emsp; return 1 + max(computeHeight(v.left), computeHeight(v.right)  
-&emsp;&emsp; else if v.left  
-&emsp;&emsp;&emsp; return 1 + computeHeight(v.left)  
-&emsp;&emsp; else if v.right  
-&emsp;&emsp;&emsp; return 1 + computeHeight(v.right)  
+&emsp; function computeHeight(node $v$)  
+&emsp;&emsp; if $v$.left and $v$.right  
+&emsp;&emsp;&emsp; return 1 + max(computeHeight($v$.left), computeHeight($v$.right)  
+&emsp;&emsp; else if $v$.left  
+&emsp;&emsp;&emsp; return 1 + computeHeight($v$.left)  
+&emsp;&emsp; else if $v$.right  
+&emsp;&emsp;&emsp; return 1 + computeHeight($v$.right)  
 &emsp;&emsp; else  
 &emsp;&emsp;&emsp; return 0  
 

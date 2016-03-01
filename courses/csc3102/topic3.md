@@ -75,7 +75,7 @@ First-in-first-out.
 
 ## Abstraction
 
-It's easy to implement each of these in terms of a simpler existing, more general data structure, such as a doubly-linked list:
+It's easy to implement all of these in terms of a simpler existing, more general data structure, such as a doubly-linked list:
 
 		node *firstNode()
 		node *lastNode()
@@ -104,16 +104,26 @@ It's easy to implement each of these in terms of a simpler existing, more genera
 
 ## Traversal
 
-Stacks and queues present fundamentally the same API. As such, they are drop-in replacements for one another. The resulting difference in behavior is one of the fundamental distinctions in all of Computer Science: depth versus breadth.
+Stacks and queues present fundamentally the same API.
 
-&emsp; traverse($t$)  
-&emsp;&emsp; C.insert($t$)  
+| Stack   | Queue   | Abstraction |
+|---------|---------|-------------|
+| push    | enqueue | insert      |
+| pop     | dequeue | remove      |
+| top     | front   | first       |
+| size    | size    | size        |
+| isEmpty | isEmpty | isEmpty     |
+
+As such, they are drop-in replacements for one another. Looking forward to the next chapter, on trees, we can traverse a tree using either a stack or a queue. The resulting difference in behavior is one of the fundamental distinctions in all of Computer Science: depth versus breadth.
+
+&emsp; traverse($v$)  
+&emsp;&emsp; C.insert($v$)  
 &emsp;&emsp; while not C.isEmpty()  
-&emsp;&emsp;&emsp; $t$ = C.remove()  
-&emsp;&emsp;&emsp; visit($t$)  
-&emsp;&emsp;&emsp; if $t$.left  
-&emsp;&emsp;&emsp;&emsp; C.insert($t$.left)  
-&emsp;&emsp;&emsp; if $t$.right  
-&emsp;&emsp;&emsp;&emsp; C.insert($t$.right)  
+&emsp;&emsp;&emsp; $v$ = C.remove()  
+&emsp;&emsp;&emsp; visit($v$)  
+&emsp;&emsp;&emsp; if $v$.left  
+&emsp;&emsp;&emsp;&emsp; C.insert($v$.left)  
+&emsp;&emsp;&emsp; if $v$.right  
+&emsp;&emsp;&emsp;&emsp; C.insert($v$.right)  
 
 
