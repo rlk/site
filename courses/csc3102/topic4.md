@@ -3,8 +3,6 @@
 - C++ Reading: Chapter 7 Trees
 - Java Reading: Chapter 8 Trees
 
-Reading: Chapter 7 of Goodrich et al.
-
 A tree is a set of *nodes* in a *parent-child* relationship.
 
 ## Tree Terminology

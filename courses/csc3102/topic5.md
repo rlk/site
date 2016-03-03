@@ -1,6 +1,7 @@
 # Heaps and Priority Queues
 
-Reading: Chapter 8 of Goodrich et al.
+- C++ Reading: Chapter 8 Heaps and Priority Queues
+- Java Reading: Chapter 9 Priority Queues
 
 # Priority Queues
 
@@ -12,7 +13,7 @@ Such a queue is straightforwardly implemented using a list. There are two strate
 
 A priority queue gives a straightforward scheme for sorting: Insert all elements into the priority queue and simply read them back out.
 
-The priority queue sorting scheme, implemented using sorted and unsortes lists, gives rise to the insertion-sort and selection-sort algorithms, respectively. Both are $O(n^2)$.
+The priority queue sorting scheme, implemented using sorted and unsorted lists, gives rise to the insertion-sort and selection-sort algorithms, respectively. Both are $O(n^2)$.
 
 If we can improve the performance of the priority queue, we can naturally improve the performance of sorting.
 
