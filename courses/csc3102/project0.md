@@ -18,7 +18,6 @@ Different instructors use *classes.csc* in different ways. Our usage is document
 
 In addition to your IDE, you'll need two additional pieces of software to access *classes.csc*:
 
-
 - SCP, short for Secure CoPy, allows you to upload files to *classes.csc*.
 - SSH, short for Secure SHell, allows you to log in to *classes.csc*.
 

@@ -37,7 +37,7 @@ A heap:
 		- Swap the node with the smaller of its children.
 	- This is $O(\log n)$ because the height of the tree is at most $\log n$
 - Has an elegant zero-based array representation:
-	- Let $f(v)$ be the vector index of node $v$, defined as follows:
+	- Let $f(v)$ be the array index of node $v$, defined as follows:
 		- If $v$ is the root then $f(v)=0$.
 		- If $u$ is the left child of $v$ then $f(u)=2\,f(v)+1$.
 		- If $u$ is the right child of $v$ then $f(u)=2\,f(v)+2$.
@@ -45,4 +45,4 @@ A heap:
 
 Applying the priority queue sorting scheme to a heap results in an $O(n\log n)$ sort.
 
-The vector representation of the heap also gives rise to an extremely efficient in-place sorting algorithm.
+The array representation of the heap also gives rise to an extremely efficient in-place sorting algorithm.
