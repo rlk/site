@@ -9,7 +9,9 @@ Each internal node $v$ contains a key $k$ such that
 - Keys stored in the left subtree of $v$ are less than or equal to $k$.
 - Keys stored in the right subtree of $v$ are greater than or equal to $k$.
 
-By the convention of the textbook, nodes include a parent pointer, and only internal nodes contain keys. The existence of empty external nodes ensures that every binary search tree is *proper* and simplifies some operations (arguably).
+By the convention of the textbook, nodes include a parent pointer, and only internal nodes contain keys. The existence of empty external nodes ensures that every binary search tree is *proper* and simplifies some operations (arguably). We assume a constructor of the form
+
+&emsp;node(*parent*, *left*, *right*)
 
 An in-order traversal produces a list of keys in non-decreasing order.
 

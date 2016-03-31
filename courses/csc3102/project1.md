@@ -2,7 +2,7 @@
 
 ## Programming Project 1
 
-Implement, test, and apply a heap-based priority queue in either C++ or Java. Specifically, implement your heap using a zero-based array of characters, with the indexing scheme described in [the notes](topic5.html). You may assume that the array will contain no more than 255 elements. Call it PriorityQueue.
+Implement, test, and apply a heap-based priority queue in either C++ or Java. Specifically, implement your heap using a zero-based array of characters, with the indexing scheme described in [the notes](topic5.html). You may assume that the array will contain no more than 255 elements. Call this class PriorityQueue.
 
 You'll use PriorityQueue in two programs: one to test it and one to apply it.
 
@@ -10,7 +10,7 @@ You'll use PriorityQueue in two programs: one to test it and one to apply it.
 
 	- *clear*() eliminates all elements and sets the array size to zero.
 	- *append*($a$) appends an element $a$ to the end of the array (regardless of the heap order property.)
-	- *check*() confirm that the array satisfies the heap order property and returns *true* or *false* accordingly.
+	- *check*() confirms that the array satisfies the heap order property and returns *true* or *false* accordingly.
 
 - (20 points) The class should also provide the following heap operations.
 
@@ -87,4 +87,4 @@ You'll use PriorityQueue in two programs: one to test it and one to apply it.
 
 - (10 points) Test and submit your code on *classes.csc.lsu.edu* in the `prog1` directory, using the procedure described in [project 0](project0.html). Remember to include your name and your LSU email address.
 
-Be advised that the grading process may include unit tests and character sequences different from those given above. It is therefore smart to write a few of your own unit tests and example inputs to confirm that your implementation function correctly given other inputs.
+Be advised that the grading process may include unit tests and character sequences different from those given above. It is therefore smart to write a few of your own unit tests and example inputs to confirm that your implementation functions correctly given other inputs.
