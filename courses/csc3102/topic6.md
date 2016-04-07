@@ -110,7 +110,7 @@ Here is an alternative formulation in the functional style. It rebuilds nodes al
 &emsp;&emsp;&emsp; if $k$ > $v$.key  
 &emsp;&emsp;&emsp;&emsp; return new node($v$.key, $v$.left, remove($v$.right, $k$))  
 
-&emsp;&emsp;&emsp; if $v$.left and $v$.right)   
+&emsp;&emsp;&emsp; if $v$.left and $v$.right  
 &emsp;&emsp;&emsp;&emsp; $y \gets$ findMin($v$.right)  
 &emsp;&emsp;&emsp;&emsp; return new node(y.key, $v$.left, remove($v$.right, $y$.key))  
 
