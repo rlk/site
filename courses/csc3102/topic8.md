@@ -1,6 +1,7 @@
 # Graphs
 
-Reading: Chapter 13 of Coodrich et al.
+C++ Reading: Chapter 13 of Goodrich
+Java Reading: Chapter 14 of Goodrich
 
 A graph $G$ is a collection $V$ of *vertices* with a collection $E$ of vertex pairs known as *edges*. Here *collection* is used instead of *set* to admit multiples.
 
@@ -100,17 +101,17 @@ Traversal is $O(n + m)$
 
 	When $C$ is a stack, the traversal will proceed as far as possible before backtracking.
 
-	- Test whether $G$ is connected
-	- Compute a spanning tree of $G$, if $G$ is connected
-	- Compute the connected components of $G$
-	- Compute a path between two given vertices of $G$, if it exists
-	- Compute a cycle in $G$, or reporting that $G$ has no cycles
+	- Test whether $G$ is connected.
+	- Compute a spanning tree of $G$, if $G$ is connected.
+	- Compute the connected components of $G$.
+	- Compute a path between two given vertices of $G$, if it exists.
+	- Compute a cycle in $G$, or reporting that $G$ has no cycles.
 
 - Breadth-first
 
 	When $C$ is a queue, the traversal will proceed forward across a broad front.
 
-	- Determine the shortest path from $s$ to all other edges
+	- Determine the shortest path from $s$ to all other vertices.
 
 ## Weighted Graphs
 

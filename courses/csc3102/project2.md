@@ -4,11 +4,13 @@
 
 The objective of this project is to implement breadth-first and depth-first traversals of a directed graph data structure.
 
-You may use either the edge list, adjacency list, or the matrix data structure. See Chapter 13 of Goodrich (C++) or Chapter 14 of Goodrich (Java) for the details of the basic implementation.
+You may use any of the structures described in the textbook: the edge list, adjacency list, or the matrix data structure. See Chapter 13 of Goodrich (C++) or Chapter 14 of Goodrich (Java) for the details of the basic implementation. Be advised that the implementation given in the textbook is significantly overwrought for this application.
 
 In previous projects, you were required to use only your language's basic array data type as the basis for your implementation. In this project, however, you're free to use your language's standard vectors, lists, sets, maps, stacks, queues. (As of this writing, there is no graph data structure among the standard Java collections or the C++ STL. If your implementation has one, obviously you should *not* use it.)
 
-- (40 points) Implement a directed graph data structure where each vertex is labeled with a single character.
+- (40 points) Implement a directed graph data structure class where each vertex is labeled with a single character.
+
+	- Keep your class minimal. Implement only the operations that you need to produce the application described below. Any code that does not function will be considered "dead". This is a none-too-subtle requirement to encourage you to *understand* the code that you include instead of copying it from an external source.
 
 - (40 points) Using your graph class, implement a program that transforms its input as follows:
 
