@@ -2,48 +2,59 @@
 
 ## Programming Project 2
 
-The objective of this project is to implement the insert and delete operators on a simple binary search tree, and to produce a level-by-level traversal of the resulting tree.
+The objective of this project is to implement breadth-first and depth-first traversals of a directed graph data structure.
 
-See Chapter 10 of Goodrich (C++) or Chapter 11 of Goodrich (Java) for the details of the basic implementation.
+You may use either the edge list, adjacency list, or the matrix data structure. See Chapter 13 of Goodrich (C++) or Chapter 14 of Goodrich (Java) for the details of the basic implementation.
 
-- (40 points) Implement a binary search tree class capable of storing integers.
+In previous projects, you were required to use only your language's basic array data type as the basis for your implementation. In this project, however, you're free to use your language's standard vectors, lists, sets, maps, stacks, queues. (As of this writing, there is no graph data structure among the standard Java collections or the C++ STL. If your implementation has one, obviously you should *not* use it.)
 
-	There are two points of ambiguity: In the case where an inserted value is already present in the tree, insert to the left. In the case where a deleted value has two internal children, seek the minimum value in the right subtree.
+- (40 points) Implement a directed graph data structure where each vertex is labeled with a single character.
 
-- (40 points) Using your binary search tree class, implement a program that transforms its input as follows:
+- (40 points) Using your graph class, implement a program that transforms its input as follows:
 
-	- Read a sequence of lines. Each line will have one of the following forms.
+	- Read a sequence of lines. Each line will have one of the following forms. Respond accordingly.
 
-			insert N
+			add X Y
 
-		or 
+		Ensure that vertices with label X and Y are present in the graph and add a directed edge from X to Y.
 
-			delete N
+			remove X Y
 
-		where N is an integer value. Insert or delete that integer as indicated.
+		Remove the edge from X to Y. Don't worry about removing any associated vertices.
 
-		After reading all input, print the tree to the output level-by-level. That is, print the root on one line, followed by the two nodes at level 1 on the second line, followed by the (up to) four nodes at level 2 on the next line, etc.
+			breadth X
 
+		Print a breadth-first traversal of the graph beginning at the vertex labeled X.
+
+			depth X
+
+		Print a breadth-first traversal of the graph beginning at the vertex labeled X.
+
+		There's a potential ambiguity in the traversals. When enumerating the edges leaving a vertex, enumerate them in the order in which they appeared in the input. With this stipulation, there exists exactly one correct output for each traversal.
+		
 	- For example, given the following input:
 
-			insert 5
-			insert 20
-			insert 3
-			insert 4
-			insert 9
-			delete 4
-			insert 7
-
+			add A B
+			add A C
+			add B D
+			add D E
+			add E A
+			add E B
+			breadth A
+			depth A
+			remove A B
+			add B A
+			breadth B
+			depth B
+			
 		The program will produce this output
 
-			5
-			3 20
-			9
-			7
-
-		Hint: the level-by-level output involves a breadth-first traversal of the tree.
-
-- (10 points) Code quality matters! Consistent indentation, spacing, and brace placement are critical details that communicate structure. An appropriate level of in line comments are necessary to communicate function. Points will be deducted for inconsistently formatted or undocumented code.
+			A B C D E
+			A B D E C
+			B D A E C
+			B D E A C
+			
+- (10 points) Code quality matters. Consistent indentation, spacing, and brace placement are critical details that communicate structure. An appropriate level of in line comments are necessary to communicate function.
 
 - (10 points) Test and submit your code on *classes.csc.lsu.edu* in the `prog2` directory, using the procedure described in [project 0](project0.html). Remember to include your name and your LSU email address.
 
