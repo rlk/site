@@ -32,7 +32,7 @@ In previous projects, you were required to use only your language's basic array 
 
 		Print a breadth-first traversal of the graph beginning at the vertex labeled X.
 
-		There's a potential ambiguity in the traversals. When enumerating the edges leaving a vertex, enumerate them in the order in which they appeared in the input. With this stipulation, there exists exactly one correct output for each traversal.
+		There's a potential ambiguity in the traversals. When enumerating the adjacent vertices, **enumerate them in the order in which they appeared in the input**. With this stipulation, there exists exactly one correct output for each traversal.
 		
 	- For example, given the following input:
 
@@ -52,9 +52,9 @@ In previous projects, you were required to use only your language's basic array 
 		The program will produce this output
 
 			A B C D E
-			A B D E C
+			A C B D E
 			B D A E C
-			B D E A C
+			B A C D E
 			
 - (10 points) Code quality matters. Consistent indentation, spacing, and brace placement are critical details that communicate structure. An appropriate level of in line comments are necessary to communicate function.
 

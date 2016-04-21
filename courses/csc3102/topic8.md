@@ -1,6 +1,6 @@
 # Graphs
 
-C++ Reading: Chapter 13 of Goodrich
+C++ Reading: Chapter 13 of Goodrich  
 Java Reading: Chapter 14 of Goodrich
 
 A graph $G$ is a collection $V$ of *vertices* with a collection $E$ of vertex pairs known as *edges*. Here *collection* is used instead of *set* to admit multiples.
@@ -88,13 +88,13 @@ Operations on edges
 Traversal is $O(n + m)$
 
 &emsp; traverse($s$)  
+&emsp;&emsp; mark all nodes as unvisited  
 &emsp;&emsp; $C$.insert($s$)  
 &emsp;&emsp; while $C$ is not empty  
 &emsp;&emsp;&emsp; $v \gets C$.remove()  
-&emsp;&emsp;&emsp; if $v$ is not visited  
-&emsp;&emsp;&emsp;&emsp; mark $v$ visited  
-&emsp;&emsp;&emsp;&emsp; for each $e$ in incidentEdges($v$)  
-&emsp;&emsp;&emsp;&emsp;&emsp; $w \gets e$.opposite($v$)  
+&emsp;&emsp;&emsp; mark $v$ visited  
+&emsp;&emsp;&emsp; for each $w$ adjacent to $v$  
+&emsp;&emsp;&emsp;&emsp; if $w$ is not visited  
 &emsp;&emsp;&emsp;&emsp;&emsp; $C$.insert($w$)  
 
 - Depth-first
