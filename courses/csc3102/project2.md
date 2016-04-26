@@ -30,7 +30,7 @@ In previous projects, you were required to use only your language's basic array 
 
 			depth X
 
-		Print a breadth-first traversal of the graph beginning at the vertex labeled X.
+		Print a depth-first traversal of the graph beginning at the vertex labeled X.
 
 		There's a potential ambiguity in the traversals. When enumerating the adjacent vertices, **enumerate them in the order in which they appeared in the input**. With this stipulation, there exists exactly one correct output for each traversal.
 		

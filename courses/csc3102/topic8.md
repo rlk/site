@@ -127,11 +127,7 @@ Each edge has a *weight*. The *length* of a path is the sum of the edge weights 
 	&emsp;&emsp; Let $Q$ be a priority queue containing $(D[u], u)$ for all $u$  
 	&emsp;&emsp; while $Q$ is not empty  
 	&emsp;&emsp;&emsp; $u\gets Q$.removeMin()  
-	&emsp;&emsp;&emsp; for each $e$ in incidentEdges($u$) where $z$ is in $Q$  
-	&emsp;&emsp;&emsp;&emsp; if $z\gets e$.opposite($u$) is in $Q$  
-	&emsp;&emsp;&emsp;&emsp;&emsp; if $D[z]\gt D[u] + w(u, z)$  
-	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; $D[z]\gets D[u] + w(u, z)$  
-	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; update $(D[z], z)$ in $Q$
-
-
-- Minimum Spanning Tree
+	&emsp;&emsp;&emsp; for each $z$ adjacent to *u*  
+	&emsp;&emsp;&emsp;&emsp; if $D[z]\gt D[u] + w(u, z)$  
+	&emsp;&emsp;&emsp;&emsp;&emsp; $D[z]\gets D[u] + w(u, z)$  
+	&emsp;&emsp;&emsp;&emsp;&emsp; update $(D[z], z)$ in $Q$
