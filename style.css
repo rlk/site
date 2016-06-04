@@ -3,12 +3,24 @@ a:visited { color:#2200DD; text-decoration: none; }
 a:hover   { color:#AA0000; text-decoration: underline; }
 a:active  { color:#FF0000; text-decoration: underline; }
 
-body {
-  font-family: "Calibri", "Arial", sans-serif;
-  font-size: 18px;
-  line-height: 26px;
-  color: #444;
-  margin: 3em;
+@media screen {
+  body {
+    font-family: "Calibri", "Arial", sans-serif;
+    font-size: 18px;
+    line-height: 26px;
+    color: #444;
+    margin: 3em;
+  }
+}
+
+@media print {
+  body {
+    font-family: "Calibri", "Arial", sans-serif;
+    font-size: 10pt;
+    line-height: 14pt;
+    color: #444;
+    margin: 3em;
+  }
 }
 
 body.full {
@@ -151,10 +163,10 @@ table.calendar td {
 
 @media print {
   table.calendar td {
-    width:       84pt;
-    height:      84pt;
-    font-size:   12pt;
-    line-height: 14pt;
+    width:       6em;
+    height:      6em;
+    font-size:   10pt;
+    line-height: 12pt;
   }
 }
 
