@@ -11,6 +11,11 @@ a:active  { color:#FF0000; text-decoration: underline; }
     color: #444;
     margin: 3em;
   }
+  code {
+    font-family: "Consolas", "Courier New", monospace;
+    font-size: 15px;
+    color: #999;
+  }
 }
 
 @media print {
@@ -21,16 +26,15 @@ a:active  { color:#FF0000; text-decoration: underline; }
     color: #444;
     margin: 3em;
   }
+  code {
+    font-family: "Consolas", "Courier New", monospace;
+    font-size: 10pt;
+    color: #999;
+  }
 }
 
 body.full {
   margin: 0px;
-}
-
-code {
-  font-family: "Consolas", "Courier New", monospace;
-  font-size: 15px;
-  color: #999;
 }
 
 pre {
@@ -46,7 +50,6 @@ img {
 
 table {
   font: inherit;
-  page-break-inside: avoid;
 }
 
 svg {
