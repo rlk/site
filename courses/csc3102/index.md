@@ -21,9 +21,9 @@ CSC 1254 or CSC 1351 and credit or concurrent enrollment in CSC 2259 or EE 2740.
 
 ## Time & Place
 
-10:30am--11:50am  
+9:00am--10:20am  
 Tuesday and Thursday  
-202 Williams Hall  
+102 Allen Hall  
 
 ## Textbook
 
@@ -38,31 +38,33 @@ Dr. Robert Kooima
 <kooima@csc.lsu.edu>  
 Office Hours: 1:00pm--3:00pm Tuesday, 2016 [Digital Media Center](https://maps.google.com/?ll=30.407446,-91.172608)  
 
+<!--
 ## Grader
 
 Doug Lafield  
 <wlafie2@lsu.edu>  
 Office Hours: 1:00pm--2:00pm Monday and Wednesday 175 [Coates Hall](https://maps.google.com/?ll=30.4131945,-91.1792523)  
+-->
 
 ## Assignments
 
-All homework will be submitted in class on the due date. All programming projects will be submitted via your account on *classes.csc.lsu.edu*. The late penalty is 10% per day. Grades are recorded on the course [Moodle](http://moodle2.lsu.edu/course/view.php?id=37328). Questions about posted grades must be sent to *both* the instructor and the grader. Gradebook entries are finalized one week after an assignment is returned. 
+All homework will be submitted in class on the due date. All programming projects will be submitted via your account on *classes.csc.lsu.edu*. The late penalty is 10% per day. Grades are recorded on the course [Moodle](https://moodle3.lsu.edu/course/view.php?id=2373). Questions about posted grades must be sent to *both* the instructor and the grader. Gradebook entries are finalized one week after an assignment is returned. 
 
-| Assignment                             | Deadline                           |
-| -------------------------------------- | ---------------------------------- |
-| [Programming Project 0](project0.html) |  5:00pm Thursday 28 January   2016 |
-| [Homework 1](homework1.html)           | 10:30am Thursday 11 February  2016 |
-| [Homework 2](homework2.html)           | 10:30am Thursday 25 February  2016 |
-| [Programming Project 1](project1.html) |  5:00pm Thursday 31 March     2016 |
-| [Homework 3](homework3.html)           | 10:30am Thursday 14 April     2016 |
-| [Programming Project 2](project2.html) |  5:00pm Thursday 28 April     2016 |
+| Assignment            | Deadline                           |
+| --------------------- | ---------------------------------- |
+| Programming Project 0 |  5:00pm Thursday  1 September 2016 |
+| Homework 1            |  9:00am Thursday 15 September 2016 |
+| Homework 2            |  9:00am Thursday 29 September 2016 |
+| Programming Project 1 |  5:00pm Thursday 27 October   2016 |
+| Homework 3            |  9:00am Thursday 10 November  2016 |
+| Programming Project 2 |  5:00pm Thursday 29 November  2016 |
 
 Exams are given in the usual classroom.
 
-| Exam    | Time                                    |
-| ------- | --------------------------------------- |
-| Midterm | 10:30am--11:50am Thursday 10 March 2016 |
-| Final   | 10:00am--noon    Friday    6 May   2016 |
+| Exam    | Time                                      |
+| ------- | ----------------------------------------- |
+| Midterm | 9:00am--10:20am Thursday 13 October 2016  |
+| Final   | 3:00pm--5:00pm  Thursday  8 December 2016 |
 
 ## Grading
 
