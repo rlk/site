@@ -33,9 +33,9 @@ Windows users commonly use [WinSCP](https://winscp.net/eng/download.php) as thei
 
 The Project 0 code is a just a review:
 
-- Read a file containing a list of up to 100 integers.
-- Store them in a simple integer array.
-- Print them in ascending order.
+- Read a file containing a list of up to 256 words.
+- Store them in a *simple* array (not a vector or ArrayList).
+- Print them in alphabetical order.
 
 You have undoubtedly encountered basic sorting in your Introduction to Programming coursework, so implement one of the algorithms you learned there.
 
@@ -44,7 +44,7 @@ To begin, create a directory called `prog0` to store the project files.
 If you are a Java user, add the following Java framework code into to a file named `Prog0.java` in the `prog0` directory.
 
     // Programming Project 0
-    // Mike Tiger IV <mtiger6@lsu.edu>
+    // Mike Tiger VI <mtiger6@lsu.edu>
 
     import java.io.*;
     import java.util.Scanner;
@@ -53,7 +53,7 @@ If you are a Java user, add the following Java framework code into to a file nam
         public static void main(String[] args) throws FileNotFoundException {
             Scanner input = new Scanner(new File(args[0]));
 
-            while (input.hasNextInt()) {
+            while (input.hasNext()) {
                 // etc...
             }
 
@@ -64,7 +64,7 @@ If you are a Java user, add the following Java framework code into to a file nam
 If you are a C++ user, add the following C++ code into a file named `Prog0.cpp` in the `prog0` directory.
 
     // Programming Project 0
-    // Mike Tiger IV <mtiger6@lsu.edu>
+    // Mike Tiger VI <mtiger6@lsu.edu>
 
     #include <iostream>
     #include <fstream>
@@ -72,9 +72,9 @@ If you are a C++ user, add the following C++ code into a file named `Prog0.cpp` 
     int main(int argc, char **argv)
     {
         std::ifstream input(argv[1]);
-        int i;
+        std::string s;
 
-        while (input >> i)
+        while (input >> s)
         {
             // etc...
         }
@@ -100,7 +100,7 @@ Note, if you need to re-upload your work after making changes, you *might* need 
 
 The Prog0 example is representative of the form taken by all CSC 3102 programming projects: input is given by a file that is named in the argument list, and output is given on the standard output. To test your project, you'll need an input file. Create a file named `input.txt` with the following contents and place it in your `prog0` directory on *classes.csc*.
 
-    9 1 14 11 5 4 12 7 15 8 18 6 2 19 13 16 20 10 3 17
+> `buy it use it break it fix it trash it change it mail upgrade it charge it point it zoom it press it snap it work it quick erase it write it cut it paste it save it load it check it quick rewrite it plug it play it burn it rip it drag it drop it zip unzip it lock it fill it call it find it view it code it jam unlock it surf it scroll it pause it click it cross it crack it switch update it name it read it tune it print it scan it send it fax rename it touch it bring it pay it watch it turn it leave it stop format it`
 
 Log in to *classes.csc* using your SSH client. This will give you a Bash shell on *classes*. [Here's another link to the Bash tutorial](http://ryanstutorials.net/linuxtutorial/).
 
@@ -120,7 +120,9 @@ Log in to *classes.csc* using your SSH client. This will give you a Bash shell o
 
     If it runs correctly, you'll receive the output
 
-        1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+    > `break bring burn buy call change charge check click code crack cross cut drag drop erase fax fill find fix format it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it jam leave load lock mail name paste pause pay play plug point press print quick quick read rename rewrite rip save scan scroll send snap stop surf switch touch trash tune turn unlock unzip update upgrade use view watch work write zip zoom`
+
+    NetBeans users often face an error here due to the fact that NetBeans automatically inserts a `package` command into your code. Simply remove it.
 
 - To test C++ code, compile it.
 
@@ -132,7 +134,7 @@ Log in to *classes.csc* using your SSH client. This will give you a Bash shell o
 
     If it runs correctly, you'll receive the output
 
-        1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+    > `break bring burn buy call change charge check click code crack cross cut drag drop erase fax fill find fix format it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it it jam leave load lock mail name paste pause pay play plug point press print quick quick read rename rewrite rip save scan scroll send snap stop surf switch touch trash tune turn unlock unzip update upgrade use view watch work write zip zoom`
 
 Each programming assignment will include a sample input and output, as above. But be advised that this is *not* the input that the grader will use to test your code. Be sure your code works with a variety of different input files, with different names.
 

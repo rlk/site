@@ -38,26 +38,32 @@ Dr. Robert Kooima
 <kooima@csc.lsu.edu>  
 Office Hours: 1:00pm--3:00pm Tuesday, 2016 [Digital Media Center](https://maps.google.com/?ll=30.407446,-91.172608)  
 
-<!--
-## Grader
+## TA
 
 Doug Lafield  
 <wlafie2@lsu.edu>  
+<!--
 Office Hours: 1:00pm--2:00pm Monday and Wednesday 175 [Coates Hall](https://maps.google.com/?ll=30.4131945,-91.1792523)  
 -->
+
+## Supplemental Instructor
+
+Thomas Chang
+<tchang4@lsu.edu>
+Tuesdays and Thursdays from 4:30-6:00
 
 ## Assignments
 
 All homework will be submitted in class on the due date. All programming projects will be submitted via your account on *classes.csc.lsu.edu*. The late penalty is 10% per day. Grades are recorded on the course [Moodle](https://moodle3.lsu.edu/course/view.php?id=2373). Questions about posted grades must be sent to *both* the instructor and the grader. Gradebook entries are finalized one week after an assignment is returned. 
 
-| Assignment            | Deadline                           |
-| --------------------- | ---------------------------------- |
-| Programming Project 0 |  5:00pm Thursday  1 September 2016 |
-| Homework 1            |  9:00am Thursday 15 September 2016 |
-| Homework 2            |  9:00am Thursday 29 September 2016 |
-| Programming Project 1 |  5:00pm Thursday 27 October   2016 |
-| Homework 3            |  9:00am Thursday 10 November  2016 |
-| Programming Project 2 |  5:00pm Tuesday  29 November  2016 |
+| Assignment                             | Deadline                           |
+| -------------------------------------- | ---------------------------------- |
+| [Programming Project 0](project0.html) |  5:00pm Tuesday  6  September 2016 |
+|  Homework 1                            |  9:00am Thursday 15 September 2016 |
+|  Homework 2                            |  9:00am Thursday 29 September 2016 |
+|  Programming Project 1                 |  5:00pm Thursday 27 October   2016 |
+|  Homework 3                            |  9:00am Thursday 10 November  2016 |
+|  Programming Project 2                 |  5:00pm Tuesday  29 November  2016 |
 
 Exams are given in the usual classroom.
 
