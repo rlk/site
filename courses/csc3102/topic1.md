@@ -20,7 +20,7 @@ A sequence container is a simple 1-dimensional collection of elements. All seque
 - Arrays have a static size. Expansion beyond the maximum is disallowed.
 - Elements are stored contiguously and sequentially in memory.
 - Thus, elements are referred to by index.
-- The element count must be stored.
+- The element count $n$ and the maximum element count $m$ must both be stored.
 
 ## Singly Linked Lists
 
@@ -37,16 +37,19 @@ A sequence container is a simple 1-dimensional collection of elements. All seque
 
 ## Summary of Operations
 
-Given a collection containing N elements, how many steps are required (in the worst-case scenario) to perform each basic operation?
+Given a collection containing $n$ elements, how many steps are required (in the worst-case scenario) to perform each basic operation?
 
-| Operation   | Array   | Single  | Double  |
-| ----------- | ------- | ------- | ------- |
-| Append      |   1     |    N    |    1    |
-| Insert      |   N     |    1    |    1    |
-| Erase       |   N     |    N    |    1    |
-| Index       |   1     |    N    |    N    |
-| Size        |   1     |    N    |    N    |
-| Find        |   N     |    N    |    N    |
+| Operation     | Array   | Single  | Double  |
+| ------------- | ------- | ------- | ------- |
+| Append        |   1     |   $n$   |   $n$   |
+| Erase         |  $n$    |   $n$   |    1    |
+| Insert After  |  $n$    |    1    |    1    |
+| Insert Before |  $n$    |   $n$   |    1    |
+| Index         |   1     |   $n$   |   $n$   |
+| Size          |   1     |   $n$   |   $n$   |
+| Find          |  $n$    |   $n$   |   $n$   |
+
+Example: CAT. Append S. Erase T. Insert R after A. Insert T before S.
 
 ## Things to consider
 
