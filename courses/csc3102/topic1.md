@@ -9,8 +9,8 @@ Reading: Chapter 3 of Goodrich et al.
 A sequence container is a simple 1-dimensional collection of elements. All sequence containers share the same set of basic operations:
 
 - Append
-- Insert
 - Erase
+- Insert
 - Index
 - Size
 - Find

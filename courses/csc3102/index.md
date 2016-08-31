@@ -36,21 +36,19 @@ One of the following:
 
 Dr. Robert Kooima  
 <kooima@csc.lsu.edu>  
-Office Hours: 1:00pm--3:00pm Tuesday, 2016 [Digital Media Center](https://maps.google.com/?ll=30.407446,-91.172608)  
+Office Hours: 1:00pm--3:00pm Tuesday, 2016 [Digital Media Center](https://maps.google.com/?ll=30.407446,-91.172608)
 
 ## TA
 
 Doug Lafield  
 <wlafie2@lsu.edu>  
-<!--
-Office Hours: 1:00pm--2:00pm Monday and Wednesday 175 [Coates Hall](https://maps.google.com/?ll=30.4131945,-91.1792523)  
--->
+Office Hours: Thursdays from 1:30--2:30, 175 [Coates Hall](https://maps.google.com/?ll=30.4131945,-91.1792523)
 
 ## Supplemental Instructor
 
-Thomas Chang
-<tchang4@lsu.edu>
-Tuesdays and Thursdays from 4:30-6:00
+Thomas Chang  
+<tchang4@lsu.edu>  
+Tuesdays and Thursdays from 4:30--6:00
 
 ## Assignments
 
