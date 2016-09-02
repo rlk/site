@@ -48,7 +48,7 @@ Office Hours: Thursdays from 1:30--2:30, 175 [Coates Hall](https://maps.google.c
 
 Thomas Chang  
 <tchang4@lsu.edu>  
-Tuesdays and Thursdays from 4:30--6:00
+Tuesdays and Thursdays from 4:30--6:00, 203 Tureaud Hall
 
 ## Assignments
 
