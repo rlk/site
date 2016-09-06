@@ -52,7 +52,7 @@ An algorithm is always measured by the number of steps that it takes to execute 
 	- $b^a b^c = b^{a+c}$
 	- $\frac{b^a}{b^c} = b^{a-c}$
 	- $b^\frac{a}{c}=\sqrt[c]{b^a}$
-	- $\displaystyle{\sum_{i=0}^{n-1} r^i = \frac{1-r^n}{1-r}}$
+	- $\displaystyle{\sum_{i=0}^{n} a^i = 1+a+a^2+\cdots+a^n = \frac{a^{n+1}-1}{a-1}}$
 
 One of the universal truisms of computer science is that polynomials are "good" and exponentials are "bad."
 
