@@ -99,11 +99,9 @@ Algorithm analysis
 
 - Here's a deceiving example:
 
-	&emsp; $s\gets 1$  
-	&emsp; for ($i\gets 1$; $i\leq n$; $i\gets i + 1$)  
-	&emsp;&emsp; for ($j\gets 1$; $j\leq n$; $j\gets j + s$)  
+	&emsp; for ($i\gets 1$; $i\leq n$; $i\gets 2 i$)  
+	&emsp;&emsp; for ($j\gets 1$; $j\leq n$; $j\gets j + i$)  
 	&emsp;&emsp;&emsp; print $j$  
-	&emsp;&emsp; $s\gets 2\,s$
 
 - This example calculates $y=x^n$
 
