@@ -135,7 +135,7 @@ To merge-sort a sequence of items: cut the unsorted sequence in half, recursivel
 
 Analyze the running order of merge-sort by expanding the recurrence relation:
 
-$$f(n)=\begin{cases} b & n\le 1 \\ 2\,f(n\,/\,2)+c\,n & \text{otherwise}\end{cases}$$
+$$f(n)=\begin{cases} a & n\le 1 \\ 2\,f(n\,/\,2)+b\,n & \text{otherwise}\end{cases}$$
 
 ## Quick-sort
 

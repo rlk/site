@@ -2,7 +2,7 @@
 
 ## Homework 1
 
-Due: In class, on paper, Thursday 20 September 2016. Typed submissions receive extra credit.
+Due: In class, on paper, Tuesday 20 September 2016. Typed submissions receive extra credit.
 
 1. (5 points) The number of operations executed by algorithms A and B is $40 n^2$ and $2 n^3$, respectively. Determine $n_0$ such that A is better than B for $n > n_0$.
 
