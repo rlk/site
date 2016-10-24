@@ -23,7 +23,32 @@
 
 		<p>This is the tiny house model, wrapped in the following image.</p>
 
-		<img class="center" width="40%" src="../dat/tinyhouse.png">
+		<figure>
+			<table class="center">
+				<tr>
+					<td style="vertical-align:top; border-top-style:dotted">1.0&nbsp;</td>
+					<td style="border-style: solid" rowspan="3" colspan="3"><img width="512px" src="../dat/tinyhouse.png"></td>
+				</tr>
+				<tr>
+					<td style="vertical-align:center">$v$</td>
+				</tr>
+				<tr>
+					<td style="vertical-align:bottom; border-bottom-style:dotted">0.0&nbsp;</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td style="text-align:left; border-left-style:dotted">&nbsp;0.0</td>
+					<td style="text-align:center">$u$</td>
+					<td style="text-align:right; border-right-style:dotted">1.0&nbsp;</td>
+				</tr>
+			</table>
+		</figure>
+
+		<p>We overlay a 2D <em>texture coordinate</em> system on this image, from 0.0 to 1.0, along the $u$ and $v$ axes.</p>
+
+		<p>Each vertex in the model has a texture coordinate <a href="../01-geometry/geometry-11.html">attribute</a> giving its 2D location in that image.</p>
+
+		<p>This attribute is assigned to a <a href="../06-pipeline/vertex-processing.html">varying</a> by the vertex shader. Thus, each fragment in the frame buffer has a texture pixel, a <em>texel</em>, associated with it.</p>
 
 		<script type="text/javascript" src="../js/demo-texture.js" onload="demoTextureExample = new DemoTexture('demoTextureExample', tinyhouse, '../dat/tinyhouse.png')"></script>
 	</section>
