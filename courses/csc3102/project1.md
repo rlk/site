@@ -2,89 +2,91 @@
 
 ## Programming Project 1
 
-Implement, test, and apply a heap-based priority queue in either C++ or Java. Specifically, implement your heap using a zero-based array of characters, with the indexing scheme described in [the notes](topic5.html). You may assume that the array will contain no more than 255 elements. Call this class PriorityQueue.
+- (60 points) Implement and apply a heap-based priority queue in either C++ or Java. This priority queue will hold records consisting of:
 
-You'll use PriorityQueue in two programs: one to test it and one to apply it.
+	- A name string
+	- An integer priority
 
-- (20 points) For the sake of testing, the class should provide the following non-heap debugging operations.
+	Implement your heap using a zero-based array of these records, with the indexing scheme described in [the notes](topic5.html). You may assume that the array will contain no more than 255 elements. Call this class PriorityQueue. Implement the following two functions:
 
-	- *clear*() eliminates all elements and sets the array size to zero.
-	- *append*($a$) appends an element $a$ to the end of the array (regardless of the heap order property.)
-	- *check*() confirms that the array satisfies the heap order property and returns *true* or *false* accordingly.
+	- *insert*(*name*, *priority*) takes a name string and priority value and inserts them into the priority queue.
+	- *remove*() removes the record with the *highest* priority value and returns the name string from that record.
 
-- (20 points) The class should also provide the following heap operations.
+	Keep your class minimal. Implement only the operations that you need to produce the application described below. Any code that does not function will be considered "dead". This is a none-too-subtle requirement to encourage you to *understand* the code that you include instead of copying it from an external source.
 
-	- *size*() returns the number of elements in the heap.
-	- *insert*($a$) adds an element $a$ to the heap, re-heapifying as necessary.
-	- *remove*() deletes the front element from the heap, re-heapifying as necessary.
+- (20 points) Using the *insert* and *remove* operations of your priority queue class, implement a program that transforms its input as follows:
 
-- (20 points) Test the heap operations by writing the following *unit tests*.
+	- Read a sequence of lines. Each line will have one of the following forms. Respond accordingly.
 
-	&emsp; function test1(*Q*)  
-	&emsp;&emsp; *Q*.clear()  
-	&emsp;&emsp; *Q*.append('a')  
-	&emsp;&emsp; *Q*.append('b')  
-	&emsp;&emsp; assert *Q*.size() == 2  
-	&emsp;&emsp; assert *Q*.check() == true  
+			insert Abcdef 99
 
-	&emsp; function test2(*Q*)  
-	&emsp;&emsp; *Q*.clear()  
-	&emsp;&emsp; *Q*.append('b')  
-	&emsp;&emsp; *Q*.append('a')  
-	&emsp;&emsp; assert *Q*.size() == 2  
-	&emsp;&emsp; assert *Q*.check() == false  
+		Insert a new record with the given name and priority.
 
-	&emsp; function test3(*Q*)  
-	&emsp;&emsp; *Q*.clear()  
-	&emsp;&emsp; *Q*.insert('a')  
-	&emsp;&emsp; *Q*.insert('b')  
-	&emsp;&emsp; assert *Q*.size() == 2  
-	&emsp;&emsp; assert *Q*.check() == true  
-	&emsp;&emsp; assert *Q*.remove() == 'a'  
-	&emsp;&emsp; assert *Q*.size() == 1  
+			remove
 
-	&emsp; function test4(*Q*)  
-	&emsp;&emsp; *Q*.clear()  
-	&emsp;&emsp; *Q*.insert('b')  
-	&emsp;&emsp; *Q*.insert('a')  
-	&emsp;&emsp; assert *Q*.size() == 2  
-	&emsp;&emsp; assert *Q*.check() == true  
-	&emsp;&emsp; assert *Q*.remove() == 'a'  
-	&emsp;&emsp; assert *Q*.size() == 1  
+		Remove the highest priority record and print the name.
 
-	Finally execute your test suite by implementing a program Prog1Test as follows:
+	- Here's an example input:
 
-	&emsp; function main()  
-	&emsp;&emsp; *Q* = new PriorityQueue  
-	&emsp;&emsp; test1(*Q*)  
-	&emsp;&emsp; test2(*Q*)  
-	&emsp;&emsp; test3(*Q*)  
-	&emsp;&emsp; test4(*Q*)  
-
-	Note that this test suite is *far* from comprehensive. Passing this simple, small set of tests does not confirm the correctness of your heap implementation.
-
-	C++ users: You must `#include <cassert>` and make assertions like `assert(1 == 1);`.
-
-	Java users: Make assertions like `assert 1 == 1;` and enable assertions on execution with `java -ea Prog1Test`.
-
-- (20 points) Using only the *insert* and *remove* operations of your priority queue class, implement a program Prog1Application that transforms its input as follows:
-
-	- Read a sequence of characters one-by-one.
-
-	- If the character is a letter, insert it into the queue.
-
-	- If the character is an exclamation point, remove the minimum (alphabetically first) character from the queue and print it to the output.
-
-	- For example, given the following input:
-
-			GEA!U!XT!!IGER!!!!!S!
+			insert Walter   21
+			remove
+			insert Matthew  13
+			insert Hermine  8
+			insert Lisa     12
+			insert Julia    10
+			remove
+			remove
+			insert Richard  17
+			remove
+			remove
+			insert Tobias   19
+			insert Karl     11
+			insert Ian       9
+			insert Nicole   14
+			remove
+			insert Bonnie   2
+			insert Paula    16
+			remove
+			insert Alex     1
+			remove
+			remove
+			insert Otto     15
+			remove
+			remove
+			remove
+			insert Gaston   7
+			remove
+			insert Virginie 20
+			insert Danielle 4
+			insert Earl     5
+			insert Fiona    6
+			insert Shary    18
+			insert Colin    3
+			remove
+			remove
+			remove
 
 		The program will produce this output
 
-			AEGTEGIRUS
+			Walter
+			Matthew
+			Lisa
+			Richard
+			Julia
+			Tobias
+			Paula
+			Nicole
+			Karl
+			Otto
+			Ian
+			Hermine
+			Gaston
+			Virginie
+			Shary
+			Fiona
 
 - (10 points) Code quality matters! Consistent indentation, spacing, and brace placement are critical details that communicate structure. An appropriate level of in line comments are necessary to communicate function. Points will be deducted for inconsistently formatted or undocumented code.
 
-- (10 points) Test and submit your code on *classes.csc.lsu.edu* in the `prog1` directory, using the procedure described in [project 0](project0.html). Remember to include your name and your LSU email address.
+- (10 points) Test and submit your code on *classes.csc.lsu.edu* in the `prog1` directory, using the procedure described in [project 0](project0.html). Your program must read from the input file named on the command line, just as in project 0. Remember to include your name and your LSU email address.
 
-Be advised that the grading process may include unit tests and character sequences different from those given above. It is therefore smart to write a few of your own unit tests and example inputs to confirm that your implementation functions correctly given other inputs.
+Be advised that the grading process input different from those given above. It is therefore smart to write your own example inputs to confirm that your implementation functions correctly.
