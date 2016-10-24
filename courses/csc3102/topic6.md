@@ -144,3 +144,7 @@ Join $S$ and $T$ where $s\le t$ for all $s$ in $S$ and $t$ in $T$. Splay on the 
 Insert: Insert $k$ normally, then splay on the value $k$.
 
 Delete: Splay the value $k$. If $k$ is at the root, join the two subtrees.
+
+# Derived Data Structures
+
+Strong formulations of the Map, Set, Multi-map, and Multi-set data structures are all directly derivable from the Balanced Binary Search Tree.
