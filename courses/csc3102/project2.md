@@ -2,61 +2,84 @@
 
 ## Programming Project 2
 
-The objective of this project is to implement breadth-first and depth-first traversals of a directed graph data structure.
+The objective of this project is to implement balanced binary search tree insertion and removal using the AVL tree algorithm.
 
-You may use any of the structures described in the textbook: the edge list, adjacency list, or the matrix data structure. See Chapter 13 of Goodrich (C++) or Chapter 14 of Goodrich (Java) for the details of the basic implementation. Be advised that the implementation given in the textbook is significantly overwrought for this application.
+- (40 points) Implement an AVL tree class with *insert* and *remove* functions. Tree will hold records consisting of:
 
-In previous projects, you were required to use only your language's basic array data type as the basis for your implementation. In this project, however, you're free to use your language's standard vectors, lists, sets, maps, stacks, queues. (As of this writing, there is no graph data structure among the standard Java collections or the C++ STL. If your implementation has one, obviously you should *not* use it.)
+    - A name string
+    - An integer data value
+    - A height value
 
-- (40 points) Implement a directed graph data structure class where each vertex is labeled with a single character.
+    The name string should be used as the "key" value. That is, the tree should be organized alphabetically by name.
 
-	- Keep your class minimal. Implement only the operations that you need to produce the application described below. Any code that does not function will be considered "dead". This is a none-too-subtle requirement to encourage you to *understand* the code that you include instead of copying it from an external source.
+    You're free to adapt the implementation given in Chapter 10 of the C++ textbook, or Chapter 11 of the Java textbook, or the functional-style implementation given in the course notes. The most effective implementation of this will define a class to represent a tree node and dynamically instantiate individual nodes as needed. It is *not* necessary to implement this data structure atop an array as with prior projects.
 
-- (40 points) Using your graph class, implement a program that transforms its input as follows:
+    In the case of a duplicate insertion, insert on the left. In the case of a removal on a node with two internal children, replace with the successor (the maximum key in the right subtree). In the case where restructuring encounters two children of equal height, use either the LL or RR restructure instead of the LR or RL.
+    
+- (10 points) Implement a recursive *show* function to print the AVL tree's keys and values to the screen, indented with four spaces per level to indicate depth. Like so:
 
-	- Read a sequence of lines. Each line will have one of the following forms. Respond accordingly.
+        Colin 3
+            Bonnie 2
+                Alex 1
+            Earl 5
+                Danielle 4
+                Fiona 6
 
-			add X Y
+    Here, Colin is the root node, and Bonnie and Earl are its left and right children, etc.
 
-		Ensure that vertices with label X and Y are present in the graph and add a directed edge from X to Y.
+- (30 points) Using your AVL tree class, implement a program that transforms its input as follows:
 
-			remove X Y
+    - Read a sequence of lines. Each line will have one of the following forms. Respond accordingly.
 
-		Remove the edge from X to Y. Don't worry about removing any associated vertices.
+            insert Alex 1
 
-			breadth X
+        Insert the name Alex and the value 8 into the AVL tree.
 
-		Print a breadth-first traversal of the graph beginning at the vertex labeled X.
+            remove Alex
 
-			depth X
+        Remove the name Alex and its value from the AVL tree.
 
-		Print a depth-first traversal of the graph beginning at the vertex labeled X.
+            show
 
-		There's a potential ambiguity in the traversals. When enumerating the adjacent vertices, **enumerate them in the order in which they appeared in the input**. With this stipulation, there exists exactly one correct output for each traversal.
-		
-	- For example, given the following input:
+        Print the AVL tree to the screen, as indicated above.
+        
+    - For example, given the following input:
 
-			add A B
-			add A C
-			add B D
-			add D E
-			add E A
-			add E B
-			breadth A
-			depth A
-			remove A B
-			add B A
-			breadth B
-			depth B
-			
-		The program will produce this output
+            insert Earl 5
+            insert Colin 3
+            insert Fiona 6
+            show
+            insert Bonnie 2
+            insert Danielle 4
+            show
+            insert Alex 1
+            show
+            remove Bonnie
+            remove Alex
+            show
 
-			A B C D E
-			A C B D E
-			B D A E C
-			B A C D E
-			
-- (10 points) Code quality matters. Consistent indentation, spacing, and brace placement are critical details that communicate structure. An appropriate level of in line comments are necessary to communicate function.
+        The program should produce this output
+
+            Earl 5
+                Colin 3
+                Fiona 6
+            Earl 5
+                Colin 3
+                    Bonnie 2
+                    Danielle 4
+                Fiona 6
+            Colin 3
+                Bonnie 2
+                    Alex 1
+                Earl 5
+                    Danielle 4
+                    Fiona 6
+            Earl 5
+                Colin 3
+                    Danielle 4
+                Fiona 6
+
+- (10 points) Code quality matters. Consistent indentation, spacing, and brace placement are critical details that communicate structure. An appropriate level of in line comments are necessary to communicate function. As before, dead code is bad. So if you adapt an existing implementation, be certain that you understand it and remove any unused code.
 
 - (10 points) Test and submit your code on *classes.csc.lsu.edu* in the `prog2` directory, using the procedure described in [project 0](project0.html). Remember to include your name and your LSU email address.
 
