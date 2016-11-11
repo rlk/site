@@ -14,7 +14,7 @@ The objective of this project is to implement balanced binary search tree insert
 
     You're free to adapt the implementation given in Chapter 10 of the C++ textbook, or Chapter 11 of the Java textbook, or the functional-style implementation given in the course notes. The most effective implementation of this will define a class to represent a tree node and dynamically instantiate individual nodes as needed. It is *not* necessary to implement this data structure atop an array as with prior projects.
 
-    In the case of a duplicate insertion, insert on the left. In the case of a removal on a node with two internal children, replace with the successor (the maximum key in the right subtree). In the case where restructuring encounters two children of equal height, use either the LL or RR restructure instead of the LR or RL.
+    In the case of a duplicate insertion, insert on the left. In the case of a removal on a node with two internal children, replace with the successor (the minimum key in the right subtree). In the case where restructuring encounters two children of equal height, use either the LL or RR restructure instead of the LR or RL.
     
 - (10 points) Implement a recursive *show* function to print the AVL tree's keys and values to the screen, indented with four spaces per level to indicate depth. Like so:
 
