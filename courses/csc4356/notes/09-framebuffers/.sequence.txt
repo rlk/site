@@ -9,3 +9,4 @@ framebuffer-luminance.html
 framebuffer-threshold.html
 framebuffer-blur.html
 framebuffer-edge-detect.html
+framebuffer-rendering.html

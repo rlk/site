@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Interactive Computer Graphics</title>
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://csc.lsu.edu/~kooima/MathJax.js"></script>
+	<script type="text/javascript" src="../script.js"></script>
+</head>
+<body>
+	<section>
+		<h1>Two-pass Rendering</h1>
+
+		<p>To reiterate, post-processing entails a two-step approach to the draw function.</p>
+
+		<ol>
+			<li>Render the scene normally, but to an off-screen framebuffer.</li>
+			<li>Copy the framebuffer's color buffer to the screen, with a fragment shader manipulating the image.</li>
+		</ol>
+
+		<p>Specifically, to render an object with a post-process applied&hellip;</p>
+
+		<figure class="pseudocode">
+				<b>function</b> draw()<br>
+				&emsp;&emsp;1. <a href="framebuffer-binding.html">Bind the off-screen framebuffer.</a><br>
+				&emsp;&emsp;2. Clear it.<br>
+				&emsp;&emsp;3. Bind the model texture.<br>
+				&emsp;&emsp;4. Use the model shader.<br>
+				&emsp;&emsp;5. Render the model.<br>
+				<br>
+				&emsp;&emsp;1. <a href="framebuffer-binding.html">Bind the null framebuffer.</a><br>
+				&emsp;&emsp;2. Clear it.<br>
+				&emsp;&emsp;3. <a href="framebuffer-color.html">Bind the color buffer texture.</a><br>
+				&emsp;&emsp;4. <a href="framebuffer-postprocess.html">Use the post-process shader.</a><br>
+				&emsp;&emsp;5. <a href="framebuffer-postprocess.html">Render the screen-filling rectangle.</a><br>
+		</figure>
+
+		<p>Note the symmetry between the two halves of this function. Each half binds a framebuffer, clears it, binds a texture, uses a shader, and draws a model. Each of these is called a <em>pass</em>. This is, thus, a <em>two-pass</em> rendering process.</p>
+	</section>
+	<nav>
+		<a id="prev" href="framebuffer-edge-detect.html"></a>
+		<a id="home" href="../index.html"></a>
+	</nav>
+</body>
+</html>
