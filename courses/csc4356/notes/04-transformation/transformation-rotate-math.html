@@ -3,7 +3,8 @@
 <head>
 	<title>Interactive Computer Graphics</title>
 	<link rel="stylesheet" type="text/css" href="../style.css" />
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+	<script src="../../mathjax-config.js"></script>
+	<script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 	<script type="text/javascript" src="../script.js"></script>
 </head>
 <body>
@@ -12,26 +13,26 @@
 
 		<p>There is a different rotation transformation matrix for each axis.</p>
 
-		\[\M{R}_x=\begin{squeezematrix}
+		\[\M{R}_x=\begin{bmatrix}
 		1 &      0  &      0  & 0 \\
 		0 & \red{c} & \red{t} & 0 \\
 		0 & \red{s} & \red{c} & 0 \\
 		0 &      0  &      0  & 1 \\
-		\end{squeezematrix}
+		\end{bmatrix}
 		\quad
-		\M{R}_y=\begin{squeezematrix}
+		\M{R}_y=\begin{bmatrix}
 		\red{c} & 0 & \red{s} & 0 \\
 		0  & 1 &      0  & 0 \\
 		\red{t} & 0 & \red{c} & 0 \\
 		0  & 0 &      0  & 1 \\
-		\end{squeezematrix}
+		\end{bmatrix}
 		\quad
-		\M{R}_z=\begin{squeezematrix}
+		\M{R}_z=\begin{bmatrix}
 		\red{c} & \red{t} & 0 & 0 \\
 		\red{s} & \red{c} & 0 & 0 \\
 		0  &      0  & 1 & 0 \\
 		0  &      0  & 0 & 1 \\
-		\end{squeezematrix}\]
+		\end{bmatrix}\]
 
 		\[c = \cos a\qquad s = \sin a\qquad t = -\sin a\]
 
